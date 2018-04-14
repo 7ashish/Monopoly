@@ -4,6 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class City : Purchasable
+class Purchasable : Field
 {
 }

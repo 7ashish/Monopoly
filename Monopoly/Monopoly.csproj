@@ -45,9 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ActionCard.cs" />
+    <Compile Include="Classes\Chances.cs" />
     <Compile Include="Classes\City.cs" />
+    <Compile Include="Classes\Community_Chest.cs" />
+    <Compile Include="Classes\Field.cs" />
     <Compile Include="Classes\Monopoly_Master.cs" />
+    <Compile Include="Classes\Non_Purchasable.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Purchasable.cs" />
+    <Compile Include="Classes\Station.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
