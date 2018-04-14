@@ -6,4 +6,9 @@ using System.Threading.Tasks;
 
 class City : Purchasable
 {
+    List<int> HousePrices;
+    int HotelPrice;
+    bool HouseModified;
+    bool HotelModified;
+
 }
