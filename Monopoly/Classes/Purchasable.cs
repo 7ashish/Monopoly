@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class Purchasable : Field
+abstract class Purchasable : Field
 {
     string Name;
     int Price;

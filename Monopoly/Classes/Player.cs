@@ -14,6 +14,12 @@ class Player
     List<Station> OwnedStations;
     Point Position;
 
+    public Player()
+    {
+        Balance = 2000;
+        OwnedCities = new List<City>();
+        OwnedStations = new List<Station>();
+    }
     public void Set_Name(string name)
     {
         Name = name;
@@ -164,7 +170,7 @@ class Player
         if (Balance >= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1])
         {
             Balance -= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
-            station.Get_Owner().Balance+= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
+            station.Get_Owner().Balance += station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
             return true;
         }
         else

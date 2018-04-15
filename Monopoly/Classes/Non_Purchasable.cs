@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class Non_Purchasable : Field
+abstract class Non_Purchasable : Field
 {
+
 }

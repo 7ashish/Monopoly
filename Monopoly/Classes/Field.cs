@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-class Field
+abstract class Field
 {
     int FieldNumber;
     Point FieldPosition;
