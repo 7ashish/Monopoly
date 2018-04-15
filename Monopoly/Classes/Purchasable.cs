@@ -10,7 +10,25 @@ class Purchasable : Field
     int Price;
     int MortagagePrice;
     bool ISMortagaged;
+    Player Owner;
+    bool Owned;
 
+    public void Set_Owner(Player player)
+    {
+        Owner = player;
+    }
+    public Player Get_Owner()
+    {
+        return Owner;
+    }
+    public void Set_Owned()
+    {
+        Owned = true;
+    }
+    public bool Get_Owned()
+    {
+        return Owned;
+    }
     public void Set_Name(string name)
     {
         Name = name;
