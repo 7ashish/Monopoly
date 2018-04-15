@@ -56,7 +56,7 @@ class Player
     }
     public bool Buy_City(City city)
     {
-        if(Balance>= city.Get_Price())
+        if (Balance >= city.Get_Price())
         {
             OwnedCities.Add(city);
             Balance -= city.Get_Price();
@@ -122,6 +122,7 @@ class Player
                 if (Balance >= city.Get_RentWithHotel())
                 {
                     Balance -= city.Get_RentWithHotel();
+                    city.Get_Owner().Balance += city.Get_RentWithHotel();
                     return true;
                 }
                 else
@@ -135,6 +136,7 @@ class Player
                 if (Balance >= city.Get_HouseRentPrices()[Houses - 1])
                 {
                     Balance -= city.Get_HouseRentPrices()[Houses - 1];
+                    city.Get_Owner().Balance += city.Get_HouseRentPrices()[Houses - 1];
                     return true;
                 }
                 else
@@ -148,6 +150,7 @@ class Player
             if (Balance >= city.Get_CityRentPrice())
             {
                 Balance -= city.Get_CityRentPrice();
+                city.Get_Owner().Balance += city.Get_CityRentPrice();
                 return true;
             }
             else
@@ -161,11 +164,75 @@ class Player
         if (Balance >= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1])
         {
             Balance -= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
+            station.Get_Owner().Balance+= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
             return true;
         }
         else
         {
             return false;
         }
+    }
+    public bool Buy_House(City city)
+    {
+        if (Balance >= city.Get_HousePrice())
+        {
+            if (city.Get_NumberOfHouses() == 4)
+            {
+                return false;
+            }
+            else
+            {
+                if (city.Get_NumberOfHouses() == 0)
+                {
+                    city.AddHouse();
+                    city.Set_HouseModification();
+                    Balance -= city.Get_HousePrice();
+                    return true;
+                }
+                else
+                {
+                    city.AddHouse();
+                    Balance -= city.Get_HousePrice();
+                    return true;
+                }
+            }
+
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void Sell_House(City city)
+    {
+        if (city.Get_NumberOfHouses() == 1)
+        {
+            city.SellHouse();
+            city.Remove_HouseMofidication();
+            Balance += city.Get_HousePrice();
+        }
+        else
+        {
+            city.SellHouse();
+            Balance += city.Get_HousePrice();
+        }
+    }
+    public bool Buy_Hotel(City city)
+    {
+        if (Balance >= city.Get_HotelPrice())
+        {
+            Balance -= city.Get_HotelPrice();
+            city.Set_HotelModification();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void Sell_Hotel(City city)
+    {
+        city.Remove_HotelMofidication();
+        Balance += city.Get_HotelPrice();
     }
 }

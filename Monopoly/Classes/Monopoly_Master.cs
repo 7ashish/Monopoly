@@ -9,7 +9,7 @@ class Monopoly_Master
 {
     List<Player> Players;
     List<Field> Fields;
-    List<List<Pair<int,City>>> Groups;
+    List<List<City>> Groups;
     static int Hotels = 10;
     static int Houses = 18;
     Player PlayerTurn;
@@ -18,9 +18,9 @@ class Monopoly_Master
     {
         Players = new List<Player>();
         Fields = new List<Field>();
-        Groups = new List<List<Pair<int, City>>>();
+        Groups = new List<List<City>>();
     }
-    public bool Sell_City(Player playerturn,City city)
+    public bool Sell_City(Player playerturn, City city)
     {
         if (!city.Get_Owned())
         {
@@ -39,7 +39,7 @@ class Monopoly_Master
             return false;
         }
     }
-    public bool Sell_Station(Player playerturn,Station station)
+    public bool Sell_Station(Player playerturn, Station station)
     {
         if (!station.Get_Owned())
         {
@@ -58,7 +58,7 @@ class Monopoly_Master
             return false;
         }
     }
-    public bool Mortagage_City(Player playerturn,City city)
+    public bool Mortagage_City(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
         {
@@ -96,7 +96,7 @@ class Monopoly_Master
             return false;
         }
     }
-    public bool RemoveCityMortagage(Player playerturn,City city)
+    public bool RemoveCityMortagage(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
         {
@@ -115,7 +115,7 @@ class Monopoly_Master
         }
         return false;
     }
-    public bool RemoveStationMortagage(Player playerturn,Station station)
+    public bool RemoveStationMortagage(Player playerturn, Station station)
     {
         if (station.Get_Owner() == playerturn)
         {
@@ -134,7 +134,7 @@ class Monopoly_Master
         }
         return false;
     }
-    public bool Pay_RentsOfCity(Player playerturn,City city)
+    public bool Pay_RentsOfCity(Player playerturn, City city)
     {
         if (city.Get_ISMortagaged())
         {
@@ -171,5 +171,127 @@ class Monopoly_Master
             }
         }
     }
-
+    public bool Sell_House(Player playerturn, City city)
+    {
+        if (!city.Get_ISMortagaged())
+        {
+            bool owned = false;
+            for (int i = 0; i < Groups[city.Get_GroupNumber()].Count; i++)
+            {
+                if (playerturn.Get_OwnedCities().Contains(Groups[city.Get_GroupNumber()][i]))
+                {
+                    owned = true;
+                }
+                else
+                {
+                    owned = false;
+                    break;
+                }
+            }
+            if (owned)
+            {
+                if (Houses != 0)
+                {
+                    if (playerturn.Buy_House(city))
+                    {
+                        Houses--;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool Remove_House(Player playerturn, City city)
+    {
+        if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
+        {
+            return false;
+        }
+        else if (!city.Get_HouseModification())           //I'm making sure that this city has houses on it and not mortagaged
+        {
+            return false;
+        }
+        else if (city.Get_HotelModification())            //Making sure that the City have no hotels.
+        {
+            return false;
+        }
+        else
+        {
+            playerturn.Sell_House(city);
+            Houses++;
+            return true;
+        }
+    }
+    public bool Sell_Hotel(Player playerturn,City city)
+    {
+        if (city.Get_Owner() == playerturn)
+        {
+            if (!city.Get_HouseModification())
+            {
+                return false;
+            }
+            else if(city.Get_NumberOfHouses()!=4)
+            {
+                return false;
+            }
+            else if(city.Get_HotelModification())
+            {
+                return false;
+            }
+            else if (Hotels == 0)
+            {
+                return false;
+            }
+            else
+            {
+                if (playerturn.Buy_Hotel(city))
+                {
+                    Hotels--;
+                    return true;
+                }
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool Remove_Hotel(Player playerturn,City city)
+    {
+        if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
+        {
+            return false;
+        }
+        else if (!city.Get_HouseModification())           //I'm making sure that this city has houses on it and not mortagaged
+        {
+            return false;
+        }
+        else if (!city.Get_HotelModification())            //Making sure that the City have a hotel + 4 houses on it.
+        {
+            return false;
+        }
+        else
+        {
+            playerturn.Sell_Hotel(city);
+            Hotels++;
+            return true;
+        }
+    }
 }

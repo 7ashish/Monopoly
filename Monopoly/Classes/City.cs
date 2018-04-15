@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 class City : Purchasable
 {
+    int GroupNumber;
     int HotelPrice;
     int HousePrice;
     List<int> HouseRentPrices;
@@ -20,6 +21,14 @@ class City : Purchasable
         HouseRentPrices = new List<int>();
         HouseModification = false;
         HotelModification = false;
+    }
+    public void Set_GroupNumber(int group)
+    {
+        GroupNumber = group;
+    }
+    public int Get_GroupNumber()
+    {
+        return GroupNumber;
     }
     public void AddHouse()
     {
