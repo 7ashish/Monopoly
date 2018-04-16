@@ -63,7 +63,7 @@ namespace Monopoly
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
-            GamePanel.Show();
+           Test.Show();
             Registeration.Hide();
         }
         private void tmr1_Tick(object sender, EventArgs e)
@@ -132,6 +132,31 @@ namespace Monopoly
                 p.Y += 5;
                 Player2.Location = p;
             }
+        }
+
+        private void GoToJail_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Test_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

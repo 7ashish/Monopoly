@@ -55,6 +55,7 @@
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Purchasable.cs" />
     <Compile Include="Classes\Station.cs" />
+    <Compile Include="FileOperations\DataBase.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,7 +64,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmallContainers\Pair.cs" />
+    <Compile Include="FileOperations\Pair.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +105,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MayFair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PARKING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOTOJAIL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Station 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\station 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jail1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Freeparking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOTOJAILM2loba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
