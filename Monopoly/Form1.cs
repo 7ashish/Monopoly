@@ -12,7 +12,8 @@ namespace Monopoly
 {
     public partial class Monopoly : Form
     {
-        List<Player> Players=new List<Player>(4);
+        Point p = new Point();
+        List<Player> Players = new List<Player>(4);
         int NumberofPlayers;
         int Temp = 1;
         public Monopoly()
@@ -22,7 +23,7 @@ namespace Monopoly
 
         private void NumberOfPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NumberofPlayers=int.Parse(NumberOfPlayers.Text);
+            NumberofPlayers = int.Parse(NumberOfPlayers.Text);
             Next_btn.Enabled = true;
         }
 
@@ -50,19 +51,87 @@ namespace Monopoly
                 Playername_TXT.Enabled = false;
                 return;
             }
-            Player newplayer=new Player();
+            Player newplayer = new Player();
             newplayer.Set_Name(Playername_TXT.Text);
             newplayer.Set_Token(Temp);
             Players.Add(newplayer);
             Temp++;
             Token_TXT.Text = Temp.ToString();
             Add_BTN.Enabled = false;
+            
         }
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
             GamePanel.Show();
             Registeration.Hide();
+        }
+        private void tmr1_Tick(object sender, EventArgs e)
+        {
+            if (Player1.Location.X < 30&& Player1.Location.Y>30)
+            {
+                p = Player1.Location;
+                p.Y -= 5;
+                Player1.Location = p;
+            }
+            else if(Player1.Location.Y<30 && Player1.Location.X<680)
+            {
+                p = Player1.Location;
+                p.X += 5;
+                Player1.Location = p;
+            }
+            else if (Player1.Location.X > 680)
+            {
+                p = Player1.Location;
+                p.Y += 5;
+                Player1.Location = p;
+            }
+            else if(Player1.Location.Y>570)
+            {
+                p = Player1.Location;
+                p.X -= 5;
+                Player1.Location = p;
+            }
+            else
+            {
+                p = Player1.Location;
+                p.Y += 5;
+                Player1.Location = p;
+            }
+        }
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Player2.Location.X < 30 && Player2.Location.Y > 30)
+            {
+                p = Player2.Location;
+                p.Y -= 5;
+                Player2.Location = p;
+            }
+            else if (Player2.Location.Y < 30 && Player2.Location.X < 680)
+            {
+                p = Player2.Location;
+                p.X += 5;
+                Player2.Location = p;
+            }
+            else if (Player2.Location.X > 680)
+            {
+                p = Player2.Location;
+                p.Y += 5;
+                Player2.Location = p;
+            }
+            else if (Player2.Location.Y > 570)
+            {
+                p = Player2.Location;
+                p.X -= 5;
+                Player2.Location = p;
+            }
+            else
+            {
+                p = Player2.Location;
+                p.Y += 5;
+                Player2.Location = p;
+            }
         }
     }
 }

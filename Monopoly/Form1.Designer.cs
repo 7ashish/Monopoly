@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Registeration = new System.Windows.Forms.Panel();
             this.NumberofplayerPanel = new System.Windows.Forms.Panel();
+            this.Next_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NumberOfPlayers = new System.Windows.Forms.ComboBox();
             this.PlayerReg_Panel = new System.Windows.Forms.Panel();
+            this.Add_BTN = new System.Windows.Forms.Button();
+            this.Next_BTN2 = new System.Windows.Forms.Button();
             this.Token_TXT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Playername_TXT = new System.Windows.Forms.TextBox();
-            this.Add_BTN = new System.Windows.Forms.Button();
-            this.GamePanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Next_btn = new System.Windows.Forms.Button();
-            this.Next_BTN2 = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.PhotoPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.GamePanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
+            this.tmr1 = new System.Windows.Forms.Timer(this.components);
+            this.Player2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -75,6 +79,25 @@
             this.NumberofplayerPanel.Name = "NumberofplayerPanel";
             this.NumberofplayerPanel.Size = new System.Drawing.Size(608, 332);
             this.NumberofplayerPanel.TabIndex = 2;
+            // 
+            // Next_btn
+            // 
+            this.Next_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Next_btn.Enabled = false;
+            this.Next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Next_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Next_btn.ForeColor = System.Drawing.Color.CadetBlue;
+            this.Next_btn.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Next_btn.Location = new System.Drawing.Point(482, 262);
+            this.Next_btn.Name = "Next_btn";
+            this.Next_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Next_btn.Size = new System.Drawing.Size(101, 40);
+            this.Next_btn.TabIndex = 2;
+            this.Next_btn.Text = "Next";
+            this.Next_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Next_btn.UseVisualStyleBackColor = true;
+            this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
             // 
             // label1
             // 
@@ -115,6 +138,39 @@
             this.PlayerReg_Panel.Name = "PlayerReg_Panel";
             this.PlayerReg_Panel.Size = new System.Drawing.Size(608, 335);
             this.PlayerReg_Panel.TabIndex = 3;
+            // 
+            // Add_BTN
+            // 
+            this.Add_BTN.Enabled = false;
+            this.Add_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_BTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_BTN.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.Add_BTN.Location = new System.Drawing.Point(239, 223);
+            this.Add_BTN.Name = "Add_BTN";
+            this.Add_BTN.Size = new System.Drawing.Size(90, 46);
+            this.Add_BTN.TabIndex = 6;
+            this.Add_BTN.Text = "Add";
+            this.Add_BTN.UseVisualStyleBackColor = true;
+            this.Add_BTN.Click += new System.EventHandler(this.Add_BTN_Click);
+            // 
+            // Next_BTN2
+            // 
+            this.Next_BTN2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Next_BTN2.Enabled = false;
+            this.Next_BTN2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Next_BTN2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Next_BTN2.ForeColor = System.Drawing.Color.CadetBlue;
+            this.Next_BTN2.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_BTN2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Next_BTN2.Location = new System.Drawing.Point(471, 262);
+            this.Next_BTN2.Name = "Next_BTN2";
+            this.Next_BTN2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Next_BTN2.Size = new System.Drawing.Size(101, 40);
+            this.Next_BTN2.TabIndex = 5;
+            this.Next_BTN2.Text = "Next";
+            this.Next_BTN2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Next_BTN2.UseVisualStyleBackColor = true;
+            this.Next_BTN2.Click += new System.EventHandler(this.Next_BTN2_Click);
             // 
             // Token_TXT
             // 
@@ -158,78 +214,6 @@
             this.Playername_TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Playername_TXT.TextChanged += new System.EventHandler(this.Playername_TXT_TextChanged);
             // 
-            // Add_BTN
-            // 
-            this.Add_BTN.Enabled = false;
-            this.Add_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Add_BTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_BTN.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Add_BTN.Location = new System.Drawing.Point(239, 223);
-            this.Add_BTN.Name = "Add_BTN";
-            this.Add_BTN.Size = new System.Drawing.Size(90, 46);
-            this.Add_BTN.TabIndex = 6;
-            this.Add_BTN.Text = "Add";
-            this.Add_BTN.UseVisualStyleBackColor = true;
-            this.Add_BTN.Click += new System.EventHandler(this.Add_BTN_Click);
-            // 
-            // GamePanel
-            // 
-            this.GamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GamePanel.Controls.Add(this.panel1);
-            this.GamePanel.Location = new System.Drawing.Point(0, 0);
-            this.GamePanel.Name = "GamePanel";
-            this.GamePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GamePanel.Size = new System.Drawing.Size(1165, 627);
-            this.GamePanel.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.Monopoly;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(216, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(714, 624);
-            this.panel1.TabIndex = 0;
-            // 
-            // Next_btn
-            // 
-            this.Next_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Next_btn.Enabled = false;
-            this.Next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Next_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Next_btn.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_btn.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
-            this.Next_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Next_btn.Location = new System.Drawing.Point(482, 262);
-            this.Next_btn.Name = "Next_btn";
-            this.Next_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Next_btn.Size = new System.Drawing.Size(101, 40);
-            this.Next_btn.TabIndex = 2;
-            this.Next_btn.Text = "Next";
-            this.Next_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Next_btn.UseVisualStyleBackColor = true;
-            this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
-            // 
-            // Next_BTN2
-            // 
-            this.Next_BTN2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Next_BTN2.Enabled = false;
-            this.Next_BTN2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Next_BTN2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Next_BTN2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_BTN2.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
-            this.Next_BTN2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Next_BTN2.Location = new System.Drawing.Point(471, 262);
-            this.Next_BTN2.Name = "Next_BTN2";
-            this.Next_BTN2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Next_BTN2.Size = new System.Drawing.Size(101, 40);
-            this.Next_BTN2.TabIndex = 5;
-            this.Next_BTN2.Text = "Next";
-            this.Next_BTN2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Next_BTN2.UseVisualStyleBackColor = true;
-            this.Next_BTN2.Click += new System.EventHandler(this.Next_BTN2_Click);
-            // 
             // Panel
             // 
             this.Panel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
@@ -248,21 +232,62 @@
             this.PhotoPanel.Size = new System.Drawing.Size(1165, 286);
             this.PhotoPanel.TabIndex = 0;
             // 
-            // panel2
+            // GamePanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.Red;
-            this.panel2.Location = new System.Drawing.Point(680, 551);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(18, 18);
-            this.panel2.TabIndex = 0;
+            this.GamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.GamePanel.Controls.Add(this.panel1);
+            this.GamePanel.Location = new System.Drawing.Point(0, 0);
+            this.GamePanel.Name = "GamePanel";
+            this.GamePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GamePanel.Size = new System.Drawing.Size(1165, 627);
+            this.GamePanel.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.Monopoly;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.Player1);
+            this.panel1.Controls.Add(this.Player2);
+            this.panel1.Location = new System.Drawing.Point(216, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(714, 624);
+            this.panel1.TabIndex = 0;
+            // 
+            // Player1
+            // 
+            this.Player1.BackColor = System.Drawing.Color.Red;
+            this.Player1.Location = new System.Drawing.Point(655, 573);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(18, 18);
+            this.Player1.TabIndex = 0;
+            // 
+            // tmr1
+            // 
+            this.tmr1.Enabled = true;
+            this.tmr1.Interval = 80;
+            this.tmr1.Tick += new System.EventHandler(this.tmr1_Tick);
+            // 
+            // Player2
+            // 
+            this.Player2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Player2.Location = new System.Drawing.Point(655, 566);
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(23, 25);
+            this.Player2.TabIndex = 1;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 95;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 628);
-            this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.Registeration);
+            this.Controls.Add(this.GamePanel);
             this.Name = "Monopoly";
             this.Text = "Monooly";
             this.Registeration.ResumeLayout(false);
@@ -294,7 +319,10 @@
         private System.Windows.Forms.Button Add_BTN;
         private System.Windows.Forms.Panel GamePanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Player1;
+        private System.Windows.Forms.Timer tmr1;
+        private System.Windows.Forms.Panel Player2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
