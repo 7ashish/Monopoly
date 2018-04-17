@@ -63,30 +63,30 @@ namespace Monopoly
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
-           Test.Show();
+           Game.Show();
             Registeration.Hide();
         }
         private void tmr1_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X < 30&& Player1.Location.Y>30)
+            if (Player1.Location.X > 850&& Player1.Location.Y>530)
+            {
+                p = Player1.Location;
+                p.X -= 5;
+                Player1.Location = p;
+            }
+            else if(Player1.Location.Y>530 && Player1.Location.X<50)
             {
                 p = Player1.Location;
                 p.Y -= 5;
                 Player1.Location = p;
             }
-            else if(Player1.Location.Y<30 && Player1.Location.X<680)
-            {
-                p = Player1.Location;
-                p.X += 5;
-                Player1.Location = p;
-            }
-            else if (Player1.Location.X > 680)
+            else if (Player1.Location.X > 850)
             {
                 p = Player1.Location;
                 p.Y += 5;
                 Player1.Location = p;
             }
-            else if(Player1.Location.Y>570)
+            else if(Player1.Location.Y>530)
             {
                 p = Player1.Location;
                 p.X -= 5;
@@ -102,25 +102,25 @@ namespace Monopoly
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Player2.Location.X < 30 && Player2.Location.Y > 30)
+            if (Player2.Location.X > 850 && Player2.Location.Y > 530)
             {
                 p = Player2.Location;
-                p.Y -= 5;
+                p.X -= 5;
                 Player2.Location = p;
             }
-            else if (Player2.Location.Y < 30 && Player2.Location.X < 680)
+            else if (Player2.Location.Y > 530 && Player2.Location.X < 50)
             {
                 p = Player2.Location;
                 p.X += 5;
                 Player2.Location = p;
             }
-            else if (Player2.Location.X > 680)
+            else if (Player2.Location.X > 850)
             {
                 p = Player2.Location;
                 p.Y += 5;
                 Player2.Location = p;
             }
-            else if (Player2.Location.Y > 570)
+            else if (Player2.Location.Y > 530)
             {
                 p = Player2.Location;
                 p.X -= 5;
