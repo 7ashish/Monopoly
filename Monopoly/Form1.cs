@@ -12,10 +12,12 @@ namespace Monopoly
 {
     public partial class Monopoly : Form
     {
+        Monopoly_Master Main=new Monopoly_Master();
         Point p = new Point();
         List<Player> Players = new List<Player>(4);
         int NumberofPlayers;
         int Temp = 1;
+        Player playerturn= new Player();
         public Monopoly()
         {
             InitializeComponent();
@@ -58,78 +60,90 @@ namespace Monopoly
             Temp++;
             Token_TXT.Text = Temp.ToString();
             Add_BTN.Enabled = false;
-            
+
         }
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
-           Game.Show();
+            Game.Show();
             Registeration.Hide();
+            Player1_Timer.Start();
+            Player2_Timre.Start();
         }
-        private void tmr1_Tick(object sender, EventArgs e)
+        private void Player1_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X > 850&& Player1.Location.Y>530)
+            if (Player1.Location.X == 310)
+            {
+                Player1_Timer.Stop();
+            }
+            /*if(Player1.Location==Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 21].Get_FieldPosition())
+          {
+              Player1_Timer.Stop();
+          }*/
+            if (Player1.Location.X < 80 && Player1.Location.Y > 80)
             {
                 p = Player1.Location;
-                p.X -= 5;
+                p.Y -= 1;
                 Player1.Location = p;
             }
-            else if(Player1.Location.Y>530 && Player1.Location.X<50)
+            else if (Player1.Location.Y <= 80 && Player1.Location.X <= 850)
             {
                 p = Player1.Location;
-                p.Y -= 5;
+                p.X += 1;
                 Player1.Location = p;
             }
-            else if (Player1.Location.X > 850)
+            else if (Player1.Location.X > 850 && Player1.Location.Y <= 530)
             {
                 p = Player1.Location;
-                p.Y += 5;
-                Player1.Location = p;
-            }
-            else if(Player1.Location.Y>530)
-            {
-                p = Player1.Location;
-                p.X -= 5;
+                p.Y += 1;
                 Player1.Location = p;
             }
             else
             {
                 p = Player1.Location;
-                p.Y += 5;
+                p.X -= 1;
                 Player1.Location = p;
             }
+            /*Panel[] players = { Player1, Player2, Player3, Player4 };
+            for (int i = 0; i < 4; i++)
+            {
+                //Get The direction towards which we should move
+                Point direction = new Point()
+                {
+                    //ab = b - a (old vector rule)
+                    X = Players[i].Get_PlayerPosition().X - players[i].Location.X,
+                    Y = Players[i].Get_PlayerPosition().Y - players[i].Location.Y
+                };
+                //Normalizing value of X and Y by dividing them over their maginitude
+                direction.X = (int)(direction.X / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
+                direction.Y = (int)(direction.Y / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
+                players[i].Location.Offset(direction);
+            }*/
         }
-        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Player2.Location.X > 850 && Player2.Location.Y > 530)
+            if (Player2.Location.X < 80 && Player2.Location.Y > 80)
             {
                 p = Player2.Location;
-                p.X -= 5;
+                p.Y -= 1;
                 Player2.Location = p;
             }
-            else if (Player2.Location.Y > 530 && Player2.Location.X < 50)
+            else if (Player2.Location.Y <= 80 && Player2.Location.X <= 850)
             {
                 p = Player2.Location;
-                p.X += 5;
+                p.X += 1;
                 Player2.Location = p;
             }
-            else if (Player2.Location.X > 850)
+            else if (Player2.Location.X > 850 && Player2.Location.Y <= 530)
             {
                 p = Player2.Location;
-                p.Y += 5;
-                Player2.Location = p;
-            }
-            else if (Player2.Location.Y > 530)
-            {
-                p = Player2.Location;
-                p.X -= 5;
+                p.Y += 1;
                 Player2.Location = p;
             }
             else
             {
                 p = Player2.Location;
-                p.Y += 5;
+                p.X -= 1;
                 Player2.Location = p;
             }
         }
@@ -157,6 +171,70 @@ namespace Monopoly
         private void pictureBox8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Player3_Timer_Tick(object sender, EventArgs e)
+        {
+            if (Player3.Location.X < 80 && Player3.Location.Y > 80)
+            {
+                p = Player3.Location;
+                p.Y -= 1;
+                Player3.Location = p;
+            }
+            else if (Player3.Location.Y <= 80 && Player3.Location.X <= 850)
+            {
+                p = Player3.Location;
+                p.X += 1;
+                Player3.Location = p;
+            }
+            else if (Player3.Location.X > 850 && Player3.Location.Y <= 530)
+            {
+                p = Player3.Location;
+                p.Y += 1;
+                Player3.Location = p;
+            }
+            else
+            {
+                p = Player3.Location;
+                p.X -= 1;
+                Player3.Location = p;
+            }
+        }
+
+        private void Player4_Timer_Tick(object sender, EventArgs e)
+        {
+            if (Player4.Location.X < 80 && Player4.Location.Y > 80)
+            {
+                p = Player4.Location;
+                p.Y -= 1;
+                Player4.Location = p;
+            }
+            else if (Player4.Location.Y <= 80 && Player4.Location.X <= 850)
+            {
+                p = Player4.Location;
+                p.X += 1;
+                Player4.Location = p;
+            }
+            else if (Player4.Location.X > 850 && Player4.Location.Y <= 530)
+            {
+                p = Player4.Location;
+                p.Y += 1;
+                Player4.Location = p;
+            }
+            else
+            {
+                p = Player4.Location;
+                p.X -= 1;
+                Player4.Location = p;
+            }
+        }
+
+        private void RollDice_Click(object sender, EventArgs e)
+        {
+            Main.Set_Dice1(Main.RollDice());
+            Main.Set_Dice2(Main.RollDice());
+            //Main.Move_Player(playerturn, Main.Get_Dice1() + Main.Get_Dice2());
+            Player1_Timer.Start();
         }
     }
 }

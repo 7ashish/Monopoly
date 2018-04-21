@@ -13,12 +13,21 @@ class Player
     List<City> OwnedCities;
     List<Station> OwnedStations;
     Point Position;
+    int Fieldnumber;
 
     public Player()
     {
         Balance = 2000;
         OwnedCities = new List<City>();
         OwnedStations = new List<Station>();
+    }
+    public void Set_Fieldnumber(int number)
+    {
+        Fieldnumber = number;
+    }
+    public int Get_Fieldnumber()
+    {
+        return Fieldnumber;
     }
     public void Set_Name(string name)
     {

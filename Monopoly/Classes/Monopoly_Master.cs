@@ -12,13 +12,45 @@ class Monopoly_Master
     List<List<City>> Groups;
     static int Hotels = 10;
     static int Houses = 18;
-    Player PlayerTurn;
+    int Dice1;
+    int Dice2;
 
-    Monopoly_Master()
+   public  Monopoly_Master()
     {
         Players = new List<Player>();
         Fields = new List<Field>();
         Groups = new List<List<City>>();
+    }
+    public List<Field> Get_Fields()
+    {
+        return Fields;
+    }
+    public void Move_Player(Player playerturn, int Dicenumber)
+    {
+        int target = playerturn.Get_Fieldnumber() % 21;
+        playerturn.Set_PlayerPosition(Fields[target].Get_FieldPosition());
+        playerturn.Set_Fieldnumber(Fields[target].Get_FieldNumber());
+    }
+    public int RollDice()
+    {
+        Random rmd = new Random(new DateTime().Millisecond);
+        return rmd.Next(1, 7);
+    }
+    public void Set_Dice1(int number)
+    {
+        Dice1 = number;
+    }
+    public void Set_Dice2(int number)
+    {
+        Dice2 = number;
+    }
+    public int Get_Dice1()
+    {
+        return Dice1;
+    }
+    public int Get_Dice2()
+    {
+        return Dice2;
     }
     public bool Sell_City(Player playerturn, City city)
     {
@@ -238,7 +270,7 @@ class Monopoly_Master
             return true;
         }
     }
-    public bool Sell_Hotel(Player playerturn,City city)
+    public bool Sell_Hotel(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
         {
@@ -246,11 +278,11 @@ class Monopoly_Master
             {
                 return false;
             }
-            else if(city.Get_NumberOfHouses()!=4)
+            else if (city.Get_NumberOfHouses() != 4)
             {
                 return false;
             }
-            else if(city.Get_HotelModification())
+            else if (city.Get_HotelModification())
             {
                 return false;
             }
@@ -273,7 +305,7 @@ class Monopoly_Master
             return false;
         }
     }
-    public bool Remove_Hotel(Player playerturn,City city)
+    public bool Remove_Hotel(Player playerturn, City city)
     {
         if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
         {

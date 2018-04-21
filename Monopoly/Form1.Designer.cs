@@ -43,13 +43,14 @@
             this.Playername_TXT = new System.Windows.Forms.TextBox();
             this.Panel = new System.Windows.Forms.Panel();
             this.PhotoPanel = new System.Windows.Forms.Panel();
-            this.tmr1 = new System.Windows.Forms.Timer(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
-            this.Player1 = new System.Windows.Forms.Panel();
-            this.Player2 = new System.Windows.Forms.Panel();
+            this.RollDice = new System.Windows.Forms.Button();
             this.Player4 = new System.Windows.Forms.Panel();
             this.Player3 = new System.Windows.Forms.Panel();
+            this.Player2 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
             this.GoTojail = new System.Windows.Forms.Panel();
             this.Go = new System.Windows.Forms.Panel();
             this.Station2 = new System.Windows.Forms.Panel();
@@ -106,6 +107,41 @@
             this.ParkLane = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Player3_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Player4_Timer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.ParkLane_House = new System.Windows.Forms.Panel();
+            this.ParkLane_HouseTXT = new System.Windows.Forms.TextBox();
+            this.MayFair_House = new System.Windows.Forms.Panel();
+            this.MayFair_HouseTXT = new System.Windows.Forms.TextBox();
+            this.FleetStreet_House = new System.Windows.Forms.Panel();
+            this.Fleet_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Strand_House = new System.Windows.Forms.Panel();
+            this.Strand_HouseTXT = new System.Windows.Forms.TextBox();
+            this.WhiteHall_House = new System.Windows.Forms.Panel();
+            this.WhiteHall_HouseTXT = new System.Windows.Forms.TextBox();
+            this.PallMall_House = new System.Windows.Forms.Panel();
+            this.PallMall_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Whitechapel_House = new System.Windows.Forms.Panel();
+            this.Whitechapel_HouseTXT = new System.Windows.Forms.TextBox();
+            this.OldKent_House = new System.Windows.Forms.Panel();
+            this.OldKent_HouseTXT = new System.Windows.Forms.TextBox();
+            this.LeicesterSq_House = new System.Windows.Forms.Panel();
+            this.Leicester_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Coventry_House = new System.Windows.Forms.Panel();
+            this.Coventry_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Oxford_House = new System.Windows.Forms.Panel();
+            this.Oxford_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Regent_House = new System.Windows.Forms.Panel();
+            this.Regent_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Vine_House = new System.Windows.Forms.Panel();
+            this.Vine_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Bow_House = new System.Windows.Forms.Panel();
+            this.Bow_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Euston_House = new System.Windows.Forms.Panel();
+            this.Euston_HouseTXT = new System.Windows.Forms.TextBox();
+            this.Pentonville_House = new System.Windows.Forms.Panel();
+            this.Pentonville_HouseTXT = new System.Windows.Forms.TextBox();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -142,6 +178,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.ParkLane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ParkLane_House.SuspendLayout();
+            this.MayFair_House.SuspendLayout();
+            this.FleetStreet_House.SuspendLayout();
+            this.Strand_House.SuspendLayout();
+            this.WhiteHall_House.SuspendLayout();
+            this.PallMall_House.SuspendLayout();
+            this.Whitechapel_House.SuspendLayout();
+            this.OldKent_House.SuspendLayout();
+            this.LeicesterSq_House.SuspendLayout();
+            this.Coventry_House.SuspendLayout();
+            this.Oxford_House.SuspendLayout();
+            this.Regent_House.SuspendLayout();
+            this.Vine_House.SuspendLayout();
+            this.Bow_House.SuspendLayout();
+            this.Euston_House.SuspendLayout();
+            this.Pentonville_House.SuspendLayout();
             this.SuspendLayout();
             // 
             // Registeration
@@ -320,21 +372,21 @@
             this.PhotoPanel.Size = new System.Drawing.Size(1165, 286);
             this.PhotoPanel.TabIndex = 0;
             // 
-            // tmr1
+            // Player1_Timer
             // 
-            this.tmr1.Enabled = true;
-            this.tmr1.Interval = 80;
-            this.tmr1.Tick += new System.EventHandler(this.tmr1_Tick);
+            this.Player1_Timer.Interval = 10;
+            this.Player1_Timer.Tick += new System.EventHandler(this.Player1_Timer_Tick);
             // 
-            // timer1
+            // Player2_Timre
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 95;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.Player2_Timre.Interval = 10;
+            this.Player2_Timre.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.button1);
+            this.Game.Controls.Add(this.RollDice);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
@@ -365,25 +417,20 @@
             this.Game.Controls.Add(this.ParkLane);
             this.Game.Location = new System.Drawing.Point(0, 0);
             this.Game.Name = "Game";
-            this.Game.Size = new System.Drawing.Size(1171, 634);
+            this.Game.Size = new System.Drawing.Size(1168, 627);
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
-            // Player1
+            // RollDice
             // 
-            this.Player1.BackColor = System.Drawing.Color.Red;
-            this.Player1.Location = new System.Drawing.Point(850, 530);
-            this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(44, 40);
-            this.Player1.TabIndex = 49;
-            // 
-            // Player2
-            // 
-            this.Player2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Player2.Location = new System.Drawing.Point(850, 530);
-            this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(36, 34);
-            this.Player2.TabIndex = 49;
+            this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RollDice.Location = new System.Drawing.Point(1021, 421);
+            this.RollDice.Name = "RollDice";
+            this.RollDice.Size = new System.Drawing.Size(75, 23);
+            this.RollDice.TabIndex = 51;
+            this.RollDice.Text = "RollDice\r\n";
+            this.RollDice.UseVisualStyleBackColor = true;
+            this.RollDice.Click += new System.EventHandler(this.RollDice_Click);
             // 
             // Player4
             // 
@@ -400,6 +447,22 @@
             this.Player3.Name = "Player3";
             this.Player3.Size = new System.Drawing.Size(28, 25);
             this.Player3.TabIndex = 49;
+            // 
+            // Player2
+            // 
+            this.Player2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Player2.Location = new System.Drawing.Point(850, 530);
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(36, 34);
+            this.Player2.TabIndex = 49;
+            // 
+            // Player1
+            // 
+            this.Player1.BackColor = System.Drawing.Color.Red;
+            this.Player1.Location = new System.Drawing.Point(850, 530);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(44, 40);
+            this.Player1.TabIndex = 49;
             // 
             // GoTojail
             // 
@@ -434,6 +497,7 @@
             // MayFair
             // 
             this.MayFair.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MayFair.Controls.Add(this.MayFair_House);
             this.MayFair.Controls.Add(this.textBox2);
             this.MayFair.Controls.Add(this.pictureBox2);
             this.MayFair.Location = new System.Drawing.Point(475, 485);
@@ -466,6 +530,7 @@
             // OldKent
             // 
             this.OldKent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OldKent.Controls.Add(this.OldKent_House);
             this.OldKent.Controls.Add(this.textBox9);
             this.OldKent.Controls.Add(this.pictureBox13);
             this.OldKent.Location = new System.Drawing.Point(4, 145);
@@ -498,6 +563,7 @@
             // WhiteChapel
             // 
             this.WhiteChapel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.WhiteChapel.Controls.Add(this.Whitechapel_House);
             this.WhiteChapel.Controls.Add(this.textBox10);
             this.WhiteChapel.Controls.Add(this.pictureBox14);
             this.WhiteChapel.Location = new System.Drawing.Point(4, 230);
@@ -535,12 +601,13 @@
             this.Chance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Chance.Location = new System.Drawing.Point(577, 484);
             this.Chance.Name = "Chance";
-            this.Chance.Size = new System.Drawing.Size(105, 145);
+            this.Chance.Size = new System.Drawing.Size(105, 146);
             this.Chance.TabIndex = 45;
             // 
             // PallMall
             // 
             this.PallMall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PallMall.Controls.Add(this.PallMall_House);
             this.PallMall.Controls.Add(this.textBox11);
             this.PallMall.Controls.Add(this.pictureBox15);
             this.PallMall.Location = new System.Drawing.Point(4, 315);
@@ -573,6 +640,7 @@
             // WhiteHall
             // 
             this.WhiteHall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.WhiteHall.Controls.Add(this.WhiteHall_House);
             this.WhiteHall.Controls.Add(this.textBox12);
             this.WhiteHall.Controls.Add(this.pictureBox16);
             this.WhiteHall.Location = new System.Drawing.Point(4, 400);
@@ -615,6 +683,7 @@
             // panel19
             // 
             this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel19.Controls.Add(this.Regent_House);
             this.panel19.Controls.Add(this.textBox8);
             this.panel19.Controls.Add(this.pictureBox8);
             this.panel19.Location = new System.Drawing.Point(682, 0);
@@ -648,6 +717,7 @@
             // panel18
             // 
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel18.Controls.Add(this.Oxford_House);
             this.panel18.Controls.Add(this.textBox7);
             this.panel18.Controls.Add(this.pictureBox7);
             this.panel18.Location = new System.Drawing.Point(579, 0);
@@ -681,6 +751,7 @@
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel17.Controls.Add(this.Coventry_House);
             this.panel17.Controls.Add(this.textBox6);
             this.panel17.Controls.Add(this.pictureBox6);
             this.panel17.Location = new System.Drawing.Point(368, 1);
@@ -723,6 +794,7 @@
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.LeicesterSq_House);
             this.panel15.Controls.Add(this.textBox5);
             this.panel15.Controls.Add(this.pictureBox5);
             this.panel15.Location = new System.Drawing.Point(164, 0);
@@ -755,6 +827,7 @@
             // Vine
             // 
             this.Vine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Vine.Controls.Add(this.Vine_House);
             this.Vine.Controls.Add(this.textBox13);
             this.Vine.Controls.Add(this.pictureBox9);
             this.Vine.Location = new System.Drawing.Point(782, 145);
@@ -787,6 +860,7 @@
             // Bow
             // 
             this.Bow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Bow.Controls.Add(this.Bow_House);
             this.Bow.Controls.Add(this.textBox14);
             this.Bow.Controls.Add(this.pictureBox10);
             this.Bow.Location = new System.Drawing.Point(782, 230);
@@ -819,6 +893,7 @@
             // Euston
             // 
             this.Euston.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Euston.Controls.Add(this.Euston_House);
             this.Euston.Controls.Add(this.textBox15);
             this.Euston.Controls.Add(this.pictureBox11);
             this.Euston.Location = new System.Drawing.Point(782, 315);
@@ -851,6 +926,7 @@
             // PentoRoad
             // 
             this.PentoRoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PentoRoad.Controls.Add(this.Pentonville_House);
             this.PentoRoad.Controls.Add(this.textBox16);
             this.PentoRoad.Controls.Add(this.pictureBox12);
             this.PentoRoad.Location = new System.Drawing.Point(782, 400);
@@ -893,6 +969,7 @@
             // Fleet
             // 
             this.Fleet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Fleet.Controls.Add(this.FleetStreet_House);
             this.Fleet.Controls.Add(this.textBox3);
             this.Fleet.Controls.Add(this.pictureBox4);
             this.Fleet.Location = new System.Drawing.Point(269, 484);
@@ -925,6 +1002,7 @@
             // StRand
             // 
             this.StRand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StRand.Controls.Add(this.Strand_House);
             this.StRand.Controls.Add(this.textBox4);
             this.StRand.Controls.Add(this.pictureBox3);
             this.StRand.Location = new System.Drawing.Point(166, 484);
@@ -967,6 +1045,7 @@
             // ParkLane
             // 
             this.ParkLane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ParkLane.Controls.Add(this.ParkLane_House);
             this.ParkLane.Controls.Add(this.textBox1);
             this.ParkLane.Controls.Add(this.pictureBox1);
             this.ParkLane.Location = new System.Drawing.Point(682, 484);
@@ -995,6 +1074,329 @@
             this.pictureBox1.Size = new System.Drawing.Size(103, 37);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // Player3_Timer
+            // 
+            this.Player3_Timer.Interval = 10;
+            this.Player3_Timer.Tick += new System.EventHandler(this.Player3_Timer_Tick);
+            // 
+            // Player4_Timer
+            // 
+            this.Player4_Timer.Interval = 10;
+            this.Player4_Timer.Tick += new System.EventHandler(this.Player4_Timer_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1021, 454);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "Purchase";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ParkLane_House
+            // 
+            this.ParkLane_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.ParkLane_House.Controls.Add(this.ParkLane_HouseTXT);
+            this.ParkLane_House.Enabled = false;
+            this.ParkLane_House.Location = new System.Drawing.Point(5, 3);
+            this.ParkLane_House.Name = "ParkLane_House";
+            this.ParkLane_House.Size = new System.Drawing.Size(34, 24);
+            this.ParkLane_House.TabIndex = 2;
+            // 
+            // ParkLane_HouseTXT
+            // 
+            this.ParkLane_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.ParkLane_HouseTXT.Name = "ParkLane_HouseTXT";
+            this.ParkLane_HouseTXT.ReadOnly = true;
+            this.ParkLane_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.ParkLane_HouseTXT.TabIndex = 0;
+            this.ParkLane_HouseTXT.Text = "0";
+            // 
+            // MayFair_House
+            // 
+            this.MayFair_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.MayFair_House.Controls.Add(this.MayFair_HouseTXT);
+            this.MayFair_House.Enabled = false;
+            this.MayFair_House.Location = new System.Drawing.Point(5, 3);
+            this.MayFair_House.Name = "MayFair_House";
+            this.MayFair_House.Size = new System.Drawing.Size(34, 24);
+            this.MayFair_House.TabIndex = 3;
+            // 
+            // MayFair_HouseTXT
+            // 
+            this.MayFair_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.MayFair_HouseTXT.Name = "MayFair_HouseTXT";
+            this.MayFair_HouseTXT.ReadOnly = true;
+            this.MayFair_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.MayFair_HouseTXT.TabIndex = 0;
+            this.MayFair_HouseTXT.Text = "0";
+            // 
+            // FleetStreet_House
+            // 
+            this.FleetStreet_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.FleetStreet_House.Controls.Add(this.Fleet_HouseTXT);
+            this.FleetStreet_House.Enabled = false;
+            this.FleetStreet_House.Location = new System.Drawing.Point(5, 5);
+            this.FleetStreet_House.Name = "FleetStreet_House";
+            this.FleetStreet_House.Size = new System.Drawing.Size(34, 24);
+            this.FleetStreet_House.TabIndex = 3;
+            // 
+            // Fleet_HouseTXT
+            // 
+            this.Fleet_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Fleet_HouseTXT.Name = "Fleet_HouseTXT";
+            this.Fleet_HouseTXT.ReadOnly = true;
+            this.Fleet_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Fleet_HouseTXT.TabIndex = 0;
+            this.Fleet_HouseTXT.Text = "0";
+            // 
+            // Strand_House
+            // 
+            this.Strand_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Strand_House.Controls.Add(this.Strand_HouseTXT);
+            this.Strand_House.Enabled = false;
+            this.Strand_House.Location = new System.Drawing.Point(5, 3);
+            this.Strand_House.Name = "Strand_House";
+            this.Strand_House.Size = new System.Drawing.Size(34, 24);
+            this.Strand_House.TabIndex = 53;
+            // 
+            // Strand_HouseTXT
+            // 
+            this.Strand_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Strand_HouseTXT.Name = "Strand_HouseTXT";
+            this.Strand_HouseTXT.ReadOnly = true;
+            this.Strand_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Strand_HouseTXT.TabIndex = 0;
+            this.Strand_HouseTXT.Text = "0";
+            // 
+            // WhiteHall_House
+            // 
+            this.WhiteHall_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.WhiteHall_House.Controls.Add(this.WhiteHall_HouseTXT);
+            this.WhiteHall_House.Enabled = false;
+            this.WhiteHall_House.Location = new System.Drawing.Point(121, 5);
+            this.WhiteHall_House.Name = "WhiteHall_House";
+            this.WhiteHall_House.Size = new System.Drawing.Size(34, 24);
+            this.WhiteHall_House.TabIndex = 53;
+            // 
+            // WhiteHall_HouseTXT
+            // 
+            this.WhiteHall_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.WhiteHall_HouseTXT.Name = "WhiteHall_HouseTXT";
+            this.WhiteHall_HouseTXT.ReadOnly = true;
+            this.WhiteHall_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.WhiteHall_HouseTXT.TabIndex = 0;
+            this.WhiteHall_HouseTXT.Text = "0";
+            // 
+            // PallMall_House
+            // 
+            this.PallMall_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.PallMall_House.Controls.Add(this.PallMall_HouseTXT);
+            this.PallMall_House.Enabled = false;
+            this.PallMall_House.Location = new System.Drawing.Point(121, 5);
+            this.PallMall_House.Name = "PallMall_House";
+            this.PallMall_House.Size = new System.Drawing.Size(34, 24);
+            this.PallMall_House.TabIndex = 53;
+            // 
+            // PallMall_HouseTXT
+            // 
+            this.PallMall_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.PallMall_HouseTXT.Name = "PallMall_HouseTXT";
+            this.PallMall_HouseTXT.ReadOnly = true;
+            this.PallMall_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.PallMall_HouseTXT.TabIndex = 0;
+            this.PallMall_HouseTXT.Text = "0";
+            // 
+            // Whitechapel_House
+            // 
+            this.Whitechapel_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Whitechapel_House.Controls.Add(this.Whitechapel_HouseTXT);
+            this.Whitechapel_House.Enabled = false;
+            this.Whitechapel_House.Location = new System.Drawing.Point(121, 5);
+            this.Whitechapel_House.Name = "Whitechapel_House";
+            this.Whitechapel_House.Size = new System.Drawing.Size(34, 24);
+            this.Whitechapel_House.TabIndex = 53;
+            // 
+            // Whitechapel_HouseTXT
+            // 
+            this.Whitechapel_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Whitechapel_HouseTXT.Name = "Whitechapel_HouseTXT";
+            this.Whitechapel_HouseTXT.ReadOnly = true;
+            this.Whitechapel_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Whitechapel_HouseTXT.TabIndex = 0;
+            this.Whitechapel_HouseTXT.Text = "0";
+            // 
+            // OldKent_House
+            // 
+            this.OldKent_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.OldKent_House.Controls.Add(this.OldKent_HouseTXT);
+            this.OldKent_House.Enabled = false;
+            this.OldKent_House.Location = new System.Drawing.Point(121, 5);
+            this.OldKent_House.Name = "OldKent_House";
+            this.OldKent_House.Size = new System.Drawing.Size(34, 24);
+            this.OldKent_House.TabIndex = 3;
+            // 
+            // OldKent_HouseTXT
+            // 
+            this.OldKent_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.OldKent_HouseTXT.Name = "OldKent_HouseTXT";
+            this.OldKent_HouseTXT.ReadOnly = true;
+            this.OldKent_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.OldKent_HouseTXT.TabIndex = 0;
+            this.OldKent_HouseTXT.Text = "0";
+            // 
+            // LeicesterSq_House
+            // 
+            this.LeicesterSq_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.LeicesterSq_House.Controls.Add(this.Leicester_HouseTXT);
+            this.LeicesterSq_House.Enabled = false;
+            this.LeicesterSq_House.Location = new System.Drawing.Point(62, 116);
+            this.LeicesterSq_House.Name = "LeicesterSq_House";
+            this.LeicesterSq_House.Size = new System.Drawing.Size(34, 24);
+            this.LeicesterSq_House.TabIndex = 53;
+            // 
+            // Leicester_HouseTXT
+            // 
+            this.Leicester_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Leicester_HouseTXT.Name = "Leicester_HouseTXT";
+            this.Leicester_HouseTXT.ReadOnly = true;
+            this.Leicester_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Leicester_HouseTXT.TabIndex = 0;
+            this.Leicester_HouseTXT.Text = "0";
+            // 
+            // Coventry_House
+            // 
+            this.Coventry_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Coventry_House.Controls.Add(this.Coventry_HouseTXT);
+            this.Coventry_House.Enabled = false;
+            this.Coventry_House.Location = new System.Drawing.Point(62, 116);
+            this.Coventry_House.Name = "Coventry_House";
+            this.Coventry_House.Size = new System.Drawing.Size(34, 24);
+            this.Coventry_House.TabIndex = 3;
+            // 
+            // Coventry_HouseTXT
+            // 
+            this.Coventry_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Coventry_HouseTXT.Name = "Coventry_HouseTXT";
+            this.Coventry_HouseTXT.ReadOnly = true;
+            this.Coventry_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Coventry_HouseTXT.TabIndex = 0;
+            this.Coventry_HouseTXT.Text = "0";
+            // 
+            // Oxford_House
+            // 
+            this.Oxford_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Oxford_House.Controls.Add(this.Oxford_HouseTXT);
+            this.Oxford_House.Enabled = false;
+            this.Oxford_House.Location = new System.Drawing.Point(64, 116);
+            this.Oxford_House.Name = "Oxford_House";
+            this.Oxford_House.Size = new System.Drawing.Size(34, 24);
+            this.Oxford_House.TabIndex = 3;
+            // 
+            // Oxford_HouseTXT
+            // 
+            this.Oxford_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Oxford_HouseTXT.Name = "Oxford_HouseTXT";
+            this.Oxford_HouseTXT.ReadOnly = true;
+            this.Oxford_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Oxford_HouseTXT.TabIndex = 0;
+            this.Oxford_HouseTXT.Text = "0";
+            // 
+            // Regent_House
+            // 
+            this.Regent_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Regent_House.Controls.Add(this.Regent_HouseTXT);
+            this.Regent_House.Enabled = false;
+            this.Regent_House.Location = new System.Drawing.Point(60, 116);
+            this.Regent_House.Name = "Regent_House";
+            this.Regent_House.Size = new System.Drawing.Size(34, 24);
+            this.Regent_House.TabIndex = 53;
+            // 
+            // Regent_HouseTXT
+            // 
+            this.Regent_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Regent_HouseTXT.Name = "Regent_HouseTXT";
+            this.Regent_HouseTXT.ReadOnly = true;
+            this.Regent_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Regent_HouseTXT.TabIndex = 0;
+            this.Regent_HouseTXT.Text = "0";
+            // 
+            // Vine_House
+            // 
+            this.Vine_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Vine_House.Controls.Add(this.Vine_HouseTXT);
+            this.Vine_House.Enabled = false;
+            this.Vine_House.Location = new System.Drawing.Point(3, 54);
+            this.Vine_House.Name = "Vine_House";
+            this.Vine_House.Size = new System.Drawing.Size(34, 24);
+            this.Vine_House.TabIndex = 53;
+            // 
+            // Vine_HouseTXT
+            // 
+            this.Vine_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Vine_HouseTXT.Name = "Vine_HouseTXT";
+            this.Vine_HouseTXT.ReadOnly = true;
+            this.Vine_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Vine_HouseTXT.TabIndex = 0;
+            this.Vine_HouseTXT.Text = "0";
+            // 
+            // Bow_House
+            // 
+            this.Bow_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Bow_House.Controls.Add(this.Bow_HouseTXT);
+            this.Bow_House.Enabled = false;
+            this.Bow_House.Location = new System.Drawing.Point(3, 54);
+            this.Bow_House.Name = "Bow_House";
+            this.Bow_House.Size = new System.Drawing.Size(34, 24);
+            this.Bow_House.TabIndex = 3;
+            // 
+            // Bow_HouseTXT
+            // 
+            this.Bow_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Bow_HouseTXT.Name = "Bow_HouseTXT";
+            this.Bow_HouseTXT.ReadOnly = true;
+            this.Bow_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Bow_HouseTXT.TabIndex = 0;
+            this.Bow_HouseTXT.Text = "0";
+            // 
+            // Euston_House
+            // 
+            this.Euston_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Euston_House.Controls.Add(this.Euston_HouseTXT);
+            this.Euston_House.Enabled = false;
+            this.Euston_House.Location = new System.Drawing.Point(3, 54);
+            this.Euston_House.Name = "Euston_House";
+            this.Euston_House.Size = new System.Drawing.Size(34, 24);
+            this.Euston_House.TabIndex = 3;
+            // 
+            // Euston_HouseTXT
+            // 
+            this.Euston_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Euston_HouseTXT.Name = "Euston_HouseTXT";
+            this.Euston_HouseTXT.ReadOnly = true;
+            this.Euston_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Euston_HouseTXT.TabIndex = 0;
+            this.Euston_HouseTXT.Text = "0";
+            // 
+            // Pentonville_House
+            // 
+            this.Pentonville_House.BackColor = System.Drawing.Color.DarkGreen;
+            this.Pentonville_House.Controls.Add(this.Pentonville_HouseTXT);
+            this.Pentonville_House.Enabled = false;
+            this.Pentonville_House.Location = new System.Drawing.Point(3, 52);
+            this.Pentonville_House.Name = "Pentonville_House";
+            this.Pentonville_House.Size = new System.Drawing.Size(34, 24);
+            this.Pentonville_House.TabIndex = 3;
+            // 
+            // Pentonville_HouseTXT
+            // 
+            this.Pentonville_HouseTXT.Location = new System.Drawing.Point(11, 1);
+            this.Pentonville_HouseTXT.Name = "Pentonville_HouseTXT";
+            this.Pentonville_HouseTXT.ReadOnly = true;
+            this.Pentonville_HouseTXT.Size = new System.Drawing.Size(12, 20);
+            this.Pentonville_HouseTXT.TabIndex = 0;
+            this.Pentonville_HouseTXT.Text = "0";
             // 
             // Monopoly
             // 
@@ -1059,6 +1461,38 @@
             this.ParkLane.ResumeLayout(false);
             this.ParkLane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ParkLane_House.ResumeLayout(false);
+            this.ParkLane_House.PerformLayout();
+            this.MayFair_House.ResumeLayout(false);
+            this.MayFair_House.PerformLayout();
+            this.FleetStreet_House.ResumeLayout(false);
+            this.FleetStreet_House.PerformLayout();
+            this.Strand_House.ResumeLayout(false);
+            this.Strand_House.PerformLayout();
+            this.WhiteHall_House.ResumeLayout(false);
+            this.WhiteHall_House.PerformLayout();
+            this.PallMall_House.ResumeLayout(false);
+            this.PallMall_House.PerformLayout();
+            this.Whitechapel_House.ResumeLayout(false);
+            this.Whitechapel_House.PerformLayout();
+            this.OldKent_House.ResumeLayout(false);
+            this.OldKent_House.PerformLayout();
+            this.LeicesterSq_House.ResumeLayout(false);
+            this.LeicesterSq_House.PerformLayout();
+            this.Coventry_House.ResumeLayout(false);
+            this.Coventry_House.PerformLayout();
+            this.Oxford_House.ResumeLayout(false);
+            this.Oxford_House.PerformLayout();
+            this.Regent_House.ResumeLayout(false);
+            this.Regent_House.PerformLayout();
+            this.Vine_House.ResumeLayout(false);
+            this.Vine_House.PerformLayout();
+            this.Bow_House.ResumeLayout(false);
+            this.Bow_House.PerformLayout();
+            this.Euston_House.ResumeLayout(false);
+            this.Euston_House.PerformLayout();
+            this.Pentonville_House.ResumeLayout(false);
+            this.Pentonville_House.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1079,8 +1513,8 @@
         private System.Windows.Forms.TextBox Token_TXT;
         private System.Windows.Forms.Button Next_BTN2;
         private System.Windows.Forms.Button Add_BTN;
-        private System.Windows.Forms.Timer tmr1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer Player1_Timer;
+        private System.Windows.Forms.Timer Player2_Timre;
         private System.Windows.Forms.Panel Game;
         private System.Windows.Forms.Panel OldKent;
         private System.Windows.Forms.TextBox textBox9;
@@ -1142,6 +1576,42 @@
         private System.Windows.Forms.Panel Player3;
         private System.Windows.Forms.Panel Player4;
         private System.Windows.Forms.Panel Player1;
+        private System.Windows.Forms.Timer Player3_Timer;
+        private System.Windows.Forms.Timer Player4_Timer;
+        private System.Windows.Forms.Button RollDice;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel MayFair_House;
+        private System.Windows.Forms.TextBox MayFair_HouseTXT;
+        private System.Windows.Forms.Panel OldKent_House;
+        private System.Windows.Forms.TextBox OldKent_HouseTXT;
+        private System.Windows.Forms.Panel Whitechapel_House;
+        private System.Windows.Forms.TextBox Whitechapel_HouseTXT;
+        private System.Windows.Forms.Panel PallMall_House;
+        private System.Windows.Forms.TextBox PallMall_HouseTXT;
+        private System.Windows.Forms.Panel WhiteHall_House;
+        private System.Windows.Forms.TextBox WhiteHall_HouseTXT;
+        private System.Windows.Forms.Panel Regent_House;
+        private System.Windows.Forms.TextBox Regent_HouseTXT;
+        private System.Windows.Forms.Panel Oxford_House;
+        private System.Windows.Forms.TextBox Oxford_HouseTXT;
+        private System.Windows.Forms.Panel Coventry_House;
+        private System.Windows.Forms.TextBox Coventry_HouseTXT;
+        private System.Windows.Forms.Panel LeicesterSq_House;
+        private System.Windows.Forms.TextBox Leicester_HouseTXT;
+        private System.Windows.Forms.Panel Vine_House;
+        private System.Windows.Forms.TextBox Vine_HouseTXT;
+        private System.Windows.Forms.Panel Bow_House;
+        private System.Windows.Forms.TextBox Bow_HouseTXT;
+        private System.Windows.Forms.Panel Euston_House;
+        private System.Windows.Forms.TextBox Euston_HouseTXT;
+        private System.Windows.Forms.Panel Pentonville_House;
+        private System.Windows.Forms.TextBox Pentonville_HouseTXT;
+        private System.Windows.Forms.Panel FleetStreet_House;
+        private System.Windows.Forms.TextBox Fleet_HouseTXT;
+        private System.Windows.Forms.Panel Strand_House;
+        private System.Windows.Forms.TextBox Strand_HouseTXT;
+        private System.Windows.Forms.Panel ParkLane_House;
+        private System.Windows.Forms.TextBox ParkLane_HouseTXT;
     }
 }
 
