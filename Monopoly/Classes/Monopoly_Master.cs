@@ -31,9 +31,9 @@ class Monopoly_Master
             new City(5,new Point{X=305,Y=530},"Fleet Street",220,110,5,150,150,new int[]{90,250,700,875},1050,18),
             new City(6,new Point{X=200,Y=530},"Strand",220,110,5,150,150,new int[]{90,250,700,875},1050,18),
             new UselessFields(7,new Point{X=80,Y=530}),
-            new City(8,new Point{X=80,Y=430 },"White Hall", 140, 70, 3, 100, 100, new int[] { 50, 150, 450, 625 }, 750, 10 ),
-            new City(9,new Point{X=80,Y=340 },"Pall Mall", 140, 70, 3, 100, 100, new int[]{ 50, 150, 450, 650 }, 750, 10),
-            new City(10,new Point{X=80,Y=260 },"White Chapel ROad", 60, 50, 1, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6),
+            new City(8,new Point{X=79,Y=430 },"White Hall", 140, 70, 3, 100, 100, new int[] { 50, 150, 450, 625 }, 750, 10 ),
+            new City(9,new Point{X=79,Y=340 },"Pall Mall", 140, 70, 3, 100, 100, new int[]{ 50, 150, 450, 650 }, 750, 10),
+            new City(10,new Point{X=79,Y=260 },"White Chapel ROad", 60, 50, 1, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6),
             new City(11,new Point{X=80,Y=175 },"old Kent Road", 60, 50, 1, 30, 30, new int[]{ 10,30,90,160}, 250,2),
             new UselessFields(12,new Point{X=80,Y=80 }),
             new City(13,new Point(210,80),"Leicester Square",260,150,6,150,150,new int[]{110,330,800,975},1150,22),
@@ -56,12 +56,6 @@ class Monopoly_Master
     public List<Field> Get_Fields()
     {
         return Fields;
-    }
-    public void Move_Player(Player playerturn, int Dicenumber)
-    {
-        int target =Dicenumber + playerturn.Get_Fieldnumber() % 24;
-        playerturn.Set_PlayerPosition(Fields[target].Get_FieldPosition());
-        playerturn.Set_Fieldnumber(Fields[target].Get_FieldNumber());
     }
     public int RollDice()
     {

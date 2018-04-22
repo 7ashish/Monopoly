@@ -112,8 +112,11 @@ namespace Monopoly
         }
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() +playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
+                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
+                playerturn.Set_PlayerPosition(Player1.Location);
                 Player1_Timer.Stop();
             }
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
@@ -158,8 +161,11 @@ namespace Monopoly
         }
         private void Player2_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player2.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
+                   Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
+                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
+                playerturn.Set_PlayerPosition(Player2.Location);
                 Player2_Timre.Stop();
             }
             if (Player2.Location.X < 80 && Player2.Location.Y > 80)
@@ -189,8 +195,11 @@ namespace Monopoly
         }
         private void Player3_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player3.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
+                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
+                playerturn.Set_PlayerPosition(Player3.Location);
                 Player3_Timer.Stop();
             }
             if (Player3.Location.X < 80 && Player3.Location.Y > 80)
@@ -220,8 +229,11 @@ namespace Monopoly
         }
         private void Player4_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player4.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
+                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
+                playerturn.Set_PlayerPosition(Player4.Location);
                 Player4_Timer.Stop();
             }
             if (Player4.Location.X < 80 && Player4.Location.Y > 80)
@@ -278,7 +290,6 @@ namespace Monopoly
             Main.Set_Dice2(Main.RollDice());
             Dice1TXT.Text = Main.Get_Dice1().ToString();
             Dice2TXT.Text = Main.Get_Dice2().ToString();
-            Main.Move_Player(playerturn, Main.Get_Dice1() + Main.Get_Dice2());
             switch (playerturn.Get_Token())
             {
                 case 1:
