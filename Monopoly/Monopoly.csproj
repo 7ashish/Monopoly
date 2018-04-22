@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ActionCard.cs" />
+    <Compile Include="Classes\Go.cs" />
+    <Compile Include="Classes\GoToJail.cs" />
+    <Compile Include="Classes\UselessFields.cs" />
     <Compile Include="Classes\Chances.cs" />
     <Compile Include="Classes\City.cs" />
     <Compile Include="Classes\Community_Chest.cs" />
@@ -141,6 +143,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Rotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-dice-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200x630bb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monopoly-house-home-buying-saving-investment.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\houses-and-hotels.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monopoly-House-SQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows-Close-Program-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monopoly-House-SQ1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Games-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Games-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game-spades-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

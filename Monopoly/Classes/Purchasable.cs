@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 abstract class Purchasable : Field
 {
@@ -13,6 +14,21 @@ abstract class Purchasable : Field
     Player Owner;
     bool Owned;
 
+    public Purchasable():base()
+    {
+        Name = " ";
+        Price = 0;
+        MortagagePrice = 0;
+        Owned = false;
+    }
+    public Purchasable(int fieldnumber, Point fieldpostion,string name, int price, int mortagagedprice):base(fieldnumber,fieldpostion)
+    {
+        Name = name;
+        Price = price;
+        MortagagePrice = mortagagedprice;
+        ISMortagaged = false;
+        Owned = false;
+    }
     public void Set_Owner(Player player)
     {
         Owner = player;

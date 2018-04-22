@@ -12,12 +12,14 @@ namespace Monopoly
 {
     public partial class Monopoly : Form
     {
-        Monopoly_Master Main=new Monopoly_Master();
+        Monopoly_Master Main = new Monopoly_Master();
         Point p = new Point();
         List<Player> Players = new List<Player>(4);
         int NumberofPlayers;
-        int Temp = 1;
-        Player playerturn= new Player();
+        int Token = 0;
+        int playerturnnumber = 0;
+        Player playerturn = new Player();
+        Point DefaultPosition = new Point(850, 530);
         public Monopoly()
         {
             InitializeComponent();
@@ -33,7 +35,30 @@ namespace Monopoly
         {
             PlayerReg_Panel.Show();
             NumberofplayerPanel.Hide();
-            Token_TXT.Text = Temp.ToString();
+            Token++;
+            Token_TXT.Text = Token.ToString();
+            Token--;
+            Player1.Hide();
+            Player2.Hide();
+            Player3.Hide();
+            Player4.Hide();
+            ParkLane_House.Hide(); ParkLane_Hotel.Hide();
+            MayFair_House.Hide(); MayFair_Hotel.Hide();
+            FleetStreet_House.Hide(); FleetST_Hotel.Hide();
+            Strand_House.Hide(); Strand_Hotel.Hide();
+            WhiteHall_House.Hide(); WhiteHall_Hotel.Hide();
+            PallMall_House.Hide(); PallMall_Hotel.Hide();
+            Whitechapel_House.Hide(); Whitechapel_Hotel.Hide();
+            OldKent_House.Hide(); OldKent_Hotel.Hide();
+            LeicesterSq_House.Hide(); Leicester_Hotel.Hide();
+            Coventry_House.Hide(); Coventry_Hotel.Hide();
+            Oxford_House.Hide(); Oxford_Hotel.Hide();
+            Regent_House.Hide(); Regent_Hotel.Hide();
+            Vine_House.Hide(); VineST_Hotel.Hide();
+            Bow_House.Hide(); BowST_Hotel.Hide();
+            Euston_House.Hide(); Euston_Hotel.Hide();
+            Pentonville_House.Hide(); Pentonville_Hotel.Hide();
+            Upgradee.Hide();
         }
 
         private void Playername_TXT_TextChanged(object sender, EventArgs e)
@@ -43,7 +68,7 @@ namespace Monopoly
 
         private void Add_BTN_Click(object sender, EventArgs e)
         {
-            Playername_TXT.Text = "";
+            Token++;
             NumberofPlayers--;
             if (NumberofPlayers == 0)
             {
@@ -51,35 +76,46 @@ namespace Monopoly
                 Add_BTN.Enabled = false;
                 Token_TXT.Text = "";
                 Playername_TXT.Enabled = false;
-                return;
             }
-            Player newplayer = new Player();
-            newplayer.Set_Name(Playername_TXT.Text);
-            newplayer.Set_Token(Temp);
+            else
+            {
+                Token++;
+                Token_TXT.Text = Token.ToString();
+                Token--;
+            }
+            Player newplayer = new Player(Playername_TXT.Text,Token,2000, DefaultPosition,0);
             Players.Add(newplayer);
-            Temp++;
-            Token_TXT.Text = Temp.ToString();
+            switch (Token)
+            {
+                case 1:
+                    Player1.Show();
+                    break;
+                case 2:
+                    Player2.Show();
+                    break;
+                case 3:
+                    Player3.Show();
+                    break;
+                case 4:
+                    Player4.Show();
+                    break;
+            };
+            Playername_TXT.Text = "";
             Add_BTN.Enabled = false;
-
         }
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
             Game.Show();
             Registeration.Hide();
-            Player1_Timer.Start();
-            Player2_Timre.Start();
+            playerturn = Players[playerturnnumber];
         }
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X == 310)
+            if (Player1.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
             {
                 Player1_Timer.Stop();
             }
-            /*if(Player1.Location==Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 21].Get_FieldPosition())
-          {
-              Player1_Timer.Stop();
-          }*/
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
             {
                 p = Player1.Location;
@@ -120,8 +156,12 @@ namespace Monopoly
                 players[i].Location.Offset(direction);
             }*/
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Player2_Timer_Tick(object sender, EventArgs e)
         {
+            if (Player2.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            {
+                Player2_Timre.Stop();
+            }
             if (Player2.Location.X < 80 && Player2.Location.Y > 80)
             {
                 p = Player2.Location;
@@ -147,34 +187,12 @@ namespace Monopoly
                 Player2.Location = p;
             }
         }
-
-        private void GoToJail_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Test_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Player3_Timer_Tick(object sender, EventArgs e)
         {
+            if (Player3.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            {
+                Player3_Timer.Stop();
+            }
             if (Player3.Location.X < 80 && Player3.Location.Y > 80)
             {
                 p = Player3.Location;
@@ -200,9 +218,12 @@ namespace Monopoly
                 Player3.Location = p;
             }
         }
-
         private void Player4_Timer_Tick(object sender, EventArgs e)
         {
+            if (Player4.Location == Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2()) % 24].Get_FieldPosition())
+            {
+                Player4_Timer.Stop();
+            }
             if (Player4.Location.X < 80 && Player4.Location.Y > 80)
             {
                 p = Player4.Location;
@@ -229,12 +250,109 @@ namespace Monopoly
             }
         }
 
+        private void GoToJail_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Test_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void RollDice_Click(object sender, EventArgs e)
         {
+            RollDice.Enabled = false;
             Main.Set_Dice1(Main.RollDice());
             Main.Set_Dice2(Main.RollDice());
-            //Main.Move_Player(playerturn, Main.Get_Dice1() + Main.Get_Dice2());
-            Player1_Timer.Start();
+            Dice1TXT.Text = Main.Get_Dice1().ToString();
+            Dice2TXT.Text = Main.Get_Dice2().ToString();
+            Main.Move_Player(playerturn, Main.Get_Dice1() + Main.Get_Dice2());
+            switch (playerturn.Get_Token())
+            {
+                case 1:
+                    Player1_Timer.Start();
+                    break;
+                case 2:
+                    Player2_Timre.Start();
+                    break;
+                case 3:
+                    Player3_Timer.Start();
+                    break;
+                case 4:
+                    Player4_Timer.Start();
+                    break;
+            };
+        }
+
+        private void FinishTurn_Click(object sender, EventArgs e)
+        {
+            RollDice.Enabled = true;
+            playerturnnumber = (playerturnnumber + 1) % Token;
+            playerturn = Players[playerturnnumber];
+            /*for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+            {
+                CitiesAvailable.Text = playerturn.Get_OwnedCities()[i].Get_Name().ToString() + " ------> " + playerturn.Get_OwnedCities()[0].Get_FieldNumber().ToString() + "\n";
+            }*/
+        }
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (Main.Sell_Hotel(playerturn, playerturn.Get_PlayerCity_UsingNumber(int.Parse(CityNumber.Text))))
+            {
+                MessageBox.Show("Done");
+            }
+            else
+            {
+                MessageBox.Show("You couldn't Buy a house on this city");
+            }
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CityNumber_TextChanged(object sender, EventArgs e)
+        {
+            BuyHouse.Enabled = true;
+            Buy_Hotel.Enabled = true;
+        }
+
+        private void BuyHouse_Click(object sender, EventArgs e)
+        {
+            if (Main.Sell_House(playerturn, playerturn.Get_PlayerCity_UsingNumber(int.Parse(CityNumber.Text))))
+            {
+                MessageBox.Show("Done");
+            }
+            else
+            {
+                MessageBox.Show("You couldn't Buy a house on this city");
+            }
+        }
+
+        private void Upgrade_Click(object sender, EventArgs e)
+        {
+            Upgradee.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Upgradee.Hide();
         }
     }
 }

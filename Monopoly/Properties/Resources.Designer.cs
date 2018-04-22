@@ -63,6 +63,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1200x630bb {
+            get {
+                object obj = ResourceManager.GetObject("1200x630bb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_go_next_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-go-next-icon", resourceCulture);
@@ -83,9 +93,49 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dice_icon {
+            get {
+                object obj = ResourceManager.GetObject("dice-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Freeparking {
             get {
                 object obj = ResourceManager.GetObject("Freeparking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Game_spades_icon {
+            get {
+                object obj = ResourceManager.GetObject("Game-spades-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Games_icon {
+            get {
+                object obj = ResourceManager.GetObject("Games-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Games_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Games-icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +183,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap houses_and_hotels {
+            get {
+                object obj = ResourceManager.GetObject("houses-and-hotels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Jail {
             get {
                 object obj = ResourceManager.GetObject("Jail", resourceCulture);
@@ -173,6 +233,36 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap monopoly_house_home_buying_saving_investment {
+            get {
+                object obj = ResourceManager.GetObject("monopoly-house-home-buying-saving-investment", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Monopoly_House_SQ {
+            get {
+                object obj = ResourceManager.GetObject("Monopoly-House-SQ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Monopoly_House_SQ1 {
+            get {
+                object obj = ResourceManager.GetObject("Monopoly-House-SQ1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap monopoly_intl_pack_logo {
             get {
                 object obj = ResourceManager.GetObject("monopoly_intl_pack_logo", resourceCulture);
@@ -203,6 +293,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red_dice_icon {
+            get {
+                object obj = ResourceManager.GetObject("red-dice-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rotate {
             get {
                 object obj = ResourceManager.GetObject("Rotate", resourceCulture);
@@ -226,6 +326,16 @@ namespace Monopoly.Properties {
         internal static System.Drawing.Bitmap station_2 {
             get {
                 object obj = ResourceManager.GetObject("station 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Windows_Close_Program_icon {
+            get {
+                object obj = ResourceManager.GetObject("Windows-Close-Program-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

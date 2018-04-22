@@ -10,6 +10,16 @@ abstract class Field
     int FieldNumber;
     Point FieldPosition;
 
+    public Field()
+    {
+        FieldNumber = 0;
+        FieldPosition = new Point();
+    }
+    public Field(int fieldnumber, Point fieldpostion)
+    {
+        FieldNumber = fieldnumber;
+        FieldPosition = fieldpostion;
+    }
     public void Set_FieldNumber(int FN)
     {
         FieldNumber = FN;

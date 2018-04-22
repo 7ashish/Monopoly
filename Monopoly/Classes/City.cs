@@ -3,24 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 class City : Purchasable
 {
     int GroupNumber;
     int HotelPrice;
     int HousePrice;
-    List<int> HouseRentPrices;
+    int[] HouseRentPrices;
     int RentWithHotel;
     int CityRentPrice;
     static int NumberofHouses=0;
     bool HouseModification;
     bool HotelModification;
 
-    public City()
+    public City():base()
     {
-        HouseRentPrices = new List<int>();
+        HouseRentPrices = new int[4];
         HouseModification = false;
         HotelModification = false;
+        HotelPrice = 0;
+        HousePrice = 0;
+        RentWithHotel = 0;
+        CityRentPrice = 0;
+    }
+    public City(int fieldnumber, Point fieldpostion,string name, int price, int mortageprice, int groupnumber, int hotelprice, int houseprice, int[] rentwithhouse, int rentwithhotel, int cityrentprice) : base(fieldnumber,fieldpostion,name, price, mortageprice)
+    {
+        GroupNumber = groupnumber;
+        HotelPrice = hotelprice;
+        HouseRentPrices = new int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            HouseRentPrices[i] = rentwithhouse[i];
+        }
+        HousePrice = hotelprice;
+        RentWithHotel = rentwithhotel;
+        CityRentPrice = cityrentprice;
     }
     public void Set_GroupNumber(int group)
     {
@@ -66,11 +84,11 @@ class City : Purchasable
     {
         return RentWithHotel;
     }
-    public void Set_HouseRentPrices(List<int> prices)
+    public void Set_HouseRentPrices(int[] prices)
     {
         HouseRentPrices = prices;
     }  
-    public List<int> Get_HouseRentPrices()
+    public int[] Get_HouseRentPrices()
     {
         return HouseRentPrices;
     }

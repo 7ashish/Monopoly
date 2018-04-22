@@ -17,9 +17,34 @@ class Player
 
     public Player()
     {
+        Fieldnumber = 0;
         Balance = 2000;
         OwnedCities = new List<City>();
         OwnedStations = new List<Station>();
+    }
+    public Player(string name,int token,int balance,Point position,int fieldnumber)
+    {
+        Name = name;
+        Token = token;
+        Balance = balance;
+        Position = position;
+        Fieldnumber = fieldnumber;
+    }
+    public void Collect_Money(int money)
+    {
+        Balance += money;
+    }
+    public bool Pay_Tax(int tax)
+    {
+        if (Balance >= tax)
+        {
+            Balance -= tax;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public void Set_Fieldnumber(int number)
     {
@@ -249,5 +274,16 @@ class Player
     {
         city.Remove_HotelMofidication();
         Balance += city.Get_HotelPrice();
+    }
+    public City Get_PlayerCity_UsingNumber(int number)
+    {
+        for(int i = 0; i < OwnedCities.Count; i++)
+        {
+            if (OwnedCities[i].Get_FieldNumber() == number)
+            {
+                return OwnedCities[i];
+            }
+        }
+        return null;
     }
 }

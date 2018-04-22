@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 class Station : Purchasable
 {
-    List<int> RentPrices;
+    int[] RentPrices;
 
-    public Station()
+    public Station():base()
     {
-        RentPrices = new List<int>();
+        RentPrices = new int[2];
     }
-    public void Set_RentPrices(List<int> prices)
+    public void Set_RentPrices(int[] prices)
     {
         RentPrices = prices;
     }
-    public List<int> Get_RentPrices()
+    public int[] Get_RentPrices()
     {
         return RentPrices;
     }
+    public Station(int fieldnumber, Point fieldpostion,string name, int price, int mortageprice, int[] rentprices) : base(fieldnumber,fieldpostion,name, price, mortageprice)
+    {
+        RentPrices = new int[2];
+        for (int i = 0; i < 2; i++)
+        {
+            RentPrices[i] = rentprices[i];
+        }
+    }
 }
+
