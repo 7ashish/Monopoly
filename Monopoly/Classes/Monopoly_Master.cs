@@ -57,10 +57,10 @@ class Monopoly_Master
     {
         return Fields;
     }
+    static Random r = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
     public int RollDice()
     {
-        Random rmd = new Random(new DateTime().Millisecond);
-        return rmd.Next(0, 7);
+        return r.Next(1, 6);
     }
     public void Set_Dice1(int number)
     {
