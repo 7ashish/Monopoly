@@ -39,16 +39,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Playername_TXT = new System.Windows.Forms.TextBox();
+            this.Upgradee = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CityNumber = new System.Windows.Forms.TextBox();
+            this.CitiesAvailable = new System.Windows.Forms.TextBox();
+            this.BuyHouse = new System.Windows.Forms.Button();
+            this.Buy_Hotel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
-            this.Upgrade = new System.Windows.Forms.Button();
+            this.BuyingCity = new System.Windows.Forms.Panel();
+            this.City = new System.Windows.Forms.Panel();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.BuyCity = new System.Windows.Forms.Button();
             this.FinishTurn = new System.Windows.Forms.Button();
-            this.Purchase_Things = new System.Windows.Forms.Button();
-            this.RollDice = new System.Windows.Forms.Button();
             this.Player4 = new System.Windows.Forms.Panel();
             this.Player3 = new System.Windows.Forms.Panel();
             this.Player2 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
             this.MayFair = new System.Windows.Forms.Panel();
             this.MayFair_Hotel = new System.Windows.Forms.Panel();
             this.MayFair_House = new System.Windows.Forms.Panel();
@@ -131,19 +140,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Player3_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player4_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Upgradee = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CityNumber = new System.Windows.Forms.TextBox();
-            this.CitiesAvailable = new System.Windows.Forms.TextBox();
-            this.BuyHouse = new System.Windows.Forms.Button();
-            this.Buy_Hotel = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Upgrade = new System.Windows.Forms.Button();
             this.Dice1 = new System.Windows.Forms.Panel();
             this.Dice1TXT = new System.Windows.Forms.TextBox();
             this.Dice2 = new System.Windows.Forms.Panel();
             this.Dice2TXT = new System.Windows.Forms.TextBox();
-            this.Player1 = new System.Windows.Forms.Panel();
+            this.RollDice = new System.Windows.Forms.Button();
             this.GoTojail = new System.Windows.Forms.Panel();
             this.Go = new System.Windows.Forms.Panel();
             this.Station2 = new System.Windows.Forms.Panel();
@@ -172,10 +174,34 @@
             this.Next_BTN2 = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.PhotoPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.playerinfo = new System.Windows.Forms.Label();
+            this.PlayersInfo = new System.Windows.Forms.TextBox();
+            this.AllGameTimer = new System.Windows.Forms.Timer(this.components);
+            this.ParkLaneLabel = new System.Windows.Forms.Panel();
+            this.MayfairLabel = new System.Windows.Forms.Panel();
+            this.FleetLabel = new System.Windows.Forms.Panel();
+            this.StrandLabel = new System.Windows.Forms.Panel();
+            this.WhiteHallLabel = new System.Windows.Forms.Panel();
+            this.PallMallLabel = new System.Windows.Forms.Panel();
+            this.WhitechapelLabel = new System.Windows.Forms.Panel();
+            this.OldKentLabel = new System.Windows.Forms.Panel();
+            this.LeicesterLabel = new System.Windows.Forms.Panel();
+            this.CoventryLabel = new System.Windows.Forms.Panel();
+            this.OxfordLabel = new System.Windows.Forms.Panel();
+            this.RegentLabel = new System.Windows.Forms.Panel();
+            this.VineLabel = new System.Windows.Forms.Panel();
+            this.BowLabel = new System.Windows.Forms.Panel();
+            this.EustonLabel = new System.Windows.Forms.Panel();
+            this.PentonvilleLabel = new System.Windows.Forms.Panel();
+            this.Station1Label = new System.Windows.Forms.Panel();
+            this.Station2Label = new System.Windows.Forms.Panel();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
+            this.Upgradee.SuspendLayout();
             this.Game.SuspendLayout();
+            this.BuyingCity.SuspendLayout();
             this.MayFair.SuspendLayout();
             this.MayFair_House.SuspendLayout();
             this.OldKent.SuspendLayout();
@@ -208,7 +234,6 @@
             this.Strand_House.SuspendLayout();
             this.ParkLane.SuspendLayout();
             this.ParkLane_House.SuspendLayout();
-            this.Upgradee.SuspendLayout();
             this.Dice1.SuspendLayout();
             this.Dice2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -350,6 +375,90 @@
             this.Playername_TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Playername_TXT.TextChanged += new System.EventHandler(this.Playername_TXT_TextChanged);
             // 
+            // Upgradee
+            // 
+            this.Upgradee.BackColor = System.Drawing.Color.Silver;
+            this.Upgradee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Upgradee.Controls.Add(this.button1);
+            this.Upgradee.Controls.Add(this.label5);
+            this.Upgradee.Controls.Add(this.CityNumber);
+            this.Upgradee.Controls.Add(this.CitiesAvailable);
+            this.Upgradee.Controls.Add(this.BuyHouse);
+            this.Upgradee.Controls.Add(this.Buy_Hotel);
+            this.Upgradee.Controls.Add(this.label4);
+            this.Upgradee.Location = new System.Drawing.Point(238, 177);
+            this.Upgradee.Name = "Upgradee";
+            this.Upgradee.Size = new System.Drawing.Size(440, 267);
+            this.Upgradee.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(66, 193);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(200, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Write City Number you wish to upgrade:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // CityNumber
+            // 
+            this.CityNumber.Location = new System.Drawing.Point(282, 190);
+            this.CityNumber.Name = "CityNumber";
+            this.CityNumber.Size = new System.Drawing.Size(47, 20);
+            this.CityNumber.TabIndex = 6;
+            this.CityNumber.TextChanged += new System.EventHandler(this.CityNumber_TextChanged);
+            // 
+            // CitiesAvailable
+            // 
+            this.CitiesAvailable.Location = new System.Drawing.Point(99, 73);
+            this.CitiesAvailable.Multiline = true;
+            this.CitiesAvailable.Name = "CitiesAvailable";
+            this.CitiesAvailable.ReadOnly = true;
+            this.CitiesAvailable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.CitiesAvailable.Size = new System.Drawing.Size(230, 95);
+            this.CitiesAvailable.TabIndex = 5;
+            // 
+            // BuyHouse
+            // 
+            this.BuyHouse.BackColor = System.Drawing.Color.Transparent;
+            this.BuyHouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BuyHouse.Enabled = false;
+            this.BuyHouse.Location = new System.Drawing.Point(120, 223);
+            this.BuyHouse.Name = "BuyHouse";
+            this.BuyHouse.Size = new System.Drawing.Size(81, 33);
+            this.BuyHouse.TabIndex = 4;
+            this.BuyHouse.Text = "Buy House";
+            this.BuyHouse.UseVisualStyleBackColor = false;
+            this.BuyHouse.Click += new System.EventHandler(this.BuyHouse_Click);
+            // 
+            // Buy_Hotel
+            // 
+            this.Buy_Hotel.BackColor = System.Drawing.Color.Transparent;
+            this.Buy_Hotel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Buy_Hotel.Enabled = false;
+            this.Buy_Hotel.Location = new System.Drawing.Point(239, 223);
+            this.Buy_Hotel.Name = "Buy_Hotel";
+            this.Buy_Hotel.Size = new System.Drawing.Size(90, 33);
+            this.Buy_Hotel.TabIndex = 3;
+            this.Buy_Hotel.Text = "Buy Hotel";
+            this.Buy_Hotel.UseVisualStyleBackColor = false;
+            this.Buy_Hotel.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Silver;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label4.Location = new System.Drawing.Point(63, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(317, 23);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Choose the City you wish to upgrade";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Player1_Timer
             // 
             this.Player1_Timer.Interval = 10;
@@ -363,11 +472,31 @@
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.BuyingCity);
+            this.Game.Controls.Add(this.Station2Label);
+            this.Game.Controls.Add(this.Station1Label);
+            this.Game.Controls.Add(this.PentonvilleLabel);
+            this.Game.Controls.Add(this.EustonLabel);
+            this.Game.Controls.Add(this.BowLabel);
+            this.Game.Controls.Add(this.VineLabel);
+            this.Game.Controls.Add(this.RegentLabel);
+            this.Game.Controls.Add(this.OxfordLabel);
+            this.Game.Controls.Add(this.CoventryLabel);
+            this.Game.Controls.Add(this.LeicesterLabel);
+            this.Game.Controls.Add(this.OldKentLabel);
+            this.Game.Controls.Add(this.WhitechapelLabel);
+            this.Game.Controls.Add(this.PallMallLabel);
+            this.Game.Controls.Add(this.WhiteHallLabel);
+            this.Game.Controls.Add(this.StrandLabel);
+            this.Game.Controls.Add(this.FleetLabel);
+            this.Game.Controls.Add(this.MayfairLabel);
+            this.Game.Controls.Add(this.ParkLaneLabel);
+            this.Game.Controls.Add(this.PlayersInfo);
+            this.Game.Controls.Add(this.playerinfo);
             this.Game.Controls.Add(this.Dice1);
             this.Game.Controls.Add(this.Dice2);
             this.Game.Controls.Add(this.Upgrade);
             this.Game.Controls.Add(this.FinishTurn);
-            this.Game.Controls.Add(this.Purchase_Things);
             this.Game.Controls.Add(this.RollDice);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
@@ -403,46 +532,62 @@
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
-            // Upgrade
+            // BuyingCity
             // 
-            this.Upgrade.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Upgrade.Location = new System.Drawing.Point(1021, 377);
-            this.Upgrade.Name = "Upgrade";
-            this.Upgrade.Size = new System.Drawing.Size(75, 23);
-            this.Upgrade.TabIndex = 57;
-            this.Upgrade.Text = "Upgrade";
-            this.Upgrade.UseVisualStyleBackColor = true;
-            this.Upgrade.Click += new System.EventHandler(this.Upgrade_Click);
+            this.BuyingCity.BackColor = System.Drawing.SystemColors.Info;
+            this.BuyingCity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BuyingCity.Controls.Add(this.City);
+            this.BuyingCity.Controls.Add(this.Cancel);
+            this.BuyingCity.Controls.Add(this.BuyCity);
+            this.BuyingCity.Location = new System.Drawing.Point(315, 79);
+            this.BuyingCity.Name = "BuyingCity";
+            this.BuyingCity.Size = new System.Drawing.Size(472, 427);
+            this.BuyingCity.TabIndex = 58;
+            this.BuyingCity.Paint += new System.Windows.Forms.PaintEventHandler(this.BuyingCity_Paint);
+            // 
+            // City
+            // 
+            this.City.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.City.Location = new System.Drawing.Point(43, 26);
+            this.City.Name = "City";
+            this.City.Size = new System.Drawing.Size(320, 369);
+            this.City.TabIndex = 2;
+            // 
+            // Cancel
+            // 
+            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Cancel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.Cancel.Location = new System.Drawing.Point(370, 307);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(78, 33);
+            this.Cancel.TabIndex = 1;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // BuyCity
+            // 
+            this.BuyCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BuyCity.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyCity.ForeColor = System.Drawing.Color.Maroon;
+            this.BuyCity.Location = new System.Drawing.Point(370, 215);
+            this.BuyCity.Name = "BuyCity";
+            this.BuyCity.Size = new System.Drawing.Size(78, 75);
+            this.BuyCity.TabIndex = 0;
+            this.BuyCity.Text = "Buy City";
+            this.BuyCity.UseVisualStyleBackColor = true;
+            this.BuyCity.Click += new System.EventHandler(this.BuyCity_Click);
             // 
             // FinishTurn
             // 
-            this.FinishTurn.Location = new System.Drawing.Point(1021, 489);
+            this.FinishTurn.Location = new System.Drawing.Point(981, 551);
             this.FinishTurn.Name = "FinishTurn";
-            this.FinishTurn.Size = new System.Drawing.Size(75, 23);
+            this.FinishTurn.Size = new System.Drawing.Size(148, 32);
             this.FinishTurn.TabIndex = 56;
             this.FinishTurn.Text = "FinishTurn";
             this.FinishTurn.UseVisualStyleBackColor = true;
             this.FinishTurn.Click += new System.EventHandler(this.FinishTurn_Click);
-            // 
-            // Purchase_Things
-            // 
-            this.Purchase_Things.Location = new System.Drawing.Point(1021, 454);
-            this.Purchase_Things.Name = "Purchase_Things";
-            this.Purchase_Things.Size = new System.Drawing.Size(75, 23);
-            this.Purchase_Things.TabIndex = 52;
-            this.Purchase_Things.Text = "Purchase";
-            this.Purchase_Things.UseVisualStyleBackColor = true;
-            // 
-            // RollDice
-            // 
-            this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RollDice.Location = new System.Drawing.Point(1021, 421);
-            this.RollDice.Name = "RollDice";
-            this.RollDice.Size = new System.Drawing.Size(75, 23);
-            this.RollDice.TabIndex = 51;
-            this.RollDice.Text = "RollDice\r\n";
-            this.RollDice.UseVisualStyleBackColor = true;
-            this.RollDice.Click += new System.EventHandler(this.RollDice_Click);
             // 
             // Player4
             // 
@@ -467,6 +612,14 @@
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(36, 34);
             this.Player2.TabIndex = 49;
+            // 
+            // Player1
+            // 
+            this.Player1.BackColor = System.Drawing.Color.Red;
+            this.Player1.Location = new System.Drawing.Point(850, 530);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(44, 40);
+            this.Player1.TabIndex = 49;
             // 
             // MayFair
             // 
@@ -1294,101 +1447,16 @@
             this.Player4_Timer.Interval = 10;
             this.Player4_Timer.Tick += new System.EventHandler(this.Player4_Timer_Tick);
             // 
-            // Upgradee
+            // Upgrade
             // 
-            this.Upgradee.BackColor = System.Drawing.Color.Silver;
-            this.Upgradee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Upgradee.Controls.Add(this.button1);
-            this.Upgradee.Controls.Add(this.label5);
-            this.Upgradee.Controls.Add(this.CityNumber);
-            this.Upgradee.Controls.Add(this.CitiesAvailable);
-            this.Upgradee.Controls.Add(this.BuyHouse);
-            this.Upgradee.Controls.Add(this.Buy_Hotel);
-            this.Upgradee.Controls.Add(this.label4);
-            this.Upgradee.Location = new System.Drawing.Point(238, 177);
-            this.Upgradee.Name = "Upgradee";
-            this.Upgradee.Size = new System.Drawing.Size(440, 267);
-            this.Upgradee.TabIndex = 58;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 193);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Write City Number you wish to upgrade:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // CityNumber
-            // 
-            this.CityNumber.Location = new System.Drawing.Point(282, 190);
-            this.CityNumber.Name = "CityNumber";
-            this.CityNumber.Size = new System.Drawing.Size(47, 20);
-            this.CityNumber.TabIndex = 6;
-            this.CityNumber.TextChanged += new System.EventHandler(this.CityNumber_TextChanged);
-            // 
-            // CitiesAvailable
-            // 
-            this.CitiesAvailable.Location = new System.Drawing.Point(99, 73);
-            this.CitiesAvailable.Multiline = true;
-            this.CitiesAvailable.Name = "CitiesAvailable";
-            this.CitiesAvailable.ReadOnly = true;
-            this.CitiesAvailable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.CitiesAvailable.Size = new System.Drawing.Size(230, 95);
-            this.CitiesAvailable.TabIndex = 5;
-            // 
-            // BuyHouse
-            // 
-            this.BuyHouse.BackColor = System.Drawing.Color.Transparent;
-            this.BuyHouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BuyHouse.Enabled = false;
-            this.BuyHouse.Location = new System.Drawing.Point(120, 223);
-            this.BuyHouse.Name = "BuyHouse";
-            this.BuyHouse.Size = new System.Drawing.Size(81, 33);
-            this.BuyHouse.TabIndex = 4;
-            this.BuyHouse.Text = "Buy House";
-            this.BuyHouse.UseVisualStyleBackColor = false;
-            this.BuyHouse.Click += new System.EventHandler(this.BuyHouse_Click);
-            // 
-            // Buy_Hotel
-            // 
-            this.Buy_Hotel.BackColor = System.Drawing.Color.Transparent;
-            this.Buy_Hotel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Buy_Hotel.Enabled = false;
-            this.Buy_Hotel.Location = new System.Drawing.Point(239, 223);
-            this.Buy_Hotel.Name = "Buy_Hotel";
-            this.Buy_Hotel.Size = new System.Drawing.Size(90, 33);
-            this.Buy_Hotel.TabIndex = 3;
-            this.Buy_Hotel.Text = "Buy Hotel";
-            this.Buy_Hotel.UseVisualStyleBackColor = false;
-            this.Buy_Hotel.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Silver;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(63, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(317, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Choose the City you wish to upgrade";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Monopoly.Properties.Resources.Windows_Close_Program_icon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(386, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 27);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Upgrade.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Upgrade.Location = new System.Drawing.Point(981, 492);
+            this.Upgrade.Name = "Upgrade";
+            this.Upgrade.Size = new System.Drawing.Size(148, 48);
+            this.Upgrade.TabIndex = 57;
+            this.Upgrade.Text = "Upgrade";
+            this.Upgrade.UseVisualStyleBackColor = true;
+            this.Upgrade.Click += new System.EventHandler(this.Upgrade_Click);
             // 
             // Dice1
             // 
@@ -1402,11 +1470,11 @@
             // 
             // Dice1TXT
             // 
-            this.Dice1TXT.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dice1TXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dice1TXT.Location = new System.Drawing.Point(28, 18);
             this.Dice1TXT.Name = "Dice1TXT";
             this.Dice1TXT.ReadOnly = true;
-            this.Dice1TXT.Size = new System.Drawing.Size(14, 23);
+            this.Dice1TXT.Size = new System.Drawing.Size(17, 27);
             this.Dice1TXT.TabIndex = 0;
             this.Dice1TXT.Text = "0";
             // 
@@ -1422,21 +1490,27 @@
             // 
             // Dice2TXT
             // 
-            this.Dice2TXT.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dice2TXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dice2TXT.Location = new System.Drawing.Point(28, 18);
             this.Dice2TXT.Name = "Dice2TXT";
             this.Dice2TXT.ReadOnly = true;
-            this.Dice2TXT.Size = new System.Drawing.Size(14, 23);
+            this.Dice2TXT.Size = new System.Drawing.Size(16, 27);
             this.Dice2TXT.TabIndex = 0;
             this.Dice2TXT.Text = "0";
             // 
-            // Player1
+            // RollDice
             // 
-            this.Player1.BackColor = System.Drawing.Color.Red;
-            this.Player1.Location = new System.Drawing.Point(850, 530);
-            this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(44, 40);
-            this.Player1.TabIndex = 49;
+            this.RollDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RollDice.Image = global::Monopoly.Properties.Resources.Dice_icon__1_1;
+            this.RollDice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RollDice.Location = new System.Drawing.Point(981, 428);
+            this.RollDice.Name = "RollDice";
+            this.RollDice.Size = new System.Drawing.Size(148, 51);
+            this.RollDice.TabIndex = 51;
+            this.RollDice.Text = "RollDice\r\n";
+            this.RollDice.UseVisualStyleBackColor = true;
+            this.RollDice.Click += new System.EventHandler(this.RollDice_Click);
             // 
             // GoTojail
             // 
@@ -1737,6 +1811,188 @@
             this.PhotoPanel.Size = new System.Drawing.Size(1165, 286);
             this.PhotoPanel.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Monopoly.Properties.Resources.Windows_Close_Program_icon;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(386, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 27);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // playerinfo
+            // 
+            this.playerinfo.AutoSize = true;
+            this.playerinfo.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerinfo.Location = new System.Drawing.Point(989, 52);
+            this.playerinfo.Name = "playerinfo";
+            this.playerinfo.Size = new System.Drawing.Size(128, 25);
+            this.playerinfo.TabIndex = 59;
+            this.playerinfo.Text = "Player Info";
+            // 
+            // PlayersInfo
+            // 
+            this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersInfo.Location = new System.Drawing.Point(953, 103);
+            this.PlayersInfo.Multiline = true;
+            this.PlayersInfo.Name = "PlayersInfo";
+            this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.PlayersInfo.Size = new System.Drawing.Size(204, 295);
+            this.PlayersInfo.TabIndex = 60;
+            // 
+            // AllGameTimer
+            // 
+            this.AllGameTimer.Enabled = true;
+            this.AllGameTimer.Tick += new System.EventHandler(this.AllGameTimer_Tick);
+            // 
+            // ParkLaneLabel
+            // 
+            this.ParkLaneLabel.Enabled = false;
+            this.ParkLaneLabel.Location = new System.Drawing.Point(720, 457);
+            this.ParkLaneLabel.Name = "ParkLaneLabel";
+            this.ParkLaneLabel.Size = new System.Drawing.Size(32, 27);
+            this.ParkLaneLabel.TabIndex = 61;
+            // 
+            // MayfairLabel
+            // 
+            this.MayfairLabel.Enabled = false;
+            this.MayfairLabel.Location = new System.Drawing.Point(510, 458);
+            this.MayfairLabel.Name = "MayfairLabel";
+            this.MayfairLabel.Size = new System.Drawing.Size(32, 27);
+            this.MayfairLabel.TabIndex = 62;
+            // 
+            // FleetLabel
+            // 
+            this.FleetLabel.Enabled = false;
+            this.FleetLabel.Location = new System.Drawing.Point(301, 458);
+            this.FleetLabel.Name = "FleetLabel";
+            this.FleetLabel.Size = new System.Drawing.Size(32, 27);
+            this.FleetLabel.TabIndex = 62;
+            // 
+            // StrandLabel
+            // 
+            this.StrandLabel.Enabled = false;
+            this.StrandLabel.Location = new System.Drawing.Point(200, 457);
+            this.StrandLabel.Name = "StrandLabel";
+            this.StrandLabel.Size = new System.Drawing.Size(32, 27);
+            this.StrandLabel.TabIndex = 62;
+            // 
+            // WhiteHallLabel
+            // 
+            this.WhiteHallLabel.Enabled = false;
+            this.WhiteHallLabel.Location = new System.Drawing.Point(165, 417);
+            this.WhiteHallLabel.Name = "WhiteHallLabel";
+            this.WhiteHallLabel.Size = new System.Drawing.Size(32, 27);
+            this.WhiteHallLabel.TabIndex = 62;
+            // 
+            // PallMallLabel
+            // 
+            this.PallMallLabel.Enabled = false;
+            this.PallMallLabel.Location = new System.Drawing.Point(165, 341);
+            this.PallMallLabel.Name = "PallMallLabel";
+            this.PallMallLabel.Size = new System.Drawing.Size(32, 27);
+            this.PallMallLabel.TabIndex = 62;
+            // 
+            // WhitechapelLabel
+            // 
+            this.WhitechapelLabel.Enabled = false;
+            this.WhitechapelLabel.Location = new System.Drawing.Point(166, 256);
+            this.WhitechapelLabel.Name = "WhitechapelLabel";
+            this.WhitechapelLabel.Size = new System.Drawing.Size(32, 27);
+            this.WhitechapelLabel.TabIndex = 62;
+            // 
+            // OldKentLabel
+            // 
+            this.OldKentLabel.Enabled = false;
+            this.OldKentLabel.Location = new System.Drawing.Point(166, 177);
+            this.OldKentLabel.Name = "OldKentLabel";
+            this.OldKentLabel.Size = new System.Drawing.Size(32, 27);
+            this.OldKentLabel.TabIndex = 62;
+            // 
+            // LeicesterLabel
+            // 
+            this.LeicesterLabel.Enabled = false;
+            this.LeicesterLabel.Location = new System.Drawing.Point(200, 145);
+            this.LeicesterLabel.Name = "LeicesterLabel";
+            this.LeicesterLabel.Size = new System.Drawing.Size(32, 27);
+            this.LeicesterLabel.TabIndex = 62;
+            // 
+            // CoventryLabel
+            // 
+            this.CoventryLabel.Enabled = false;
+            this.CoventryLabel.Location = new System.Drawing.Point(407, 146);
+            this.CoventryLabel.Name = "CoventryLabel";
+            this.CoventryLabel.Size = new System.Drawing.Size(32, 27);
+            this.CoventryLabel.TabIndex = 62;
+            // 
+            // OxfordLabel
+            // 
+            this.OxfordLabel.Enabled = false;
+            this.OxfordLabel.Location = new System.Drawing.Point(622, 146);
+            this.OxfordLabel.Name = "OxfordLabel";
+            this.OxfordLabel.Size = new System.Drawing.Size(32, 27);
+            this.OxfordLabel.TabIndex = 62;
+            // 
+            // RegentLabel
+            // 
+            this.RegentLabel.Enabled = false;
+            this.RegentLabel.Location = new System.Drawing.Point(720, 145);
+            this.RegentLabel.Name = "RegentLabel";
+            this.RegentLabel.Size = new System.Drawing.Size(32, 27);
+            this.RegentLabel.TabIndex = 62;
+            // 
+            // VineLabel
+            // 
+            this.VineLabel.Enabled = false;
+            this.VineLabel.Location = new System.Drawing.Point(750, 177);
+            this.VineLabel.Name = "VineLabel";
+            this.VineLabel.Size = new System.Drawing.Size(32, 27);
+            this.VineLabel.TabIndex = 62;
+            // 
+            // BowLabel
+            // 
+            this.BowLabel.Enabled = false;
+            this.BowLabel.Location = new System.Drawing.Point(750, 261);
+            this.BowLabel.Name = "BowLabel";
+            this.BowLabel.Size = new System.Drawing.Size(32, 27);
+            this.BowLabel.TabIndex = 62;
+            // 
+            // EustonLabel
+            // 
+            this.EustonLabel.Enabled = false;
+            this.EustonLabel.Location = new System.Drawing.Point(750, 343);
+            this.EustonLabel.Name = "EustonLabel";
+            this.EustonLabel.Size = new System.Drawing.Size(32, 27);
+            this.EustonLabel.TabIndex = 62;
+            // 
+            // PentonvilleLabel
+            // 
+            this.PentonvilleLabel.Enabled = false;
+            this.PentonvilleLabel.Location = new System.Drawing.Point(750, 417);
+            this.PentonvilleLabel.Name = "PentonvilleLabel";
+            this.PentonvilleLabel.Size = new System.Drawing.Size(32, 27);
+            this.PentonvilleLabel.TabIndex = 62;
+            // 
+            // Station1Label
+            // 
+            this.Station1Label.Enabled = false;
+            this.Station1Label.Location = new System.Drawing.Point(407, 456);
+            this.Station1Label.Name = "Station1Label";
+            this.Station1Label.Size = new System.Drawing.Size(32, 27);
+            this.Station1Label.TabIndex = 63;
+            // 
+            // Station2Label
+            // 
+            this.Station2Label.Enabled = false;
+            this.Station2Label.Location = new System.Drawing.Point(510, 146);
+            this.Station2Label.Name = "Station2Label";
+            this.Station2Label.Size = new System.Drawing.Size(32, 27);
+            this.Station2Label.TabIndex = 63;
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1751,7 +2007,11 @@
             this.NumberofplayerPanel.PerformLayout();
             this.PlayerReg_Panel.ResumeLayout(false);
             this.PlayerReg_Panel.PerformLayout();
+            this.Upgradee.ResumeLayout(false);
+            this.Upgradee.PerformLayout();
             this.Game.ResumeLayout(false);
+            this.Game.PerformLayout();
+            this.BuyingCity.ResumeLayout(false);
             this.MayFair.ResumeLayout(false);
             this.MayFair.PerformLayout();
             this.MayFair_House.ResumeLayout(false);
@@ -1816,8 +2076,6 @@
             this.ParkLane.PerformLayout();
             this.ParkLane_House.ResumeLayout(false);
             this.ParkLane_House.PerformLayout();
-            this.Upgradee.ResumeLayout(false);
-            this.Upgradee.PerformLayout();
             this.Dice1.ResumeLayout(false);
             this.Dice1.PerformLayout();
             this.Dice2.ResumeLayout(false);
@@ -1924,7 +2182,6 @@
         private System.Windows.Forms.Timer Player3_Timer;
         private System.Windows.Forms.Timer Player4_Timer;
         private System.Windows.Forms.Button RollDice;
-        private System.Windows.Forms.Button Purchase_Things;
         private System.Windows.Forms.Panel MayFair_House;
         private System.Windows.Forms.TextBox MayFair_HouseTXT;
         private System.Windows.Forms.Panel OldKent_House;
@@ -1980,13 +2237,38 @@
         private System.Windows.Forms.Button FinishTurn;
         private System.Windows.Forms.Panel Upgradee;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button Upgrade;
         private System.Windows.Forms.Button Buy_Hotel;
         private System.Windows.Forms.Button BuyHouse;
         private System.Windows.Forms.TextBox CitiesAvailable;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox CityNumber;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel BuyingCity;
+        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button BuyCity;
+        private System.Windows.Forms.Panel City;
+        private System.Windows.Forms.Button Upgrade;
+        private System.Windows.Forms.TextBox PlayersInfo;
+        private System.Windows.Forms.Label playerinfo;
+        private System.Windows.Forms.Timer AllGameTimer;
+        private System.Windows.Forms.Panel Station2Label;
+        private System.Windows.Forms.Panel Station1Label;
+        private System.Windows.Forms.Panel PentonvilleLabel;
+        private System.Windows.Forms.Panel EustonLabel;
+        private System.Windows.Forms.Panel BowLabel;
+        private System.Windows.Forms.Panel VineLabel;
+        private System.Windows.Forms.Panel RegentLabel;
+        private System.Windows.Forms.Panel OxfordLabel;
+        private System.Windows.Forms.Panel CoventryLabel;
+        private System.Windows.Forms.Panel LeicesterLabel;
+        private System.Windows.Forms.Panel OldKentLabel;
+        private System.Windows.Forms.Panel WhitechapelLabel;
+        private System.Windows.Forms.Panel PallMallLabel;
+        private System.Windows.Forms.Panel WhiteHallLabel;
+        private System.Windows.Forms.Panel StrandLabel;
+        private System.Windows.Forms.Panel FleetLabel;
+        private System.Windows.Forms.Panel MayfairLabel;
+        private System.Windows.Forms.Panel ParkLaneLabel;
     }
 }
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-class Player
+public class Player
 {
     string Name;
     int Token;
@@ -14,21 +14,30 @@ class Player
     List<Station> OwnedStations;
     Point Position;
     int Fieldnumber;
+    string Colour;
 
     public Player()
     {
         Fieldnumber = 0;
-        Balance = 2000;
+        Balance = 1500;
         OwnedCities = new List<City>();
         OwnedStations = new List<Station>();
+        Colour = "";
     }
-    public Player(string name,int token,int balance,Point position,int fieldnumber)
+    public Player(string colour,string name, int token, int balance, Point position, int fieldnumber)
     {
         Name = name;
         Token = token;
         Balance = balance;
         Position = position;
         Fieldnumber = fieldnumber;
+        Colour = colour;
+        OwnedCities = new List<City>();
+        OwnedStations = new List<Station>();
+    }
+    public string Get_Colour()
+    {
+        return Colour;
     }
     public void Collect_Money(int money)
     {
@@ -101,6 +110,7 @@ class Player
             OwnedCities.Add(city);
             Balance -= city.Get_Price();
             city.Set_Owned();
+            city.Set_Owner(this);
             return true;
         }
         else
@@ -115,6 +125,7 @@ class Player
             OwnedStations.Add(station);
             Balance -= station.Get_Price();
             station.Set_Owned();
+            station.Set_Owner(this);
             return true;
         }
         else
@@ -153,64 +164,43 @@ class Player
         return false;
 
     }
-    public bool Pay_CityRents(City city)
+    public void Pay_CityRents(City city)
     {
-        if (city.Get_HouseModification())
+        if (city.Get_ISMortagaged())
         {
-            if (city.Get_HotelModification())
+            return;
+        }
+        else
+        {
+            if (city.Get_HouseModification())
             {
-                if (Balance >= city.Get_RentWithHotel())
+                if (city.Get_HotelModification())
                 {
                     Balance -= city.Get_RentWithHotel();
                     city.Get_Owner().Balance += city.Get_RentWithHotel();
-                    return true;
                 }
                 else
                 {
-                    return false;
+                    int Houses = city.Get_NumberOfHouses();
+                    Balance -= city.Get_HouseRentPrices()[Houses - 1];
+                    city.Get_Owner().Balance += city.Get_HouseRentPrices()[Houses - 1];
                 }
             }
             else
-            {
-                int Houses = city.Get_NumberOfHouses();
-                if (Balance >= city.Get_HouseRentPrices()[Houses - 1])
-                {
-                    Balance -= city.Get_HouseRentPrices()[Houses - 1];
-                    city.Get_Owner().Balance += city.Get_HouseRentPrices()[Houses - 1];
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-        else
-        {
-            if (Balance >= city.Get_CityRentPrice())
             {
                 Balance -= city.Get_CityRentPrice();
                 city.Get_Owner().Balance += city.Get_CityRentPrice();
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
     }
-    public bool Pay_StationRents(Station station)
+    public void Pay_StationRents(Station station)
     {
-        if (Balance >= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1])
+        if (!station.Get_ISMortagaged())
         {
             Balance -= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
             station.Get_Owner().Balance += station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
-            return true;
         }
-        else
-        {
-            return false;
-        }
+        else return;
     }
     public bool Buy_House(City city)
     {
@@ -277,7 +267,7 @@ class Player
     }
     public City Get_PlayerCity_UsingNumber(int number)
     {
-        for(int i = 0; i < OwnedCities.Count; i++)
+        for (int i = 0; i < OwnedCities.Count; i++)
         {
             if (OwnedCities[i].Get_FieldNumber() == number)
             {

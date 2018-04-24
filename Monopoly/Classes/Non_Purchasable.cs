@@ -13,5 +13,4 @@ abstract class Non_Purchasable : Field
     public Non_Purchasable(int fieldnumber, Point fieldpostion) :base(fieldnumber,fieldpostion)
     {
     }
-    abstract public void action(Player p);
 }

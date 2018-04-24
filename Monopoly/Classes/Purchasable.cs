@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-abstract class Purchasable : Field
+public abstract class Purchasable : Field
 {
     string Name;
     int Price;
@@ -13,6 +13,7 @@ abstract class Purchasable : Field
     bool ISMortagaged;
     Player Owner;
     bool Owned;
+    Monopoly.Monopoly ParentForm;
 
     public Purchasable():base()
     {
@@ -20,14 +21,20 @@ abstract class Purchasable : Field
         Price = 0;
         MortagagePrice = 0;
         Owned = false;
+        ISMortagaged = false;
     }
-    public Purchasable(int fieldnumber, Point fieldpostion,string name, int price, int mortagagedprice):base(fieldnumber,fieldpostion)
+    public Purchasable(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion,string name, int price, int mortagagedprice):base(fieldnumber,fieldpostion)
     {
         Name = name;
         Price = price;
         MortagagePrice = mortagagedprice;
         ISMortagaged = false;
         Owned = false;
+        ParentForm = P;
+    }
+    public Monopoly.Monopoly GetForm()
+    {
+        return ParentForm;
     }
     public void Set_Owner(Player player)
     {

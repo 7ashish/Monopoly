@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-abstract class Field
+public abstract class Field
 {
     int FieldNumber;
     Point FieldPosition;
@@ -36,4 +36,5 @@ abstract class Field
     {
         return FieldPosition;
     }
+    public abstract void Action(Player player);
 }

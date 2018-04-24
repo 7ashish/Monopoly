@@ -18,7 +18,7 @@ class Community_Chest : Non_Purchasable
         Random rmd = new Random(new DateTime().Millisecond);
         return rmd.Next(1, 5);
     }
-    override public void action(Player player)
+    override public void Action(Player player)
     {
         int result = choose();
         if (result == 1)

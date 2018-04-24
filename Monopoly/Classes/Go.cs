@@ -13,7 +13,7 @@ class Go : Non_Purchasable
     public Go(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
     {
     }
-    override public void action(Player player)
+    override public void Action(Player player)
     {
         player.Collect_Money(200);
     }

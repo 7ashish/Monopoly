@@ -103,6 +103,26 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dice_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Dice-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_icon__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Dice-icon (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Freeparking {
             get {
                 object obj = ResourceManager.GetObject("Freeparking", resourceCulture);
@@ -276,6 +296,16 @@ namespace Monopoly.Properties {
         internal static System.Drawing.Bitmap monopoly_man_1 {
             get {
                 object obj = ResourceManager.GetObject("monopoly-man-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap monopoly_man_11 {
+            get {
+                object obj = ResourceManager.GetObject("monopoly-man-11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

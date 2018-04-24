@@ -177,5 +177,14 @@
   <ItemGroup>
     <None Include="Resources\Game-spades-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monopoly-man-11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice-icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice-icon %281%291.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,7 +14,7 @@ class UselessFields : Non_Purchasable
     public UselessFields(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
     {
     }
-    override public void action(Player player)
+    override public void Action(Player player)
     {
     }
 }
