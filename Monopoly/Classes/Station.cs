@@ -60,5 +60,10 @@ public class Station : Purchasable
             GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
+    public void Return_Station()
+    {
+        Remove_Owner();
+        Remove_Mortagage();
+    }
 }
 

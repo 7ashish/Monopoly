@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 public class Player
@@ -14,7 +10,6 @@ public class Player
     List<Station> OwnedStations;
     Point Position;
     int Fieldnumber;
-    string Colour;
 
     public Player()
     {
@@ -22,22 +17,16 @@ public class Player
         Balance = 1500;
         OwnedCities = new List<City>();
         OwnedStations = new List<Station>();
-        Colour = "";
     }
-    public Player(string colour,string name, int token, int balance, Point position, int fieldnumber)
+    public Player(string name, int token, int balance, Point position, int fieldnumber)
     {
         Name = name;
         Token = token;
         Balance = balance;
         Position = position;
         Fieldnumber = fieldnumber;
-        Colour = colour;
         OwnedCities = new List<City>();
         OwnedStations = new List<Station>();
-    }
-    public string Get_Colour()
-    {
-        return Colour;
     }
     public void Collect_Money(int money)
     {
@@ -133,10 +122,19 @@ public class Player
             return false;
         }
     }
+    /*public bool IsOwned(int Fieldnumber)
+    {
+        switch (Fieldnumber)
+        {
+            case 1:
+                if(OwnedCities.Contains(OwnedCities[]))
+        }
+    }*/
     public void MortagageCity(City city)
     {
         Balance += city.Get_MortagagePrice();
         city.Set_ISMortagaged();
+
     }
     public void MortagageStation(Station station)
     {
@@ -265,15 +263,21 @@ public class Player
         city.Remove_HotelMofidication();
         Balance += city.Get_HotelPrice();
     }
-    public City Get_PlayerCity_UsingNumber(int number)
+    public void Surrender()
     {
-        for (int i = 0; i < OwnedCities.Count; i++)
+        if (OwnedCities.Count != 0)
         {
-            if (OwnedCities[i].Get_FieldNumber() == number)
+            for (int i = 0; i < OwnedCities.Count; i++)
             {
-                return OwnedCities[i];
+                OwnedCities[i].ReturnCity();
             }
         }
-        return null;
+        if (OwnedStations.Count != 0)
+        {
+            for (int i = 0; i < OwnedStations.Count; i++)
+            {
+                OwnedStations[i].Return_Station();
+            }
+        }
     }
 }

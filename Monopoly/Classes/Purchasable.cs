@@ -23,7 +23,7 @@ public abstract class Purchasable : Field
         Owned = false;
         ISMortagaged = false;
     }
-    public Purchasable(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion,string name, int price, int mortagagedprice):base(fieldnumber,fieldpostion)
+    public Purchasable(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion,string name, int price, int mortagagedprice):base(P,fieldnumber,fieldpostion)
     {
         Name = name;
         Price = price;
@@ -32,9 +32,10 @@ public abstract class Purchasable : Field
         Owned = false;
         ParentForm = P;
     }
-    public Monopoly.Monopoly GetForm()
+    public void Remove_Owner()
     {
-        return ParentForm;
+        Owned = false;
+        Owner = null;
     }
     public void Set_Owner(Player player)
     {

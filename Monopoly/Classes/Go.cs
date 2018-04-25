@@ -10,7 +10,7 @@ class Go : Non_Purchasable
     public Go():base()
     {
     }
-    public Go(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
+    public Go(Monopoly.Monopoly P, int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
     override public void Action(Player player)

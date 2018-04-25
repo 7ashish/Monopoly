@@ -53,7 +53,10 @@ public class City : Purchasable
             }
             else
             {
-                player.Pay_CityRents(this);
+                if (!Get_ISMortagaged())
+                {
+                    GetForm().Set_Payrent();
+                }
             }
         }
         else
@@ -62,7 +65,7 @@ public class City : Purchasable
             switch (Get_FieldNumber())
             {
                 case 1:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath+@"\Park Lane.PNG");
+                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Park Lane.PNG");
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
                 case 3:
@@ -70,7 +73,7 @@ public class City : Purchasable
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
                 case 5:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath+@"\Fleet street.PNG");
+                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Fleet street.PNG");
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
                 case 6:
@@ -129,7 +132,14 @@ public class City : Purchasable
             GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
-
+    public void ReturnCity()
+    {
+        NumberofHouses = 0;
+        Remove_HouseMofidication();
+        Remove_HotelMofidication();
+        Remove_Mortagage();
+        Remove_Owner();
+    }
     public void Set_GroupNumber(int group)
     {
         GroupNumber = group;

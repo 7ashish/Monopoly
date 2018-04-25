@@ -4,41 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
 
 class Community_Chest : Non_Purchasable
 {
-    public Community_Chest():base()
+    public Community_Chest() : base()
     {
     }
-    public Community_Chest(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
+    public Community_Chest(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
-    public int choose()
+    static Random r = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
+    public int Choose()
     {
-        Random rmd = new Random(new DateTime().Millisecond);
-        return rmd.Next(1, 5);
+        return r.Next(1, 4);
     }
     override public void Action(Player player)
     {
-        int result = choose();
-        if (result == 1)
+        string FolderPath = Directory.GetCurrentDirectory();
+        int result = Choose();
+        switch (result)
         {
-            player.Pay_Tax(15);
+            case 1:
+                GetForm().Get_ActionPicPanel().BackgroundImage = Image.FromFile(FolderPath + @"\CC1.jpg");
+                GetForm().GetActionPanel().Show();
+                player.Collect_Money(100);
+                break;
+            case 2:
+                GetForm().Get_ActionPicPanel().BackgroundImage = Image.FromFile(FolderPath + @"\CC2.jpg");
+                GetForm().GetActionPanel().Show();
+                player.Collect_Money(100);
+                break;
+            case 3:
+                GetForm().Get_ActionPicPanel().BackgroundImage = Image.FromFile(FolderPath + @"\CC3.jpg");
+                GetForm().GetActionPanel().Show();
+                player.Pay_Tax(150);
+                break;
         }
-        else if (result == 2)
-        {
-            player.Collect_Money(200);
-        }
-        else if (result == 3)
-        {
-            //Go To Jail
-        }
-        else if (result == 4)
-        {
-            player.Collect_Money(150);
-        }
-        //else
-            //Go Back tree Spaces
 
     }
 }

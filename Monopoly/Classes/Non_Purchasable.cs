@@ -10,7 +10,7 @@ abstract class Non_Purchasable : Field
     public Non_Purchasable() : base()
     {
     }
-    public Non_Purchasable(int fieldnumber, Point fieldpostion) :base(fieldnumber,fieldpostion)
+    public Non_Purchasable(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion) :base(P,fieldnumber,fieldpostion)
     {
     }
 }

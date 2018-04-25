@@ -10,7 +10,7 @@ class GoToJail : Non_Purchasable
     public GoToJail() : base()
     {
     }
-    public GoToJail(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
+    public GoToJail(Monopoly.Monopoly P, int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
     override public void Action(Player player)

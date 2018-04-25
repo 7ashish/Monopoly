@@ -9,14 +9,20 @@ public abstract class Field
 {
     int FieldNumber;
     Point FieldPosition;
+    Monopoly.Monopoly ParentForm;
 
+    public Monopoly.Monopoly GetForm()
+    {
+        return ParentForm;
+    }
     public Field()
     {
         FieldNumber = 0;
         FieldPosition = new Point();
     }
-    public Field(int fieldnumber, Point fieldpostion)
+    public Field(Monopoly.Monopoly P,int fieldnumber, Point fieldpostion)
     {
+        ParentForm = P;
         FieldNumber = fieldnumber;
         FieldPosition = fieldpostion;
     }

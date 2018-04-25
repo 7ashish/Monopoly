@@ -11,7 +11,7 @@ class UselessFields : Non_Purchasable
     public UselessFields():base()
     {
     }
-    public UselessFields(int fieldnumber, Point fieldpostion) : base(fieldnumber, fieldpostion)
+    public UselessFields(Monopoly.Monopoly P, int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
     override public void Action(Player player)
