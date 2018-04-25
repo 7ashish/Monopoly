@@ -57,6 +57,7 @@ public class Station : Purchasable
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
             }
+            GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
 }

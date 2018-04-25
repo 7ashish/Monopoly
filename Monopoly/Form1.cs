@@ -118,18 +118,18 @@ namespace Monopoly
         }
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
+            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
+            {
+                playerturn.Collect_Money(200);
+            }
             if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player1.Location);
                 Player1_Timer.Stop();
-                FinishTurn.Enabled = true;
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
-            }
-            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
-            {
-                playerturn.Collect_Money(200);
+                FinishTurn.Enabled = true;
             }
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
             {
@@ -183,8 +183,8 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player2.Location);
                 Player2_Timre.Stop();
-                FinishTurn.Enabled = true;
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                FinishTurn.Enabled = true;
                 /*if(Main.Check_PlayerBalance(playerturn))
                {
                    MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
@@ -226,8 +226,8 @@ namespace Monopoly
             {
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player3.Location);
-                Player3_Timer.Stop();
                 FinishTurn.Enabled = true;
+                Player3_Timer.Stop();
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
                 /*if(Main.Check_PlayerBalance(playerturn))
                {
@@ -271,8 +271,8 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player4.Location);
                 Player4_Timer.Stop();
-                FinishTurn.Enabled = true;
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                FinishTurn.Enabled = true;
                 /*if(Main.Check_PlayerBalance(playerturn))
                {
                    MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
@@ -301,6 +301,59 @@ namespace Monopoly
                 p = Player4.Location;
                 p.X -= 1;
                 Player4.Location = p;
+            }
+        }
+        private void AllGameTimer_Tick(object sender, EventArgs e)
+        {
+            if (Main.GetPlayers().Count != 0)
+            {
+                switch (playerturn.Get_Token())
+                {
+                    case 1:
+                        PlayerLabel.BackColor = Player1.BackColor;
+                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        break;
+                    case 2:
+                        PlayerLabel.BackColor = Player2.BackColor;
+                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        break;
+                    case 3:
+                        PlayerLabel.BackColor = Player1.BackColor;
+                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        break;
+                    case 4:
+                        PlayerLabel.BackColor = Player1.BackColor;
+                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        break;
+                }
+                BalanceTXT.Text= playerturn.Get_Balance().ToString()+"$";
+                string[] Lines = new string[25];
+                Lines[0] = "Cities & Stations:";
+                int index = 0;
+                if (playerturn.Get_OwnedCities().Count != 0)
+                {
+                    for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+                    {
+                        Lines[++index] = playerturn.Get_OwnedCities()[i].Get_Name().ToString() + " --> "+playerturn.Get_OwnedCities()[i].Get_FieldNumber().ToString();
+                    }
+                }
+                if (playerturn.Get_OwnedStations().Count != 0)
+                {
+                    for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
+                    {
+                        Lines[++index] = playerturn.Get_OwnedStations()[i].Get_Name().ToString();
+                    }
+                }
+                PlayersInfo.Lines = Lines;
+                if (!Main.Check_PlayerBalance(playerturn))
+                {
+                    FinishTurn.Enabled = false;
+                    MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
+                }
+                else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false)
+                {
+                    FinishTurn.Enabled = true;
+                }
             }
         }
 
@@ -349,9 +402,15 @@ namespace Monopoly
             };
         }
 
+        public void Set_CityPriceTextBox(int price)
+        {
+            CityPrice.Text = price.ToString() + "$";
+        }
+
         private void FinishTurn_Click(object sender, EventArgs e)
         {
             RollDice.Enabled = true;
+            FinishTurn.Enabled = false;
             playerturnnumber = (playerturnnumber + 1) % Token;
             playerturn = Players[playerturnnumber];
         }
@@ -412,7 +471,7 @@ namespace Monopoly
                 {
                     MessageBox.Show("Congratulations New City was added to your Collection!");
                     BuyingCity.Hide();
-                    switch (playerturn.Get_Fieldnumber()%24)
+                    switch (playerturn.Get_Fieldnumber() % 24)
                     {
                         case 1:
                             switch (playerturn.Get_Token())
@@ -700,7 +759,7 @@ namespace Monopoly
                 {
                     MessageBox.Show("Congratulations New Station was added to your Collection!");
                     BuyingCity.Hide();
-                    switch (playerturn.Get_Fieldnumber()%24)
+                    switch (playerturn.Get_Fieldnumber() % 24)
                     {
                         case 4:
                             switch (playerturn.Get_Token())
@@ -745,6 +804,7 @@ namespace Monopoly
                 }
 
             }
+            CityPrice.Text = "";
 
         }
         private void BuyingCity_Paint(object sender, PaintEventArgs e)
@@ -765,27 +825,6 @@ namespace Monopoly
             BuyingCity.Hide();
         }
 
-        private void AllGameTimer_Tick(object sender, EventArgs e)
-        {
-            if (Main.GetPlayers().Count != 0)
-            {
-                /* PlayersInfo.Text = "";
-            PlayersInfo.Text += "Player Name ---> " + playerturn.Get_Name().ToString() + "\n";
-            PlayersInfo.Text += "Player Token --> " + playerturn.Get_Token().ToString() + "\n";
-            PlayersInfo.Text += "Player Colour ---> " + playerturn.Get_Colour().ToString() + "\n";*/
-
-                PlayersInfo.Text = "Player Balance -----> " + playerturn.Get_Balance().ToString() + "\n";
-                if (!Main.Check_PlayerBalance(playerturn))
-                {
-                    FinishTurn.Enabled = false;
-                    MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
-                }
-                else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false)
-                {
-                    FinishTurn.Enabled = true;
-                }
-            }
-        }
         public Panel GetPlayer1Panel()
         {
             return Player1;

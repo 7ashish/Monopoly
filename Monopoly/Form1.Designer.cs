@@ -30,16 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Registeration = new System.Windows.Forms.Panel();
-            this.NumberofplayerPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NumberOfPlayers = new System.Windows.Forms.ComboBox();
             this.PlayerReg_Panel = new System.Windows.Forms.Panel();
             this.Add_BTN = new System.Windows.Forms.Button();
+            this.Next_BTN2 = new System.Windows.Forms.Button();
             this.Token_TXT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Playername_TXT = new System.Windows.Forms.TextBox();
+            this.NumberofplayerPanel = new System.Windows.Forms.Panel();
+            this.Next_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NumberOfPlayers = new System.Windows.Forms.ComboBox();
+            this.Panel = new System.Windows.Forms.Panel();
+            this.PhotoPanel = new System.Windows.Forms.Panel();
             this.Upgradee = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.CityNumber = new System.Windows.Forms.TextBox();
             this.CitiesAvailable = new System.Windows.Forms.TextBox();
@@ -49,208 +54,208 @@
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
+            this.BalanceTXT = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.PlayerNameTextBox = new System.Windows.Forms.TextBox();
+            this.PlayerLabel = new System.Windows.Forms.Panel();
             this.BuyingCity = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CityPrice = new System.Windows.Forms.TextBox();
             this.City = new System.Windows.Forms.Panel();
             this.Cancel = new System.Windows.Forms.Button();
             this.BuyCity = new System.Windows.Forms.Button();
+            this.Station2Label = new System.Windows.Forms.Panel();
+            this.Station1Label = new System.Windows.Forms.Panel();
+            this.PentonvilleLabel = new System.Windows.Forms.Panel();
+            this.EustonLabel = new System.Windows.Forms.Panel();
+            this.BowLabel = new System.Windows.Forms.Panel();
+            this.VineLabel = new System.Windows.Forms.Panel();
+            this.RegentLabel = new System.Windows.Forms.Panel();
+            this.OxfordLabel = new System.Windows.Forms.Panel();
+            this.CoventryLabel = new System.Windows.Forms.Panel();
+            this.LeicesterLabel = new System.Windows.Forms.Panel();
+            this.OldKentLabel = new System.Windows.Forms.Panel();
+            this.WhitechapelLabel = new System.Windows.Forms.Panel();
+            this.PallMallLabel = new System.Windows.Forms.Panel();
+            this.WhiteHallLabel = new System.Windows.Forms.Panel();
+            this.StrandLabel = new System.Windows.Forms.Panel();
+            this.FleetLabel = new System.Windows.Forms.Panel();
             this.FinishTurn = new System.Windows.Forms.Button();
-            this.Player4 = new System.Windows.Forms.Panel();
-            this.Player3 = new System.Windows.Forms.Panel();
-            this.Player2 = new System.Windows.Forms.Panel();
-            this.Player1 = new System.Windows.Forms.Panel();
-            this.MayFair = new System.Windows.Forms.Panel();
-            this.MayFair_Hotel = new System.Windows.Forms.Panel();
-            this.MayFair_House = new System.Windows.Forms.Panel();
-            this.MayFair_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.OldKent = new System.Windows.Forms.Panel();
-            this.OldKent_Hotel = new System.Windows.Forms.Panel();
-            this.OldKent_House = new System.Windows.Forms.Panel();
-            this.OldKent_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.WhiteChapel = new System.Windows.Forms.Panel();
-            this.Whitechapel_Hotel = new System.Windows.Forms.Panel();
-            this.Whitechapel_House = new System.Windows.Forms.Panel();
-            this.Whitechapel_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.PallMall = new System.Windows.Forms.Panel();
-            this.PallMall_Hotel = new System.Windows.Forms.Panel();
-            this.PallMall_House = new System.Windows.Forms.Panel();
-            this.PallMall_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.WhiteHall = new System.Windows.Forms.Panel();
-            this.WhiteHall_Hotel = new System.Windows.Forms.Panel();
-            this.WhiteHall_House = new System.Windows.Forms.Panel();
-            this.WhiteHall_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.Regent = new System.Windows.Forms.Panel();
-            this.Regent_Hotel = new System.Windows.Forms.Panel();
-            this.Regent_House = new System.Windows.Forms.Panel();
-            this.Regent_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.Oxford = new System.Windows.Forms.Panel();
-            this.Oxford_Hotel = new System.Windows.Forms.Panel();
-            this.Oxford_House = new System.Windows.Forms.Panel();
-            this.Oxford_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.Coventry = new System.Windows.Forms.Panel();
-            this.Coventry_Hotel = new System.Windows.Forms.Panel();
-            this.Coventry_House = new System.Windows.Forms.Panel();
-            this.Coventry_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.Leicester = new System.Windows.Forms.Panel();
-            this.Leicester_Hotel = new System.Windows.Forms.Panel();
-            this.LeicesterSq_House = new System.Windows.Forms.Panel();
-            this.Leicester_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.Vine = new System.Windows.Forms.Panel();
-            this.VineST_Hotel = new System.Windows.Forms.Panel();
-            this.Vine_House = new System.Windows.Forms.Panel();
-            this.Vine_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.Bow = new System.Windows.Forms.Panel();
-            this.BowST_Hotel = new System.Windows.Forms.Panel();
-            this.Bow_House = new System.Windows.Forms.Panel();
-            this.Bow_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.Euston = new System.Windows.Forms.Panel();
-            this.Euston_Hotel = new System.Windows.Forms.Panel();
-            this.Euston_House = new System.Windows.Forms.Panel();
-            this.Euston_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.PentoRoad = new System.Windows.Forms.Panel();
-            this.Pentonville_Hotel = new System.Windows.Forms.Panel();
-            this.Pentonville_House = new System.Windows.Forms.Panel();
-            this.Pentonville_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.Fleet = new System.Windows.Forms.Panel();
-            this.FleetST_Hotel = new System.Windows.Forms.Panel();
-            this.FleetStreet_House = new System.Windows.Forms.Panel();
-            this.Fleet_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.StRand = new System.Windows.Forms.Panel();
-            this.Strand_Hotel = new System.Windows.Forms.Panel();
-            this.Strand_House = new System.Windows.Forms.Panel();
-            this.Strand_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.ParkLane = new System.Windows.Forms.Panel();
-            this.ParkLane_Hotel = new System.Windows.Forms.Panel();
-            this.ParkLane_House = new System.Windows.Forms.Panel();
-            this.ParkLane_HouseTXT = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Player3_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Player4_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Upgrade = new System.Windows.Forms.Button();
+            this.MayfairLabel = new System.Windows.Forms.Panel();
+            this.ParkLaneLabel = new System.Windows.Forms.Panel();
+            this.PlayersInfo = new System.Windows.Forms.TextBox();
+            this.playerinfo = new System.Windows.Forms.Label();
             this.Dice1 = new System.Windows.Forms.Panel();
             this.Dice1TXT = new System.Windows.Forms.TextBox();
             this.Dice2 = new System.Windows.Forms.Panel();
             this.Dice2TXT = new System.Windows.Forms.TextBox();
             this.RollDice = new System.Windows.Forms.Button();
+            this.Player4 = new System.Windows.Forms.Panel();
+            this.Player3 = new System.Windows.Forms.Panel();
+            this.Player2 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
             this.GoTojail = new System.Windows.Forms.Panel();
             this.Go = new System.Windows.Forms.Panel();
             this.Station2 = new System.Windows.Forms.Panel();
+            this.MayFair = new System.Windows.Forms.Panel();
+            this.MayFair_Hotel = new System.Windows.Forms.Panel();
+            this.MayFair_House = new System.Windows.Forms.Panel();
+            this.MayFair_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.OldKent = new System.Windows.Forms.Panel();
+            this.OldKent_Hotel = new System.Windows.Forms.Panel();
+            this.OldKent_House = new System.Windows.Forms.Panel();
+            this.OldKent_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.WhiteChapel = new System.Windows.Forms.Panel();
+            this.Whitechapel_Hotel = new System.Windows.Forms.Panel();
+            this.Whitechapel_House = new System.Windows.Forms.Panel();
+            this.Whitechapel_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.Chance = new System.Windows.Forms.Panel();
+            this.PallMall = new System.Windows.Forms.Panel();
+            this.PallMall_Hotel = new System.Windows.Forms.Panel();
+            this.PallMall_House = new System.Windows.Forms.Panel();
+            this.PallMall_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.WhiteHall = new System.Windows.Forms.Panel();
+            this.WhiteHall_Hotel = new System.Windows.Forms.Panel();
+            this.WhiteHall_House = new System.Windows.Forms.Panel();
+            this.WhiteHall_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.FreeParking = new System.Windows.Forms.Panel();
+            this.Regent = new System.Windows.Forms.Panel();
+            this.Regent_Hotel = new System.Windows.Forms.Panel();
+            this.Regent_House = new System.Windows.Forms.Panel();
+            this.Regent_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.Oxford = new System.Windows.Forms.Panel();
+            this.Oxford_Hotel = new System.Windows.Forms.Panel();
+            this.Oxford_House = new System.Windows.Forms.Panel();
+            this.Oxford_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.Coventry = new System.Windows.Forms.Panel();
+            this.Coventry_Hotel = new System.Windows.Forms.Panel();
+            this.Coventry_House = new System.Windows.Forms.Panel();
+            this.Coventry_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.CommunityChest = new System.Windows.Forms.Panel();
+            this.Leicester = new System.Windows.Forms.Panel();
+            this.Leicester_Hotel = new System.Windows.Forms.Panel();
+            this.LeicesterSq_House = new System.Windows.Forms.Panel();
+            this.Leicester_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Vine = new System.Windows.Forms.Panel();
+            this.VineST_Hotel = new System.Windows.Forms.Panel();
+            this.Vine_House = new System.Windows.Forms.Panel();
+            this.Vine_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.Bow = new System.Windows.Forms.Panel();
+            this.BowST_Hotel = new System.Windows.Forms.Panel();
+            this.Bow_House = new System.Windows.Forms.Panel();
+            this.Bow_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.Euston = new System.Windows.Forms.Panel();
+            this.Euston_Hotel = new System.Windows.Forms.Panel();
+            this.Euston_House = new System.Windows.Forms.Panel();
+            this.Euston_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.PentoRoad = new System.Windows.Forms.Panel();
+            this.Pentonville_Hotel = new System.Windows.Forms.Panel();
+            this.Pentonville_House = new System.Windows.Forms.Panel();
+            this.Pentonville_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.Jail = new System.Windows.Forms.Panel();
+            this.Fleet = new System.Windows.Forms.Panel();
+            this.FleetST_Hotel = new System.Windows.Forms.Panel();
+            this.FleetStreet_House = new System.Windows.Forms.Panel();
+            this.Fleet_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.StRand = new System.Windows.Forms.Panel();
+            this.Strand_Hotel = new System.Windows.Forms.Panel();
+            this.Strand_House = new System.Windows.Forms.Panel();
+            this.Strand_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Station1 = new System.Windows.Forms.Panel();
+            this.ParkLane = new System.Windows.Forms.Panel();
+            this.ParkLane_Hotel = new System.Windows.Forms.Panel();
+            this.ParkLane_House = new System.Windows.Forms.Panel();
+            this.ParkLane_HouseTXT = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Next_btn = new System.Windows.Forms.Button();
-            this.Next_BTN2 = new System.Windows.Forms.Button();
-            this.Panel = new System.Windows.Forms.Panel();
-            this.PhotoPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.playerinfo = new System.Windows.Forms.Label();
-            this.PlayersInfo = new System.Windows.Forms.TextBox();
+            this.Player3_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Player4_Timer = new System.Windows.Forms.Timer(this.components);
             this.AllGameTimer = new System.Windows.Forms.Timer(this.components);
-            this.ParkLaneLabel = new System.Windows.Forms.Panel();
-            this.MayfairLabel = new System.Windows.Forms.Panel();
-            this.FleetLabel = new System.Windows.Forms.Panel();
-            this.StrandLabel = new System.Windows.Forms.Panel();
-            this.WhiteHallLabel = new System.Windows.Forms.Panel();
-            this.PallMallLabel = new System.Windows.Forms.Panel();
-            this.WhitechapelLabel = new System.Windows.Forms.Panel();
-            this.OldKentLabel = new System.Windows.Forms.Panel();
-            this.LeicesterLabel = new System.Windows.Forms.Panel();
-            this.CoventryLabel = new System.Windows.Forms.Panel();
-            this.OxfordLabel = new System.Windows.Forms.Panel();
-            this.RegentLabel = new System.Windows.Forms.Panel();
-            this.VineLabel = new System.Windows.Forms.Panel();
-            this.BowLabel = new System.Windows.Forms.Panel();
-            this.EustonLabel = new System.Windows.Forms.Panel();
-            this.PentonvilleLabel = new System.Windows.Forms.Panel();
-            this.Station1Label = new System.Windows.Forms.Panel();
-            this.Station2Label = new System.Windows.Forms.Panel();
             this.Registeration.SuspendLayout();
-            this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
+            this.NumberofplayerPanel.SuspendLayout();
             this.Upgradee.SuspendLayout();
             this.Game.SuspendLayout();
             this.BuyingCity.SuspendLayout();
-            this.MayFair.SuspendLayout();
-            this.MayFair_House.SuspendLayout();
-            this.OldKent.SuspendLayout();
-            this.OldKent_House.SuspendLayout();
-            this.WhiteChapel.SuspendLayout();
-            this.Whitechapel_House.SuspendLayout();
-            this.PallMall.SuspendLayout();
-            this.PallMall_House.SuspendLayout();
-            this.WhiteHall.SuspendLayout();
-            this.WhiteHall_House.SuspendLayout();
-            this.Regent.SuspendLayout();
-            this.Regent_House.SuspendLayout();
-            this.Oxford.SuspendLayout();
-            this.Oxford_House.SuspendLayout();
-            this.Coventry.SuspendLayout();
-            this.Coventry_House.SuspendLayout();
-            this.Leicester.SuspendLayout();
-            this.LeicesterSq_House.SuspendLayout();
-            this.Vine.SuspendLayout();
-            this.Vine_House.SuspendLayout();
-            this.Bow.SuspendLayout();
-            this.Bow_House.SuspendLayout();
-            this.Euston.SuspendLayout();
-            this.Euston_House.SuspendLayout();
-            this.PentoRoad.SuspendLayout();
-            this.Pentonville_House.SuspendLayout();
-            this.Fleet.SuspendLayout();
-            this.FleetStreet_House.SuspendLayout();
-            this.StRand.SuspendLayout();
-            this.Strand_House.SuspendLayout();
-            this.ParkLane.SuspendLayout();
-            this.ParkLane_House.SuspendLayout();
             this.Dice1.SuspendLayout();
             this.Dice2.SuspendLayout();
+            this.MayFair.SuspendLayout();
+            this.MayFair_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.OldKent.SuspendLayout();
+            this.OldKent_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.WhiteChapel.SuspendLayout();
+            this.Whitechapel_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.PallMall.SuspendLayout();
+            this.PallMall_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.WhiteHall.SuspendLayout();
+            this.WhiteHall_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.Regent.SuspendLayout();
+            this.Regent_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.Oxford.SuspendLayout();
+            this.Oxford_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.Coventry.SuspendLayout();
+            this.Coventry_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.Leicester.SuspendLayout();
+            this.LeicesterSq_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.Vine.SuspendLayout();
+            this.Vine_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.Bow.SuspendLayout();
+            this.Bow_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.Euston.SuspendLayout();
+            this.Euston_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.PentoRoad.SuspendLayout();
+            this.Pentonville_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.Fleet.SuspendLayout();
+            this.FleetStreet_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.StRand.SuspendLayout();
+            this.Strand_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.ParkLane.SuspendLayout();
+            this.ParkLane_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -268,43 +273,6 @@
             this.Registeration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Registeration.Size = new System.Drawing.Size(1165, 627);
             this.Registeration.TabIndex = 0;
-            // 
-            // NumberofplayerPanel
-            // 
-            this.NumberofplayerPanel.Controls.Add(this.Next_btn);
-            this.NumberofplayerPanel.Controls.Add(this.label1);
-            this.NumberofplayerPanel.Controls.Add(this.NumberOfPlayers);
-            this.NumberofplayerPanel.Location = new System.Drawing.Point(238, 292);
-            this.NumberofplayerPanel.Name = "NumberofplayerPanel";
-            this.NumberofplayerPanel.Size = new System.Drawing.Size(608, 332);
-            this.NumberofplayerPanel.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Choose Number of Players";
-            // 
-            // NumberOfPlayers
-            // 
-            this.NumberOfPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.NumberOfPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.NumberOfPlayers.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumberOfPlayers.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.NumberOfPlayers.FormattingEnabled = true;
-            this.NumberOfPlayers.Items.AddRange(new object[] {
-            "\t\t\t\t2",
-            "\t\t\t\t3",
-            "\t\t\t\t4"});
-            this.NumberOfPlayers.Location = new System.Drawing.Point(205, 129);
-            this.NumberOfPlayers.Name = "NumberOfPlayers";
-            this.NumberOfPlayers.Size = new System.Drawing.Size(211, 31);
-            this.NumberOfPlayers.TabIndex = 0;
-            this.NumberOfPlayers.SelectedIndexChanged += new System.EventHandler(this.NumberOfPlayers_SelectedIndexChanged);
             // 
             // PlayerReg_Panel
             // 
@@ -332,6 +300,25 @@
             this.Add_BTN.Text = "Add";
             this.Add_BTN.UseVisualStyleBackColor = true;
             this.Add_BTN.Click += new System.EventHandler(this.Add_BTN_Click);
+            // 
+            // Next_BTN2
+            // 
+            this.Next_BTN2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Next_BTN2.Enabled = false;
+            this.Next_BTN2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Next_BTN2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Next_BTN2.ForeColor = System.Drawing.Color.CadetBlue;
+            this.Next_BTN2.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_BTN2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Next_BTN2.Location = new System.Drawing.Point(471, 262);
+            this.Next_BTN2.Name = "Next_BTN2";
+            this.Next_BTN2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Next_BTN2.Size = new System.Drawing.Size(101, 40);
+            this.Next_BTN2.TabIndex = 5;
+            this.Next_BTN2.Text = "Next";
+            this.Next_BTN2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Next_BTN2.UseVisualStyleBackColor = true;
+            this.Next_BTN2.Click += new System.EventHandler(this.Next_BTN2_Click);
             // 
             // Token_TXT
             // 
@@ -372,8 +359,82 @@
             this.Playername_TXT.Name = "Playername_TXT";
             this.Playername_TXT.Size = new System.Drawing.Size(190, 27);
             this.Playername_TXT.TabIndex = 0;
-            this.Playername_TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Playername_TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Playername_TXT.TextChanged += new System.EventHandler(this.Playername_TXT_TextChanged);
+            // 
+            // NumberofplayerPanel
+            // 
+            this.NumberofplayerPanel.Controls.Add(this.Next_btn);
+            this.NumberofplayerPanel.Controls.Add(this.label1);
+            this.NumberofplayerPanel.Controls.Add(this.NumberOfPlayers);
+            this.NumberofplayerPanel.Location = new System.Drawing.Point(238, 288);
+            this.NumberofplayerPanel.Name = "NumberofplayerPanel";
+            this.NumberofplayerPanel.Size = new System.Drawing.Size(608, 336);
+            this.NumberofplayerPanel.TabIndex = 2;
+            // 
+            // Next_btn
+            // 
+            this.Next_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Next_btn.Enabled = false;
+            this.Next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Next_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Next_btn.ForeColor = System.Drawing.Color.CadetBlue;
+            this.Next_btn.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Next_btn.Location = new System.Drawing.Point(482, 262);
+            this.Next_btn.Name = "Next_btn";
+            this.Next_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Next_btn.Size = new System.Drawing.Size(101, 40);
+            this.Next_btn.TabIndex = 2;
+            this.Next_btn.Text = "Next";
+            this.Next_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Next_btn.UseVisualStyleBackColor = true;
+            this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(165, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Choose Number of Players";
+            // 
+            // NumberOfPlayers
+            // 
+            this.NumberOfPlayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NumberOfPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NumberOfPlayers.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumberOfPlayers.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.NumberOfPlayers.FormattingEnabled = true;
+            this.NumberOfPlayers.Items.AddRange(new object[] {
+            "\t\t\t\t2",
+            "\t\t\t\t3",
+            "\t\t\t\t4"});
+            this.NumberOfPlayers.Location = new System.Drawing.Point(205, 129);
+            this.NumberOfPlayers.Name = "NumberOfPlayers";
+            this.NumberOfPlayers.Size = new System.Drawing.Size(211, 31);
+            this.NumberOfPlayers.TabIndex = 0;
+            this.NumberOfPlayers.SelectedIndexChanged += new System.EventHandler(this.NumberOfPlayers_SelectedIndexChanged);
+            // 
+            // Panel
+            // 
+            this.Panel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
+            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Panel.Location = new System.Drawing.Point(852, 283);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(310, 344);
+            this.Panel.TabIndex = 1;
+            // 
+            // PhotoPanel
+            // 
+            this.PhotoPanel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.PhotoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PhotoPanel.Location = new System.Drawing.Point(3, 3);
+            this.PhotoPanel.Name = "PhotoPanel";
+            this.PhotoPanel.Size = new System.Drawing.Size(1165, 286);
+            this.PhotoPanel.TabIndex = 0;
             // 
             // Upgradee
             // 
@@ -390,6 +451,18 @@
             this.Upgradee.Name = "Upgradee";
             this.Upgradee.Size = new System.Drawing.Size(440, 267);
             this.Upgradee.TabIndex = 58;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Monopoly.Properties.Resources.Windows_Close_Program_icon;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(386, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 27);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -472,6 +545,10 @@
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.BalanceTXT);
+            this.Game.Controls.Add(this.label7);
+            this.Game.Controls.Add(this.PlayerNameTextBox);
+            this.Game.Controls.Add(this.PlayerLabel);
             this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.Station2Label);
             this.Game.Controls.Add(this.Station1Label);
@@ -489,14 +566,13 @@
             this.Game.Controls.Add(this.WhiteHallLabel);
             this.Game.Controls.Add(this.StrandLabel);
             this.Game.Controls.Add(this.FleetLabel);
+            this.Game.Controls.Add(this.FinishTurn);
             this.Game.Controls.Add(this.MayfairLabel);
             this.Game.Controls.Add(this.ParkLaneLabel);
             this.Game.Controls.Add(this.PlayersInfo);
             this.Game.Controls.Add(this.playerinfo);
             this.Game.Controls.Add(this.Dice1);
             this.Game.Controls.Add(this.Dice2);
-            this.Game.Controls.Add(this.Upgrade);
-            this.Game.Controls.Add(this.FinishTurn);
             this.Game.Controls.Add(this.RollDice);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
@@ -532,10 +608,54 @@
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
+            // BalanceTXT
+            // 
+            this.BalanceTXT.BackColor = System.Drawing.SystemColors.Control;
+            this.BalanceTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BalanceTXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceTXT.Location = new System.Drawing.Point(994, 152);
+            this.BalanceTXT.Name = "BalanceTXT";
+            this.BalanceTXT.ReadOnly = true;
+            this.BalanceTXT.Size = new System.Drawing.Size(123, 23);
+            this.BalanceTXT.TabIndex = 67;
+            this.BalanceTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(1019, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 23);
+            this.label7.TabIndex = 66;
+            this.label7.Text = "Balance";
+            // 
+            // PlayerNameTextBox
+            // 
+            this.PlayerNameTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.PlayerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PlayerNameTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayerNameTextBox.Location = new System.Drawing.Point(995, 86);
+            this.PlayerNameTextBox.Name = "PlayerNameTextBox";
+            this.PlayerNameTextBox.ReadOnly = true;
+            this.PlayerNameTextBox.Size = new System.Drawing.Size(123, 20);
+            this.PlayerNameTextBox.TabIndex = 65;
+            this.PlayerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PlayerLabel
+            // 
+            this.PlayerLabel.Location = new System.Drawing.Point(958, 67);
+            this.PlayerLabel.Name = "PlayerLabel";
+            this.PlayerLabel.Size = new System.Drawing.Size(196, 13);
+            this.PlayerLabel.TabIndex = 64;
+            // 
             // BuyingCity
             // 
-            this.BuyingCity.BackColor = System.Drawing.SystemColors.Info;
+            this.BuyingCity.BackColor = System.Drawing.SystemColors.Window;
             this.BuyingCity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BuyingCity.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BuyingCity.Controls.Add(this.label6);
+            this.BuyingCity.Controls.Add(this.CityPrice);
             this.BuyingCity.Controls.Add(this.City);
             this.BuyingCity.Controls.Add(this.Cancel);
             this.BuyingCity.Controls.Add(this.BuyCity);
@@ -545,12 +665,35 @@
             this.BuyingCity.TabIndex = 58;
             this.BuyingCity.Paint += new System.Windows.Forms.PaintEventHandler(this.BuyingCity_Paint);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(350, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 23);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Price";
+            // 
+            // CityPrice
+            // 
+            this.CityPrice.BackColor = System.Drawing.SystemColors.Info;
+            this.CityPrice.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CityPrice.ForeColor = System.Drawing.Color.Maroon;
+            this.CityPrice.Location = new System.Drawing.Point(327, 156);
+            this.CityPrice.Name = "CityPrice";
+            this.CityPrice.ReadOnly = true;
+            this.CityPrice.Size = new System.Drawing.Size(100, 27);
+            this.CityPrice.TabIndex = 3;
+            this.CityPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // City
             // 
             this.City.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.City.Location = new System.Drawing.Point(43, 26);
+            this.City.Location = new System.Drawing.Point(46, 60);
             this.City.Name = "City";
-            this.City.Size = new System.Drawing.Size(320, 369);
+            this.City.Size = new System.Drawing.Size(255, 300);
             this.City.TabIndex = 2;
             // 
             // Cancel
@@ -558,7 +701,7 @@
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Cancel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.Cancel.Location = new System.Drawing.Point(370, 307);
+            this.Cancel.Location = new System.Drawing.Point(338, 289);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(78, 33);
             this.Cancel.TabIndex = 1;
@@ -571,23 +714,254 @@
             this.BuyCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BuyCity.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuyCity.ForeColor = System.Drawing.Color.Maroon;
-            this.BuyCity.Location = new System.Drawing.Point(370, 215);
+            this.BuyCity.Location = new System.Drawing.Point(327, 202);
             this.BuyCity.Name = "BuyCity";
-            this.BuyCity.Size = new System.Drawing.Size(78, 75);
+            this.BuyCity.Size = new System.Drawing.Size(100, 75);
             this.BuyCity.TabIndex = 0;
             this.BuyCity.Text = "Buy City";
             this.BuyCity.UseVisualStyleBackColor = true;
             this.BuyCity.Click += new System.EventHandler(this.BuyCity_Click);
             // 
+            // Station2Label
+            // 
+            this.Station2Label.Enabled = false;
+            this.Station2Label.Location = new System.Drawing.Point(510, 146);
+            this.Station2Label.Name = "Station2Label";
+            this.Station2Label.Size = new System.Drawing.Size(32, 15);
+            this.Station2Label.TabIndex = 63;
+            // 
+            // Station1Label
+            // 
+            this.Station1Label.Enabled = false;
+            this.Station1Label.Location = new System.Drawing.Point(407, 470);
+            this.Station1Label.Name = "Station1Label";
+            this.Station1Label.Size = new System.Drawing.Size(32, 13);
+            this.Station1Label.TabIndex = 63;
+            // 
+            // PentonvilleLabel
+            // 
+            this.PentonvilleLabel.Enabled = false;
+            this.PentonvilleLabel.Location = new System.Drawing.Point(769, 417);
+            this.PentonvilleLabel.Name = "PentonvilleLabel";
+            this.PentonvilleLabel.Size = new System.Drawing.Size(13, 27);
+            this.PentonvilleLabel.TabIndex = 62;
+            // 
+            // EustonLabel
+            // 
+            this.EustonLabel.Enabled = false;
+            this.EustonLabel.Location = new System.Drawing.Point(769, 343);
+            this.EustonLabel.Name = "EustonLabel";
+            this.EustonLabel.Size = new System.Drawing.Size(13, 27);
+            this.EustonLabel.TabIndex = 62;
+            // 
+            // BowLabel
+            // 
+            this.BowLabel.Enabled = false;
+            this.BowLabel.Location = new System.Drawing.Point(769, 261);
+            this.BowLabel.Name = "BowLabel";
+            this.BowLabel.Size = new System.Drawing.Size(13, 27);
+            this.BowLabel.TabIndex = 62;
+            // 
+            // VineLabel
+            // 
+            this.VineLabel.Enabled = false;
+            this.VineLabel.Location = new System.Drawing.Point(769, 177);
+            this.VineLabel.Name = "VineLabel";
+            this.VineLabel.Size = new System.Drawing.Size(13, 27);
+            this.VineLabel.TabIndex = 62;
+            // 
+            // RegentLabel
+            // 
+            this.RegentLabel.Enabled = false;
+            this.RegentLabel.Location = new System.Drawing.Point(720, 145);
+            this.RegentLabel.Name = "RegentLabel";
+            this.RegentLabel.Size = new System.Drawing.Size(32, 16);
+            this.RegentLabel.TabIndex = 62;
+            // 
+            // OxfordLabel
+            // 
+            this.OxfordLabel.Enabled = false;
+            this.OxfordLabel.Location = new System.Drawing.Point(622, 146);
+            this.OxfordLabel.Name = "OxfordLabel";
+            this.OxfordLabel.Size = new System.Drawing.Size(32, 15);
+            this.OxfordLabel.TabIndex = 62;
+            // 
+            // CoventryLabel
+            // 
+            this.CoventryLabel.Enabled = false;
+            this.CoventryLabel.Location = new System.Drawing.Point(407, 146);
+            this.CoventryLabel.Name = "CoventryLabel";
+            this.CoventryLabel.Size = new System.Drawing.Size(32, 15);
+            this.CoventryLabel.TabIndex = 62;
+            // 
+            // LeicesterLabel
+            // 
+            this.LeicesterLabel.Enabled = false;
+            this.LeicesterLabel.Location = new System.Drawing.Point(200, 145);
+            this.LeicesterLabel.Name = "LeicesterLabel";
+            this.LeicesterLabel.Size = new System.Drawing.Size(32, 16);
+            this.LeicesterLabel.TabIndex = 62;
+            // 
+            // OldKentLabel
+            // 
+            this.OldKentLabel.Enabled = false;
+            this.OldKentLabel.Location = new System.Drawing.Point(166, 177);
+            this.OldKentLabel.Name = "OldKentLabel";
+            this.OldKentLabel.Size = new System.Drawing.Size(15, 27);
+            this.OldKentLabel.TabIndex = 62;
+            // 
+            // WhitechapelLabel
+            // 
+            this.WhitechapelLabel.Enabled = false;
+            this.WhitechapelLabel.Location = new System.Drawing.Point(166, 256);
+            this.WhitechapelLabel.Name = "WhitechapelLabel";
+            this.WhitechapelLabel.Size = new System.Drawing.Size(15, 27);
+            this.WhitechapelLabel.TabIndex = 62;
+            // 
+            // PallMallLabel
+            // 
+            this.PallMallLabel.Enabled = false;
+            this.PallMallLabel.Location = new System.Drawing.Point(165, 341);
+            this.PallMallLabel.Name = "PallMallLabel";
+            this.PallMallLabel.Size = new System.Drawing.Size(16, 27);
+            this.PallMallLabel.TabIndex = 62;
+            // 
+            // WhiteHallLabel
+            // 
+            this.WhiteHallLabel.Enabled = false;
+            this.WhiteHallLabel.Location = new System.Drawing.Point(165, 417);
+            this.WhiteHallLabel.Name = "WhiteHallLabel";
+            this.WhiteHallLabel.Size = new System.Drawing.Size(16, 27);
+            this.WhiteHallLabel.TabIndex = 62;
+            // 
+            // StrandLabel
+            // 
+            this.StrandLabel.Enabled = false;
+            this.StrandLabel.Location = new System.Drawing.Point(200, 470);
+            this.StrandLabel.Name = "StrandLabel";
+            this.StrandLabel.Size = new System.Drawing.Size(32, 14);
+            this.StrandLabel.TabIndex = 62;
+            // 
+            // FleetLabel
+            // 
+            this.FleetLabel.Enabled = false;
+            this.FleetLabel.Location = new System.Drawing.Point(301, 470);
+            this.FleetLabel.Name = "FleetLabel";
+            this.FleetLabel.Size = new System.Drawing.Size(32, 15);
+            this.FleetLabel.TabIndex = 62;
+            // 
             // FinishTurn
             // 
-            this.FinishTurn.Location = new System.Drawing.Point(981, 551);
+            this.FinishTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.FinishTurn.Enabled = false;
+            this.FinishTurn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FinishTurn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FinishTurn.Location = new System.Drawing.Point(375, 383);
             this.FinishTurn.Name = "FinishTurn";
-            this.FinishTurn.Size = new System.Drawing.Size(148, 32);
+            this.FinishTurn.Size = new System.Drawing.Size(161, 32);
             this.FinishTurn.TabIndex = 56;
             this.FinishTurn.Text = "FinishTurn";
             this.FinishTurn.UseVisualStyleBackColor = true;
             this.FinishTurn.Click += new System.EventHandler(this.FinishTurn_Click);
+            // 
+            // MayfairLabel
+            // 
+            this.MayfairLabel.Enabled = false;
+            this.MayfairLabel.Location = new System.Drawing.Point(510, 470);
+            this.MayfairLabel.Name = "MayfairLabel";
+            this.MayfairLabel.Size = new System.Drawing.Size(32, 15);
+            this.MayfairLabel.TabIndex = 62;
+            // 
+            // ParkLaneLabel
+            // 
+            this.ParkLaneLabel.Enabled = false;
+            this.ParkLaneLabel.Location = new System.Drawing.Point(720, 470);
+            this.ParkLaneLabel.Name = "ParkLaneLabel";
+            this.ParkLaneLabel.Size = new System.Drawing.Size(32, 14);
+            this.ParkLaneLabel.TabIndex = 61;
+            // 
+            // PlayersInfo
+            // 
+            this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersInfo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.PlayersInfo.Location = new System.Drawing.Point(958, 194);
+            this.PlayersInfo.Multiline = true;
+            this.PlayersInfo.Name = "PlayersInfo";
+            this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.PlayersInfo.Size = new System.Drawing.Size(204, 206);
+            this.PlayersInfo.TabIndex = 60;
+            // 
+            // playerinfo
+            // 
+            this.playerinfo.AutoSize = true;
+            this.playerinfo.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerinfo.Location = new System.Drawing.Point(989, 30);
+            this.playerinfo.Name = "playerinfo";
+            this.playerinfo.Size = new System.Drawing.Size(132, 25);
+            this.playerinfo.TabIndex = 59;
+            this.playerinfo.Text = "Player Turn";
+            // 
+            // Dice1
+            // 
+            this.Dice1.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon;
+            this.Dice1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Dice1.Controls.Add(this.Dice1TXT);
+            this.Dice1.Location = new System.Drawing.Point(368, 256);
+            this.Dice1.Name = "Dice1";
+            this.Dice1.Size = new System.Drawing.Size(71, 59);
+            this.Dice1.TabIndex = 55;
+            // 
+            // Dice1TXT
+            // 
+            this.Dice1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Dice1TXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dice1TXT.Location = new System.Drawing.Point(28, 18);
+            this.Dice1TXT.Name = "Dice1TXT";
+            this.Dice1TXT.ReadOnly = true;
+            this.Dice1TXT.Size = new System.Drawing.Size(17, 23);
+            this.Dice1TXT.TabIndex = 0;
+            this.Dice1TXT.Text = "0";
+            this.Dice1TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Dice2
+            // 
+            this.Dice2.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon1;
+            this.Dice2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Dice2.Controls.Add(this.Dice2TXT);
+            this.Dice2.Location = new System.Drawing.Point(471, 256);
+            this.Dice2.Name = "Dice2";
+            this.Dice2.Size = new System.Drawing.Size(71, 59);
+            this.Dice2.TabIndex = 54;
+            // 
+            // Dice2TXT
+            // 
+            this.Dice2TXT.BackColor = System.Drawing.SystemColors.Control;
+            this.Dice2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Dice2TXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dice2TXT.Location = new System.Drawing.Point(28, 18);
+            this.Dice2TXT.Name = "Dice2TXT";
+            this.Dice2TXT.ReadOnly = true;
+            this.Dice2TXT.Size = new System.Drawing.Size(16, 23);
+            this.Dice2TXT.TabIndex = 0;
+            this.Dice2TXT.Text = "0";
+            this.Dice2TXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // RollDice
+            // 
+            this.RollDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RollDice.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RollDice.ForeColor = System.Drawing.Color.LightBlue;
+            this.RollDice.Image = global::Monopoly.Properties.Resources.Dice_icon__1_1;
+            this.RollDice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RollDice.Location = new System.Drawing.Point(368, 321);
+            this.RollDice.Name = "RollDice";
+            this.RollDice.Size = new System.Drawing.Size(174, 51);
+            this.RollDice.TabIndex = 51;
+            this.RollDice.Text = "RollDice\r\n";
+            this.RollDice.UseVisualStyleBackColor = true;
+            this.RollDice.Click += new System.EventHandler(this.RollDice_Click);
             // 
             // Player4
             // 
@@ -620,6 +994,36 @@
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(44, 40);
             this.Player1.TabIndex = 49;
+            // 
+            // GoTojail
+            // 
+            this.GoTojail.BackgroundImage = global::Monopoly.Properties.Resources.GOTOJAILM2loba;
+            this.GoTojail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GoTojail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GoTojail.Location = new System.Drawing.Point(783, 0);
+            this.GoTojail.Name = "GoTojail";
+            this.GoTojail.Size = new System.Drawing.Size(161, 145);
+            this.GoTojail.TabIndex = 31;
+            // 
+            // Go
+            // 
+            this.Go.BackgroundImage = global::Monopoly.Properties.Resources.GoWhite;
+            this.Go.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Go.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Go.Location = new System.Drawing.Point(785, 485);
+            this.Go.Name = "Go";
+            this.Go.Size = new System.Drawing.Size(158, 142);
+            this.Go.TabIndex = 31;
+            // 
+            // Station2
+            // 
+            this.Station2.BackgroundImage = global::Monopoly.Properties.Resources.station_2;
+            this.Station2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Station2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Station2.Location = new System.Drawing.Point(471, 0);
+            this.Station2.Name = "Station2";
+            this.Station2.Size = new System.Drawing.Size(108, 145);
+            this.Station2.TabIndex = 46;
             // 
             // MayFair
             // 
@@ -672,6 +1076,16 @@
             this.textBox2.Text = "Mayfair\r\n\r\n\r\n\r\n\r\n400 $";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Blue;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 37);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // OldKent
             // 
             this.OldKent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -722,6 +1136,16 @@
             this.textBox9.TabIndex = 4;
             this.textBox9.Text = "Old Kent Road\r\n\r\n\r\n60 $";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Brown;
+            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox13.Location = new System.Drawing.Point(118, -1);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox13.TabIndex = 3;
+            this.pictureBox13.TabStop = false;
             // 
             // WhiteChapel
             // 
@@ -774,6 +1198,27 @@
             this.textBox10.Text = "Whitechapel Road\r\n\r\n\r\n60 $";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.Brown;
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox14.Location = new System.Drawing.Point(118, -1);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox14.TabIndex = 3;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            // 
+            // Chance
+            // 
+            this.Chance.BackgroundImage = global::Monopoly.Properties.Resources.Chance;
+            this.Chance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Chance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Chance.Location = new System.Drawing.Point(577, 484);
+            this.Chance.Name = "Chance";
+            this.Chance.Size = new System.Drawing.Size(105, 146);
+            this.Chance.TabIndex = 45;
+            // 
             // PallMall
             // 
             this.PallMall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -824,6 +1269,16 @@
             this.textBox11.TabIndex = 5;
             this.textBox11.Text = "Pall Mall\r\n\r\n\r\n140 $";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.HotPink;
+            this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox15.Location = new System.Drawing.Point(118, -1);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox15.TabIndex = 3;
+            this.pictureBox15.TabStop = false;
             // 
             // WhiteHall
             // 
@@ -876,6 +1331,26 @@
             this.textBox12.Text = "White Hall\r\n\r\n\r\n140 $";
             this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.HotPink;
+            this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox16.Location = new System.Drawing.Point(118, -1);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox16.TabIndex = 3;
+            this.pictureBox16.TabStop = false;
+            // 
+            // FreeParking
+            // 
+            this.FreeParking.BackgroundImage = global::Monopoly.Properties.Resources.Freeparking;
+            this.FreeParking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.FreeParking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FreeParking.Location = new System.Drawing.Point(3, 1);
+            this.FreeParking.Name = "FreeParking";
+            this.FreeParking.Size = new System.Drawing.Size(161, 144);
+            this.FreeParking.TabIndex = 42;
+            // 
             // Regent
             // 
             this.Regent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -926,6 +1401,17 @@
             this.textBox8.TabIndex = 3;
             this.textBox8.Text = "Regent Street\r\n\r\n\r\n220 $";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox8.Location = new System.Drawing.Point(-1, 104);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(103, 40);
+            this.pictureBox8.TabIndex = 2;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // Oxford
             // 
@@ -978,6 +1464,17 @@
             this.textBox7.Text = "Oxford Street\r\n\r\n\r\n300 $";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox7.Location = new System.Drawing.Point(-1, 104);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(103, 41);
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
             // Coventry
             // 
             this.Coventry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1028,6 +1525,26 @@
             this.textBox6.TabIndex = 3;
             this.textBox6.Text = "Coventry Street\r\n\r\n\r\n220 $";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox6.Location = new System.Drawing.Point(-1, 106);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(103, 37);
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // CommunityChest
+            // 
+            this.CommunityChest.BackgroundImage = global::Monopoly.Properties.Resources.Rotate;
+            this.CommunityChest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CommunityChest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CommunityChest.Location = new System.Drawing.Point(267, 0);
+            this.CommunityChest.Name = "CommunityChest";
+            this.CommunityChest.Size = new System.Drawing.Size(102, 145);
+            this.CommunityChest.TabIndex = 38;
             // 
             // Leicester
             // 
@@ -1080,6 +1597,16 @@
             this.textBox5.Text = "Leicester Square\r\n\r\n\r\n260 $";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox5.Location = new System.Drawing.Point(0, 107);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(103, 37);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
             // Vine
             // 
             this.Vine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1130,6 +1657,16 @@
             this.textBox13.TabIndex = 5;
             this.textBox13.Text = "Vine Street\r\n\r\n\r\n200 $";
             this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox9.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox9.TabIndex = 2;
+            this.pictureBox9.TabStop = false;
             // 
             // Bow
             // 
@@ -1182,6 +1719,16 @@
             this.textBox14.Text = "Bow Street\r\n\r\n\r\n180 $";
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox10.TabIndex = 3;
+            this.pictureBox10.TabStop = false;
+            // 
             // Euston
             // 
             this.Euston.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1232,6 +1779,16 @@
             this.textBox15.TabIndex = 5;
             this.textBox15.Text = "Euston Road\r\n\r\n\r\n100 $";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox11.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox11.TabIndex = 3;
+            this.pictureBox11.TabStop = false;
             // 
             // PentoRoad
             // 
@@ -1284,6 +1841,26 @@
             this.textBox16.Text = "Pentonville Road\r\n\r\n\r\n120 $";
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox12.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(42, 85);
+            this.pictureBox12.TabIndex = 3;
+            this.pictureBox12.TabStop = false;
+            // 
+            // Jail
+            // 
+            this.Jail.BackgroundImage = global::Monopoly.Properties.Resources.Jail1;
+            this.Jail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Jail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Jail.Location = new System.Drawing.Point(5, 485);
+            this.Jail.Name = "Jail";
+            this.Jail.Size = new System.Drawing.Size(161, 145);
+            this.Jail.TabIndex = 30;
+            // 
             // Fleet
             // 
             this.Fleet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1334,6 +1911,16 @@
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "Fleet Street\r\n\r\n\r\n\r\n\r\n220 $";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Red;
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(103, 37);
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
             // 
             // StRand
             // 
@@ -1386,6 +1973,26 @@
             this.textBox4.Text = "Strand\r\n\r\n\r\n\r\n\r\n220 $";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Red;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(103, 37);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // Station1
+            // 
+            this.Station1.BackgroundImage = global::Monopoly.Properties.Resources.Station_1;
+            this.Station1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Station1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Station1.Location = new System.Drawing.Point(372, 484);
+            this.Station1.Name = "Station1";
+            this.Station1.Size = new System.Drawing.Size(103, 145);
+            this.Station1.TabIndex = 26;
+            // 
             // ParkLane
             // 
             this.ParkLane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1437,314 +2044,6 @@
             this.textBox1.Text = "Park Lane\r\n\r\n\r\n\r\n\r\n350 $";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Player3_Timer
-            // 
-            this.Player3_Timer.Interval = 10;
-            this.Player3_Timer.Tick += new System.EventHandler(this.Player3_Timer_Tick);
-            // 
-            // Player4_Timer
-            // 
-            this.Player4_Timer.Interval = 10;
-            this.Player4_Timer.Tick += new System.EventHandler(this.Player4_Timer_Tick);
-            // 
-            // Upgrade
-            // 
-            this.Upgrade.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Upgrade.Location = new System.Drawing.Point(981, 492);
-            this.Upgrade.Name = "Upgrade";
-            this.Upgrade.Size = new System.Drawing.Size(148, 48);
-            this.Upgrade.TabIndex = 57;
-            this.Upgrade.Text = "Upgrade";
-            this.Upgrade.UseVisualStyleBackColor = true;
-            this.Upgrade.Click += new System.EventHandler(this.Upgrade_Click);
-            // 
-            // Dice1
-            // 
-            this.Dice1.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon;
-            this.Dice1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Dice1.Controls.Add(this.Dice1TXT);
-            this.Dice1.Location = new System.Drawing.Point(368, 256);
-            this.Dice1.Name = "Dice1";
-            this.Dice1.Size = new System.Drawing.Size(71, 59);
-            this.Dice1.TabIndex = 55;
-            // 
-            // Dice1TXT
-            // 
-            this.Dice1TXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dice1TXT.Location = new System.Drawing.Point(28, 18);
-            this.Dice1TXT.Name = "Dice1TXT";
-            this.Dice1TXT.ReadOnly = true;
-            this.Dice1TXT.Size = new System.Drawing.Size(17, 27);
-            this.Dice1TXT.TabIndex = 0;
-            this.Dice1TXT.Text = "0";
-            // 
-            // Dice2
-            // 
-            this.Dice2.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon1;
-            this.Dice2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Dice2.Controls.Add(this.Dice2TXT);
-            this.Dice2.Location = new System.Drawing.Point(471, 256);
-            this.Dice2.Name = "Dice2";
-            this.Dice2.Size = new System.Drawing.Size(71, 59);
-            this.Dice2.TabIndex = 54;
-            // 
-            // Dice2TXT
-            // 
-            this.Dice2TXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dice2TXT.Location = new System.Drawing.Point(28, 18);
-            this.Dice2TXT.Name = "Dice2TXT";
-            this.Dice2TXT.ReadOnly = true;
-            this.Dice2TXT.Size = new System.Drawing.Size(16, 27);
-            this.Dice2TXT.TabIndex = 0;
-            this.Dice2TXT.Text = "0";
-            // 
-            // RollDice
-            // 
-            this.RollDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RollDice.Image = global::Monopoly.Properties.Resources.Dice_icon__1_1;
-            this.RollDice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RollDice.Location = new System.Drawing.Point(981, 428);
-            this.RollDice.Name = "RollDice";
-            this.RollDice.Size = new System.Drawing.Size(148, 51);
-            this.RollDice.TabIndex = 51;
-            this.RollDice.Text = "RollDice\r\n";
-            this.RollDice.UseVisualStyleBackColor = true;
-            this.RollDice.Click += new System.EventHandler(this.RollDice_Click);
-            // 
-            // GoTojail
-            // 
-            this.GoTojail.BackgroundImage = global::Monopoly.Properties.Resources.GOTOJAILM2loba;
-            this.GoTojail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.GoTojail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GoTojail.Location = new System.Drawing.Point(783, 0);
-            this.GoTojail.Name = "GoTojail";
-            this.GoTojail.Size = new System.Drawing.Size(161, 145);
-            this.GoTojail.TabIndex = 31;
-            // 
-            // Go
-            // 
-            this.Go.BackgroundImage = global::Monopoly.Properties.Resources.GoWhite;
-            this.Go.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Go.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Go.Location = new System.Drawing.Point(785, 485);
-            this.Go.Name = "Go";
-            this.Go.Size = new System.Drawing.Size(158, 142);
-            this.Go.TabIndex = 31;
-            // 
-            // Station2
-            // 
-            this.Station2.BackgroundImage = global::Monopoly.Properties.Resources.station_2;
-            this.Station2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Station2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Station2.Location = new System.Drawing.Point(471, 0);
-            this.Station2.Name = "Station2";
-            this.Station2.Size = new System.Drawing.Size(108, 145);
-            this.Station2.TabIndex = 46;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(103, 37);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Brown;
-            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox13.Location = new System.Drawing.Point(118, -1);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox13.TabIndex = 3;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Brown;
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(118, -1);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox14.TabIndex = 3;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
-            // 
-            // Chance
-            // 
-            this.Chance.BackgroundImage = global::Monopoly.Properties.Resources.Chance;
-            this.Chance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Chance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Chance.Location = new System.Drawing.Point(577, 484);
-            this.Chance.Name = "Chance";
-            this.Chance.Size = new System.Drawing.Size(105, 146);
-            this.Chance.TabIndex = 45;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackColor = System.Drawing.Color.HotPink;
-            this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox15.Location = new System.Drawing.Point(118, -1);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox15.TabIndex = 3;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackColor = System.Drawing.Color.HotPink;
-            this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox16.Location = new System.Drawing.Point(118, -1);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox16.TabIndex = 3;
-            this.pictureBox16.TabStop = false;
-            // 
-            // FreeParking
-            // 
-            this.FreeParking.BackgroundImage = global::Monopoly.Properties.Resources.Freeparking;
-            this.FreeParking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.FreeParking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FreeParking.Location = new System.Drawing.Point(3, 1);
-            this.FreeParking.Name = "FreeParking";
-            this.FreeParking.Size = new System.Drawing.Size(161, 144);
-            this.FreeParking.TabIndex = 42;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Location = new System.Drawing.Point(-1, 104);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(103, 40);
-            this.pictureBox8.TabIndex = 2;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(-1, 104);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(103, 41);
-            this.pictureBox7.TabIndex = 2;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(-1, 106);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(103, 37);
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // CommunityChest
-            // 
-            this.CommunityChest.BackgroundImage = global::Monopoly.Properties.Resources.Rotate;
-            this.CommunityChest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CommunityChest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CommunityChest.Location = new System.Drawing.Point(267, 0);
-            this.CommunityChest.Name = "CommunityChest";
-            this.CommunityChest.Size = new System.Drawing.Size(102, 145);
-            this.CommunityChest.TabIndex = 38;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 107);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(103, 37);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox9.TabIndex = 2;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox10.TabIndex = 3;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox11.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox11.TabIndex = 3;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox12.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(42, 85);
-            this.pictureBox12.TabIndex = 3;
-            this.pictureBox12.TabStop = false;
-            // 
-            // Jail
-            // 
-            this.Jail.BackgroundImage = global::Monopoly.Properties.Resources.Jail1;
-            this.Jail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Jail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Jail.Location = new System.Drawing.Point(5, 485);
-            this.Jail.Name = "Jail";
-            this.Jail.Size = new System.Drawing.Size(161, 145);
-            this.Jail.TabIndex = 30;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Red;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(103, 37);
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Red;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(103, 37);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // Station1
-            // 
-            this.Station1.BackgroundImage = global::Monopoly.Properties.Resources.Station_1;
-            this.Station1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Station1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Station1.Location = new System.Drawing.Point(372, 484);
-            this.Station1.Name = "Station1";
-            this.Station1.Size = new System.Drawing.Size(103, 145);
-            this.Station1.TabIndex = 26;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Blue;
@@ -1755,243 +2054,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Next_btn
+            // Player3_Timer
             // 
-            this.Next_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Next_btn.Enabled = false;
-            this.Next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Next_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Next_btn.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_btn.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
-            this.Next_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Next_btn.Location = new System.Drawing.Point(482, 262);
-            this.Next_btn.Name = "Next_btn";
-            this.Next_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Next_btn.Size = new System.Drawing.Size(101, 40);
-            this.Next_btn.TabIndex = 2;
-            this.Next_btn.Text = "Next";
-            this.Next_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Next_btn.UseVisualStyleBackColor = true;
-            this.Next_btn.Click += new System.EventHandler(this.Next_btn_Click);
+            this.Player3_Timer.Interval = 10;
+            this.Player3_Timer.Tick += new System.EventHandler(this.Player3_Timer_Tick);
             // 
-            // Next_BTN2
+            // Player4_Timer
             // 
-            this.Next_BTN2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Next_BTN2.Enabled = false;
-            this.Next_BTN2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Next_BTN2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Next_BTN2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_BTN2.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
-            this.Next_BTN2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Next_BTN2.Location = new System.Drawing.Point(471, 262);
-            this.Next_BTN2.Name = "Next_BTN2";
-            this.Next_BTN2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Next_BTN2.Size = new System.Drawing.Size(101, 40);
-            this.Next_BTN2.TabIndex = 5;
-            this.Next_BTN2.Text = "Next";
-            this.Next_BTN2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Next_BTN2.UseVisualStyleBackColor = true;
-            this.Next_BTN2.Click += new System.EventHandler(this.Next_BTN2_Click);
-            // 
-            // Panel
-            // 
-            this.Panel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
-            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Panel.Location = new System.Drawing.Point(852, 283);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(310, 344);
-            this.Panel.TabIndex = 1;
-            // 
-            // PhotoPanel
-            // 
-            this.PhotoPanel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
-            this.PhotoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PhotoPanel.Location = new System.Drawing.Point(3, 3);
-            this.PhotoPanel.Name = "PhotoPanel";
-            this.PhotoPanel.Size = new System.Drawing.Size(1165, 286);
-            this.PhotoPanel.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Monopoly.Properties.Resources.Windows_Close_Program_icon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(386, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 27);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // playerinfo
-            // 
-            this.playerinfo.AutoSize = true;
-            this.playerinfo.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerinfo.Location = new System.Drawing.Point(989, 52);
-            this.playerinfo.Name = "playerinfo";
-            this.playerinfo.Size = new System.Drawing.Size(128, 25);
-            this.playerinfo.TabIndex = 59;
-            this.playerinfo.Text = "Player Info";
-            // 
-            // PlayersInfo
-            // 
-            this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersInfo.Location = new System.Drawing.Point(953, 103);
-            this.PlayersInfo.Multiline = true;
-            this.PlayersInfo.Name = "PlayersInfo";
-            this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.PlayersInfo.Size = new System.Drawing.Size(204, 295);
-            this.PlayersInfo.TabIndex = 60;
+            this.Player4_Timer.Interval = 10;
+            this.Player4_Timer.Tick += new System.EventHandler(this.Player4_Timer_Tick);
             // 
             // AllGameTimer
             // 
             this.AllGameTimer.Enabled = true;
             this.AllGameTimer.Tick += new System.EventHandler(this.AllGameTimer_Tick);
-            // 
-            // ParkLaneLabel
-            // 
-            this.ParkLaneLabel.Enabled = false;
-            this.ParkLaneLabel.Location = new System.Drawing.Point(720, 457);
-            this.ParkLaneLabel.Name = "ParkLaneLabel";
-            this.ParkLaneLabel.Size = new System.Drawing.Size(32, 27);
-            this.ParkLaneLabel.TabIndex = 61;
-            // 
-            // MayfairLabel
-            // 
-            this.MayfairLabel.Enabled = false;
-            this.MayfairLabel.Location = new System.Drawing.Point(510, 458);
-            this.MayfairLabel.Name = "MayfairLabel";
-            this.MayfairLabel.Size = new System.Drawing.Size(32, 27);
-            this.MayfairLabel.TabIndex = 62;
-            // 
-            // FleetLabel
-            // 
-            this.FleetLabel.Enabled = false;
-            this.FleetLabel.Location = new System.Drawing.Point(301, 458);
-            this.FleetLabel.Name = "FleetLabel";
-            this.FleetLabel.Size = new System.Drawing.Size(32, 27);
-            this.FleetLabel.TabIndex = 62;
-            // 
-            // StrandLabel
-            // 
-            this.StrandLabel.Enabled = false;
-            this.StrandLabel.Location = new System.Drawing.Point(200, 457);
-            this.StrandLabel.Name = "StrandLabel";
-            this.StrandLabel.Size = new System.Drawing.Size(32, 27);
-            this.StrandLabel.TabIndex = 62;
-            // 
-            // WhiteHallLabel
-            // 
-            this.WhiteHallLabel.Enabled = false;
-            this.WhiteHallLabel.Location = new System.Drawing.Point(165, 417);
-            this.WhiteHallLabel.Name = "WhiteHallLabel";
-            this.WhiteHallLabel.Size = new System.Drawing.Size(32, 27);
-            this.WhiteHallLabel.TabIndex = 62;
-            // 
-            // PallMallLabel
-            // 
-            this.PallMallLabel.Enabled = false;
-            this.PallMallLabel.Location = new System.Drawing.Point(165, 341);
-            this.PallMallLabel.Name = "PallMallLabel";
-            this.PallMallLabel.Size = new System.Drawing.Size(32, 27);
-            this.PallMallLabel.TabIndex = 62;
-            // 
-            // WhitechapelLabel
-            // 
-            this.WhitechapelLabel.Enabled = false;
-            this.WhitechapelLabel.Location = new System.Drawing.Point(166, 256);
-            this.WhitechapelLabel.Name = "WhitechapelLabel";
-            this.WhitechapelLabel.Size = new System.Drawing.Size(32, 27);
-            this.WhitechapelLabel.TabIndex = 62;
-            // 
-            // OldKentLabel
-            // 
-            this.OldKentLabel.Enabled = false;
-            this.OldKentLabel.Location = new System.Drawing.Point(166, 177);
-            this.OldKentLabel.Name = "OldKentLabel";
-            this.OldKentLabel.Size = new System.Drawing.Size(32, 27);
-            this.OldKentLabel.TabIndex = 62;
-            // 
-            // LeicesterLabel
-            // 
-            this.LeicesterLabel.Enabled = false;
-            this.LeicesterLabel.Location = new System.Drawing.Point(200, 145);
-            this.LeicesterLabel.Name = "LeicesterLabel";
-            this.LeicesterLabel.Size = new System.Drawing.Size(32, 27);
-            this.LeicesterLabel.TabIndex = 62;
-            // 
-            // CoventryLabel
-            // 
-            this.CoventryLabel.Enabled = false;
-            this.CoventryLabel.Location = new System.Drawing.Point(407, 146);
-            this.CoventryLabel.Name = "CoventryLabel";
-            this.CoventryLabel.Size = new System.Drawing.Size(32, 27);
-            this.CoventryLabel.TabIndex = 62;
-            // 
-            // OxfordLabel
-            // 
-            this.OxfordLabel.Enabled = false;
-            this.OxfordLabel.Location = new System.Drawing.Point(622, 146);
-            this.OxfordLabel.Name = "OxfordLabel";
-            this.OxfordLabel.Size = new System.Drawing.Size(32, 27);
-            this.OxfordLabel.TabIndex = 62;
-            // 
-            // RegentLabel
-            // 
-            this.RegentLabel.Enabled = false;
-            this.RegentLabel.Location = new System.Drawing.Point(720, 145);
-            this.RegentLabel.Name = "RegentLabel";
-            this.RegentLabel.Size = new System.Drawing.Size(32, 27);
-            this.RegentLabel.TabIndex = 62;
-            // 
-            // VineLabel
-            // 
-            this.VineLabel.Enabled = false;
-            this.VineLabel.Location = new System.Drawing.Point(750, 177);
-            this.VineLabel.Name = "VineLabel";
-            this.VineLabel.Size = new System.Drawing.Size(32, 27);
-            this.VineLabel.TabIndex = 62;
-            // 
-            // BowLabel
-            // 
-            this.BowLabel.Enabled = false;
-            this.BowLabel.Location = new System.Drawing.Point(750, 261);
-            this.BowLabel.Name = "BowLabel";
-            this.BowLabel.Size = new System.Drawing.Size(32, 27);
-            this.BowLabel.TabIndex = 62;
-            // 
-            // EustonLabel
-            // 
-            this.EustonLabel.Enabled = false;
-            this.EustonLabel.Location = new System.Drawing.Point(750, 343);
-            this.EustonLabel.Name = "EustonLabel";
-            this.EustonLabel.Size = new System.Drawing.Size(32, 27);
-            this.EustonLabel.TabIndex = 62;
-            // 
-            // PentonvilleLabel
-            // 
-            this.PentonvilleLabel.Enabled = false;
-            this.PentonvilleLabel.Location = new System.Drawing.Point(750, 417);
-            this.PentonvilleLabel.Name = "PentonvilleLabel";
-            this.PentonvilleLabel.Size = new System.Drawing.Size(32, 27);
-            this.PentonvilleLabel.TabIndex = 62;
-            // 
-            // Station1Label
-            // 
-            this.Station1Label.Enabled = false;
-            this.Station1Label.Location = new System.Drawing.Point(407, 456);
-            this.Station1Label.Name = "Station1Label";
-            this.Station1Label.Size = new System.Drawing.Size(32, 27);
-            this.Station1Label.TabIndex = 63;
-            // 
-            // Station2Label
-            // 
-            this.Station2Label.Enabled = false;
-            this.Station2Label.Location = new System.Drawing.Point(510, 146);
-            this.Station2Label.Name = "Station2Label";
-            this.Station2Label.Size = new System.Drawing.Size(32, 27);
-            this.Station2Label.TabIndex = 63;
             // 
             // Monopoly
             // 
@@ -2003,98 +2079,99 @@
             this.Name = "Monopoly";
             this.Text = "Monooly";
             this.Registeration.ResumeLayout(false);
-            this.NumberofplayerPanel.ResumeLayout(false);
-            this.NumberofplayerPanel.PerformLayout();
             this.PlayerReg_Panel.ResumeLayout(false);
             this.PlayerReg_Panel.PerformLayout();
+            this.NumberofplayerPanel.ResumeLayout(false);
+            this.NumberofplayerPanel.PerformLayout();
             this.Upgradee.ResumeLayout(false);
             this.Upgradee.PerformLayout();
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
             this.BuyingCity.ResumeLayout(false);
-            this.MayFair.ResumeLayout(false);
-            this.MayFair.PerformLayout();
-            this.MayFair_House.ResumeLayout(false);
-            this.MayFair_House.PerformLayout();
-            this.OldKent.ResumeLayout(false);
-            this.OldKent.PerformLayout();
-            this.OldKent_House.ResumeLayout(false);
-            this.OldKent_House.PerformLayout();
-            this.WhiteChapel.ResumeLayout(false);
-            this.WhiteChapel.PerformLayout();
-            this.Whitechapel_House.ResumeLayout(false);
-            this.Whitechapel_House.PerformLayout();
-            this.PallMall.ResumeLayout(false);
-            this.PallMall.PerformLayout();
-            this.PallMall_House.ResumeLayout(false);
-            this.PallMall_House.PerformLayout();
-            this.WhiteHall.ResumeLayout(false);
-            this.WhiteHall.PerformLayout();
-            this.WhiteHall_House.ResumeLayout(false);
-            this.WhiteHall_House.PerformLayout();
-            this.Regent.ResumeLayout(false);
-            this.Regent.PerformLayout();
-            this.Regent_House.ResumeLayout(false);
-            this.Regent_House.PerformLayout();
-            this.Oxford.ResumeLayout(false);
-            this.Oxford.PerformLayout();
-            this.Oxford_House.ResumeLayout(false);
-            this.Oxford_House.PerformLayout();
-            this.Coventry.ResumeLayout(false);
-            this.Coventry.PerformLayout();
-            this.Coventry_House.ResumeLayout(false);
-            this.Coventry_House.PerformLayout();
-            this.Leicester.ResumeLayout(false);
-            this.Leicester.PerformLayout();
-            this.LeicesterSq_House.ResumeLayout(false);
-            this.LeicesterSq_House.PerformLayout();
-            this.Vine.ResumeLayout(false);
-            this.Vine.PerformLayout();
-            this.Vine_House.ResumeLayout(false);
-            this.Vine_House.PerformLayout();
-            this.Bow.ResumeLayout(false);
-            this.Bow.PerformLayout();
-            this.Bow_House.ResumeLayout(false);
-            this.Bow_House.PerformLayout();
-            this.Euston.ResumeLayout(false);
-            this.Euston.PerformLayout();
-            this.Euston_House.ResumeLayout(false);
-            this.Euston_House.PerformLayout();
-            this.PentoRoad.ResumeLayout(false);
-            this.PentoRoad.PerformLayout();
-            this.Pentonville_House.ResumeLayout(false);
-            this.Pentonville_House.PerformLayout();
-            this.Fleet.ResumeLayout(false);
-            this.Fleet.PerformLayout();
-            this.FleetStreet_House.ResumeLayout(false);
-            this.FleetStreet_House.PerformLayout();
-            this.StRand.ResumeLayout(false);
-            this.StRand.PerformLayout();
-            this.Strand_House.ResumeLayout(false);
-            this.Strand_House.PerformLayout();
-            this.ParkLane.ResumeLayout(false);
-            this.ParkLane.PerformLayout();
-            this.ParkLane_House.ResumeLayout(false);
-            this.ParkLane_House.PerformLayout();
+            this.BuyingCity.PerformLayout();
             this.Dice1.ResumeLayout(false);
             this.Dice1.PerformLayout();
             this.Dice2.ResumeLayout(false);
             this.Dice2.PerformLayout();
+            this.MayFair.ResumeLayout(false);
+            this.MayFair.PerformLayout();
+            this.MayFair_House.ResumeLayout(false);
+            this.MayFair_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.OldKent.ResumeLayout(false);
+            this.OldKent.PerformLayout();
+            this.OldKent_House.ResumeLayout(false);
+            this.OldKent_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.WhiteChapel.ResumeLayout(false);
+            this.WhiteChapel.PerformLayout();
+            this.Whitechapel_House.ResumeLayout(false);
+            this.Whitechapel_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.PallMall.ResumeLayout(false);
+            this.PallMall.PerformLayout();
+            this.PallMall_House.ResumeLayout(false);
+            this.PallMall_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            this.WhiteHall.ResumeLayout(false);
+            this.WhiteHall.PerformLayout();
+            this.WhiteHall_House.ResumeLayout(false);
+            this.WhiteHall_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.Regent.ResumeLayout(false);
+            this.Regent.PerformLayout();
+            this.Regent_House.ResumeLayout(false);
+            this.Regent_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.Oxford.ResumeLayout(false);
+            this.Oxford.PerformLayout();
+            this.Oxford_House.ResumeLayout(false);
+            this.Oxford_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.Coventry.ResumeLayout(false);
+            this.Coventry.PerformLayout();
+            this.Coventry_House.ResumeLayout(false);
+            this.Coventry_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.Leicester.ResumeLayout(false);
+            this.Leicester.PerformLayout();
+            this.LeicesterSq_House.ResumeLayout(false);
+            this.LeicesterSq_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.Vine.ResumeLayout(false);
+            this.Vine.PerformLayout();
+            this.Vine_House.ResumeLayout(false);
+            this.Vine_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.Bow.ResumeLayout(false);
+            this.Bow.PerformLayout();
+            this.Bow_House.ResumeLayout(false);
+            this.Bow_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.Euston.ResumeLayout(false);
+            this.Euston.PerformLayout();
+            this.Euston_House.ResumeLayout(false);
+            this.Euston_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.PentoRoad.ResumeLayout(false);
+            this.PentoRoad.PerformLayout();
+            this.Pentonville_House.ResumeLayout(false);
+            this.Pentonville_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.Fleet.ResumeLayout(false);
+            this.Fleet.PerformLayout();
+            this.FleetStreet_House.ResumeLayout(false);
+            this.FleetStreet_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.StRand.ResumeLayout(false);
+            this.StRand.PerformLayout();
+            this.Strand_House.ResumeLayout(false);
+            this.Strand_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.ParkLane.ResumeLayout(false);
+            this.ParkLane.PerformLayout();
+            this.ParkLane_House.ResumeLayout(false);
+            this.ParkLane_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -2247,7 +2324,6 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button BuyCity;
         private System.Windows.Forms.Panel City;
-        private System.Windows.Forms.Button Upgrade;
         private System.Windows.Forms.TextBox PlayersInfo;
         private System.Windows.Forms.Label playerinfo;
         private System.Windows.Forms.Timer AllGameTimer;
@@ -2269,6 +2345,12 @@
         private System.Windows.Forms.Panel FleetLabel;
         private System.Windows.Forms.Panel MayfairLabel;
         private System.Windows.Forms.Panel ParkLaneLabel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox CityPrice;
+        private System.Windows.Forms.TextBox PlayerNameTextBox;
+        private System.Windows.Forms.Panel PlayerLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox BalanceTXT;
     }
 }
 

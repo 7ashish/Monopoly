@@ -58,7 +58,7 @@ public class City : Purchasable
         }
         else
         {
-            string FolderPath = Directory.GetCurrentDirectory();//"C:\Users\shetos\Documents\Visual Studio 2017\Projects\Monopoly\Monopoly\bin\Debug";
+            string FolderPath = Directory.GetCurrentDirectory();
             switch (Get_FieldNumber())
             {
                 case 1:
@@ -126,7 +126,7 @@ public class City : Purchasable
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
             }
-
+            GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
 
