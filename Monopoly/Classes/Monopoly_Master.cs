@@ -36,8 +36,8 @@ class Monopoly_Master
             new UselessFields(p,7,new Point{X=80,Y=530}),
             new City(p,8,new Point{X=80,Y=430 },"White Hall", 140, 70, 2, 100, 100, new int[] { 50, 150, 450, 625 }, 750, 10 ),
             new City(p,9,new Point{X=80,Y=340 },"Pall Mall", 140, 70, 2, 100, 100, new int[]{ 50, 150, 450, 650 }, 750, 10),
-            new City(p,10,new Point{X=79,Y=260 },"White Chapel ROad", 60, 50, 3, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6),
-            new City(p,11,new Point{X=80,Y=175 },"old Kent Road", 60, 50, 3, 30, 30, new int[]{ 10,30,90,160}, 250,2),
+            new City(p,10,new Point{X=79,Y=260 },"Whitechapel", 60, 50, 3, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6),
+            new City(p,11,new Point{X=80,Y=175 },"Old Kent", 60, 50, 3, 30, 30, new int[]{ 10,30,90,160}, 250,2),
             new UselessFields(p,12,new Point{X=80,Y=80 }),
             new City(p,13,new Point(210,80),"Leicester Square",260,150,4,150,150,new int[]{110,330,800,975},1150,22),
             new Community_Chest(p,14,new Point(310,80)),
@@ -49,7 +49,7 @@ class Monopoly_Master
             new City(p,20,new Point(850,175),"Vine sreet",200,100,6,100,100,new int[]{80,220,600,800 },1000,16),
             new City(p,21,new Point(850,260),"Bow Stret", 180, 90, 6, 100, 100,new int[] { 70, 200, 550, 750 }, 950, 14),
             new City(p,22,new Point(850,345),"Euston Road", 100, 50, 7, 50, 50, new int[] { 30, 90, 270, 400 }, 550, 6),
-            new City(p,23,new Point(850,430),"Pen Tonville Road", 120, 60, 7, 50, 50, new int[] { 40, 100, 300, 450 }, 600, 8)
+            new City(p,23,new Point(850,430),"Pentonville Road", 120, 60, 7, 50, 50, new int[] { 40, 100, 300, 450 }, 600, 8)
         };
         List<City> Tempo = new List<City>();
         Tempo.Add((City)Fields[1]);

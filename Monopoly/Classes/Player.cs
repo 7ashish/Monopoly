@@ -32,17 +32,9 @@ public class Player
     {
         Balance += money;
     }
-    public bool Pay_Tax(int tax)
+    public void Pay_Tax(int tax)
     {
-        if (Balance >= tax)
-        {
-            Balance -= tax;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        Balance -= tax;
     }
     public void Set_Fieldnumber(int number)
     {

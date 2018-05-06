@@ -489,8 +489,8 @@ namespace Monopoly
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.Payrent);
+            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.UpdateBTN);
@@ -560,9 +560,12 @@ namespace Monopoly
             // 
             // UpdateBTN
             // 
-            this.UpdateBTN.Location = new System.Drawing.Point(990, 470);
+            this.UpdateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.UpdateBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBTN.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.UpdateBTN.Location = new System.Drawing.Point(958, 492);
             this.UpdateBTN.Name = "UpdateBTN";
-            this.UpdateBTN.Size = new System.Drawing.Size(127, 23);
+            this.UpdateBTN.Size = new System.Drawing.Size(196, 33);
             this.UpdateBTN.TabIndex = 81;
             this.UpdateBTN.Text = "Update";
             this.UpdateBTN.UseVisualStyleBackColor = true;
@@ -585,7 +588,7 @@ namespace Monopoly
             this.UpdatePanel.Controls.Add(this.BuyHouse);
             this.UpdatePanel.Location = new System.Drawing.Point(215, 124);
             this.UpdatePanel.Name = "UpdatePanel";
-            this.UpdatePanel.Size = new System.Drawing.Size(574, 379);
+            this.UpdatePanel.Size = new System.Drawing.Size(537, 379);
             this.UpdatePanel.TabIndex = 80;
             this.UpdatePanel.Visible = false;
             // 
@@ -593,9 +596,9 @@ namespace Monopoly
             // 
             this.Ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Ok.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ok.Location = new System.Drawing.Point(257, 338);
+            this.Ok.Location = new System.Drawing.Point(319, 315);
             this.Ok.Name = "Ok";
-            this.Ok.Size = new System.Drawing.Size(72, 24);
+            this.Ok.Size = new System.Drawing.Size(109, 24);
             this.Ok.TabIndex = 81;
             this.Ok.Text = "Ok";
             this.Ok.UseVisualStyleBackColor = true;
@@ -606,18 +609,18 @@ namespace Monopoly
             this.UpdatePicture.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.UpdatePicture.BackgroundImage = global::Monopoly.Properties.Resources.Houses_Hotels;
             this.UpdatePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UpdatePicture.Location = new System.Drawing.Point(17, 12);
+            this.UpdatePicture.Location = new System.Drawing.Point(3, 149);
             this.UpdatePicture.Name = "UpdatePicture";
-            this.UpdatePicture.Size = new System.Drawing.Size(159, 131);
+            this.UpdatePicture.Size = new System.Drawing.Size(196, 216);
             this.UpdatePicture.TabIndex = 80;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(112, 160);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(64, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 19);
+            this.label5.Size = new System.Drawing.Size(223, 23);
             this.label5.TabIndex = 68;
             this.label5.Text = "Number of City or Station";
             // 
@@ -625,7 +628,8 @@ namespace Monopoly
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(199, 64);
+            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.Location = new System.Drawing.Point(109, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(330, 25);
             this.label8.TabIndex = 74;
@@ -636,9 +640,10 @@ namespace Monopoly
             this.SellHotel.Enabled = false;
             this.SellHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SellHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHotel.Location = new System.Drawing.Point(380, 280);
+            this.SellHotel.ForeColor = System.Drawing.Color.Brown;
+            this.SellHotel.Location = new System.Drawing.Point(319, 249);
             this.SellHotel.Name = "SellHotel";
-            this.SellHotel.Size = new System.Drawing.Size(104, 39);
+            this.SellHotel.Size = new System.Drawing.Size(81, 37);
             this.SellHotel.TabIndex = 78;
             this.SellHotel.Text = "Sell Hotel";
             this.SellHotel.UseVisualStyleBackColor = true;
@@ -649,9 +654,10 @@ namespace Monopoly
             this.BuyHotel.Enabled = false;
             this.BuyHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BuyHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHotel.Location = new System.Drawing.Point(378, 219);
+            this.BuyHotel.ForeColor = System.Drawing.Color.Firebrick;
+            this.BuyHotel.Location = new System.Drawing.Point(319, 190);
             this.BuyHotel.Name = "BuyHotel";
-            this.BuyHotel.Size = new System.Drawing.Size(104, 42);
+            this.BuyHotel.Size = new System.Drawing.Size(80, 37);
             this.BuyHotel.TabIndex = 79;
             this.BuyHotel.Text = "Buy Hotel";
             this.BuyHotel.UseVisualStyleBackColor = true;
@@ -662,9 +668,10 @@ namespace Monopoly
             this.SellHouse.Enabled = false;
             this.SellHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SellHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHouse.Location = new System.Drawing.Point(253, 280);
+            this.SellHouse.ForeColor = System.Drawing.Color.DarkGreen;
+            this.SellHouse.Location = new System.Drawing.Point(205, 255);
             this.SellHouse.Name = "SellHouse";
-            this.SellHouse.Size = new System.Drawing.Size(81, 39);
+            this.SellHouse.Size = new System.Drawing.Size(83, 37);
             this.SellHouse.TabIndex = 77;
             this.SellHouse.Text = "Sell House";
             this.SellHouse.UseVisualStyleBackColor = true;
@@ -673,7 +680,7 @@ namespace Monopoly
             // Citynumber
             // 
             this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Citynumber.Location = new System.Drawing.Point(369, 158);
+            this.Citynumber.Location = new System.Drawing.Point(344, 118);
             this.Citynumber.Name = "Citynumber";
             this.Citynumber.Size = new System.Drawing.Size(123, 23);
             this.Citynumber.TabIndex = 69;
@@ -685,9 +692,10 @@ namespace Monopoly
             this.RemoveMortagage.Enabled = false;
             this.RemoveMortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RemoveMortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveMortagage.Location = new System.Drawing.Point(116, 219);
+            this.RemoveMortagage.ForeColor = System.Drawing.Color.DimGray;
+            this.RemoveMortagage.Location = new System.Drawing.Point(423, 248);
             this.RemoveMortagage.Name = "RemoveMortagage";
-            this.RemoveMortagage.Size = new System.Drawing.Size(90, 42);
+            this.RemoveMortagage.Size = new System.Drawing.Size(100, 35);
             this.RemoveMortagage.TabIndex = 76;
             this.RemoveMortagage.Text = "Remove Mortagage";
             this.RemoveMortagage.UseVisualStyleBackColor = true;
@@ -698,9 +706,10 @@ namespace Monopoly
             this.Mortagage.Enabled = false;
             this.Mortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Mortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mortagage.Location = new System.Drawing.Point(116, 280);
+            this.Mortagage.ForeColor = System.Drawing.Color.DimGray;
+            this.Mortagage.Location = new System.Drawing.Point(423, 190);
             this.Mortagage.Name = "Mortagage";
-            this.Mortagage.Size = new System.Drawing.Size(90, 41);
+            this.Mortagage.Size = new System.Drawing.Size(100, 37);
             this.Mortagage.TabIndex = 70;
             this.Mortagage.Text = "Mortagage";
             this.Mortagage.UseVisualStyleBackColor = true;
@@ -711,9 +720,10 @@ namespace Monopoly
             this.BuyHouse.Enabled = false;
             this.BuyHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BuyHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHouse.Location = new System.Drawing.Point(253, 219);
+            this.BuyHouse.ForeColor = System.Drawing.Color.Green;
+            this.BuyHouse.Location = new System.Drawing.Point(205, 192);
             this.BuyHouse.Name = "BuyHouse";
-            this.BuyHouse.Size = new System.Drawing.Size(81, 42);
+            this.BuyHouse.Size = new System.Drawing.Size(83, 37);
             this.BuyHouse.TabIndex = 75;
             this.BuyHouse.Text = "Buy House";
             this.BuyHouse.UseVisualStyleBackColor = true;
@@ -721,7 +731,7 @@ namespace Monopoly
             // 
             // PlayerLabel2
             // 
-            this.PlayerLabel2.Location = new System.Drawing.Point(949, 559);
+            this.PlayerLabel2.Location = new System.Drawing.Point(949, 548);
             this.PlayerLabel2.Name = "PlayerLabel2";
             this.PlayerLabel2.Size = new System.Drawing.Size(210, 13);
             this.PlayerLabel2.TabIndex = 65;
@@ -732,9 +742,9 @@ namespace Monopoly
             this.surrenderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surrenderbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.surrenderbtn.Location = new System.Drawing.Point(958, 588);
+            this.surrenderbtn.Location = new System.Drawing.Point(958, 578);
             this.surrenderbtn.Name = "surrenderbtn";
-            this.surrenderbtn.Size = new System.Drawing.Size(196, 26);
+            this.surrenderbtn.Size = new System.Drawing.Size(196, 36);
             this.surrenderbtn.TabIndex = 73;
             this.surrenderbtn.Text = "Surrender";
             this.surrenderbtn.UseVisualStyleBackColor = false;
@@ -773,13 +783,13 @@ namespace Monopoly
             // 
             // Payrent
             // 
-            this.Payrent.BackColor = System.Drawing.Color.PeachPuff;
-            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Payrent.Controls.Add(this.surrender);
             this.Payrent.Controls.Add(this.PayrentBTN);
             this.Payrent.Controls.Add(this.RentTextBox);
             this.Payrent.Controls.Add(this.label4);
-            this.Payrent.Location = new System.Drawing.Point(377, 208);
+            this.Payrent.Location = new System.Drawing.Point(319, 223);
             this.Payrent.Name = "Payrent";
             this.Payrent.Size = new System.Drawing.Size(325, 151);
             this.Payrent.TabIndex = 0;
@@ -789,9 +799,10 @@ namespace Monopoly
             // 
             this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrender.Location = new System.Drawing.Point(42, 87);
+            this.surrender.ForeColor = System.Drawing.Color.Maroon;
+            this.surrender.Location = new System.Drawing.Point(48, 87);
             this.surrender.Name = "surrender";
-            this.surrender.Size = new System.Drawing.Size(94, 24);
+            this.surrender.Size = new System.Drawing.Size(94, 31);
             this.surrender.TabIndex = 3;
             this.surrender.Text = "Surrender";
             this.surrender.UseVisualStyleBackColor = true;
@@ -801,6 +812,7 @@ namespace Monopoly
             // 
             this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayrentBTN.ForeColor = System.Drawing.Color.DarkOrange;
             this.PayrentBTN.Location = new System.Drawing.Point(200, 80);
             this.PayrentBTN.Name = "PayrentBTN";
             this.PayrentBTN.Size = new System.Drawing.Size(75, 35);
@@ -835,7 +847,7 @@ namespace Monopoly
             this.Player4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player4.Location = new System.Drawing.Point(850, 530);
             this.Player4.Name = "Player4";
-            this.Player4.Size = new System.Drawing.Size(18, 22);
+            this.Player4.Size = new System.Drawing.Size(20, 19);
             this.Player4.TabIndex = 50;
             this.Player4.Visible = false;
             // 
@@ -845,7 +857,7 @@ namespace Monopoly
             this.Player3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player3.Location = new System.Drawing.Point(850, 530);
             this.Player3.Name = "Player3";
-            this.Player3.Size = new System.Drawing.Size(28, 25);
+            this.Player3.Size = new System.Drawing.Size(29, 31);
             this.Player3.TabIndex = 49;
             this.Player3.Visible = false;
             // 
@@ -855,7 +867,7 @@ namespace Monopoly
             this.Player2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player2.Location = new System.Drawing.Point(850, 530);
             this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(36, 34);
+            this.Player2.Size = new System.Drawing.Size(33, 36);
             this.Player2.TabIndex = 49;
             this.Player2.Visible = false;
             // 
@@ -865,7 +877,7 @@ namespace Monopoly
             this.Player1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player1.Location = new System.Drawing.Point(850, 530);
             this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(44, 40);
+            this.Player1.Size = new System.Drawing.Size(42, 45);
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
             // 
@@ -1145,13 +1157,13 @@ namespace Monopoly
             // PlayersInfo
             // 
             this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersInfo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersInfo.ForeColor = System.Drawing.Color.Crimson;
             this.PlayersInfo.Location = new System.Drawing.Point(958, 194);
             this.PlayersInfo.Multiline = true;
             this.PlayersInfo.Name = "PlayersInfo";
             this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.PlayersInfo.Size = new System.Drawing.Size(204, 206);
+            this.PlayersInfo.Size = new System.Drawing.Size(204, 252);
             this.PlayersInfo.TabIndex = 60;
             // 
             // playerinfo
@@ -1214,7 +1226,7 @@ namespace Monopoly
             this.RollDice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RollDice.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RollDice.ForeColor = System.Drawing.Color.LightBlue;
+            this.RollDice.ForeColor = System.Drawing.Color.RoyalBlue;
             this.RollDice.Image = global::Monopoly.Properties.Resources.Dice_icon__1_1;
             this.RollDice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RollDice.Location = new System.Drawing.Point(368, 321);
