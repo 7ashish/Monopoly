@@ -14,7 +14,7 @@ public class City : Purchasable
     int[] HouseRentPrices;
     int RentWithHotel;
     int CityRentPrice;
-    static int NumberofHouses = 0;
+    int NumberofHouses;
     bool HouseModification;
     bool HotelModification;
 
@@ -27,6 +27,7 @@ public class City : Purchasable
         HousePrice = 0;
         RentWithHotel = 0;
         CityRentPrice = 0;
+        NumberofHouses = 0;
     }
     public City(Monopoly.Monopoly p, int fieldnumber, Point fieldpostion, string name, int price, int mortageprice, int groupnumber, int hotelprice, int houseprice, int[] rentwithhouse, int rentwithhotel, int cityrentprice) : base(p, fieldnumber, fieldpostion, name, price, mortageprice)
     {
@@ -34,6 +35,7 @@ public class City : Purchasable
         HotelModification = false;
         GroupNumber = groupnumber;
         HotelPrice = hotelprice;
+        NumberofHouses = 0;
         HouseRentPrices = new int[4];
         for (int i = 0; i < 4; i++)
         {

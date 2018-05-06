@@ -134,7 +134,6 @@ public class Player
     {
         Balance += city.Get_MortagagePrice();
         city.Set_ISMortagaged();
-
     }
     public void MortagageStation(Station station)
     {

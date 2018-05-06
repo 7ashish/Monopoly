@@ -40,7 +40,11 @@ public class Station : Purchasable
             }
             else
             {
-                player.Pay_StationRents(this);
+                if (!Get_ISMortagaged())
+                {
+                    GetForm().Set_Payrent();
+                }
+                //player.Pay_StationRents(this);
             }
         }
         else

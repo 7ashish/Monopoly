@@ -23,16 +23,16 @@ class GoToJail : Non_Purchasable
         switch (player.Get_Token())
         {
             case 1:
-                P.GetPlayer1Panel().Location = jail;
+                P.SetPlayer1PanelLocation(jail);
                 break;
             case 2:
-                P.GetPlayer2Panel().Location = jail;
+                P.SetPlayer2PanelLocation(jail);
                 break;
             case 3:
-                P.GetPlayer3Panel().Location = jail;
+                P.SetPlayer3PanelLocation(jail);
                 break;
             case 4:
-                P.GetPlayer4Panel().Location = jail;
+                P.SetPlayer4PanelLocation(jail);
                 break;
         }
     }

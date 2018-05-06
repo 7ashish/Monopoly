@@ -48,17 +48,33 @@ namespace Monopoly
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
-            this.Player4 = new System.Windows.Forms.Panel();
-            this.Player3 = new System.Windows.Forms.Panel();
-            this.Player2 = new System.Windows.Forms.Panel();
-            this.Player1 = new System.Windows.Forms.Panel();
+            this.UpdateBTN = new System.Windows.Forms.Button();
+            this.UpdatePanel = new System.Windows.Forms.Panel();
+            this.Ok = new System.Windows.Forms.Button();
+            this.UpdatePicture = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SellHotel = new System.Windows.Forms.Button();
+            this.BuyHotel = new System.Windows.Forms.Button();
+            this.SellHouse = new System.Windows.Forms.Button();
+            this.Citynumber = new System.Windows.Forms.TextBox();
+            this.RemoveMortagage = new System.Windows.Forms.Button();
+            this.Mortagage = new System.Windows.Forms.Button();
+            this.BuyHouse = new System.Windows.Forms.Button();
+            this.PlayerLabel2 = new System.Windows.Forms.Panel();
+            this.surrenderbtn = new System.Windows.Forms.Button();
             this.ActionPanel = new System.Windows.Forms.Panel();
             this.OkBTN = new System.Windows.Forms.Button();
             this.ActionPic = new System.Windows.Forms.Panel();
             this.Payrent = new System.Windows.Forms.Panel();
+            this.surrender = new System.Windows.Forms.Button();
             this.PayrentBTN = new System.Windows.Forms.Button();
             this.RentTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Player4 = new System.Windows.Forms.Panel();
+            this.Player3 = new System.Windows.Forms.Panel();
+            this.Player2 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
             this.BalanceTXT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.PlayerNameTextBox = new System.Windows.Forms.TextBox();
@@ -204,27 +220,35 @@ namespace Monopoly
             this.AllGameTimer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.surrender = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Citynumber = new System.Windows.Forms.TextBox();
-            this.Mortagage = new System.Windows.Forms.Button();
-            this.surrenderbtn = new System.Windows.Forms.Button();
-            this.PlayerLabel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.BuyHouse = new System.Windows.Forms.Button();
-            this.RemoveMortagage = new System.Windows.Forms.Button();
-            this.SellHouse = new System.Windows.Forms.Button();
-            this.SellHotel = new System.Windows.Forms.Button();
-            this.BuyHotel = new System.Windows.Forms.Button();
+            this.ParkLaneMortagage = new System.Windows.Forms.Panel();
+            this.MayFairMortagagePanel = new System.Windows.Forms.Panel();
+            this.FleetMortagagePanel = new System.Windows.Forms.Panel();
+            this.StrandMortagagePanel = new System.Windows.Forms.Panel();
+            this.LeicesterMortagagePanel = new System.Windows.Forms.Panel();
+            this.CoventryMortagagePanel = new System.Windows.Forms.Panel();
+            this.OxfordMortagagePanel = new System.Windows.Forms.Panel();
+            this.RegentMortagagePanel = new System.Windows.Forms.Panel();
+            this.PentonvilleMortagagePanel = new System.Windows.Forms.Panel();
+            this.EustonMortagagePanel = new System.Windows.Forms.Panel();
+            this.BowMortagagePanel = new System.Windows.Forms.Panel();
+            this.VineMortagagePanel = new System.Windows.Forms.Panel();
+            this.WhiteHallMortagagePanel = new System.Windows.Forms.Panel();
+            this.PallMallMortagagePanel = new System.Windows.Forms.Panel();
+            this.WhiteChapelMortagagePanel = new System.Windows.Forms.Panel();
+            this.OldKentMortagagePanel = new System.Windows.Forms.Panel();
+            this.Station1MortagagePanel = new System.Windows.Forms.Panel();
+            this.Station2MortagagePanel = new System.Windows.Forms.Panel();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
             this.Game.SuspendLayout();
+            this.UpdatePanel.SuspendLayout();
             this.ActionPanel.SuspendLayout();
             this.Payrent.SuspendLayout();
             this.BuyingCity.SuspendLayout();
             this.Dice1.SuspendLayout();
             this.Dice2.SuspendLayout();
+            this.Station2.SuspendLayout();
             this.MayFair.SuspendLayout();
             this.MayFair_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -270,6 +294,7 @@ namespace Monopoly
             this.StRand.SuspendLayout();
             this.Strand_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.Station1.SuspendLayout();
             this.ParkLane.SuspendLayout();
             this.ParkLane_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -464,28 +489,22 @@ namespace Monopoly
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Game.Controls.Add(this.BuyHotel);
-            this.Game.Controls.Add(this.SellHotel);
-            this.Game.Controls.Add(this.SellHouse);
-            this.Game.Controls.Add(this.RemoveMortagage);
-            this.Game.Controls.Add(this.BuyHouse);
-            this.Game.Controls.Add(this.label8);
-            this.Game.Controls.Add(this.PlayerLabel2);
-            this.Game.Controls.Add(this.surrenderbtn);
-            this.Game.Controls.Add(this.Mortagage);
-            this.Game.Controls.Add(this.Citynumber);
-            this.Game.Controls.Add(this.label5);
+            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.Payrent);
+            this.Game.Controls.Add(this.ActionPanel);
+            this.Game.Controls.Add(this.BuyingCity);
+            this.Game.Controls.Add(this.UpdateBTN);
+            this.Game.Controls.Add(this.surrenderbtn);
+            this.Game.Controls.Add(this.PlayerLabel2);
+            this.Game.Controls.Add(this.FleetLabel);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
-            this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.BalanceTXT);
             this.Game.Controls.Add(this.label7);
             this.Game.Controls.Add(this.PlayerNameTextBox);
             this.Game.Controls.Add(this.PlayerLabel);
-            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.Station2Label);
             this.Game.Controls.Add(this.Station1Label);
             this.Game.Controls.Add(this.PentonvilleLabel);
@@ -501,7 +520,6 @@ namespace Monopoly
             this.Game.Controls.Add(this.PallMallLabel);
             this.Game.Controls.Add(this.WhiteHallLabel);
             this.Game.Controls.Add(this.StrandLabel);
-            this.Game.Controls.Add(this.FleetLabel);
             this.Game.Controls.Add(this.FinishTurn);
             this.Game.Controls.Add(this.MayfairLabel);
             this.Game.Controls.Add(this.ParkLaneLabel);
@@ -539,6 +557,277 @@ namespace Monopoly
             this.Game.Size = new System.Drawing.Size(1168, 627);
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
+            // 
+            // UpdateBTN
+            // 
+            this.UpdateBTN.Location = new System.Drawing.Point(990, 470);
+            this.UpdateBTN.Name = "UpdateBTN";
+            this.UpdateBTN.Size = new System.Drawing.Size(127, 23);
+            this.UpdateBTN.TabIndex = 81;
+            this.UpdateBTN.Text = "Update";
+            this.UpdateBTN.UseVisualStyleBackColor = true;
+            this.UpdateBTN.Click += new System.EventHandler(this.UpdateBTN_Click);
+            // 
+            // UpdatePanel
+            // 
+            this.UpdatePanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.UpdatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UpdatePanel.Controls.Add(this.Ok);
+            this.UpdatePanel.Controls.Add(this.UpdatePicture);
+            this.UpdatePanel.Controls.Add(this.label5);
+            this.UpdatePanel.Controls.Add(this.label8);
+            this.UpdatePanel.Controls.Add(this.SellHotel);
+            this.UpdatePanel.Controls.Add(this.BuyHotel);
+            this.UpdatePanel.Controls.Add(this.SellHouse);
+            this.UpdatePanel.Controls.Add(this.Citynumber);
+            this.UpdatePanel.Controls.Add(this.RemoveMortagage);
+            this.UpdatePanel.Controls.Add(this.Mortagage);
+            this.UpdatePanel.Controls.Add(this.BuyHouse);
+            this.UpdatePanel.Location = new System.Drawing.Point(215, 124);
+            this.UpdatePanel.Name = "UpdatePanel";
+            this.UpdatePanel.Size = new System.Drawing.Size(574, 379);
+            this.UpdatePanel.TabIndex = 80;
+            this.UpdatePanel.Visible = false;
+            // 
+            // Ok
+            // 
+            this.Ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Ok.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ok.Location = new System.Drawing.Point(257, 338);
+            this.Ok.Name = "Ok";
+            this.Ok.Size = new System.Drawing.Size(72, 24);
+            this.Ok.TabIndex = 81;
+            this.Ok.Text = "Ok";
+            this.Ok.UseVisualStyleBackColor = true;
+            this.Ok.Click += new System.EventHandler(this.Ok_Click);
+            // 
+            // UpdatePicture
+            // 
+            this.UpdatePicture.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.UpdatePicture.BackgroundImage = global::Monopoly.Properties.Resources.Houses_Hotels;
+            this.UpdatePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpdatePicture.Location = new System.Drawing.Point(17, 12);
+            this.UpdatePicture.Name = "UpdatePicture";
+            this.UpdatePicture.Size = new System.Drawing.Size(159, 131);
+            this.UpdatePicture.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(112, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 19);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Number of City or Station";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(199, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(330, 25);
+            this.label8.TabIndex = 74;
+            this.label8.Text = "Update City or Stations Status";
+            // 
+            // SellHotel
+            // 
+            this.SellHotel.Enabled = false;
+            this.SellHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SellHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellHotel.Location = new System.Drawing.Point(380, 280);
+            this.SellHotel.Name = "SellHotel";
+            this.SellHotel.Size = new System.Drawing.Size(104, 39);
+            this.SellHotel.TabIndex = 78;
+            this.SellHotel.Text = "Sell Hotel";
+            this.SellHotel.UseVisualStyleBackColor = true;
+            this.SellHotel.Click += new System.EventHandler(this.SellHotel_Click);
+            // 
+            // BuyHotel
+            // 
+            this.BuyHotel.Enabled = false;
+            this.BuyHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BuyHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyHotel.Location = new System.Drawing.Point(378, 219);
+            this.BuyHotel.Name = "BuyHotel";
+            this.BuyHotel.Size = new System.Drawing.Size(104, 42);
+            this.BuyHotel.TabIndex = 79;
+            this.BuyHotel.Text = "Buy Hotel";
+            this.BuyHotel.UseVisualStyleBackColor = true;
+            this.BuyHotel.Click += new System.EventHandler(this.BuyHotel_Click);
+            // 
+            // SellHouse
+            // 
+            this.SellHouse.Enabled = false;
+            this.SellHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SellHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellHouse.Location = new System.Drawing.Point(253, 280);
+            this.SellHouse.Name = "SellHouse";
+            this.SellHouse.Size = new System.Drawing.Size(81, 39);
+            this.SellHouse.TabIndex = 77;
+            this.SellHouse.Text = "Sell House";
+            this.SellHouse.UseVisualStyleBackColor = true;
+            this.SellHouse.Click += new System.EventHandler(this.SellHouse_Click);
+            // 
+            // Citynumber
+            // 
+            this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Citynumber.Location = new System.Drawing.Point(369, 158);
+            this.Citynumber.Name = "Citynumber";
+            this.Citynumber.Size = new System.Drawing.Size(123, 23);
+            this.Citynumber.TabIndex = 69;
+            this.Citynumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Citynumber.TextChanged += new System.EventHandler(this.Citynumber_TextChanged);
+            // 
+            // RemoveMortagage
+            // 
+            this.RemoveMortagage.Enabled = false;
+            this.RemoveMortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveMortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveMortagage.Location = new System.Drawing.Point(116, 219);
+            this.RemoveMortagage.Name = "RemoveMortagage";
+            this.RemoveMortagage.Size = new System.Drawing.Size(90, 42);
+            this.RemoveMortagage.TabIndex = 76;
+            this.RemoveMortagage.Text = "Remove Mortagage";
+            this.RemoveMortagage.UseVisualStyleBackColor = true;
+            this.RemoveMortagage.Click += new System.EventHandler(this.RemoveMortagage_Click);
+            // 
+            // Mortagage
+            // 
+            this.Mortagage.Enabled = false;
+            this.Mortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Mortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mortagage.Location = new System.Drawing.Point(116, 280);
+            this.Mortagage.Name = "Mortagage";
+            this.Mortagage.Size = new System.Drawing.Size(90, 41);
+            this.Mortagage.TabIndex = 70;
+            this.Mortagage.Text = "Mortagage";
+            this.Mortagage.UseVisualStyleBackColor = true;
+            this.Mortagage.Click += new System.EventHandler(this.Mortagage_Click);
+            // 
+            // BuyHouse
+            // 
+            this.BuyHouse.Enabled = false;
+            this.BuyHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BuyHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyHouse.Location = new System.Drawing.Point(253, 219);
+            this.BuyHouse.Name = "BuyHouse";
+            this.BuyHouse.Size = new System.Drawing.Size(81, 42);
+            this.BuyHouse.TabIndex = 75;
+            this.BuyHouse.Text = "Buy House";
+            this.BuyHouse.UseVisualStyleBackColor = true;
+            this.BuyHouse.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // PlayerLabel2
+            // 
+            this.PlayerLabel2.Location = new System.Drawing.Point(949, 559);
+            this.PlayerLabel2.Name = "PlayerLabel2";
+            this.PlayerLabel2.Size = new System.Drawing.Size(210, 13);
+            this.PlayerLabel2.TabIndex = 65;
+            // 
+            // surrenderbtn
+            // 
+            this.surrenderbtn.BackColor = System.Drawing.Color.Navy;
+            this.surrenderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surrenderbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.surrenderbtn.Location = new System.Drawing.Point(958, 588);
+            this.surrenderbtn.Name = "surrenderbtn";
+            this.surrenderbtn.Size = new System.Drawing.Size(196, 26);
+            this.surrenderbtn.TabIndex = 73;
+            this.surrenderbtn.Text = "Surrender";
+            this.surrenderbtn.UseVisualStyleBackColor = false;
+            this.surrenderbtn.Click += new System.EventHandler(this.surrenderbtn_Click);
+            // 
+            // ActionPanel
+            // 
+            this.ActionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ActionPanel.Controls.Add(this.OkBTN);
+            this.ActionPanel.Controls.Add(this.ActionPic);
+            this.ActionPanel.Location = new System.Drawing.Point(330, 180);
+            this.ActionPanel.Name = "ActionPanel";
+            this.ActionPanel.Size = new System.Drawing.Size(418, 240);
+            this.ActionPanel.TabIndex = 0;
+            this.ActionPanel.Visible = false;
+            // 
+            // OkBTN
+            // 
+            this.OkBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OkBTN.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OkBTN.Location = new System.Drawing.Point(160, 201);
+            this.OkBTN.Name = "OkBTN";
+            this.OkBTN.Size = new System.Drawing.Size(97, 28);
+            this.OkBTN.TabIndex = 1;
+            this.OkBTN.Text = "Ok";
+            this.OkBTN.UseVisualStyleBackColor = true;
+            this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
+            // 
+            // ActionPic
+            // 
+            this.ActionPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ActionPic.Location = new System.Drawing.Point(28, 14);
+            this.ActionPic.Name = "ActionPic";
+            this.ActionPic.Size = new System.Drawing.Size(364, 176);
+            this.ActionPic.TabIndex = 0;
+            // 
+            // Payrent
+            // 
+            this.Payrent.BackColor = System.Drawing.Color.PeachPuff;
+            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Payrent.Controls.Add(this.surrender);
+            this.Payrent.Controls.Add(this.PayrentBTN);
+            this.Payrent.Controls.Add(this.RentTextBox);
+            this.Payrent.Controls.Add(this.label4);
+            this.Payrent.Location = new System.Drawing.Point(377, 208);
+            this.Payrent.Name = "Payrent";
+            this.Payrent.Size = new System.Drawing.Size(325, 151);
+            this.Payrent.TabIndex = 0;
+            this.Payrent.Visible = false;
+            // 
+            // surrender
+            // 
+            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surrender.Location = new System.Drawing.Point(42, 87);
+            this.surrender.Name = "surrender";
+            this.surrender.Size = new System.Drawing.Size(94, 24);
+            this.surrender.TabIndex = 3;
+            this.surrender.Text = "Surrender";
+            this.surrender.UseVisualStyleBackColor = true;
+            this.surrender.Click += new System.EventHandler(this.surrender_Click);
+            // 
+            // PayrentBTN
+            // 
+            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayrentBTN.Location = new System.Drawing.Point(200, 80);
+            this.PayrentBTN.Name = "PayrentBTN";
+            this.PayrentBTN.Size = new System.Drawing.Size(75, 35);
+            this.PayrentBTN.TabIndex = 2;
+            this.PayrentBTN.Text = "Pay";
+            this.PayrentBTN.UseVisualStyleBackColor = true;
+            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // RentTextBox
+            // 
+            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RentTextBox.Location = new System.Drawing.Point(187, 39);
+            this.RentTextBox.Name = "RentTextBox";
+            this.RentTextBox.Size = new System.Drawing.Size(94, 27);
+            this.RentTextBox.TabIndex = 1;
+            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(50, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Rent Price";
             // 
             // Player4
             // 
@@ -579,83 +868,6 @@ namespace Monopoly
             this.Player1.Size = new System.Drawing.Size(44, 40);
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
-            // 
-            // ActionPanel
-            // 
-            this.ActionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ActionPanel.Controls.Add(this.OkBTN);
-            this.ActionPanel.Controls.Add(this.ActionPic);
-            this.ActionPanel.Location = new System.Drawing.Point(330, 180);
-            this.ActionPanel.Name = "ActionPanel";
-            this.ActionPanel.Size = new System.Drawing.Size(418, 240);
-            this.ActionPanel.TabIndex = 0;
-            this.ActionPanel.Visible = false;
-            // 
-            // OkBTN
-            // 
-            this.OkBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OkBTN.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OkBTN.Location = new System.Drawing.Point(180, 198);
-            this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(97, 28);
-            this.OkBTN.TabIndex = 1;
-            this.OkBTN.Text = "Ok";
-            this.OkBTN.UseVisualStyleBackColor = true;
-            this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
-            // 
-            // ActionPic
-            // 
-            this.ActionPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ActionPic.Location = new System.Drawing.Point(28, 14);
-            this.ActionPic.Name = "ActionPic";
-            this.ActionPic.Size = new System.Drawing.Size(364, 176);
-            this.ActionPic.TabIndex = 0;
-            // 
-            // Payrent
-            // 
-            this.Payrent.BackColor = System.Drawing.Color.PeachPuff;
-            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Payrent.Controls.Add(this.surrender);
-            this.Payrent.Controls.Add(this.PayrentBTN);
-            this.Payrent.Controls.Add(this.RentTextBox);
-            this.Payrent.Controls.Add(this.label4);
-            this.Payrent.Location = new System.Drawing.Point(377, 208);
-            this.Payrent.Name = "Payrent";
-            this.Payrent.Size = new System.Drawing.Size(325, 151);
-            this.Payrent.TabIndex = 0;
-            this.Payrent.Visible = false;
-            // 
-            // PayrentBTN
-            // 
-            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayrentBTN.Location = new System.Drawing.Point(200, 80);
-            this.PayrentBTN.Name = "PayrentBTN";
-            this.PayrentBTN.Size = new System.Drawing.Size(75, 35);
-            this.PayrentBTN.TabIndex = 2;
-            this.PayrentBTN.Text = "Pay";
-            this.PayrentBTN.UseVisualStyleBackColor = true;
-            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // RentTextBox
-            // 
-            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentTextBox.Location = new System.Drawing.Point(187, 39);
-            this.RentTextBox.Name = "RentTextBox";
-            this.RentTextBox.Size = new System.Drawing.Size(94, 27);
-            this.RentTextBox.TabIndex = 1;
-            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Rent Price";
             // 
             // BalanceTXT
             // 
@@ -1038,6 +1250,7 @@ namespace Monopoly
             this.Station2.BackgroundImage = global::Monopoly.Properties.Resources.station_2;
             this.Station2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Station2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Station2.Controls.Add(this.Station2MortagagePanel);
             this.Station2.Location = new System.Drawing.Point(471, 0);
             this.Station2.Name = "Station2";
             this.Station2.Size = new System.Drawing.Size(108, 145);
@@ -1046,6 +1259,7 @@ namespace Monopoly
             // MayFair
             // 
             this.MayFair.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MayFair.Controls.Add(this.MayFairMortagagePanel);
             this.MayFair.Controls.Add(this.MayFair_Hotel);
             this.MayFair.Controls.Add(this.MayFair_House);
             this.MayFair.Controls.Add(this.textBox2);
@@ -1109,6 +1323,7 @@ namespace Monopoly
             // OldKent
             // 
             this.OldKent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OldKent.Controls.Add(this.OldKentMortagagePanel);
             this.OldKent.Controls.Add(this.OldKent_Hotel);
             this.OldKent.Controls.Add(this.OldKent_House);
             this.OldKent.Controls.Add(this.textBox9);
@@ -1172,6 +1387,7 @@ namespace Monopoly
             // WhiteChapel
             // 
             this.WhiteChapel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.WhiteChapel.Controls.Add(this.WhiteChapelMortagagePanel);
             this.WhiteChapel.Controls.Add(this.Whitechapel_Hotel);
             this.WhiteChapel.Controls.Add(this.Whitechapel_House);
             this.WhiteChapel.Controls.Add(this.textBox10);
@@ -1246,6 +1462,7 @@ namespace Monopoly
             // PallMall
             // 
             this.PallMall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PallMall.Controls.Add(this.PallMallMortagagePanel);
             this.PallMall.Controls.Add(this.PallMall_Hotel);
             this.PallMall.Controls.Add(this.PallMall_House);
             this.PallMall.Controls.Add(this.textBox11);
@@ -1309,6 +1526,7 @@ namespace Monopoly
             // WhiteHall
             // 
             this.WhiteHall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.WhiteHall.Controls.Add(this.WhiteHallMortagagePanel);
             this.WhiteHall.Controls.Add(this.WhiteHall_Hotel);
             this.WhiteHall.Controls.Add(this.WhiteHall_House);
             this.WhiteHall.Controls.Add(this.textBox12);
@@ -1382,6 +1600,7 @@ namespace Monopoly
             // Regent
             // 
             this.Regent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Regent.Controls.Add(this.RegentMortagagePanel);
             this.Regent.Controls.Add(this.Regent_Hotel);
             this.Regent.Controls.Add(this.Regent_House);
             this.Regent.Controls.Add(this.textBox8);
@@ -1446,6 +1665,7 @@ namespace Monopoly
             // Oxford
             // 
             this.Oxford.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Oxford.Controls.Add(this.OxfordMortagagePanel);
             this.Oxford.Controls.Add(this.Oxford_Hotel);
             this.Oxford.Controls.Add(this.Oxford_House);
             this.Oxford.Controls.Add(this.textBox7);
@@ -1510,6 +1730,7 @@ namespace Monopoly
             // Coventry
             // 
             this.Coventry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Coventry.Controls.Add(this.CoventryMortagagePanel);
             this.Coventry.Controls.Add(this.Coventry_Hotel);
             this.Coventry.Controls.Add(this.Coventry_House);
             this.Coventry.Controls.Add(this.textBox6);
@@ -1583,6 +1804,7 @@ namespace Monopoly
             // Leicester
             // 
             this.Leicester.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Leicester.Controls.Add(this.LeicesterMortagagePanel);
             this.Leicester.Controls.Add(this.Leicester_Hotel);
             this.Leicester.Controls.Add(this.LeicesterSq_House);
             this.Leicester.Controls.Add(this.textBox5);
@@ -1646,6 +1868,7 @@ namespace Monopoly
             // Vine
             // 
             this.Vine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Vine.Controls.Add(this.VineMortagagePanel);
             this.Vine.Controls.Add(this.VineST_Hotel);
             this.Vine.Controls.Add(this.Vine_House);
             this.Vine.Controls.Add(this.textBox13);
@@ -1709,6 +1932,7 @@ namespace Monopoly
             // Bow
             // 
             this.Bow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Bow.Controls.Add(this.BowMortagagePanel);
             this.Bow.Controls.Add(this.BowST_Hotel);
             this.Bow.Controls.Add(this.Bow_House);
             this.Bow.Controls.Add(this.textBox14);
@@ -1772,6 +1996,7 @@ namespace Monopoly
             // Euston
             // 
             this.Euston.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Euston.Controls.Add(this.EustonMortagagePanel);
             this.Euston.Controls.Add(this.Euston_Hotel);
             this.Euston.Controls.Add(this.Euston_House);
             this.Euston.Controls.Add(this.textBox15);
@@ -1835,6 +2060,7 @@ namespace Monopoly
             // PentoRoad
             // 
             this.PentoRoad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PentoRoad.Controls.Add(this.PentonvilleMortagagePanel);
             this.PentoRoad.Controls.Add(this.Pentonville_Hotel);
             this.PentoRoad.Controls.Add(this.Pentonville_House);
             this.PentoRoad.Controls.Add(this.textBox16);
@@ -1908,6 +2134,7 @@ namespace Monopoly
             // Fleet
             // 
             this.Fleet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Fleet.Controls.Add(this.FleetMortagagePanel);
             this.Fleet.Controls.Add(this.FleetST_Hotel);
             this.Fleet.Controls.Add(this.FleetStreet_House);
             this.Fleet.Controls.Add(this.textBox3);
@@ -1971,6 +2198,7 @@ namespace Monopoly
             // StRand
             // 
             this.StRand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StRand.Controls.Add(this.StrandMortagagePanel);
             this.StRand.Controls.Add(this.Strand_Hotel);
             this.StRand.Controls.Add(this.Strand_House);
             this.StRand.Controls.Add(this.textBox4);
@@ -2036,6 +2264,7 @@ namespace Monopoly
             this.Station1.BackgroundImage = global::Monopoly.Properties.Resources.Station_1;
             this.Station1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Station1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Station1.Controls.Add(this.Station1MortagagePanel);
             this.Station1.Location = new System.Drawing.Point(372, 484);
             this.Station1.Name = "Station1";
             this.Station1.Size = new System.Drawing.Size(103, 145);
@@ -2044,6 +2273,7 @@ namespace Monopoly
             // ParkLane
             // 
             this.ParkLane.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ParkLane.Controls.Add(this.ParkLaneMortagage);
             this.ParkLane.Controls.Add(this.ParkLane_Hotel);
             this.ParkLane.Controls.Add(this.ParkLane_House);
             this.ParkLane.Controls.Add(this.textBox1);
@@ -2143,142 +2373,167 @@ namespace Monopoly
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // surrender
+            // ParkLaneMortagage
             // 
-            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrender.Location = new System.Drawing.Point(42, 87);
-            this.surrender.Name = "surrender";
-            this.surrender.Size = new System.Drawing.Size(94, 24);
-            this.surrender.TabIndex = 3;
-            this.surrender.Text = "Surrender";
-            this.surrender.UseVisualStyleBackColor = true;
-            this.surrender.Click += new System.EventHandler(this.surrender_Click);
+            this.ParkLaneMortagage.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ParkLaneMortagage.Location = new System.Drawing.Point(-1, 0);
+            this.ParkLaneMortagage.Name = "ParkLaneMortagage";
+            this.ParkLaneMortagage.Size = new System.Drawing.Size(103, 37);
+            this.ParkLaneMortagage.TabIndex = 82;
+            this.ParkLaneMortagage.Visible = false;
             // 
-            // label5
+            // MayFairMortagagePanel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(945, 449);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 16);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Number of City or Station";
+            this.MayFairMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MayFairMortagagePanel.Location = new System.Drawing.Point(-1, 0);
+            this.MayFairMortagagePanel.Name = "MayFairMortagagePanel";
+            this.MayFairMortagagePanel.Size = new System.Drawing.Size(103, 37);
+            this.MayFairMortagagePanel.TabIndex = 83;
+            this.MayFairMortagagePanel.Visible = false;
             // 
-            // Citynumber
+            // FleetMortagagePanel
             // 
-            this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Citynumber.Location = new System.Drawing.Point(1101, 446);
-            this.Citynumber.Name = "Citynumber";
-            this.Citynumber.Size = new System.Drawing.Size(61, 23);
-            this.Citynumber.TabIndex = 69;
-            this.Citynumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Citynumber.TextChanged += new System.EventHandler(this.Citynumber_TextChanged);
+            this.FleetMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.FleetMortagagePanel.Location = new System.Drawing.Point(0, 0);
+            this.FleetMortagagePanel.Name = "FleetMortagagePanel";
+            this.FleetMortagagePanel.Size = new System.Drawing.Size(103, 37);
+            this.FleetMortagagePanel.TabIndex = 84;
+            this.FleetMortagagePanel.Visible = false;
             // 
-            // Mortagage
+            // StrandMortagagePanel
             // 
-            this.Mortagage.Enabled = false;
-            this.Mortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Mortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mortagage.Location = new System.Drawing.Point(949, 480);
-            this.Mortagage.Name = "Mortagage";
-            this.Mortagage.Size = new System.Drawing.Size(67, 31);
-            this.Mortagage.TabIndex = 70;
-            this.Mortagage.Text = "Mortagage";
-            this.Mortagage.UseVisualStyleBackColor = true;
-            this.Mortagage.Click += new System.EventHandler(this.Mortagage_Click);
+            this.StrandMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.StrandMortagagePanel.Location = new System.Drawing.Point(0, 1);
+            this.StrandMortagagePanel.Name = "StrandMortagagePanel";
+            this.StrandMortagagePanel.Size = new System.Drawing.Size(103, 37);
+            this.StrandMortagagePanel.TabIndex = 84;
+            this.StrandMortagagePanel.Visible = false;
             // 
-            // surrenderbtn
+            // LeicesterMortagagePanel
             // 
-            this.surrenderbtn.BackColor = System.Drawing.Color.Navy;
-            this.surrenderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrenderbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.surrenderbtn.Location = new System.Drawing.Point(958, 588);
-            this.surrenderbtn.Name = "surrenderbtn";
-            this.surrenderbtn.Size = new System.Drawing.Size(196, 26);
-            this.surrenderbtn.TabIndex = 73;
-            this.surrenderbtn.Text = "Surrender";
-            this.surrenderbtn.UseVisualStyleBackColor = false;
-            this.surrenderbtn.Click += new System.EventHandler(this.surrenderbtn_Click);
+            this.LeicesterMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.LeicesterMortagagePanel.Location = new System.Drawing.Point(1, 107);
+            this.LeicesterMortagagePanel.Name = "LeicesterMortagagePanel";
+            this.LeicesterMortagagePanel.Size = new System.Drawing.Size(103, 37);
+            this.LeicesterMortagagePanel.TabIndex = 84;
+            this.LeicesterMortagagePanel.Visible = false;
             // 
-            // PlayerLabel2
+            // CoventryMortagagePanel
             // 
-            this.PlayerLabel2.Location = new System.Drawing.Point(956, 559);
-            this.PlayerLabel2.Name = "PlayerLabel2";
-            this.PlayerLabel2.Size = new System.Drawing.Size(196, 13);
-            this.PlayerLabel2.TabIndex = 65;
+            this.CoventryMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.CoventryMortagagePanel.Location = new System.Drawing.Point(0, 105);
+            this.CoventryMortagagePanel.Name = "CoventryMortagagePanel";
+            this.CoventryMortagagePanel.Size = new System.Drawing.Size(103, 37);
+            this.CoventryMortagagePanel.TabIndex = 84;
+            this.CoventryMortagagePanel.Visible = false;
             // 
-            // label8
+            // OxfordMortagagePanel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(953, 417);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 16);
-            this.label8.TabIndex = 74;
-            this.label8.Text = "Update City or Stations Status";
+            this.OxfordMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.OxfordMortagagePanel.Location = new System.Drawing.Point(0, 104);
+            this.OxfordMortagagePanel.Name = "OxfordMortagagePanel";
+            this.OxfordMortagagePanel.Size = new System.Drawing.Size(103, 39);
+            this.OxfordMortagagePanel.TabIndex = 84;
+            this.OxfordMortagagePanel.Visible = false;
             // 
-            // BuyHouse
+            // RegentMortagagePanel
             // 
-            this.BuyHouse.Enabled = false;
-            this.BuyHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BuyHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHouse.Location = new System.Drawing.Point(1020, 480);
-            this.BuyHouse.Name = "BuyHouse";
-            this.BuyHouse.Size = new System.Drawing.Size(66, 31);
-            this.BuyHouse.TabIndex = 75;
-            this.BuyHouse.Text = "Buy House";
-            this.BuyHouse.UseVisualStyleBackColor = true;
-            this.BuyHouse.Click += new System.EventHandler(this.button3_Click);
+            this.RegentMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.RegentMortagagePanel.Location = new System.Drawing.Point(-1, 104);
+            this.RegentMortagagePanel.Name = "RegentMortagagePanel";
+            this.RegentMortagagePanel.Size = new System.Drawing.Size(103, 39);
+            this.RegentMortagagePanel.TabIndex = 84;
+            this.RegentMortagagePanel.Visible = false;
             // 
-            // RemoveMortagage
+            // PentonvilleMortagagePanel
             // 
-            this.RemoveMortagage.Enabled = false;
-            this.RemoveMortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveMortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveMortagage.Location = new System.Drawing.Point(949, 516);
-            this.RemoveMortagage.Name = "RemoveMortagage";
-            this.RemoveMortagage.Size = new System.Drawing.Size(67, 37);
-            this.RemoveMortagage.TabIndex = 76;
-            this.RemoveMortagage.Text = "Remove Mortagage";
-            this.RemoveMortagage.UseVisualStyleBackColor = true;
+            this.PentonvilleMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.PentonvilleMortagagePanel.Location = new System.Drawing.Point(1, -2);
+            this.PentonvilleMortagagePanel.Name = "PentonvilleMortagagePanel";
+            this.PentonvilleMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.PentonvilleMortagagePanel.TabIndex = 84;
+            this.PentonvilleMortagagePanel.Visible = false;
             // 
-            // SellHouse
+            // EustonMortagagePanel
             // 
-            this.SellHouse.Enabled = false;
-            this.SellHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SellHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHouse.Location = new System.Drawing.Point(1020, 526);
-            this.SellHouse.Name = "SellHouse";
-            this.SellHouse.Size = new System.Drawing.Size(66, 26);
-            this.SellHouse.TabIndex = 77;
-            this.SellHouse.Text = "Sell House";
-            this.SellHouse.UseVisualStyleBackColor = true;
+            this.EustonMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.EustonMortagagePanel.Location = new System.Drawing.Point(1, 0);
+            this.EustonMortagagePanel.Name = "EustonMortagagePanel";
+            this.EustonMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.EustonMortagagePanel.TabIndex = 85;
+            this.EustonMortagagePanel.Visible = false;
             // 
-            // SellHotel
+            // BowMortagagePanel
             // 
-            this.SellHotel.Enabled = false;
-            this.SellHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SellHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHotel.Location = new System.Drawing.Point(1092, 526);
-            this.SellHotel.Name = "SellHotel";
-            this.SellHotel.Size = new System.Drawing.Size(67, 26);
-            this.SellHotel.TabIndex = 78;
-            this.SellHotel.Text = "Sell Hotel";
-            this.SellHotel.UseVisualStyleBackColor = true;
+            this.BowMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BowMortagagePanel.Location = new System.Drawing.Point(0, -1);
+            this.BowMortagagePanel.Name = "BowMortagagePanel";
+            this.BowMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.BowMortagagePanel.TabIndex = 85;
+            this.BowMortagagePanel.Visible = false;
             // 
-            // BuyHotel
+            // VineMortagagePanel
             // 
-            this.BuyHotel.Enabled = false;
-            this.BuyHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BuyHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHotel.Location = new System.Drawing.Point(1095, 480);
-            this.BuyHotel.Name = "BuyHotel";
-            this.BuyHotel.Size = new System.Drawing.Size(67, 32);
-            this.BuyHotel.TabIndex = 79;
-            this.BuyHotel.Text = "Buy Hotel";
-            this.BuyHotel.UseVisualStyleBackColor = true;
+            this.VineMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.VineMortagagePanel.Location = new System.Drawing.Point(-1, -1);
+            this.VineMortagagePanel.Name = "VineMortagagePanel";
+            this.VineMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.VineMortagagePanel.TabIndex = 85;
+            this.VineMortagagePanel.Visible = false;
+            // 
+            // WhiteHallMortagagePanel
+            // 
+            this.WhiteHallMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.WhiteHallMortagagePanel.Location = new System.Drawing.Point(118, -1);
+            this.WhiteHallMortagagePanel.Name = "WhiteHallMortagagePanel";
+            this.WhiteHallMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.WhiteHallMortagagePanel.TabIndex = 85;
+            this.WhiteHallMortagagePanel.Visible = false;
+            // 
+            // PallMallMortagagePanel
+            // 
+            this.PallMallMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.PallMallMortagagePanel.Location = new System.Drawing.Point(118, 0);
+            this.PallMallMortagagePanel.Name = "PallMallMortagagePanel";
+            this.PallMallMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.PallMallMortagagePanel.TabIndex = 85;
+            this.PallMallMortagagePanel.Visible = false;
+            // 
+            // WhiteChapelMortagagePanel
+            // 
+            this.WhiteChapelMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.WhiteChapelMortagagePanel.Location = new System.Drawing.Point(118, 0);
+            this.WhiteChapelMortagagePanel.Name = "WhiteChapelMortagagePanel";
+            this.WhiteChapelMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.WhiteChapelMortagagePanel.TabIndex = 85;
+            this.WhiteChapelMortagagePanel.Visible = false;
+            // 
+            // OldKentMortagagePanel
+            // 
+            this.OldKentMortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.OldKentMortagagePanel.Location = new System.Drawing.Point(118, -1);
+            this.OldKentMortagagePanel.Name = "OldKentMortagagePanel";
+            this.OldKentMortagagePanel.Size = new System.Drawing.Size(41, 85);
+            this.OldKentMortagagePanel.TabIndex = 85;
+            this.OldKentMortagagePanel.Visible = false;
+            // 
+            // Station1MortagagePanel
+            // 
+            this.Station1MortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Station1MortagagePanel.Location = new System.Drawing.Point(0, 44);
+            this.Station1MortagagePanel.Name = "Station1MortagagePanel";
+            this.Station1MortagagePanel.Size = new System.Drawing.Size(103, 20);
+            this.Station1MortagagePanel.TabIndex = 85;
+            this.Station1MortagagePanel.Visible = false;
+            // 
+            // Station2MortagagePanel
+            // 
+            this.Station2MortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Station2MortagagePanel.Location = new System.Drawing.Point(-1, 80);
+            this.Station2MortagagePanel.Name = "Station2MortagagePanel";
+            this.Station2MortagagePanel.Size = new System.Drawing.Size(108, 20);
+            this.Station2MortagagePanel.TabIndex = 86;
+            this.Station2MortagagePanel.Visible = false;
             // 
             // Monopoly
             // 
@@ -2296,6 +2551,8 @@ namespace Monopoly
             this.PlayerReg_Panel.PerformLayout();
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
+            this.UpdatePanel.ResumeLayout(false);
+            this.UpdatePanel.PerformLayout();
             this.ActionPanel.ResumeLayout(false);
             this.Payrent.ResumeLayout(false);
             this.Payrent.PerformLayout();
@@ -2305,6 +2562,7 @@ namespace Monopoly
             this.Dice1.PerformLayout();
             this.Dice2.ResumeLayout(false);
             this.Dice2.PerformLayout();
+            this.Station2.ResumeLayout(false);
             this.MayFair.ResumeLayout(false);
             this.MayFair.PerformLayout();
             this.MayFair_House.ResumeLayout(false);
@@ -2380,6 +2638,7 @@ namespace Monopoly
             this.Strand_House.ResumeLayout(false);
             this.Strand_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.Station1.ResumeLayout(false);
             this.ParkLane.ResumeLayout(false);
             this.ParkLane.PerformLayout();
             this.ParkLane_House.ResumeLayout(false);
@@ -2576,6 +2835,28 @@ namespace Monopoly
         private System.Windows.Forms.Button BuyHouse;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BuyHotel;
+        private System.Windows.Forms.Panel UpdatePanel;
+        private System.Windows.Forms.Button UpdateBTN;
+        private System.Windows.Forms.Panel UpdatePicture;
+        private System.Windows.Forms.Button Ok;
+        private System.Windows.Forms.Panel Station2MortagagePanel;
+        private System.Windows.Forms.Panel MayFairMortagagePanel;
+        private System.Windows.Forms.Panel OldKentMortagagePanel;
+        private System.Windows.Forms.Panel WhiteChapelMortagagePanel;
+        private System.Windows.Forms.Panel PallMallMortagagePanel;
+        private System.Windows.Forms.Panel WhiteHallMortagagePanel;
+        private System.Windows.Forms.Panel RegentMortagagePanel;
+        private System.Windows.Forms.Panel OxfordMortagagePanel;
+        private System.Windows.Forms.Panel CoventryMortagagePanel;
+        private System.Windows.Forms.Panel LeicesterMortagagePanel;
+        private System.Windows.Forms.Panel VineMortagagePanel;
+        private System.Windows.Forms.Panel BowMortagagePanel;
+        private System.Windows.Forms.Panel EustonMortagagePanel;
+        private System.Windows.Forms.Panel PentonvilleMortagagePanel;
+        private System.Windows.Forms.Panel FleetMortagagePanel;
+        private System.Windows.Forms.Panel StrandMortagagePanel;
+        private System.Windows.Forms.Panel Station1MortagagePanel;
+        private System.Windows.Forms.Panel ParkLaneMortagage;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }

@@ -15,6 +15,7 @@ namespace Monopoly
         int playerturnnumber = 0;
         Player playerturn = new Player();
         Point DefaultPosition = new Point(850, 530);
+        bool Bankrupt = false;
         public Monopoly()
         {
             Main = new Monopoly_Master(this);
@@ -89,16 +90,11 @@ namespace Monopoly
         }
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
-            {
-                playerturn.Collect_Money(200);
-            }
             if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player1.Location);
-                Player1_Timer.Stop();
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
                 if (Payrent.Visible)
                 {
@@ -130,6 +126,7 @@ namespace Monopoly
                         RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
                     }
                 }
+                Player1_Timer.Stop();
                 FinishTurn.Enabled = true;
             }
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
@@ -170,6 +167,10 @@ namespace Monopoly
                 direction.X = (int)(direction.X / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
                 direction.Y = (int)(direction.Y / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
                 players[i].Location.Offset(direction);
+            }*/
+            /*if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - 850),2) + Math.Pow(Math.Abs(Player1.Location.Y) - 530,2))<=1)
+            {
+                playerturn.Collect_Money(200);
             }*/
         }
         private void Player2_Timer_Tick(object sender, EventArgs e)
@@ -424,22 +425,36 @@ namespace Monopoly
                 {
                     for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
                     {
-                        Lines[++index] = playerturn.Get_OwnedStations()[i].Get_Name().ToString()+ "--> "+playerturn.Get_OwnedStations()[i].Get_FieldNumber().ToString();
+                        Lines[++index] = playerturn.Get_OwnedStations()[i].Get_Name().ToString() + "--> " + playerturn.Get_OwnedStations()[i].Get_FieldNumber().ToString();
                     }
                 }
                 PlayersInfo.Lines = Lines;
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     FinishTurn.Enabled = false;
-                    MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
+                    Bankrupt = true;
                 }
-                else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false)
+                else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false && Bankrupt)
                 {
+                    Bankrupt = false;
                     FinishTurn.Enabled = true;
                 }
             }
         }
 
+        public Timer GetTimer(int token)
+        {
+            switch (token)
+            {
+                case 1:
+                    return Player1_Timer;
+                case 2:
+                    return Player2_Timre;
+                case 3:
+                    return Player3_Timer;
+                default: return Player4_Timer;
+            }
+        }
         public void Set_Payrent()
         {
             Payrent.Show();
@@ -472,21 +487,28 @@ namespace Monopoly
             Main.Set_Dice2(Main.RollDice());
             Dice1TXT.Text = Main.Get_Dice1().ToString();
             Dice2TXT.Text = Main.Get_Dice2().ToString();
-            switch (playerturn.Get_Token())
+            if (Bankrupt)
             {
-                case 1:
-                    Player1_Timer.Start();
-                    break;
-                case 2:
-                    Player2_Timre.Start();
-                    break;
-                case 3:
-                    Player3_Timer.Start();
-                    break;
-                case 4:
-                    Player4_Timer.Start();
-                    break;
-            };
+                MessageBox.Show("Your Have Negative Balance you have to Mortagage or Sell your Properties or Surrender!");
+            }
+            else
+            {
+                switch (playerturn.Get_Token())
+                {
+                    case 1:
+                        Player1_Timer.Start();
+                        break;
+                    case 2:
+                        Player2_Timre.Start();
+                        break;
+                    case 3:
+                        Player3_Timer.Start();
+                        break;
+                    case 4:
+                        Player4_Timer.Start();
+                        break;
+                };
+            }
         }
 
         public void Set_CityPriceTextBox(int price)
@@ -883,19 +905,34 @@ namespace Monopoly
         {
             return Player1;
         }
+        public void SetPlayer1PanelLocation(Point v)
+        {
+            Player1.Location = v;
+        }
         public Panel GetPlayer2Panel()
         {
             return Player2;
+        }
+        public void SetPlayer2PanelLocation(Point v)
+        {
+            Player2.Location = v;
         }
         public Panel GetPlayer3Panel()
         {
             return Player3;
         }
+        public void SetPlayer3PanelLocation(Point v)
+        {
+            Player3.Location = v;
+        }
         public Panel GetPlayer4Panel()
         {
             return Player4;
         }
-
+        public void SetPlayer4PanelLocation(Point v)
+        {
+            Player4.Location = v;
+        }
         private void OkBTN_Click(object sender, EventArgs e)
         {
             ActionPanel.Hide();
@@ -929,54 +966,69 @@ namespace Monopoly
                     {
                         case 1:
                             ParkLaneLabel.BackColor = Game.BackColor;
+                            ParkLaneMortagage.Hide();
                             break;
                         case 3:
                             MayfairLabel.BackColor = Game.BackColor;
+                            MayFairMortagagePanel.Hide();
                             break;
                         case 5:
                             FleetLabel.BackColor = Game.BackColor;
+                            FleetMortagagePanel.Hide();
                             break;
                         case 6:
                             StrandLabel.BackColor = Game.BackColor;
+                            StrandMortagagePanel.Hide();
                             break;
                         case 8:
                             WhiteHallLabel.BackColor = Game.BackColor;
+                            WhiteHallMortagagePanel.Hide();
                             break;
                         case 9:
                             PallMallLabel.BackColor = Game.BackColor;
+                            PallMallMortagagePanel.Hide();
                             break;
                         case 10:
                             WhitechapelLabel.BackColor = Game.BackColor;
+                            WhiteChapelMortagagePanel.Hide();
                             break;
                         case 11:
                             OldKentLabel.BackColor = Game.BackColor;
+                            OldKentMortagagePanel.Hide();
                             break;
                         case 13:
                             LeicesterLabel.BackColor = Game.BackColor;
+                            LeicesterMortagagePanel.Hide();
                             break;
                         case 15:
                             CoventryLabel.BackColor = Game.BackColor;
+                            CoventryMortagagePanel.Hide();
                             break;
                         case 17:
                             OxfordLabel.BackColor = Game.BackColor;
+                            OxfordMortagagePanel.Hide();
                             break;
                         case 18:
                             RegentLabel.BackColor = Game.BackColor;
+                            RegentMortagagePanel.Hide();
                             break;
                         case 20:
                             VineLabel.BackColor = Game.BackColor;
+                            VineMortagagePanel.Hide();
                             break;
                         case 21:
                             BowLabel.BackColor = Game.BackColor;
+                            BowMortagagePanel.Hide();
                             break;
                         case 22:
                             EustonLabel.BackColor = Game.BackColor;
+                            EustonMortagagePanel.Hide();
                             break;
                         case 23:
                             PentonvilleLabel.BackColor = Game.BackColor;
+                            PentonvilleMortagagePanel.Hide();
                             break;
                     }
-
                 }
             }
             if (playerturn.Get_OwnedStations().Count != 0)
@@ -987,115 +1039,11 @@ namespace Monopoly
                     {
                         case 4:
                             Station1Label.BackColor = Game.BackColor;
+                            Station1MortagagePanel.Hide();
                             break;
                         case 16:
                             Station2Label.BackColor = Game.BackColor;
-                            break;
-                    }
-                }
-            }
-            switch (playerturn.Get_Token())
-            {
-                case 1:
-                    Player1.Hide();
-                    break;
-                case 2:
-                    Player2.Hide();
-                        break;
-                case 3:
-                    Player3.Hide();
-                    break;
-                case 4:
-                    Player4.Hide();
-                    break;
-            }
-            Players.Remove(playerturn);
-            Token--;
-            Main.GetPlayers().Remove(playerturn);
-            if (Main.GetPlayers().Count == 1)
-            {
-                MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString()+" is the Winner!!");
-                Close();
-            }
-            playerturnnumber = (playerturnnumber) % Token;
-            playerturn = Players[playerturnnumber];
-            RollDice.Enabled = true;
-            FinishTurn.Enabled = false;
-            Payrent.Hide();
-        }
-
-        private void surrenderbtn_Click(object sender, EventArgs e)
-        {
-            playerturn.Surrender();
-            if (playerturn.Get_OwnedCities().Count != 0)
-            {
-                for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
-                {
-                    switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
-                    {
-                        case 1:
-                            ParkLaneLabel.BackColor = Game.BackColor;
-                            break;
-                        case 3:
-                            MayfairLabel.BackColor = Game.BackColor;
-                            break;
-                        case 5:
-                            FleetLabel.BackColor = Game.BackColor;
-                            break;
-                        case 6:
-                            StrandLabel.BackColor = Game.BackColor;
-                            break;
-                        case 8:
-                            WhiteHallLabel.BackColor = Game.BackColor;
-                            break;
-                        case 9:
-                            PallMallLabel.BackColor = Game.BackColor;
-                            break;
-                        case 10:
-                            WhitechapelLabel.BackColor = Game.BackColor;
-                            break;
-                        case 11:
-                            OldKentLabel.BackColor = Game.BackColor;
-                            break;
-                        case 13:
-                            LeicesterLabel.BackColor = Game.BackColor;
-                            break;
-                        case 15:
-                            CoventryLabel.BackColor = Game.BackColor;
-                            break;
-                        case 17:
-                            OxfordLabel.BackColor = Game.BackColor;
-                            break;
-                        case 18:
-                            RegentLabel.BackColor = Game.BackColor;
-                            break;
-                        case 20:
-                            VineLabel.BackColor = Game.BackColor;
-                            break;
-                        case 21:
-                            BowLabel.BackColor = Game.BackColor;
-                            break;
-                        case 22:
-                            EustonLabel.BackColor = Game.BackColor;
-                            break;
-                        case 23:
-                            PentonvilleLabel.BackColor = Game.BackColor;
-                            break;
-                    }
-
-                }
-            }
-            if (playerturn.Get_OwnedStations().Count != 0)
-            {
-                for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
-                {
-                    switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
-                    {
-                        case 4:
-                            Station1Label.BackColor = Game.BackColor;
-                            break;
-                        case 16:
-                            Station2Label.BackColor = Game.BackColor;
+                            Station2MortagagePanel.Hide();
                             break;
                     }
                 }
@@ -1127,15 +1075,327 @@ namespace Monopoly
             playerturn = Players[playerturnnumber];
             RollDice.Enabled = true;
             FinishTurn.Enabled = false;
+            Payrent.Hide();
+        }
+
+        private void surrenderbtn_Click(object sender, EventArgs e)
+        {
+            playerturn.Surrender();
+            if (playerturn.Get_OwnedCities().Count != 0)
+            {
+                for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+                {
+                    switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
+                    {
+                        case 1:
+                            ParkLaneLabel.BackColor = Game.BackColor;
+                            ParkLaneMortagage.Hide();
+                            break;
+                        case 3:
+                            MayfairLabel.BackColor = Game.BackColor;
+                            MayFairMortagagePanel.Hide();
+                            break;
+                        case 5:
+                            FleetLabel.BackColor = Game.BackColor;
+                            FleetMortagagePanel.Hide();
+                            break;
+                        case 6:
+                            StrandLabel.BackColor = Game.BackColor;
+                            StrandMortagagePanel.Hide();
+                            break;
+                        case 8:
+                            WhiteHallLabel.BackColor = Game.BackColor;
+                            WhiteHallMortagagePanel.Hide();
+                            break;
+                        case 9:
+                            PallMallLabel.BackColor = Game.BackColor;
+                            PallMallMortagagePanel.Hide();
+                            break;
+                        case 10:
+                            WhitechapelLabel.BackColor = Game.BackColor;
+                            WhiteChapelMortagagePanel.Hide();
+                            break;
+                        case 11:
+                            OldKentLabel.BackColor = Game.BackColor;
+                            OldKentMortagagePanel.Hide();
+                            break;
+                        case 13:
+                            LeicesterLabel.BackColor = Game.BackColor;
+                            LeicesterMortagagePanel.Hide();
+                            break;
+                        case 15:
+                            CoventryLabel.BackColor = Game.BackColor;
+                            CoventryMortagagePanel.Hide();
+                            break;
+                        case 17:
+                            OxfordLabel.BackColor = Game.BackColor;
+                            OxfordMortagagePanel.Hide();
+                            break;
+                        case 18:
+                            RegentLabel.BackColor = Game.BackColor;
+                            RegentMortagagePanel.Hide();
+                            break;
+                        case 20:
+                            VineLabel.BackColor = Game.BackColor;
+                            VineMortagagePanel.Hide();
+                            break;
+                        case 21:
+                            BowLabel.BackColor = Game.BackColor;
+                            BowMortagagePanel.Hide();
+                            break;
+                        case 22:
+                            EustonLabel.BackColor = Game.BackColor;
+                            EustonMortagagePanel.Hide();
+                            break;
+                        case 23:
+                            PentonvilleLabel.BackColor = Game.BackColor;
+                            PentonvilleMortagagePanel.Hide();
+                            break;
+                    }
+                }
+            }
+            if (playerturn.Get_OwnedStations().Count != 0)
+            {
+                for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
+                {
+                    switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
+                    {
+                        case 4:
+                            Station1Label.BackColor = Game.BackColor;
+                            Station1MortagagePanel.Hide();
+                            break;
+                        case 16:
+                            Station2Label.BackColor = Game.BackColor;
+                            Station2MortagagePanel.Hide();
+                            break;
+                    }
+                }
+            }
+            switch (playerturn.Get_Token())
+            {
+                case 1:
+                    Player1.Hide();
+                    Player1_Timer.Stop();
+                    break;
+                case 2:
+                    Player2.Hide();
+                    Player2_Timre.Stop();
+                    break;
+                case 3:
+                    Player3.Hide();
+                    Player3_Timer.Stop();
+                    break;
+                case 4:
+                    Player4.Hide();
+                    Player4_Timer.Stop();
+                    break;
+            }
+            Players.Remove(playerturn);
+            Token--;
+            Main.GetPlayers().Remove(playerturn);
+            if (Main.GetPlayers().Count == 1)
+            {
+                MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner!!");
+                Close();
+            }
+            playerturnnumber = (playerturnnumber) % Token;
+            playerturn = Players[playerturnnumber];
+            RollDice.Enabled = true;
+            FinishTurn.Enabled = false;
         }
 
         private void Mortagage_Click(object sender, EventArgs e)
         {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Mortagage_City(playerturn, C))
+                {
+                    MessageBox.Show("You have Mortagaged this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLaneMortagage.Show();
+                            break;
+                        case 3:
+                            MayFairMortagagePanel.Show();
+                            break;
+                        case 5:
+                            FleetMortagagePanel.Show();
+                            break;
+                        case 6:
+                            StrandMortagagePanel.Show();
+                            break;
+                        case 8:
+                            WhiteHallMortagagePanel.Show();
+                            break;
+                        case 9:
+                            PallMallMortagagePanel.Show();
+                            break;
+                        case 10:
+                            WhiteChapelMortagagePanel.Show();
+                            break;
+                        case 11:
+                            OldKentMortagagePanel.Show();
+                            break;
+                        case 13:
+                            LeicesterMortagagePanel.Show();
+                            break;
+                        case 15:
+                            CoventryMortagagePanel.Show();
+                            break;
+                        case 17:
+                            OxfordMortagagePanel.Show();
+                            break;
+                        case 18:
+                            RegentMortagagePanel.Show();
+                            break;
+                        case 20:
+                            VineMortagagePanel.Show();
+                            break;
+                        case 21:
+                            BowMortagagePanel.Show();
+                            break;
+                        case 22:
+                            EustonMortagagePanel.Show();
+                            break;
+                        case 23:
+                            PentonvilleMortagagePanel.Show();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Mortagaging this City, Try Again!");
+                }
+            }
+            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
+            {
+                Station S = (Station)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Mortagage_Station(playerturn, S))
+                {
+                    MessageBox.Show("You have Mortagaged this Station");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 4:
+                            Station1MortagagePanel.Show();
+                            break;
+                        case 16:
+                            Station2MortagagePanel.Show();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Mortagaging this Station, Try Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error in Mortagaging this City, Try Again!");
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = new City();
+                C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Sell_House(playerturn, C))
+                {
+                    MessageBox.Show("You have Bought new House on this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLane_House.Show();
+                            ParkLane_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 3:
+                            MayFair_House.Show();
+                            MayFair_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 5:
+                            FleetStreet_House.Show();
+                            Fleet_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 6:
+                            Strand_House.Show();
+                            Strand_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 8:
+                            WhiteHall_House.Show();
+                            WhiteHall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 9:
+                            PallMall_House.Show();
+                            PallMall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 10:
+                            Whitechapel_House.Show();
+                            Whitechapel_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 11:
+                            OldKent_House.Show();
+                            OldKent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 13:
+                            LeicesterSq_House.Show();
+                            Leicester_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 15:
+                            Coventry_House.Show();
+                            Coventry_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 17:
+                            Oxford_House.Show();
+                            Oxford_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 18:
+                            Regent_House.Show();
+                            Regent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 20:
+                            Vine_House.Show();
+                            Vine_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 21:
+                            Bow_House.Show();
+                            Bow_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 22:
+                            Euston_House.Show();
+                            Euston_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                        case 23:
+                            Pentonville_House.Show();
+                            Pentonville_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Buying a House on this City, Try Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error in Buying a House on this City, Try Again!");
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
         }
 
         private void Citynumber_TextChanged(object sender, EventArgs e)
@@ -1146,6 +1406,416 @@ namespace Monopoly
             SellHouse.Enabled = true;
             SellHotel.Enabled = true;
             RemoveMortagage.Enabled = true;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateBTN_Click(object sender, EventArgs e)
+        {
+            UpdatePanel.Show();
+        }
+
+        private void Ok_Click(object sender, EventArgs e)
+        {
+            UpdatePanel.Hide();
+        }
+
+        private void RemoveMortagage_Click(object sender, EventArgs e)
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.RemoveCityMortagage(playerturn, C))
+                {
+                    MessageBox.Show("You have Removed Mortagaged on this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLaneMortagage.Hide();
+                            break;
+                        case 3:
+                            MayFairMortagagePanel.Hide();
+                            break;
+                        case 5:
+                            FleetMortagagePanel.Hide();
+                            break;
+                        case 6:
+                            StrandMortagagePanel.Hide();
+                            break;
+                        case 8:
+                            WhiteHallMortagagePanel.Hide();
+                            break;
+                        case 9:
+                            PallMallMortagagePanel.Hide();
+                            break;
+                        case 10:
+                            WhiteChapelMortagagePanel.Hide();
+                            break;
+                        case 11:
+                            OldKentMortagagePanel.Hide();
+                            break;
+                        case 13:
+                            LeicesterMortagagePanel.Hide();
+                            break;
+                        case 15:
+                            CoventryMortagagePanel.Hide();
+                            break;
+                        case 17:
+                            OxfordMortagagePanel.Hide();
+                            break;
+                        case 18:
+                            RegentMortagagePanel.Hide();
+                            break;
+                        case 20:
+                            VineMortagagePanel.Hide();
+                            break;
+                        case 21:
+                            BowMortagagePanel.Hide();
+                            break;
+                        case 22:
+                            EustonMortagagePanel.Hide();
+                            break;
+                        case 23:
+                            PentonvilleMortagagePanel.Hide();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Removing Mortagage on this City, Try Again!");
+                }
+            }
+            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
+            {
+                Station S = (Station)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.RemoveStationMortagage(playerturn, S))
+                {
+                    MessageBox.Show("You have Mortagaged this Station");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 4:
+                            Station1MortagagePanel.Hide();
+                            break;
+                        case 16:
+                            Station2MortagagePanel.Hide();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Mortagaging this Station, Try Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error in Removing Mortagage on this City, Try Again!");
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
+        }
+
+        private void SellHouse_Click(object sender, EventArgs e)
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = new City();
+                C =(City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Remove_House(playerturn, C))
+                {
+                    MessageBox.Show("You have sold a House on this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLane_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                ParkLane_House.Hide();
+                            }
+                            break;
+                        case 3:
+                            MayFair_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                MayFair_House.Hide();
+                            }
+                            break;
+                        case 5:
+                            Fleet_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                FleetStreet_House.Hide();
+                            }
+                            break;
+                        case 6:
+                            Strand_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Strand_House.Hide();
+                            }
+                            break;
+                        case 8:
+                            WhiteHall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                WhiteHall_House.Hide();
+                            }
+                            break;
+                        case 9:
+                            PallMall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                PallMall_House.Hide();
+                            }
+                            break;
+                        case 10:
+                            Whitechapel_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Whitechapel_House.Hide();
+                            }
+                            break;
+                        case 11:
+                            OldKent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                OldKent_House.Hide();
+                            }
+                            break;
+                        case 13:
+                            Leicester_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                LeicesterSq_House.Hide();
+                            }
+                            break;
+                        case 15:
+                            Coventry_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Coventry_House.Hide();
+                            }
+                            break;
+                        case 17:
+                            Oxford_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Oxford_House.Hide();
+                            }
+                            break;
+                        case 18:
+                            Regent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Regent_House.Hide();
+                            }
+                            break;
+                        case 20:
+                            Vine_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Vine_House.Hide();
+                            }
+                            break;
+                        case 21:
+                            Bow_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Bow_House.Hide();
+                            }
+                            break;
+                        case 22:
+                            Euston_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Euston_House.Hide();
+                            }
+                            break;
+                        case 23:
+                            Pentonville_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            if (C.Get_NumberOfHouses() == 0)
+                            {
+                                Pentonville_House.Hide();
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Selling a House on this City, Try Again!");
+                }
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
+        }
+
+        private void BuyHotel_Click(object sender, EventArgs e)
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = new City();
+                C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Sell_Hotel(playerturn, C))
+                {
+                    MessageBox.Show("You have Bought a Hotel on this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLane_Hotel.Show();
+                            break;
+                        case 3:
+                            MayFair_Hotel.Show();
+                            break;
+                        case 5:
+                            FleetST_Hotel.Show();
+                            break;
+                        case 6:
+                            Strand_Hotel.Show();
+                            break;
+                        case 8:
+                            WhiteHall_Hotel.Show();
+                            break;
+                        case 9:
+                            PallMall_Hotel.Show();
+                            break;
+                        case 10:
+                            Whitechapel_Hotel.Show();
+                            break;
+                        case 11:
+                            OldKent_Hotel.Show();
+                            break;
+                        case 13:
+                            Leicester_Hotel.Show();
+                            break;
+                        case 15:
+                            Coventry_Hotel.Show();
+                            break;
+                        case 17:
+                            Oxford_Hotel.Show();
+                            break;
+                        case 18:
+                            Regent_Hotel.Show();
+                            break;
+                        case 20:
+                            VineST_Hotel.Show();
+                            break;
+                        case 21:
+                            BowST_Hotel.Show();
+                            break;
+                        case 22:
+                            Euston_Hotel.Show();
+                            break;
+                        case 23:
+                            Pentonville_Hotel.Show();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Buying a Hotel on this City, Try Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error in Buying a Hotel on this City, Try Again!");
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
+        }
+
+        private void SellHotel_Click(object sender, EventArgs e)
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            {
+                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                if (Main.Remove_Hotel(playerturn, C))
+                {
+                    MessageBox.Show("You have Sold the hotel on this city");
+                    switch (int.Parse(Citynumber.Text))
+                    {
+                        case 1:
+                            ParkLane_Hotel.Hide();
+                            break;
+                        case 3:
+                            MayFair_Hotel.Hide();
+                            break;
+                        case 5:
+                            FleetST_Hotel.Hide();
+                            break;
+                        case 6:
+                            Strand_Hotel.Hide();
+                            break;
+                        case 8:
+                            WhiteHall_Hotel.Hide();
+                            break;
+                        case 9:
+                            PallMall_Hotel.Hide();
+                            break;
+                        case 10:
+                            Whitechapel_Hotel.Hide();
+                            break;
+                        case 11:
+                            OldKent_Hotel.Hide();
+                            break;
+                        case 13:
+                            Leicester_Hotel.Hide();
+                            break;
+                        case 15:
+                            Coventry_Hotel.Hide();
+                            break;
+                        case 17:
+                            Oxford_Hotel.Hide();
+                            break;
+                        case 18:
+                            Regent_Hotel.Hide();
+                            break;
+                        case 20:
+                            VineST_Hotel.Hide();
+                            break;
+                        case 21:
+                            BowST_Hotel.Hide();
+                            break;
+                        case 22:
+                            Euston_Hotel.Hide();
+                            break;
+                        case 23:
+                            Pentonville_Hotel.Hide();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There was an error in Selling the Hotel on this City, Try Again!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was an error in Selling the Hotel on this City, Try Again!");
+            }
+            Citynumber.Text = "";
+            Mortagage.Enabled = false;
+            BuyHotel.Enabled = false;
+            BuyHouse.Enabled = false;
+            SellHouse.Enabled = false;
+            SellHotel.Enabled = false;
+            RemoveMortagage.Enabled = false;
         }
     }
 }

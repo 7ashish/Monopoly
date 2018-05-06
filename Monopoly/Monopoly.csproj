@@ -186,5 +186,8 @@
   <ItemGroup>
     <None Include="Resources\Dice-icon %281%291.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Houses&amp;Hotels.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

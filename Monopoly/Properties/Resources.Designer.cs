@@ -213,6 +213,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Houses_Hotels {
+            get {
+                object obj = ResourceManager.GetObject("Houses&Hotels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Jail {
             get {
                 object obj = ResourceManager.GetObject("Jail", resourceCulture);
