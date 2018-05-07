@@ -17,7 +17,7 @@ public class City : Purchasable
     int NumberofHouses;
     bool HouseModification;
     bool HotelModification;
-
+    //Defualt constructor.
     public City() : base()
     {
         HouseRentPrices = new int[4];
@@ -29,6 +29,7 @@ public class City : Purchasable
         CityRentPrice = 0;
         NumberofHouses = 0;
     }
+    //Parameterized constructor.
     public City(Monopoly.Monopoly p, int fieldnumber, Point fieldpostion, string name, int price, int mortageprice, int groupnumber, int hotelprice, int houseprice, int[] rentwithhouse, int rentwithhotel, int cityrentprice) : base(p, fieldnumber, fieldpostion, name, price, mortageprice)
     {
         HouseModification = false;
@@ -45,11 +46,12 @@ public class City : Purchasable
         RentWithHotel = rentwithhotel;
         CityRentPrice = cityrentprice;
     }
+    //overriding the pure virtual function Action.
     public override void Action(Player player)
     {
         if (Get_Owned())
         {
-            if (player.Get_OwnedCities().Contains(this))
+            if (player.IsCityOwned(this))
             {
                 return;
             }
@@ -134,6 +136,7 @@ public class City : Purchasable
             GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
+    //Returns the city to it's original status.
     public void ReturnCity()
     {
         NumberofHouses = 0;
@@ -142,86 +145,107 @@ public class City : Purchasable
         Remove_Mortagage();
         Remove_Owner();
     }
+    //Sets the group number of the city.
     public void Set_GroupNumber(int group)
     {
         GroupNumber = group;
     }
+    //Gets the group number of the city.
     public int Get_GroupNumber()
     {
         return GroupNumber;
     }
+    //increment the number of Houses of the city.
     public void AddHouse()
     {
         NumberofHouses++;
     }
+    //returns the number of houses of this city.
     public int Get_NumberOfHouses()
     {
         return NumberofHouses;
     }
+    //decrement the number of houses of the city.
     public void SellHouse()
     {
         NumberofHouses--;
     }
+    //Sets the house price.
     public void Set_HousePrice(int price)
     {
         HousePrice = price;
     }
+    //returns the house price.
     public int Get_HousePrice()
     {
         return HousePrice;
     }
+    //Sets the rent of the city.
     public void Set_CityRentPrice(int price)
     {
         CityRentPrice = price;
     }
+    //gets the rent of the city.
     public int Get_CityRentPrice()
     {
         return CityRentPrice;
     }
+    //Sets the rent of City with Hotel.
     public void Set_RentWithHotel(int price)
     {
         RentWithHotel = price;
     }
+    //returns the rent price of city with hotel.
     public int Get_RentWithHotel()
     {
         return RentWithHotel;
     }
+    //Sets the House rent prices of a specific city.
     public void Set_HouseRentPrices(int[] prices)
     {
         HouseRentPrices = prices;
     }
+    //Returns the House rent prices of a specific city.
     public int[] Get_HouseRentPrices()
     {
         return HouseRentPrices;
     }
+    //Sets the Hotel price of the city.
     public void Set_HotelPrice(int price)
     {
         HotelPrice = price;
     }
+    //Returns the Hotel price of the city.
     public int Get_HotelPrice()
     {
         return HotelPrice;
     }
+    //Sets the HouseModification bool to true.
     public void Set_HouseModification()
     {
         HouseModification = true;
     }
+    //Sets the HouseModification bool to false.
     public void Remove_HouseMofidication()
     {
         HouseModification = false;
     }
+    //Returns the HouseModification bool.
     public bool Get_HouseModification()
     {
         return HouseModification;
     }
+    //Sets the HotelModification bool to true.
     public void Set_HotelModification()
     {
         HotelModification = true;
     }
+    //Sets the HotelModification bool to false.
     public void Remove_HotelMofidication()
     {
         HotelModification = false;
     }
+    //Returns the HotelModification bool.
     public bool Get_HotelModification()
     {
         return HotelModification;

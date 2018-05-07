@@ -9,19 +9,12 @@ using System.IO;
 public class Station : Purchasable
 {
     int[] RentPrices;
-
+    //defualt constructor.
     public Station():base()
     {
         RentPrices = new int[2];
     }
-    public void Set_RentPrices(int[] prices)
-    {
-        RentPrices = prices;
-    }
-    public int[] Get_RentPrices()
-    {
-        return RentPrices;
-    }
+    //Parameterized constructor.
     public Station(Monopoly.Monopoly p,int fieldnumber, Point fieldpostion,string name, int price, int mortageprice, int[] rentprices) : base(p,fieldnumber,fieldpostion,name, price, mortageprice)
     {
         RentPrices = new int[2];
@@ -30,11 +23,22 @@ public class Station : Purchasable
             RentPrices[i] = rentprices[i];
         }
     }
+    //Sets the RentPrices of the stations.
+    public void Set_RentPrices(int[] prices)
+    {
+        RentPrices = prices;
+    }
+    //Returns the RentPrices of the Stations.
+    public int[] Get_RentPrices()
+    {
+        return RentPrices;
+    }
+    //overriding the pure virtual function Action.
     public override void Action(Player player)
     {
         if (Get_Owned())
         {
-            if (player.Get_OwnedStations().Contains(this))
+            if (player.IsStationOwned(this))
             {
                 return;
             }
@@ -44,7 +48,6 @@ public class Station : Purchasable
                 {
                     GetForm().Set_Payrent();
                 }
-                //player.Pay_StationRents(this);
             }
         }
         else
@@ -64,6 +67,7 @@ public class Station : Purchasable
             GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }
+    //Returns the station to it's original status.
     public void Return_Station()
     {
         Remove_Owner();

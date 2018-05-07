@@ -7,12 +7,15 @@ using System.Drawing;
 
 class GoToJail : Non_Purchasable
 {
+    //defualt constructor.
     public GoToJail() : base()
     {
     }
+    //Parameterized constructor.
     public GoToJail(Monopoly.Monopoly P, int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
+    //overriding the pure virtual function Action.
     override public void Action(Player player)
     {
         Monopoly.Monopoly P=new Monopoly.Monopoly();

@@ -8,17 +8,21 @@ using System.IO;
 
 class Chances : Non_Purchasable
 {
+    //defualt constructor.
     public Chances():base()
     {
     }
+    //Parameterized constructor.
     public Chances(Monopoly.Monopoly P, int fieldnumber, Point fieldpostion) : base(P,fieldnumber, fieldpostion)
     {
     }
     static Random r = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
+    //Function that choose random number from 1-3.
     public int Choose()
     {
         return r.Next(1, 4);
     }
+    //overriding the pure virtual function Action.
     override public void Action(Player player)
     {
         string FolderPath = Directory.GetCurrentDirectory();

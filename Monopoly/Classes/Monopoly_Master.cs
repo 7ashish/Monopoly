@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Reflection;
 
-class Monopoly_Master
+public class Monopoly_Master
 {
     List<Player> Players;
     public List<Field> Fields;
     List<List<City>> Groups;
     static int Hotels = 10;
-    static int Houses = 18;
+    static int Houses = 40;
     int Dice1;
     int Dice2;
     Point DefaultPosition;
-    public Monopoly.Monopoly P;
-
+    public Monopoly.Monopoly Form;
+    //Parameterized constructor.
     public Monopoly_Master(Monopoly.Monopoly p)
     {
-        P = p;
+        Form = p;
         Players = new List<Player>();
         Groups = new List<List<City>>();
         DefaultPosition = new Point(850, 530);
@@ -84,51 +84,63 @@ class Monopoly_Master
         Tempo.Add((City)Fields[23]);
         Groups.Add(Tempo);
     }
+    //returns Point(X,Y) with the defualt position.
     public Point GetDefaultPosition()
     {
         return DefaultPosition;
     }
+    //returns the List of the Fields.
     public List<Field> Get_Fields()
     {
         return Fields;
     }
     static Random r = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
+    //This function choose number from 1-6 randomly.
     public int RollDice()
     {
-        return r.Next(1, 6);
+        return r.Next(1, 7);
     }
+    //Sets the players by a List.
     public void SetPlayers(List<Player> players)
     {
         Players = players;
     }
+    //returns the Groups list.
     public List<List<City>> GetGroups()
     {
         return Groups;
     }
+    //returns the Fields list.
     public List<Field> GetFields()
     {
         return Fields;
     }
+    //returns the players list.
     public List<Player> GetPlayers()
     {
         return Players;
     }
+    //Sets the first Dice after using the Random function.
     public void Set_Dice1(int number)
     {
         Dice1 = number;
     }
+    //Sets the second Dice after using the Random function.
     public void Set_Dice2(int number)
     {
         Dice2 = number;
     }
+    //returns the number of the first Dice.
     public int Get_Dice1()
     {
         return Dice1;
     }
+    //returns the number of the second Dice.
     public int Get_Dice2()
     {
         return Dice2;
     }
+    //This Function takes a player and City he wish to Mortagage and Checks if he can Mortagage it or not.
     public bool Mortagage_City(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
@@ -155,6 +167,7 @@ class Monopoly_Master
             return false;
         }
     }
+    //This Function takes a player and Station he wish to Mortagage and Checks if he can Mortagage it or not.
     public bool Mortagage_Station(Player playerturn, Station station)
     {
         if (station.Get_Owner() == playerturn)
@@ -174,6 +187,7 @@ class Monopoly_Master
             return false;
         }
     }
+    //This Function takes a player and City he wish to Remove the Mortagage and Checks if he can Remove Mortagage or not.
     public bool RemoveCityMortagage(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
@@ -193,6 +207,7 @@ class Monopoly_Master
         }
         return false;
     }
+    //This Function takes a player and Station he wish to Remove the Mortagage and Checks if he can Remove Mortagage or not.
     public bool RemoveStationMortagage(Player playerturn, Station station)
     {
         if (station.Get_Owner() == playerturn)
@@ -212,24 +227,12 @@ class Monopoly_Master
         }
         return false;
     }
+    //This Function takes a Player and City he wish to Upgrade & Checks if he can Buy a house or not.
     public bool Sell_House(Player playerturn, City city)
     {
         if (!city.Get_ISMortagaged())
         {
-            bool owned = false;
-            for (int i = 0; i < Groups[city.Get_GroupNumber()].Count; i++)
-            {
-                if (playerturn.Get_OwnedCities().Contains(Groups[city.Get_GroupNumber()][i]))
-                {
-                    owned = true;
-                }
-                else
-                {
-                    owned = false;
-                    break;
-                }
-            }
-            if (owned)
+            if (playerturn.IsGroupOwned(city,this))
             {
                 if (Houses != 0)
                 {
@@ -258,6 +261,7 @@ class Monopoly_Master
             return false;
         }
     }
+    //This Function takes a Player and City he wish to Upgrade & Checks if he can Sell a house or not.
     public bool Remove_House(Player playerturn, City city)
     {
         if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
@@ -279,6 +283,7 @@ class Monopoly_Master
             return true;
         }
     }
+    //This Function takes a Player and City he wish to Upgrade & Checks if he can Buy a hotel or not.
     public bool Sell_Hotel(Player playerturn, City city)
     {
         if (city.Get_Owner() == playerturn)
@@ -314,6 +319,7 @@ class Monopoly_Master
             return false;
         }
     }
+    //This Function takes a Player and City he wish to Upgrade & Checks if he can sell a hotel or not.
     public bool Remove_Hotel(Player playerturn, City city)
     {
         if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
@@ -335,6 +341,8 @@ class Monopoly_Master
             return true;
         }
     }
+    //This Function takes a Player & Checks if his balance is negative or not.
+    //If the Balance is Negative it returns false, else it returns true.
     public bool Check_PlayerBalance(Player playerturn)
     {
         if (playerturn.Get_Balance() < 0)
