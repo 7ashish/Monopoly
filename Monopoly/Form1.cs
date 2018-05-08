@@ -84,8 +84,23 @@ namespace Monopoly
 
         private void Next_BTN2_Click(object sender, EventArgs e)
         {
-            Game.Show();
+            Information.Show();
             Registeration.Hide();
+            Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
+            Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+            switch (Token)
+            {
+                case 3:
+                    Player3Panel.Show();
+                    Player3Name.Text = Players[2].Get_Name() + " Token Colour: ";
+                    break;
+                case 4:
+                    Player3Panel.Show();
+                    Player4Panel.Show();
+                    Player3Name.Text = Players[2].Get_Name() + " Token Colour: ";
+                    Player4Name.Text = Players[3].Get_Name() + " Token Colour: ";
+                    break;
+            }
             playerturn = Players[playerturnnumber];
         }
         bool[] GoMoney = { false, false, false, false };
@@ -552,6 +567,8 @@ namespace Monopoly
             FinishTurn.Enabled = false;
             playerturnnumber = (playerturnnumber + 1) % Token;
             playerturn = Players[playerturnnumber];
+            Dice1TXT.Text = "0";
+            Dice2TXT.Text = "0";
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -1919,6 +1936,17 @@ namespace Monopoly
             SellHouse.Enabled = false;
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartGame_Click(object sender, EventArgs e)
+        {
+            Information.Hide();
+            Game.Show();
         }
     }
 }
