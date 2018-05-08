@@ -48,11 +48,6 @@ namespace Monopoly
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
-            this.Payrent = new System.Windows.Forms.Panel();
-            this.surrender = new System.Windows.Forms.Button();
-            this.PayrentBTN = new System.Windows.Forms.Button();
-            this.RentTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.UpdatePanel = new System.Windows.Forms.Panel();
             this.Ok = new System.Windows.Forms.Button();
             this.UpdatePicture = new System.Windows.Forms.Panel();
@@ -65,6 +60,11 @@ namespace Monopoly
             this.RemoveMortagage = new System.Windows.Forms.Button();
             this.Mortagage = new System.Windows.Forms.Button();
             this.BuyHouse = new System.Windows.Forms.Button();
+            this.Payrent = new System.Windows.Forms.Panel();
+            this.surrender = new System.Windows.Forms.Button();
+            this.PayrentBTN = new System.Windows.Forms.Button();
+            this.RentTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.ActionPanel = new System.Windows.Forms.Panel();
             this.OkBTN = new System.Windows.Forms.Button();
             this.ActionPic = new System.Windows.Forms.Panel();
@@ -238,12 +238,23 @@ namespace Monopoly
             this.AllGameTimer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.Information = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.Player1Panel = new System.Windows.Forms.Panel();
+            this.Player1TokenColour = new System.Windows.Forms.Panel();
+            this.Player1Name = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
             this.Game.SuspendLayout();
-            this.Payrent.SuspendLayout();
             this.UpdatePanel.SuspendLayout();
+            this.Payrent.SuspendLayout();
             this.ActionPanel.SuspendLayout();
             this.BuyingCity.SuspendLayout();
             this.Dice1.SuspendLayout();
@@ -298,6 +309,11 @@ namespace Monopoly
             this.ParkLane.SuspendLayout();
             this.ParkLane_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Information.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.Player1Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Registeration
@@ -489,6 +505,10 @@ namespace Monopoly
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.Player4);
+            this.Game.Controls.Add(this.Player3);
+            this.Game.Controls.Add(this.Player2);
+            this.Game.Controls.Add(this.Player1);
             this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.Payrent);
             this.Game.Controls.Add(this.ActionPanel);
@@ -497,10 +517,6 @@ namespace Monopoly
             this.Game.Controls.Add(this.surrenderbtn);
             this.Game.Controls.Add(this.PlayerLabel2);
             this.Game.Controls.Add(this.FleetLabel);
-            this.Game.Controls.Add(this.Player4);
-            this.Game.Controls.Add(this.Player3);
-            this.Game.Controls.Add(this.Player2);
-            this.Game.Controls.Add(this.Player1);
             this.Game.Controls.Add(this.BalanceTXT);
             this.Game.Controls.Add(this.label7);
             this.Game.Controls.Add(this.PlayerNameTextBox);
@@ -557,66 +573,6 @@ namespace Monopoly
             this.Game.Size = new System.Drawing.Size(1168, 627);
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
-            // 
-            // Payrent
-            // 
-            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Payrent.Controls.Add(this.surrender);
-            this.Payrent.Controls.Add(this.PayrentBTN);
-            this.Payrent.Controls.Add(this.RentTextBox);
-            this.Payrent.Controls.Add(this.label4);
-            this.Payrent.Location = new System.Drawing.Point(319, 223);
-            this.Payrent.Name = "Payrent";
-            this.Payrent.Size = new System.Drawing.Size(325, 151);
-            this.Payrent.TabIndex = 0;
-            this.Payrent.Visible = false;
-            // 
-            // surrender
-            // 
-            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrender.ForeColor = System.Drawing.Color.Maroon;
-            this.surrender.Location = new System.Drawing.Point(48, 87);
-            this.surrender.Name = "surrender";
-            this.surrender.Size = new System.Drawing.Size(94, 31);
-            this.surrender.TabIndex = 3;
-            this.surrender.Text = "Surrender";
-            this.surrender.UseVisualStyleBackColor = true;
-            this.surrender.Click += new System.EventHandler(this.surrender_Click);
-            // 
-            // PayrentBTN
-            // 
-            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayrentBTN.ForeColor = System.Drawing.Color.DarkOrange;
-            this.PayrentBTN.Location = new System.Drawing.Point(200, 80);
-            this.PayrentBTN.Name = "PayrentBTN";
-            this.PayrentBTN.Size = new System.Drawing.Size(75, 35);
-            this.PayrentBTN.TabIndex = 2;
-            this.PayrentBTN.Text = "Pay";
-            this.PayrentBTN.UseVisualStyleBackColor = true;
-            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // RentTextBox
-            // 
-            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentTextBox.Location = new System.Drawing.Point(187, 39);
-            this.RentTextBox.Name = "RentTextBox";
-            this.RentTextBox.Size = new System.Drawing.Size(94, 27);
-            this.RentTextBox.TabIndex = 1;
-            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Rent Price";
             // 
             // UpdatePanel
             // 
@@ -775,6 +731,66 @@ namespace Monopoly
             this.BuyHouse.Text = "Buy House";
             this.BuyHouse.UseVisualStyleBackColor = true;
             this.BuyHouse.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Payrent
+            // 
+            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Payrent.Controls.Add(this.surrender);
+            this.Payrent.Controls.Add(this.PayrentBTN);
+            this.Payrent.Controls.Add(this.RentTextBox);
+            this.Payrent.Controls.Add(this.label4);
+            this.Payrent.Location = new System.Drawing.Point(319, 223);
+            this.Payrent.Name = "Payrent";
+            this.Payrent.Size = new System.Drawing.Size(325, 151);
+            this.Payrent.TabIndex = 0;
+            this.Payrent.Visible = false;
+            // 
+            // surrender
+            // 
+            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surrender.ForeColor = System.Drawing.Color.Maroon;
+            this.surrender.Location = new System.Drawing.Point(48, 87);
+            this.surrender.Name = "surrender";
+            this.surrender.Size = new System.Drawing.Size(94, 31);
+            this.surrender.TabIndex = 3;
+            this.surrender.Text = "Surrender";
+            this.surrender.UseVisualStyleBackColor = true;
+            this.surrender.Click += new System.EventHandler(this.surrender_Click);
+            // 
+            // PayrentBTN
+            // 
+            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayrentBTN.ForeColor = System.Drawing.Color.DarkOrange;
+            this.PayrentBTN.Location = new System.Drawing.Point(200, 80);
+            this.PayrentBTN.Name = "PayrentBTN";
+            this.PayrentBTN.Size = new System.Drawing.Size(75, 35);
+            this.PayrentBTN.TabIndex = 2;
+            this.PayrentBTN.Text = "Pay";
+            this.PayrentBTN.UseVisualStyleBackColor = true;
+            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // RentTextBox
+            // 
+            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RentTextBox.Location = new System.Drawing.Point(187, 39);
+            this.RentTextBox.Name = "RentTextBox";
+            this.RentTextBox.Size = new System.Drawing.Size(94, 27);
+            this.RentTextBox.TabIndex = 1;
+            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(50, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Rent Price";
             // 
             // ActionPanel
             // 
@@ -939,7 +955,7 @@ namespace Monopoly
             this.Player3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player3.Location = new System.Drawing.Point(850, 530);
             this.Player3.Name = "Player3";
-            this.Player3.Size = new System.Drawing.Size(29, 31);
+            this.Player3.Size = new System.Drawing.Size(29, 25);
             this.Player3.TabIndex = 49;
             this.Player3.Visible = false;
             // 
@@ -949,7 +965,7 @@ namespace Monopoly
             this.Player2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player2.Location = new System.Drawing.Point(850, 530);
             this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(33, 36);
+            this.Player2.Size = new System.Drawing.Size(33, 32);
             this.Player2.TabIndex = 49;
             this.Player2.Visible = false;
             // 
@@ -959,7 +975,7 @@ namespace Monopoly
             this.Player1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player1.Location = new System.Drawing.Point(850, 530);
             this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(42, 45);
+            this.Player1.Size = new System.Drawing.Size(46, 44);
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
             // 
@@ -2547,6 +2563,113 @@ namespace Monopoly
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // Information
+            // 
+            this.Information.Controls.Add(this.panel3);
+            this.Information.Controls.Add(this.panel2);
+            this.Information.Controls.Add(this.panel1);
+            this.Information.Controls.Add(this.Player1Panel);
+            this.Information.Controls.Add(this.label9);
+            this.Information.Location = new System.Drawing.Point(0, 0);
+            this.Information.Name = "Information";
+            this.Information.Size = new System.Drawing.Size(1165, 623);
+            this.Information.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.textBox19);
+            this.panel3.Location = new System.Drawing.Point(81, 433);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(358, 73);
+            this.panel3.TabIndex = 7;
+            // 
+            // textBox19
+            // 
+            this.textBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox19.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox19.Location = new System.Drawing.Point(14, 19);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(217, 26);
+            this.textBox19.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox18);
+            this.panel2.Location = new System.Drawing.Point(81, 328);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 73);
+            this.panel2.TabIndex = 7;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox18.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox18.Location = new System.Drawing.Point(14, 19);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(217, 26);
+            this.textBox18.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textBox17);
+            this.panel1.Location = new System.Drawing.Point(81, 227);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(358, 73);
+            this.panel1.TabIndex = 7;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox17.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(14, 19);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(217, 26);
+            this.textBox17.TabIndex = 2;
+            // 
+            // Player1Panel
+            // 
+            this.Player1Panel.Controls.Add(this.Player1TokenColour);
+            this.Player1Panel.Controls.Add(this.Player1Name);
+            this.Player1Panel.Location = new System.Drawing.Point(81, 131);
+            this.Player1Panel.Name = "Player1Panel";
+            this.Player1Panel.Size = new System.Drawing.Size(358, 73);
+            this.Player1Panel.TabIndex = 6;
+            // 
+            // Player1TokenColour
+            // 
+            this.Player1TokenColour.Location = new System.Drawing.Point(281, 10);
+            this.Player1TokenColour.Name = "Player1TokenColour";
+            this.Player1TokenColour.Size = new System.Drawing.Size(57, 55);
+            this.Player1TokenColour.TabIndex = 8;
+            // 
+            // Player1Name
+            // 
+            this.Player1Name.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Player1Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Player1Name.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Player1Name.Location = new System.Drawing.Point(14, 19);
+            this.Player1Name.Name = "Player1Name";
+            this.Player1Name.ReadOnly = true;
+            this.Player1Name.Size = new System.Drawing.Size(217, 26);
+            this.Player1Name.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label9.Location = new System.Drawing.Point(431, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(265, 33);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Game Information";
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2554,6 +2677,7 @@ namespace Monopoly
             this.ClientSize = new System.Drawing.Size(1166, 628);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Game);
+            this.Controls.Add(this.Information);
             this.Name = "Monopoly";
             this.Text = "Monooly";
             this.Registeration.ResumeLayout(false);
@@ -2563,10 +2687,10 @@ namespace Monopoly
             this.PlayerReg_Panel.PerformLayout();
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
-            this.Payrent.ResumeLayout(false);
-            this.Payrent.PerformLayout();
             this.UpdatePanel.ResumeLayout(false);
             this.UpdatePanel.PerformLayout();
+            this.Payrent.ResumeLayout(false);
+            this.Payrent.PerformLayout();
             this.ActionPanel.ResumeLayout(false);
             this.BuyingCity.ResumeLayout(false);
             this.BuyingCity.PerformLayout();
@@ -2656,6 +2780,16 @@ namespace Monopoly
             this.ParkLane_House.ResumeLayout(false);
             this.ParkLane_House.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Information.ResumeLayout(false);
+            this.Information.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.Player1Panel.ResumeLayout(false);
+            this.Player1Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2869,6 +3003,17 @@ namespace Monopoly
         private System.Windows.Forms.Panel StrandMortagagePanel;
         private System.Windows.Forms.Panel Station1MortagagePanel;
         private System.Windows.Forms.Panel ParkLaneMortagage;
+        private System.Windows.Forms.Panel Information;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Panel Player1Panel;
+        private System.Windows.Forms.Panel Player1TokenColour;
+        private System.Windows.Forms.TextBox Player1Name;
+        private System.Windows.Forms.Label label9;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }

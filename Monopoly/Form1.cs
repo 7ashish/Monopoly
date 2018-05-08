@@ -7,7 +7,7 @@ namespace Monopoly
 {
     public partial class Monopoly : Form
     {
-        Monopoly_Master Main;
+        public Monopoly_Master Main;
         Point p = new Point();
         List<Player> Players = new List<Player>(4);
         int NumberofPlayers;
@@ -88,8 +88,11 @@ namespace Monopoly
             Registeration.Hide();
             playerturn = Players[playerturnnumber];
         }
+        bool[] GoMoney = { false, false, false, false };
+        const int Speed = 2;
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
+            FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
@@ -137,55 +140,45 @@ namespace Monopoly
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
             {
                 p = Player1.Location;
-                p.Y -= 1;
+                p.Y -= Speed;
                 Player1.Location = p;
             }
             else if (Player1.Location.Y <= 80 && Player1.Location.X <= 850)
             {
                 p = Player1.Location;
-                p.X += 1;
+                p.X += Speed;
                 Player1.Location = p;
             }
             else if (Player1.Location.X > 850 && Player1.Location.Y <= 530)
             {
                 p = Player1.Location;
-                p.Y += 1;
+                p.Y += Speed;
                 Player1.Location = p;
             }
             else
             {
                 p = Player1.Location;
-                p.X -= 1;
+                p.X -= Speed;
                 Player1.Location = p;
             }
-            /*Panel[] players = { Player1, Player2, Player3, Player4 };
-            for (int i = 0; i < 4; i++)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - 850), 2) + Math.Pow(Math.Abs(Player1.Location.Y - 530), 2)) <= 5)
             {
-                //Get The direction towards which we should move
-                Point direction = new Point()
+                if (GoMoney[0])
                 {
-                    //ab = b - a (old vector rule)
-                    X = Players[i].Get_PlayerPosition().X - players[i].Location.X,
-                    Y = Players[i].Get_PlayerPosition().Y - players[i].Location.Y
-                };
-                //Normalizing value of X and Y by dividing them over their maginitude
-                direction.X = (int)(direction.X / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
-                direction.Y = (int)(direction.Y / Math.Sqrt(direction.X * direction.X + direction.Y * direction.Y));
-                players[i].Location.Offset(direction);
-            }*/
-            /*if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - 850),2) + Math.Pow(Math.Abs(Player1.Location.Y) - 530,2))<=1)
+                    playerturn.Collect_Money(200);
+                    GoMoney[0] = false;
+                }
+            }
+            else
             {
-                playerturn.Collect_Money(200);
-            }*/
+                GoMoney[0] = true;
+            }
         }
         private void Player2_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
-            {
-                playerturn.Collect_Money(200);
-            }
+            FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
-                   Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
+                Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player2.Location);
@@ -231,34 +224,43 @@ namespace Monopoly
             if (Player2.Location.X < 80 && Player2.Location.Y > 80)
             {
                 p = Player2.Location;
-                p.Y -= 1;
+                p.Y -= Speed;
                 Player2.Location = p;
             }
             else if (Player2.Location.Y <= 80 && Player2.Location.X <= 850)
             {
                 p = Player2.Location;
-                p.X += 1;
+                p.X += Speed;
                 Player2.Location = p;
             }
             else if (Player2.Location.X > 850 && Player2.Location.Y <= 530)
             {
                 p = Player2.Location;
-                p.Y += 1;
+                p.Y += Speed;
                 Player2.Location = p;
             }
             else
             {
                 p = Player2.Location;
-                p.X -= 1;
+                p.X -= Speed;
                 Player2.Location = p;
+            }
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - 850), 2) + Math.Pow(Math.Abs(Player2.Location.Y - 530), 2)) <= 5)
+            {
+                if (GoMoney[1])
+                {
+                    playerturn.Collect_Money(200);
+                    GoMoney[1] = false;
+                }
+            }
+            else
+            {
+                GoMoney[1] = true;
             }
         }
         private void Player3_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
-            {
-                playerturn.Collect_Money(200);
-            }
+            FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
@@ -306,34 +308,43 @@ namespace Monopoly
             if (Player3.Location.X < 80 && Player3.Location.Y > 80)
             {
                 p = Player3.Location;
-                p.Y -= 1;
+                p.Y -= Speed;
                 Player3.Location = p;
             }
             else if (Player3.Location.Y <= 80 && Player3.Location.X <= 850)
             {
                 p = Player3.Location;
-                p.X += 1;
+                p.X += Speed;
                 Player3.Location = p;
             }
             else if (Player3.Location.X > 850 && Player3.Location.Y <= 530)
             {
                 p = Player3.Location;
-                p.Y += 1;
+                p.Y += Speed;
                 Player3.Location = p;
             }
             else
             {
                 p = Player3.Location;
-                p.X -= 1;
+                p.X -= Speed;
                 Player3.Location = p;
+            }
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - 850), 2) + Math.Pow(Math.Abs(Player3.Location.Y - 530), 2)) <= 5)
+            {
+                if (GoMoney[2])
+                {
+                    playerturn.Collect_Money(200);
+                    GoMoney[2] = false;
+                }
+            }
+            else
+            {
+                GoMoney[2] = true;
             }
         }
         private void Player4_Timer_Tick(object sender, EventArgs e)
         {
-            if (Player1.Location.X == 850 && Player1.Location.Y == 530)
-            {
-                playerturn.Collect_Money(200);
-            }
+            FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
@@ -381,26 +392,38 @@ namespace Monopoly
             if (Player4.Location.X < 80 && Player4.Location.Y > 80)
             {
                 p = Player4.Location;
-                p.Y -= 1;
+                p.Y -= Speed;
                 Player4.Location = p;
             }
             else if (Player4.Location.Y <= 80 && Player4.Location.X <= 850)
             {
                 p = Player4.Location;
-                p.X += 1;
+                p.X += Speed;
                 Player4.Location = p;
             }
             else if (Player4.Location.X > 850 && Player4.Location.Y <= 530)
             {
                 p = Player4.Location;
-                p.Y += 1;
+                p.Y += Speed;
                 Player4.Location = p;
             }
             else
             {
                 p = Player4.Location;
-                p.X -= 1;
+                p.X -= Speed;
                 Player4.Location = p;
+            }
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - 850), 2) + Math.Pow(Math.Abs(Player4.Location.Y - 530), 2)) <= 5)
+            {
+                if (GoMoney[3])
+                {
+                    playerturn.Collect_Money(200);
+                    GoMoney[3] = false;
+                }
+            }
+            else
+            {
+                GoMoney[3] = true;
             }
         }
         private void AllGameTimer_Tick(object sender, EventArgs e)
@@ -499,6 +522,7 @@ namespace Monopoly
 
         }
 
+
         private void RollDice_Click(object sender, EventArgs e)
         {
             RollDice.Enabled = false;
@@ -513,21 +537,7 @@ namespace Monopoly
             }
             else
             {
-                switch (playerturn.Get_Token())
-                {
-                    case 1:
-                        Player1_Timer.Start();
-                        break;
-                    case 2:
-                        Player2_Timre.Start();
-                        break;
-                    case 3:
-                        Player3_Timer.Start();
-                        break;
-                    case 4:
-                        Player4_Timer.Start();
-                        break;
-                };
+                Main.Move_Player(playerturn);
             }
         }
 

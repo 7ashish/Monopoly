@@ -341,8 +341,8 @@ public class Monopoly_Master
             return true;
         }
     }
-    //This Function takes a Player & Checks if his balance is negative or not.
-    //If the Balance is Negative it returns false, else it returns true.
+    // This Function takes a Player & Checks if his balance is negative or not.
+    // If the Balance is Negative it returns false, else it returns true.
     public bool Check_PlayerBalance(Player playerturn)
     {
         if (playerturn.Get_Balance() < 0)
@@ -350,5 +350,13 @@ public class Monopoly_Master
             return false;
         }
         else return true;
+    }
+    /// <summary>
+    /// Moves the Player
+    /// </summary>
+    /// <param name="player">The player that needs to be moved</param>
+    public void Move_Player(Player player)
+    {
+        Form.GetTimer(player.Get_Token()).Start();
     }
 }

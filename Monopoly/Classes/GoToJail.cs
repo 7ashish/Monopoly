@@ -18,25 +18,26 @@ class GoToJail : Non_Purchasable
     //overriding the pure virtual function Action.
     override public void Action(Player player)
     {
-        Monopoly.Monopoly P=new Monopoly.Monopoly();
         Point jail = new Point(80, 530);
         player.Set_PlayerPosition(jail);
         player.Set_Fieldnumber(7);
         player.Pay_Tax(50);
+        GetForm().Main.Check_PlayerBalance(player);
         switch (player.Get_Token())
         {
             case 1:
-                P.SetPlayer1PanelLocation(jail);
+                GetForm().SetPlayer1PanelLocation(jail);
                 break;
             case 2:
-                P.SetPlayer2PanelLocation(jail);
+                GetForm().SetPlayer2PanelLocation(jail);
                 break;
             case 3:
-                P.SetPlayer3PanelLocation(jail);
+                GetForm().SetPlayer3PanelLocation(jail);
                 break;
             case 4:
-                P.SetPlayer4PanelLocation(jail);
+                GetForm().SetPlayer4PanelLocation(jail);
                 break;
         }
+        GetForm().Main.Move_Player(player);
     }
 }
