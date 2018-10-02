@@ -18,7 +18,7 @@ class Go : Non_Purchasable
     //overriding the pure virtual function Action.
     override public void Action(Player player)
     {
-        player.Collect_Money(200);
+       // player.Collect_Money(200);
     }
 }
 

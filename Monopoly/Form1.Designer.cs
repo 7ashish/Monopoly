@@ -2581,7 +2581,7 @@ namespace Monopoly
             // 
             // Information
             // 
-            this.Information.BackColor = System.Drawing.Color.LightGray;
+            this.Information.BackColor = System.Drawing.Color.White;
             this.Information.Controls.Add(this.panel1);
             this.Information.Controls.Add(this.HotelPanel);
             this.Information.Controls.Add(this.HousePanel);
@@ -2593,11 +2593,12 @@ namespace Monopoly
             this.Information.Controls.Add(this.label9);
             this.Information.Location = new System.Drawing.Point(0, 0);
             this.Information.Name = "Information";
-            this.Information.Size = new System.Drawing.Size(1165, 623);
+            this.Information.Size = new System.Drawing.Size(1165, 629);
             this.Information.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(3, 1);
@@ -2686,6 +2687,7 @@ namespace Monopoly
             // 
             // StartGame
             // 
+            this.StartGame.BackColor = System.Drawing.Color.SeaShell;
             this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartGame.Location = new System.Drawing.Point(505, 533);
@@ -2693,7 +2695,7 @@ namespace Monopoly
             this.StartGame.Size = new System.Drawing.Size(150, 42);
             this.StartGame.TabIndex = 8;
             this.StartGame.Text = "Start Game";
-            this.StartGame.UseVisualStyleBackColor = true;
+            this.StartGame.UseVisualStyleBackColor = false;
             this.StartGame.Click += new System.EventHandler(this.StartGame_Click);
             // 
             // Player4Panel
@@ -2717,7 +2719,7 @@ namespace Monopoly
             // 
             // Player4Name
             // 
-            this.Player4Name.BackColor = System.Drawing.Color.LightGray;
+            this.Player4Name.BackColor = System.Drawing.Color.White;
             this.Player4Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Player4Name.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player4Name.Location = new System.Drawing.Point(14, 19);
@@ -2747,7 +2749,7 @@ namespace Monopoly
             // 
             // Player3Name
             // 
-            this.Player3Name.BackColor = System.Drawing.Color.LightGray;
+            this.Player3Name.BackColor = System.Drawing.Color.White;
             this.Player3Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Player3Name.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player3Name.Location = new System.Drawing.Point(14, 19);
@@ -2776,7 +2778,7 @@ namespace Monopoly
             // 
             // Player2Name
             // 
-            this.Player2Name.BackColor = System.Drawing.Color.LightGray;
+            this.Player2Name.BackColor = System.Drawing.Color.White;
             this.Player2Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Player2Name.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player2Name.Location = new System.Drawing.Point(14, 19);
@@ -2787,6 +2789,7 @@ namespace Monopoly
             // 
             // Player1Panel
             // 
+            this.Player1Panel.BackColor = System.Drawing.Color.White;
             this.Player1Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player1Panel.Controls.Add(this.Player1TokenColour);
             this.Player1Panel.Controls.Add(this.Player1Name);
@@ -2805,7 +2808,7 @@ namespace Monopoly
             // 
             // Player1Name
             // 
-            this.Player1Name.BackColor = System.Drawing.Color.LightGray;
+            this.Player1Name.BackColor = System.Drawing.Color.White;
             this.Player1Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Player1Name.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player1Name.Location = new System.Drawing.Point(14, 19);
@@ -2817,12 +2820,11 @@ namespace Monopoly
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label9.Location = new System.Drawing.Point(452, 164);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(267, 35);
+            this.label9.Size = new System.Drawing.Size(265, 33);
             this.label9.TabIndex = 0;
             this.label9.Text = "Game Information";
             // 
@@ -2831,9 +2833,9 @@ namespace Monopoly
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 628);
+            this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.Game);
             this.Name = "Monopoly";
             this.Text = "Monooly";
             this.Registeration.ResumeLayout(false);
