@@ -65,7 +65,8 @@ public class City : Purchasable
         }
         else
         {
-            string FolderPath = Directory.GetCurrentDirectory();
+            string FolderPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString();
+            FolderPath += @"\Pictures";
             switch (Get_FieldNumber())
             {
                 case 1:
@@ -105,7 +106,7 @@ public class City : Purchasable
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
                 case 15:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Conventy street.PNG");
+                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Coventry street.PNG");
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
                 case 17:

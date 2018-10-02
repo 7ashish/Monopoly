@@ -52,7 +52,8 @@ public class Station : Purchasable
         }
         else
         {
-            string FolderPath = Directory.GetCurrentDirectory();
+            string FolderPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString();
+            FolderPath += @"\Pictures";
             switch (Get_FieldNumber())
             {
                 case 4:

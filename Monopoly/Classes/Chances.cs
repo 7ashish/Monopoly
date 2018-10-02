@@ -25,7 +25,8 @@ class Chances : Non_Purchasable
     //overriding the pure virtual function Action.
     override public void Action(Player player)
     {
-        string FolderPath = Directory.GetCurrentDirectory();
+        string FolderPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString();
+        FolderPath += @"\Pictures";
         int result = Choose();
         switch (result)
         {
