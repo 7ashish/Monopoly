@@ -48,6 +48,10 @@ namespace Monopoly
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
+            this.Player4 = new System.Windows.Forms.Panel();
+            this.Player3 = new System.Windows.Forms.Panel();
+            this.Player2 = new System.Windows.Forms.Panel();
+            this.Player1 = new System.Windows.Forms.Panel();
             this.UpdatePanel = new System.Windows.Forms.Panel();
             this.Ok = new System.Windows.Forms.Button();
             this.UpdatePicture = new System.Windows.Forms.Panel();
@@ -78,10 +82,6 @@ namespace Monopoly
             this.surrenderbtn = new System.Windows.Forms.Button();
             this.PlayerLabel2 = new System.Windows.Forms.Panel();
             this.FleetLabel = new System.Windows.Forms.Panel();
-            this.Player4 = new System.Windows.Forms.Panel();
-            this.Player3 = new System.Windows.Forms.Panel();
-            this.Player2 = new System.Windows.Forms.Panel();
-            this.Player1 = new System.Windows.Forms.Panel();
             this.BalanceTXT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.PlayerNameTextBox = new System.Windows.Forms.TextBox();
@@ -239,29 +239,29 @@ namespace Monopoly
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Information = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.HotelPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.HousePanel = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.StartGame = new System.Windows.Forms.Button();
             this.Player4Panel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.Player4Name = new System.Windows.Forms.TextBox();
             this.Player3Panel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.Player3Name = new System.Windows.Forms.TextBox();
             this.Player2Panel = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.Player2Name = new System.Windows.Forms.TextBox();
             this.Player1Panel = new System.Windows.Forms.Panel();
             this.Player1TokenColour = new System.Windows.Forms.Panel();
             this.Player1Name = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.StartGame = new System.Windows.Forms.Button();
-            this.HousePanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.HotelPanel = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -323,13 +323,13 @@ namespace Monopoly
             this.ParkLane_House.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Information.SuspendLayout();
+            this.HotelPanel.SuspendLayout();
+            this.HousePanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.Player4Panel.SuspendLayout();
             this.Player3Panel.SuspendLayout();
             this.Player2Panel.SuspendLayout();
             this.Player1Panel.SuspendLayout();
-            this.HousePanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.HotelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Registeration
@@ -589,6 +589,46 @@ namespace Monopoly
             this.Game.Size = new System.Drawing.Size(1168, 627);
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
+            // 
+            // Player4
+            // 
+            this.Player4.BackColor = System.Drawing.Color.LawnGreen;
+            this.Player4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Player4.Location = new System.Drawing.Point(850, 530);
+            this.Player4.Name = "Player4";
+            this.Player4.Size = new System.Drawing.Size(45, 45);
+            this.Player4.TabIndex = 50;
+            this.Player4.Visible = false;
+            // 
+            // Player3
+            // 
+            this.Player3.BackColor = System.Drawing.Color.Orange;
+            this.Player3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Player3.Location = new System.Drawing.Point(850, 530);
+            this.Player3.Name = "Player3";
+            this.Player3.Size = new System.Drawing.Size(38, 35);
+            this.Player3.TabIndex = 49;
+            this.Player3.Visible = false;
+            // 
+            // Player2
+            // 
+            this.Player2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Player2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Player2.Location = new System.Drawing.Point(850, 530);
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(35, 30);
+            this.Player2.TabIndex = 49;
+            this.Player2.Visible = false;
+            // 
+            // Player1
+            // 
+            this.Player1.BackColor = System.Drawing.Color.Red;
+            this.Player1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Player1.Location = new System.Drawing.Point(850, 530);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(25, 25);
+            this.Player1.TabIndex = 49;
+            this.Player1.Visible = false;
             // 
             // UpdatePanel
             // 
@@ -954,46 +994,6 @@ namespace Monopoly
             this.FleetLabel.Name = "FleetLabel";
             this.FleetLabel.Size = new System.Drawing.Size(32, 15);
             this.FleetLabel.TabIndex = 62;
-            // 
-            // Player4
-            // 
-            this.Player4.BackColor = System.Drawing.Color.LawnGreen;
-            this.Player4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Player4.Location = new System.Drawing.Point(850, 530);
-            this.Player4.Name = "Player4";
-            this.Player4.Size = new System.Drawing.Size(45, 45);
-            this.Player4.TabIndex = 50;
-            this.Player4.Visible = false;
-            // 
-            // Player3
-            // 
-            this.Player3.BackColor = System.Drawing.Color.Orange;
-            this.Player3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Player3.Location = new System.Drawing.Point(850, 530);
-            this.Player3.Name = "Player3";
-            this.Player3.Size = new System.Drawing.Size(38, 35);
-            this.Player3.TabIndex = 49;
-            this.Player3.Visible = false;
-            // 
-            // Player2
-            // 
-            this.Player2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Player2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Player2.Location = new System.Drawing.Point(850, 530);
-            this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(35, 30);
-            this.Player2.TabIndex = 49;
-            this.Player2.Visible = false;
-            // 
-            // Player1
-            // 
-            this.Player1.BackColor = System.Drawing.Color.Red;
-            this.Player1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Player1.Location = new System.Drawing.Point(850, 530);
-            this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(25, 25);
-            this.Player1.TabIndex = 49;
-            this.Player1.Visible = false;
             // 
             // BalanceTXT
             // 
@@ -2596,6 +2596,106 @@ namespace Monopoly
             this.Information.Size = new System.Drawing.Size(1165, 623);
             this.Information.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(3, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1162, 160);
+            this.panel1.TabIndex = 10;
+            // 
+            // HotelPanel
+            // 
+            this.HotelPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HotelPanel.Controls.Add(this.label11);
+            this.HotelPanel.Controls.Add(this.panel7);
+            this.HotelPanel.Location = new System.Drawing.Point(702, 372);
+            this.HotelPanel.Name = "HotelPanel";
+            this.HotelPanel.Size = new System.Drawing.Size(358, 75);
+            this.HotelPanel.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(72, 21);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 23);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Hotels";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Maroon;
+            this.panel7.Location = new System.Drawing.Point(284, 8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(57, 55);
+            this.panel7.TabIndex = 8;
+            // 
+            // HousePanel
+            // 
+            this.HousePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HousePanel.Controls.Add(this.label12);
+            this.HousePanel.Controls.Add(this.label10);
+            this.HousePanel.Controls.Add(this.panel2);
+            this.HousePanel.Location = new System.Drawing.Point(702, 254);
+            this.HousePanel.Name = "HousePanel";
+            this.HousePanel.Size = new System.Drawing.Size(358, 88);
+            this.HousePanel.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(4, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(340, 16);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "The white box contians the number of Houses in each City";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(72, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 23);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Houses";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel2.Controls.Add(this.textBox17);
+            this.panel2.Location = new System.Drawing.Point(284, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(57, 55);
+            this.panel2.TabIndex = 8;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(19, 18);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(21, 20);
+            this.textBox17.TabIndex = 0;
+            this.textBox17.Text = "0";
+            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // StartGame
+            // 
+            this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartGame.Location = new System.Drawing.Point(505, 533);
+            this.StartGame.Name = "StartGame";
+            this.StartGame.Size = new System.Drawing.Size(150, 42);
+            this.StartGame.TabIndex = 8;
+            this.StartGame.Text = "Start Game";
+            this.StartGame.UseVisualStyleBackColor = true;
+            this.StartGame.Click += new System.EventHandler(this.StartGame_Click);
+            // 
             // Player4Panel
             // 
             this.Player4Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2606,6 +2706,14 @@ namespace Monopoly
             this.Player4Panel.Size = new System.Drawing.Size(358, 73);
             this.Player4Panel.TabIndex = 7;
             this.Player4Panel.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.LawnGreen;
+            this.panel6.Location = new System.Drawing.Point(284, 9);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(57, 55);
+            this.panel6.TabIndex = 9;
             // 
             // Player4Name
             // 
@@ -2629,6 +2737,14 @@ namespace Monopoly
             this.Player3Panel.TabIndex = 7;
             this.Player3Panel.Visible = false;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Orange;
+            this.panel5.Location = new System.Drawing.Point(284, 8);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(57, 55);
+            this.panel5.TabIndex = 9;
+            // 
             // Player3Name
             // 
             this.Player3Name.BackColor = System.Drawing.Color.LightGray;
@@ -2649,6 +2765,14 @@ namespace Monopoly
             this.Player2Panel.Name = "Player2Panel";
             this.Player2Panel.Size = new System.Drawing.Size(358, 73);
             this.Player2Panel.TabIndex = 7;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel4.Location = new System.Drawing.Point(284, 9);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(57, 55);
+            this.panel4.TabIndex = 9;
             // 
             // Player2Name
             // 
@@ -2701,130 +2825,6 @@ namespace Monopoly
             this.label9.Size = new System.Drawing.Size(267, 35);
             this.label9.TabIndex = 0;
             this.label9.Text = "Game Information";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel4.Location = new System.Drawing.Point(284, 9);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(57, 55);
-            this.panel4.TabIndex = 9;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Orange;
-            this.panel5.Location = new System.Drawing.Point(284, 8);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(57, 55);
-            this.panel5.TabIndex = 9;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.LawnGreen;
-            this.panel6.Location = new System.Drawing.Point(284, 9);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(57, 55);
-            this.panel6.TabIndex = 9;
-            // 
-            // StartGame
-            // 
-            this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartGame.Location = new System.Drawing.Point(505, 533);
-            this.StartGame.Name = "StartGame";
-            this.StartGame.Size = new System.Drawing.Size(150, 42);
-            this.StartGame.TabIndex = 8;
-            this.StartGame.Text = "Start Game";
-            this.StartGame.UseVisualStyleBackColor = true;
-            this.StartGame.Click += new System.EventHandler(this.StartGame_Click);
-            // 
-            // HousePanel
-            // 
-            this.HousePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HousePanel.Controls.Add(this.label12);
-            this.HousePanel.Controls.Add(this.label10);
-            this.HousePanel.Controls.Add(this.panel2);
-            this.HousePanel.Location = new System.Drawing.Point(702, 254);
-            this.HousePanel.Name = "HousePanel";
-            this.HousePanel.Size = new System.Drawing.Size(358, 88);
-            this.HousePanel.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel2.Controls.Add(this.textBox17);
-            this.panel2.Location = new System.Drawing.Point(284, 8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(57, 55);
-            this.panel2.TabIndex = 8;
-            // 
-            // HotelPanel
-            // 
-            this.HotelPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HotelPanel.Controls.Add(this.label11);
-            this.HotelPanel.Controls.Add(this.panel7);
-            this.HotelPanel.Location = new System.Drawing.Point(702, 372);
-            this.HotelPanel.Name = "HotelPanel";
-            this.HotelPanel.Size = new System.Drawing.Size(358, 75);
-            this.HotelPanel.TabIndex = 9;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Maroon;
-            this.panel7.Location = new System.Drawing.Point(284, 8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(57, 55);
-            this.panel7.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(72, 23);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 23);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Houses";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(72, 21);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 23);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Hotels";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(19, 18);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(21, 20);
-            this.textBox17.TabIndex = 0;
-            this.textBox17.Text = "0";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(4, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(340, 16);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "The white box contians the number of Houses in each City";
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1162, 160);
-            this.panel1.TabIndex = 10;
             // 
             // Monopoly
             // 
@@ -2938,6 +2938,12 @@ namespace Monopoly
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Information.ResumeLayout(false);
             this.Information.PerformLayout();
+            this.HotelPanel.ResumeLayout(false);
+            this.HotelPanel.PerformLayout();
+            this.HousePanel.ResumeLayout(false);
+            this.HousePanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.Player4Panel.ResumeLayout(false);
             this.Player4Panel.PerformLayout();
             this.Player3Panel.ResumeLayout(false);
@@ -2946,12 +2952,6 @@ namespace Monopoly
             this.Player2Panel.PerformLayout();
             this.Player1Panel.ResumeLayout(false);
             this.Player1Panel.PerformLayout();
-            this.HousePanel.ResumeLayout(false);
-            this.HousePanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.HotelPanel.ResumeLayout(false);
-            this.HotelPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
