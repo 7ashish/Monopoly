@@ -26,7 +26,7 @@ public class Monopoly_Master
         DefaultPosition = new Point(850, 530);
         Fields = new List<Field>()
         {
-            new Go(p,0,new Point{X=850,Y=530}),
+            new UselessFields(p,0,new Point{X=850,Y=530}),
             new City(p,1,new Point{X=718,Y=530 },"Park Lane",350,175,0,200,200,new int[]{175,500,1100,1300},1500,35),
             new Chances(p,2,new Point{X=618,Y=530}),
             new City(p,3,new Point{X=515,Y=530 },"Mayfair",400,200,0,200,200,new int[]{200,600,1400,1700},2000,50),

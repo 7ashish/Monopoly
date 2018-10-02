@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Go.cs" />
     <Compile Include="Classes\GoToJail.cs" />
     <Compile Include="Classes\UselessFields.cs" />
     <Compile Include="Classes\Chances.cs" />

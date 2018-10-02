@@ -2833,9 +2833,9 @@ namespace Monopoly
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 628);
-            this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Information);
+            this.Controls.Add(this.Game);
             this.Name = "Monopoly";
             this.Text = "Monooly";
             this.Registeration.ResumeLayout(false);
