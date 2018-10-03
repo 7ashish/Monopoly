@@ -65,7 +65,7 @@ public class City : Purchasable
         }
         else
         {
-            string FolderPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString();
+            string FolderPath = Directory.GetCurrentDirectory();
             FolderPath += @"\Pictures";
             switch (Get_FieldNumber())
             {

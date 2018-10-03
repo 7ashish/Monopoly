@@ -31,6 +31,7 @@ namespace Monopoly
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Monopoly));
             this.Registeration = new System.Windows.Forms.Panel();
             this.NumberofplayerPanel = new System.Windows.Forms.Panel();
             this.Next_btn = new System.Windows.Forms.Button();
@@ -2836,8 +2837,10 @@ namespace Monopoly
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Information);
             this.Controls.Add(this.Game);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Monopoly";
-            this.Text = "Monooly";
+            this.Text = "Monopoly";
             this.Registeration.ResumeLayout(false);
             this.NumberofplayerPanel.ResumeLayout(false);
             this.NumberofplayerPanel.PerformLayout();
