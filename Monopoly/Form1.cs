@@ -1962,6 +1962,8 @@ namespace Monopoly
             JoinBTN.Enabled = false;
             await NetworkManager.FindServer();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
+            Registeration.Show();
+            MultiPlayer.Hide();
         }
 
         private async void HostBTN_Click(object sender, EventArgs e)
@@ -1970,6 +1972,8 @@ namespace Monopoly
             JoinBTN.Enabled = false;
             await NetworkManager.AnnouncePresence();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
+            Registeration.Show();
+            MultiPlayer.Hide();
         }
 
         private void button3_Click_2(object sender, EventArgs e)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 static class NetworkManager
 {
@@ -31,6 +32,7 @@ static class NetworkManager
                     {
                         UDPSocket.SendTo(Encoding.ASCII.GetBytes("Monopoly Server Here"), point);
                     }
+                    Thread.Sleep(1000);
                 })
         });
     }
@@ -57,7 +59,7 @@ static class NetworkManager
     }
     static public string GetConnectedIP()
     {
-        if(ClientSocket == null)
+        if(ClientSocket != null)
         {
             return ((IPEndPoint)ClientSocket.RemoteEndPoint).ToString();
         }
