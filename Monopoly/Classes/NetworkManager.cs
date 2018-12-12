@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Monopoly.Classes
+static class NetworkManager
 {
-    static class NetworkManager
+    static Socket UDPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+    static Socket TCPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+    static Socket ClientSocket, ServerSocket;
+    static public async Task AnnouncePresence()
     {
-        static Socket UDPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-        static Socket TCPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        static Socket ClientSocket, ServerSocket;
-        static public async void AnnouncePresence()
+        UDPSocket.EnableBroadcast = true;
+        EndPoint point = new IPEndPoint(IPAddress.Broadcast, 7124);
+        TCPSocket.Bind(new IPEndPoint(IPAddress.Any, 7123));
+        TCPSocket.Listen(1);
+        bool Announce = true;
+        await Task.WhenAll(new Task[]
         {
-            UDPSocket.Bind(new IPEndPoint(IPAddress.Any, 0));
-            TCPSocket.Bind(new IPEndPoint(IPAddress.Any, 7123));
-            TCPSocket.Listen(1);
-            bool Announce = true;
-            await Task.WhenAll(new Task[] 
-            {
                 Task.Run(() =>
                 {
                     ClientSocket = TCPSocket.Accept();
@@ -30,32 +29,41 @@ namespace Monopoly.Classes
                 {
                     while (Announce)
                     {
-                        UDPSocket.SendTo(Encoding.ASCII.GetBytes("Monopoly Server Here"), 
-                                         new IPEndPoint(IPAddress.Broadcast, 7124));
+                        UDPSocket.SendTo(Encoding.ASCII.GetBytes("Monopoly Server Here"), point);
                     }
                 })
-            });
-        }
-        static public async void FindServer()
+        });
+    }
+    static public async Task FindServer()
+    {
+        UDPSocket.EnableBroadcast = true;
+        EndPoint Point = new IPEndPoint(IPAddress.Any, 7124);
+        UDPSocket.Bind(Point);
+        byte[] buffer = new byte[1024];
+        await Task.Run(() =>
         {
-            UDPSocket.Bind(new IPEndPoint(IPAddress.Any, 7124));
-            TCPSocket.Bind(new IPEndPoint(IPAddress.Any, 7123));
-            byte[] buffer = new byte[1024];
-            EndPoint Point = new IPEndPoint(IPAddress.Any, 7124);
-            await Task.Run(() =>
-            {
-                UDPSocket.ReceiveFrom(buffer, ref Point);
-                TCPSocket.Connect(new IPEndPoint(((IPEndPoint)Point).Address, 7123));
-                ServerSocket = TCPSocket;
-            });
-        }
-        static public string Cin()
+            UDPSocket.ReceiveFrom(buffer, ref Point);
+            TCPSocket.Connect(new IPEndPoint(((IPEndPoint)Point).Address, 7123));
+            ServerSocket = TCPSocket;
+        });
+    }
+    static public string Cin()
+    {
+        throw new NotImplementedException();
+    }
+    static public void Cout(string s)
+    {
+        throw new NotImplementedException();
+    }
+    static public string GetConnectedIP()
+    {
+        if(ClientSocket == null)
         {
-            throw new NotImplementedException();
+            return ((IPEndPoint)ClientSocket.RemoteEndPoint).ToString();
         }
-        static public void Cout(string s)
+        else
         {
-            throw new NotImplementedException();
+            return ((IPEndPoint)ServerSocket.RemoteEndPoint).ToString();
         }
     }
 }

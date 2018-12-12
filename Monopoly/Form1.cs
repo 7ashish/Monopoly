@@ -1956,16 +1956,20 @@ namespace Monopoly
             MultiPlayer.Hide();
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private async void button3_Click_1(object sender, EventArgs e)
         {
             HostBTN.Enabled = false;
             JoinBTN.Enabled = false;
+            await NetworkManager.FindServer();
+            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
         }
 
-        private void HostBTN_Click(object sender, EventArgs e)
+        private async void HostBTN_Click(object sender, EventArgs e)
         {
             HostBTN.Enabled = false;
             JoinBTN.Enabled = false;
+            await NetworkManager.AnnouncePresence();
+            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
         }
 
         private void button3_Click_2(object sender, EventArgs e)

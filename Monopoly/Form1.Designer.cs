@@ -660,7 +660,7 @@ namespace Monopoly
             this.Game.Location = new System.Drawing.Point(0, 0);
             this.Game.Margin = new System.Windows.Forms.Padding(4);
             this.Game.Name = "Game";
-            this.Game.Size = new System.Drawing.Size(1557, 772);
+            this.Game.Size = new System.Drawing.Size(1563, 772);
             this.Game.TabIndex = 0;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
