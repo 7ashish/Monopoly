@@ -1961,7 +1961,7 @@ namespace Monopoly
             HostBTN.Enabled = false;
             JoinBTN.Enabled = false;
             await NetworkManager.FindServer();
-            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
+            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(),"Network",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             Registeration.Show();
             MultiPlayer.Hide();
         }
@@ -1971,7 +1971,7 @@ namespace Monopoly
             HostBTN.Enabled = false;
             JoinBTN.Enabled = false;
             await NetworkManager.AnnouncePresence();
-            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP());
+            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(), "Network", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             Registeration.Show();
             MultiPlayer.Hide();
         }
