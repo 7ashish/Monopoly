@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\GoToJail.cs" />
+    <Compile Include="Classes\NetworkManager.cs" />
     <Compile Include="Classes\UselessFields.cs" />
     <Compile Include="Classes\Chances.cs" />
     <Compile Include="Classes\City.cs" />

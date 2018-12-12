@@ -1948,5 +1948,38 @@ namespace Monopoly
             Information.Hide();
             Game.Show();
         }
+
+        private void SinglePlayerBTN_Click(object sender, EventArgs e)
+        {
+            Registeration.Show();
+            Mode.Hide();
+            MultiPlayer.Hide();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            HostBTN.Enabled = false;
+            JoinBTN.Enabled = false;
+        }
+
+        private void HostBTN_Click(object sender, EventArgs e)
+        {
+            HostBTN.Enabled = false;
+            JoinBTN.Enabled = false;
+        }
+
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            Mode.Show();
+            MultiPlayer.Hide();
+            HostBTN.Enabled = true;
+            JoinBTN.Enabled = true;
+        }
+
+        private void MultiPlayerBTN_Click(object sender, EventArgs e)
+        {
+            MultiPlayer.Show();
+            Mode.Hide();
+        }
     }
 }
