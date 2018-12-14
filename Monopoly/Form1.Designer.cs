@@ -273,15 +273,15 @@ namespace Monopoly
             this.button3 = new System.Windows.Forms.Button();
             this.JoinBTN = new System.Windows.Forms.Button();
             this.MultiRegister = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.HostTXT = new System.Windows.Forms.TextBox();
-            this.HostCheckBox = new System.Windows.Forms.CheckBox();
-            this.ClientCheckBox = new System.Windows.Forms.CheckBox();
-            this.ClientTXT = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.ClientTXT = new System.Windows.Forms.TextBox();
+            this.ClientCheckBox = new System.Windows.Forms.CheckBox();
+            this.HostCheckBox = new System.Windows.Forms.CheckBox();
+            this.HostTXT = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -675,6 +675,7 @@ namespace Monopoly
             this.Game.Name = "Game";
             this.Game.Size = new System.Drawing.Size(1563, 772);
             this.Game.TabIndex = 0;
+            this.Game.Visible = false;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
             // Player4
@@ -3199,28 +3200,6 @@ namespace Monopoly
             this.MultiRegister.Visible = false;
             this.MultiRegister.VisibleChanged += new System.EventHandler(this.MultiRegister_VisibleChanged);
             // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel9.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel9.Location = new System.Drawing.Point(1, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1553, 352);
-            this.panel9.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel10.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel10.Location = new System.Drawing.Point(1141, 352);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(413, 422);
-            this.panel10.TabIndex = 2;
-            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -3236,38 +3215,24 @@ namespace Monopoly
             this.panel11.TabIndex = 3;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // label13
+            // label14
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(411, 85);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 25);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Host Name";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(411, 167);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(130, 25);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Client Name";
             // 
-            // HostTXT
+            // ClientTXT
             // 
-            this.HostTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HostTXT.Location = new System.Drawing.Point(588, 82);
-            this.HostTXT.Name = "HostTXT";
-            this.HostTXT.Size = new System.Drawing.Size(289, 30);
-            this.HostTXT.TabIndex = 1;
-            this.HostTXT.TextChanged += new System.EventHandler(this.HostTXT_TextChanged);
-            // 
-            // HostCheckBox
-            // 
-            this.HostCheckBox.AutoSize = true;
-            this.HostCheckBox.Enabled = false;
-            this.HostCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HostCheckBox.Location = new System.Drawing.Point(913, 86);
-            this.HostCheckBox.Name = "HostCheckBox";
-            this.HostCheckBox.Size = new System.Drawing.Size(78, 24);
-            this.HostCheckBox.TabIndex = 2;
-            this.HostCheckBox.Text = "Ready";
-            this.HostCheckBox.UseVisualStyleBackColor = true;
-            this.HostCheckBox.CheckedChanged += new System.EventHandler(this.HostCheckBox_CheckedChanged);
+            this.ClientTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientTXT.Location = new System.Drawing.Point(588, 164);
+            this.ClientTXT.Name = "ClientTXT";
+            this.ClientTXT.Size = new System.Drawing.Size(289, 30);
+            this.ClientTXT.TabIndex = 4;
+            this.ClientTXT.TextChanged += new System.EventHandler(this.ClientTXT_TextChanged);
             // 
             // ClientCheckBox
             // 
@@ -3282,24 +3247,60 @@ namespace Monopoly
             this.ClientCheckBox.UseVisualStyleBackColor = true;
             this.ClientCheckBox.CheckedChanged += new System.EventHandler(this.ClientCheckBox_CheckedChanged);
             // 
-            // ClientTXT
+            // HostCheckBox
             // 
-            this.ClientTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientTXT.Location = new System.Drawing.Point(588, 164);
-            this.ClientTXT.Name = "ClientTXT";
-            this.ClientTXT.Size = new System.Drawing.Size(289, 30);
-            this.ClientTXT.TabIndex = 4;
-            this.ClientTXT.TextChanged += new System.EventHandler(this.ClientTXT_TextChanged);
+            this.HostCheckBox.AutoSize = true;
+            this.HostCheckBox.Enabled = false;
+            this.HostCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HostCheckBox.Location = new System.Drawing.Point(913, 86);
+            this.HostCheckBox.Name = "HostCheckBox";
+            this.HostCheckBox.Size = new System.Drawing.Size(78, 24);
+            this.HostCheckBox.TabIndex = 2;
+            this.HostCheckBox.Text = "Ready";
+            this.HostCheckBox.UseVisualStyleBackColor = true;
+            this.HostCheckBox.CheckedChanged += new System.EventHandler(this.HostCheckBox_CheckedChanged);
             // 
-            // label14
+            // HostTXT
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(411, 167);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 25);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Client Name";
+            this.HostTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HostTXT.Location = new System.Drawing.Point(588, 82);
+            this.HostTXT.Name = "HostTXT";
+            this.HostTXT.Size = new System.Drawing.Size(289, 30);
+            this.HostTXT.TabIndex = 1;
+            this.HostTXT.TextChanged += new System.EventHandler(this.HostTXT_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(411, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(118, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Host Name";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel10.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel10.Location = new System.Drawing.Point(1141, 352);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(413, 422);
+            this.panel10.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel9.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel9.Location = new System.Drawing.Point(1, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1553, 352);
+            this.panel9.TabIndex = 1;
             // 
             // Monopoly
             // 
