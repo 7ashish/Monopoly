@@ -2041,6 +2041,7 @@ namespace Monopoly
                 Player1.Show();
                 Player2.Show();
                 playerturn = Players[playerturnnumber];
+                Token = 2;
             }
         }
 
@@ -2074,6 +2075,7 @@ namespace Monopoly
                 Player1.Show();
                 Player2.Show();
                 playerturn = Players[playerturnnumber];
+                Token = 2;
             }
         }
 
