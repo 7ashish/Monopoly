@@ -2147,12 +2147,18 @@ namespace Monopoly
             string[] strings = await NetworkManager.Cin();
             if(strings[0]=="StartGame")
             {
+                StartGame.Enabled = true;
                 StartGame.PerformClick();
             }
             else
             {
                 throw new Exception("Unexcepted command : "+strings[0]);
             }
+        }
+
+        private void Player1TokenColour_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
