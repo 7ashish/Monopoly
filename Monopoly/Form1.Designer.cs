@@ -3193,6 +3193,7 @@ namespace Monopoly
             this.MultiRegister.Name = "MultiRegister";
             this.MultiRegister.Size = new System.Drawing.Size(1554, 772);
             this.MultiRegister.TabIndex = 0;
+            this.MultiRegister.Visible = false;
             this.MultiRegister.VisibleChanged += new System.EventHandler(this.MultiRegister_VisibleChanged);
             // 
             // panel9
