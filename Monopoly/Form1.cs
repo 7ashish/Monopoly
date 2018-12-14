@@ -2012,7 +2012,7 @@ namespace Monopoly
         {
             if (IsHost)
             {
-                NetworkManager.Cout("HostName " + HostTXT.Text);
+                NetworkManager.Cout("HostName=" + HostTXT.Text);
                 HostCheckBox.Enabled = true;
             }
         }
@@ -2042,7 +2042,7 @@ namespace Monopoly
         {
             if (!IsHost)
             {
-                NetworkManager.Cout("ClientName " + ClientTXT.Text);
+                NetworkManager.Cout("ClientName=" + ClientTXT.Text);
                 ClientCheckBox.Enabled = true;
             }
         }
@@ -2098,7 +2098,7 @@ namespace Monopoly
                     {
                         continue;
                     }
-                    string[] Spliter = str.Split(' ');
+                    string[] Spliter = str.Split('=');
                     if (Spliter[0] == "HostName")
                     {
                         HostTXT.Text = Spliter[1];

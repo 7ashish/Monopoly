@@ -371,6 +371,7 @@ namespace Monopoly
             this.Registeration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Registeration.Size = new System.Drawing.Size(1553, 772);
             this.Registeration.TabIndex = 0;
+            this.Registeration.Visible = false;
             // 
             // NumberofplayerPanel
             // 
