@@ -10,7 +10,6 @@ namespace Monopoly
     {
         bool IsHost = false;
         bool IsMultiPlayer = false;
-        bool GameStarted = false;
         public Monopoly_Master Main;
         Point p = new Point();
         List<Player> Players = new List<Player>(4);
@@ -2041,6 +2040,7 @@ namespace Monopoly
                 MultiRegister.Hide();
                 Player1.Show();
                 Player2.Show();
+                playerturn = Players[playerturnnumber];
             }
         }
 
@@ -2071,6 +2071,9 @@ namespace Monopoly
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
+                Player1.Show();
+                Player2.Show();
+                playerturn = Players[playerturnnumber];
             }
         }
 
