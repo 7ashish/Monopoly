@@ -11,7 +11,7 @@ static class NetworkManager
 {
     static Socket UDPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
     static Socket TCPSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-    static Socket ClientSocket, ServerSocket;
+    static Socket ActiveSocket;
     static public async Task AnnouncePresence()
     {
         UDPSocket.EnableBroadcast = true;
@@ -23,7 +23,7 @@ static class NetworkManager
         {
                 Task.Run(() =>
                 {
-                    ClientSocket = TCPSocket.Accept();
+                    ActiveSocket = TCPSocket.Accept();
                     Announce = false;
                 }),
                 Task.Run(() =>
@@ -31,8 +31,8 @@ static class NetworkManager
                     while (Announce)
                     {
                         UDPSocket.SendTo(Encoding.ASCII.GetBytes("Monopoly Server Here"), point);
+                        Thread.Sleep(1000);
                     }
-                    Thread.Sleep(1000);
                 })
         });
     }
@@ -46,26 +46,47 @@ static class NetworkManager
         {
             UDPSocket.ReceiveFrom(buffer, ref Point);
             TCPSocket.Connect(new IPEndPoint(((IPEndPoint)Point).Address, 7123));
-            ServerSocket = TCPSocket;
+            ActiveSocket = TCPSocket;
         });
     }
-    static public string Cin()
+    static public async Task<string[]> Cin()
     {
-        throw new NotImplementedException();
+        if(ActiveSocket == null || !ActiveSocket.Connected)
+        {
+            throw new Exception("Not Connected, try calling connection functions first");
+        }
+        byte[] buffer = new byte[1024];
+        int n=0;
+        await Task.Run(() =>
+        {
+            n = ActiveSocket.Receive(buffer);
+        });
+        if(n == 0)
+        {
+            ActiveSocket.Shutdown(SocketShutdown.Both);
+            ActiveSocket.Close();
+            ActiveSocket = null;
+            return null;
+        }
+        return Encoding.ASCII.GetString(buffer, 0, n).Split('#');
     }
-    static public void Cout(string s)
+    static public void Cout(params string[] strings)
     {
-        throw new NotImplementedException();
+        foreach (string s in strings)
+        {
+            if (ActiveSocket == null || !ActiveSocket.Connected)
+            {
+                throw new Exception("Not Connected, try calling connection functions first");
+            }
+            if (s.Contains('#'))
+            {
+                throw new FormatException("ya 7ywan");
+            }
+            ActiveSocket.Send(Encoding.ASCII.GetBytes(s + "#"));
+        }
     }
     static public string GetConnectedIP()
     {
-        if(ClientSocket != null)
-        {
-            return ((IPEndPoint)ClientSocket.RemoteEndPoint).ToString();
-        }
-        else
-        {
-            return ((IPEndPoint)ServerSocket.RemoteEndPoint).ToString();
-        }
+        return ((IPEndPoint)ActiveSocket.RemoteEndPoint).ToString();
     }
 }

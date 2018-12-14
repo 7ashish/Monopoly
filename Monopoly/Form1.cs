@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Monopoly
 {
     public partial class Monopoly : Form
     {
+        bool IsHost = false;
+        bool IsMultiPlayer = false;
+        bool GameStarted = false;
         public Monopoly_Master Main;
         Point p = new Point();
         List<Player> Players = new List<Player>(4);
@@ -1962,7 +1966,9 @@ namespace Monopoly
             JoinBTN.Enabled = false;
             await NetworkManager.FindServer();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(),"Network",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            Registeration.Show();
+            IsMultiPlayer = true;
+            IsHost = false;
+            MultiRegister.Show();
             MultiPlayer.Hide();
         }
 
@@ -1972,7 +1978,9 @@ namespace Monopoly
             JoinBTN.Enabled = false;
             await NetworkManager.AnnouncePresence();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(), "Network", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            Registeration.Show();
+            IsMultiPlayer = true;
+            IsHost = true;
+            MultiRegister.Show();
             MultiPlayer.Hide();
         }
 
@@ -1988,6 +1996,127 @@ namespace Monopoly
         {
             MultiPlayer.Show();
             Mode.Hide();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Player1Name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HostTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (IsHost)
+            {
+                NetworkManager.Cout("HostName " + HostTXT.Text);
+                HostCheckBox.Enabled = true;
+            }
+        }
+
+        private void ClientCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!IsHost)
+            {
+                NetworkManager.Cout("ClientIsReady");
+            }
+            ClientCheckBox.Enabled = false;
+            ClientTXT.Enabled = false;
+            Player newplayer;
+            newplayer = new Player(ClientTXT.Text, Token, 1500, DefaultPosition, 0);
+            Players.Add(newplayer);
+            Main.SetPlayers(Players);
+            if (ClientCheckBox.Checked==true && HostCheckBox.Checked == true)
+            {
+                Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
+                Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+                Information.Show();
+                MultiRegister.Hide();
+            }
+        }
+
+        private void ClientTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsHost)
+            {
+                NetworkManager.Cout("ClientName " + ClientTXT.Text);
+                ClientCheckBox.Enabled = true;
+            }
+        }
+
+        private void HostCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsHost)
+            {
+                NetworkManager.Cout("HostIsReady");
+            }
+            HostCheckBox.Enabled = false;
+            HostTXT.Enabled = false;
+            Player newplayer;
+            newplayer = new Player(HostTXT.Text, Token, 1500, DefaultPosition, 0);
+            Players.Add(newplayer);
+            Main.SetPlayers(Players);
+            if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
+            {
+                Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
+                Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+                Information.Show();
+                MultiRegister.Hide();
+            }
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private async void MultiRegister_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!MultiRegister.Visible)
+            {
+                return;
+            }
+            if (IsHost)
+            {
+                ClientCheckBox.Enabled = false;
+                ClientTXT.Enabled = false;
+            }
+            else
+            {
+                HostCheckBox.Enabled = false;
+                HostTXT.Enabled = false;
+            }
+            while (true)
+            {
+                string[] strings = await NetworkManager.Cin();
+                foreach (string str in strings)
+                {
+                    string[] Spliter = str.Split(' ');
+                    if (Spliter[0] == "HostName")
+                    {
+                        HostTXT.Text = Spliter[1];
+                    }
+                    else if(Spliter[0] == "ClientName")
+                    {
+                        ClientTXT.Text = Spliter[1];
+                    }
+                    else
+                    {
+                        if (!IsHost)
+                        {
+                            HostCheckBox.Checked = true;
+                        }
+                        else
+                        {
+                            ClientCheckBox.Checked = true;
+                        }
+                        return;
+                    }
+                }
+            }
         }
     }
 }

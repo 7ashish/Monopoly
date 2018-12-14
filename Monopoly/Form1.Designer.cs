@@ -268,10 +268,20 @@ namespace Monopoly
             this.Player1Name = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.MultiPlayer = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.JoinBTN = new System.Windows.Forms.Button();
             this.HostBTN = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.JoinBTN = new System.Windows.Forms.Button();
+            this.MultiRegister = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.HostTXT = new System.Windows.Forms.TextBox();
+            this.HostCheckBox = new System.Windows.Forms.CheckBox();
+            this.ClientCheckBox = new System.Windows.Forms.CheckBox();
+            this.ClientTXT = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -343,6 +353,8 @@ namespace Monopoly
             this.Player1Panel.SuspendLayout();
             this.MultiPlayer.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.MultiRegister.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // Registeration
@@ -3098,6 +3110,7 @@ namespace Monopoly
             this.Player1Name.ReadOnly = true;
             this.Player1Name.Size = new System.Drawing.Size(289, 32);
             this.Player1Name.TabIndex = 2;
+            this.Player1Name.TextChanged += new System.EventHandler(this.Player1Name_TextChanged);
             // 
             // label9
             // 
@@ -3121,30 +3134,6 @@ namespace Monopoly
             this.MultiPlayer.Size = new System.Drawing.Size(1553, 772);
             this.MultiPlayer.TabIndex = 6;
             // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel8.Controls.Add(this.button3);
-            this.panel8.Location = new System.Drawing.Point(0, 2);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1548, 352);
-            this.panel8.TabIndex = 2;
-            // 
-            // JoinBTN
-            // 
-            this.JoinBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.JoinBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.JoinBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JoinBTN.Location = new System.Drawing.Point(613, 557);
-            this.JoinBTN.Name = "JoinBTN";
-            this.JoinBTN.Size = new System.Drawing.Size(260, 53);
-            this.JoinBTN.TabIndex = 0;
-            this.JoinBTN.Text = "Join";
-            this.JoinBTN.UseVisualStyleBackColor = false;
-            this.JoinBTN.Click += new System.EventHandler(this.button3_Click_1);
-            // 
             // HostBTN
             // 
             this.HostBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -3157,6 +3146,17 @@ namespace Monopoly
             this.HostBTN.Text = "Host";
             this.HostBTN.UseVisualStyleBackColor = false;
             this.HostBTN.Click += new System.EventHandler(this.HostBTN_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel8.Controls.Add(this.button3);
+            this.panel8.Location = new System.Drawing.Point(0, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1548, 352);
+            this.panel8.TabIndex = 2;
             // 
             // button3
             // 
@@ -3171,15 +3171,142 @@ namespace Monopoly
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
+            // JoinBTN
+            // 
+            this.JoinBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.JoinBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.JoinBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JoinBTN.Location = new System.Drawing.Point(613, 557);
+            this.JoinBTN.Name = "JoinBTN";
+            this.JoinBTN.Size = new System.Drawing.Size(260, 53);
+            this.JoinBTN.TabIndex = 0;
+            this.JoinBTN.Text = "Join";
+            this.JoinBTN.UseVisualStyleBackColor = false;
+            this.JoinBTN.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // MultiRegister
+            // 
+            this.MultiRegister.Controls.Add(this.panel11);
+            this.MultiRegister.Controls.Add(this.panel10);
+            this.MultiRegister.Controls.Add(this.panel9);
+            this.MultiRegister.Location = new System.Drawing.Point(0, 0);
+            this.MultiRegister.Name = "MultiRegister";
+            this.MultiRegister.Size = new System.Drawing.Size(1554, 772);
+            this.MultiRegister.TabIndex = 0;
+            this.MultiRegister.VisibleChanged += new System.EventHandler(this.MultiRegister_VisibleChanged);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel9.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel9.Location = new System.Drawing.Point(1, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1553, 352);
+            this.panel9.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel10.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel10.Location = new System.Drawing.Point(1141, 352);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(413, 422);
+            this.panel10.TabIndex = 2;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel11.Controls.Add(this.label14);
+            this.panel11.Controls.Add(this.ClientTXT);
+            this.panel11.Controls.Add(this.ClientCheckBox);
+            this.panel11.Controls.Add(this.HostCheckBox);
+            this.panel11.Controls.Add(this.HostTXT);
+            this.panel11.Controls.Add(this.label13);
+            this.panel11.Location = new System.Drawing.Point(0, 351);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1143, 424);
+            this.panel11.TabIndex = 3;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(411, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(118, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Host Name";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // HostTXT
+            // 
+            this.HostTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HostTXT.Location = new System.Drawing.Point(588, 82);
+            this.HostTXT.Name = "HostTXT";
+            this.HostTXT.Size = new System.Drawing.Size(289, 30);
+            this.HostTXT.TabIndex = 1;
+            this.HostTXT.TextChanged += new System.EventHandler(this.HostTXT_TextChanged);
+            // 
+            // HostCheckBox
+            // 
+            this.HostCheckBox.AutoSize = true;
+            this.HostCheckBox.Enabled = false;
+            this.HostCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HostCheckBox.Location = new System.Drawing.Point(913, 86);
+            this.HostCheckBox.Name = "HostCheckBox";
+            this.HostCheckBox.Size = new System.Drawing.Size(78, 24);
+            this.HostCheckBox.TabIndex = 2;
+            this.HostCheckBox.Text = "Ready";
+            this.HostCheckBox.UseVisualStyleBackColor = true;
+            this.HostCheckBox.CheckedChanged += new System.EventHandler(this.HostCheckBox_CheckedChanged);
+            // 
+            // ClientCheckBox
+            // 
+            this.ClientCheckBox.AutoSize = true;
+            this.ClientCheckBox.Enabled = false;
+            this.ClientCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientCheckBox.Location = new System.Drawing.Point(913, 168);
+            this.ClientCheckBox.Name = "ClientCheckBox";
+            this.ClientCheckBox.Size = new System.Drawing.Size(78, 24);
+            this.ClientCheckBox.TabIndex = 3;
+            this.ClientCheckBox.Text = "Ready";
+            this.ClientCheckBox.UseVisualStyleBackColor = true;
+            this.ClientCheckBox.CheckedChanged += new System.EventHandler(this.ClientCheckBox_CheckedChanged);
+            // 
+            // ClientTXT
+            // 
+            this.ClientTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientTXT.Location = new System.Drawing.Point(588, 164);
+            this.ClientTXT.Name = "ClientTXT";
+            this.ClientTXT.Size = new System.Drawing.Size(289, 30);
+            this.ClientTXT.TabIndex = 4;
+            this.ClientTXT.TextChanged += new System.EventHandler(this.ClientTXT_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(411, 167);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(130, 25);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Client Name";
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1555, 773);
-            this.Controls.Add(this.Mode);
-            this.Controls.Add(this.MultiPlayer);
-            this.Controls.Add(this.Registeration);
+            this.ClientSize = new System.Drawing.Size(1566, 773);
             this.Controls.Add(this.Information);
+            this.Controls.Add(this.MultiRegister);
+            this.Controls.Add(this.MultiPlayer);
+            this.Controls.Add(this.Mode);
+            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Game);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3305,6 +3432,9 @@ namespace Monopoly
             this.Player1Panel.PerformLayout();
             this.MultiPlayer.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.MultiRegister.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3551,6 +3681,16 @@ namespace Monopoly
         private System.Windows.Forms.Button JoinBTN;
         private System.Windows.Forms.Button HostBTN;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel MultiRegister;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox ClientTXT;
+        private System.Windows.Forms.CheckBox ClientCheckBox;
+        private System.Windows.Forms.CheckBox HostCheckBox;
+        private System.Windows.Forms.TextBox HostTXT;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }
