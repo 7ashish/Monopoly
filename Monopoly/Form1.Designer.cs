@@ -2868,6 +2868,8 @@ namespace Monopoly
             this.Information.Name = "Information";
             this.Information.Size = new System.Drawing.Size(1553, 774);
             this.Information.TabIndex = 0;
+            this.Information.Visible = false;
+            this.Information.VisibleChanged += new System.EventHandler(this.Information_VisibleChanged);
             // 
             // panel1
             // 
@@ -3304,11 +3306,11 @@ namespace Monopoly
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1566, 773);
+            this.Controls.Add(this.Information);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.MultiRegister);
             this.Controls.Add(this.Registeration);
-            this.Controls.Add(this.Information);
             this.Controls.Add(this.Game);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

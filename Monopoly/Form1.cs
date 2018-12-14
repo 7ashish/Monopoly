@@ -1949,6 +1949,10 @@ namespace Monopoly
 
         private void StartGame_Click(object sender, EventArgs e)
         {
+            if (IsHost)
+            {
+                NetworkManager.Cout("StartGame");
+            }
             Information.Hide();
             Game.Show();
         }
@@ -2035,6 +2039,8 @@ namespace Monopoly
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
+                Player1.Show();
+                Player2.Show();
             }
         }
 
@@ -2120,6 +2126,32 @@ namespace Monopoly
                         return;
                     }
                 }
+            }
+        }
+
+        private async void Information_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!Information.Visible)
+            {
+                return;
+            }
+            if (IsHost)
+            {
+                StartGame.Enabled = true;
+                return;
+            }
+            else
+            {
+                StartGame.Enabled = false;
+            }
+            string[] strings = await NetworkManager.Cin();
+            if(strings[0]=="StartGame")
+            {
+                StartGame.PerformClick();
+            }
+            else
+            {
+                throw new Exception("Unexcepted command : "+strings[0]);
             }
         }
     }
