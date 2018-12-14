@@ -540,13 +540,40 @@ namespace Monopoly
 
         }
 
-
-        private void RollDice_Click(object sender, EventArgs e)
+        bool IsMyTurn
+        {
+            get
+            {
+                return (playerturnnumber == 0) == IsHost;
+            }
+        }
+        private async void RollDice_Click(object sender, EventArgs e)
         {
             RollDice.Enabled = false;
             FinishTurn.Enabled = false;
-            Main.Set_Dice1(Main.RollDice());
-            Main.Set_Dice2(Main.RollDice());
+            if (!IsMultiPlayer || IsMyTurn)
+            {
+                Main.Set_Dice1(Main.RollDice());
+                Main.Set_Dice2(Main.RollDice());
+                if(IsMultiPlayer)
+                {
+                    NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
+                }
+            }
+            else if(IsMultiPlayer)
+            {
+                string[] s = (await NetworkManager.Cin())[0].Split('=');
+                if(s[0] == "Dice")
+                {
+                    string[] ss = s[1].Split(',');
+                    Main.Set_Dice1(int.Parse(ss[0]));
+                    Main.Set_Dice2(int.Parse(ss[1]));
+                }
+                else
+                {
+                    throw new Exception("Unexpected commnad : " + s[0]);
+                }
+            }
             Dice1TXT.Text = Main.Get_Dice1().ToString();
             Dice2TXT.Text = Main.Get_Dice2().ToString();
             if (Bankrupt)
@@ -572,6 +599,10 @@ namespace Monopoly
             playerturn = Players[playerturnnumber];
             Dice1TXT.Text = "0";
             Dice2TXT.Text = "0";
+            if(IsMultiPlayer && !IsMyTurn)
+            {
+                RollDice.PerformClick();
+            }
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -1952,6 +1983,10 @@ namespace Monopoly
             {
                 NetworkManager.Cout("StartGame");
             }
+            else
+            {
+                RollDice.PerformClick();
+            }
             Information.Hide();
             Game.Show();
         }
@@ -2028,9 +2063,8 @@ namespace Monopoly
             }
             ClientCheckBox.Enabled = false;
             ClientTXT.Enabled = false;
-            Player newplayer;
-            newplayer = new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
-            Players.Add(newplayer);
+            Player newplayer= new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
+            Players[1]=newplayer;
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked==true && HostCheckBox.Checked == true)
             {
@@ -2062,9 +2096,8 @@ namespace Monopoly
             }
             HostCheckBox.Enabled = false;
             HostTXT.Enabled = false;
-            Player newplayer;
-            newplayer = new Player(HostTXT.Text, 1, 1500, DefaultPosition, 0);
-            Players.Add(newplayer);
+            Player newplayer = new Player(HostTXT.Text, 1, 1500, DefaultPosition, 0);
+            Players[0] = newplayer; 
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
@@ -2092,6 +2125,9 @@ namespace Monopoly
             {
                 return;
             }
+            Players.Clear();
+            Players.Add(null);
+            Players.Add(null);
             if (IsHost)
             {
                 ClientCheckBox.Enabled = false;
