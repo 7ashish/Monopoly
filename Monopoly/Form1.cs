@@ -2029,7 +2029,7 @@ namespace Monopoly
             ClientCheckBox.Enabled = false;
             ClientTXT.Enabled = false;
             Player newplayer;
-            newplayer = new Player(ClientTXT.Text, Token, 1500, DefaultPosition, 0);
+            newplayer = new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
             Players.Add(newplayer);
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked==true && HostCheckBox.Checked == true)
@@ -2063,7 +2063,7 @@ namespace Monopoly
             HostCheckBox.Enabled = false;
             HostTXT.Enabled = false;
             Player newplayer;
-            newplayer = new Player(HostTXT.Text, Token, 1500, DefaultPosition, 0);
+            newplayer = new Player(HostTXT.Text, 1, 1500, DefaultPosition, 0);
             Players.Add(newplayer);
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
@@ -2074,6 +2074,8 @@ namespace Monopoly
                 MultiRegister.Hide();
                 Player1.Show();
                 Player2.Show();
+                Player3.Show();
+                Player4.Show();
                 playerturn = Players[playerturnnumber];
                 Token = 2;
             }
