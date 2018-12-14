@@ -2974,7 +2974,7 @@ namespace Monopoly
             this.StartGame.BackColor = System.Drawing.Color.SeaShell;
             this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartGame.Location = new System.Drawing.Point(673, 656);
+            this.StartGame.Location = new System.Drawing.Point(703, 655);
             this.StartGame.Margin = new System.Windows.Forms.Padding(4);
             this.StartGame.Name = "StartGame";
             this.StartGame.Size = new System.Drawing.Size(200, 52);
@@ -2991,14 +2991,14 @@ namespace Monopoly
             this.Player4Panel.Location = new System.Drawing.Point(104, 567);
             this.Player4Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Player4Panel.Name = "Player4Panel";
-            this.Player4Panel.Size = new System.Drawing.Size(477, 89);
+            this.Player4Panel.Size = new System.Drawing.Size(582, 89);
             this.Player4Panel.TabIndex = 7;
             this.Player4Panel.Visible = false;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LawnGreen;
-            this.panel6.Location = new System.Drawing.Point(379, 11);
+            this.panel6.Location = new System.Drawing.Point(479, 7);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(76, 68);
@@ -3024,14 +3024,14 @@ namespace Monopoly
             this.Player3Panel.Location = new System.Drawing.Point(104, 466);
             this.Player3Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Player3Panel.Name = "Player3Panel";
-            this.Player3Panel.Size = new System.Drawing.Size(477, 89);
+            this.Player3Panel.Size = new System.Drawing.Size(582, 89);
             this.Player3Panel.TabIndex = 7;
             this.Player3Panel.Visible = false;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Orange;
-            this.panel5.Location = new System.Drawing.Point(379, 10);
+            this.panel5.Location = new System.Drawing.Point(479, 8);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(76, 68);
@@ -3057,13 +3057,13 @@ namespace Monopoly
             this.Player2Panel.Location = new System.Drawing.Point(104, 368);
             this.Player2Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Player2Panel.Name = "Player2Panel";
-            this.Player2Panel.Size = new System.Drawing.Size(477, 89);
+            this.Player2Panel.Size = new System.Drawing.Size(582, 89);
             this.Player2Panel.TabIndex = 7;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel4.Location = new System.Drawing.Point(379, 11);
+            this.panel4.Location = new System.Drawing.Point(479, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(76, 68);
@@ -3090,13 +3090,13 @@ namespace Monopoly
             this.Player1Panel.Location = new System.Drawing.Point(104, 271);
             this.Player1Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Player1Panel.Name = "Player1Panel";
-            this.Player1Panel.Size = new System.Drawing.Size(477, 89);
+            this.Player1Panel.Size = new System.Drawing.Size(582, 89);
             this.Player1Panel.TabIndex = 6;
             // 
             // Player1TokenColour
             // 
             this.Player1TokenColour.BackColor = System.Drawing.Color.Red;
-            this.Player1TokenColour.Location = new System.Drawing.Point(379, 10);
+            this.Player1TokenColour.Location = new System.Drawing.Point(479, 8);
             this.Player1TokenColour.Margin = new System.Windows.Forms.Padding(4);
             this.Player1TokenColour.Name = "Player1TokenColour";
             this.Player1TokenColour.Size = new System.Drawing.Size(76, 68);
@@ -3306,11 +3306,11 @@ namespace Monopoly
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1566, 773);
+            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Information);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.MultiRegister);
-            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Game);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
