@@ -2094,6 +2094,10 @@ namespace Monopoly
                 string[] strings = await NetworkManager.Cin();
                 foreach (string str in strings)
                 {
+                    if(string.IsNullOrWhiteSpace(str))
+                    {
+                        continue;
+                    }
                     string[] Spliter = str.Split(' ');
                     if (Spliter[0] == "HostName")
                     {
