@@ -2084,7 +2084,7 @@ namespace Monopoly
 
         private async void MultiRegister_VisibleChanged(object sender, EventArgs e)
         {
-            if (!MultiRegister.Visible)
+            if (!MultiRegister.Visible || !IsMultiPlayer)
             {
                 return;
             }
@@ -2134,7 +2134,7 @@ namespace Monopoly
 
         private async void Information_VisibleChanged(object sender, EventArgs e)
         {
-            if (!Information.Visible)
+            if (!Information.Visible||!IsMultiPlayer)
             {
                 return;
             }
