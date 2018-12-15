@@ -145,7 +145,6 @@ namespace Monopoly
                             RentTextBox.Text = C.Get_CityRentPrice().ToString() + "$";
                         }
                     }
-
                     if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
                     {
                         Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
@@ -448,6 +447,16 @@ namespace Monopoly
         {
             if (Main.GetPlayers().Count != 0)
             {
+                if (IsMultiPlayer)
+                {
+                    if (!IsMyTurn)
+                    {
+                        RollDice.Enabled = false;
+                        surrenderbtn.Enabled = false;
+                        UpdateBTN.Enabled = false;
+                        FinishTurn.Enabled = false;
+                    }
+                }
                 switch (playerturn.Get_Token())
                 {
                     case 1:
@@ -518,7 +527,18 @@ namespace Monopoly
         }
         public void Set_Payrent()
         {
-            Payrent.Show();
+            if (IsMultiPlayer)
+            {
+                if (IsMyTurn)
+                {
+                    Payrent.Show();
+
+                }
+            }
+            else
+            {
+                Payrent.Show();
+            }
         }
         private void GoToJail_Paint(object sender, PaintEventArgs e)
         {
@@ -551,27 +571,27 @@ namespace Monopoly
         {
             RollDice.Enabled = false;
             FinishTurn.Enabled = false;
-            if (!IsMultiPlayer || IsMyTurn)
+            Main.Set_Dice1(Main.RollDice());
+            Main.Set_Dice2(Main.RollDice());
+            if(IsMultiPlayer)
             {
-                Main.Set_Dice1(Main.RollDice());
-                Main.Set_Dice2(Main.RollDice());
-                if(IsMultiPlayer)
+                if(IsMyTurn)
                 {
                     NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
                 }
-            }
-            else if(IsMultiPlayer)
-            {
-                string[] s = (await NetworkManager.Cin())[0].Split('=');
-                if(s[0] == "Dice")
-                {
-                    string[] ss = s[1].Split(',');
-                    Main.Set_Dice1(int.Parse(ss[0]));
-                    Main.Set_Dice2(int.Parse(ss[1]));
-                }
                 else
                 {
-                    throw new Exception("Unexpected commnad : " + s[0]);
+                    string[] s = (await NetworkManager.Cin())[0].Split('=');
+                    if (s[0] == "Dice")
+                    {
+                        string[] ss = s[1].Split(',');
+                        Main.Set_Dice1(int.Parse(ss[0]));
+                        Main.Set_Dice2(int.Parse(ss[1]));
+                    }
+                    else
+                    {
+                        throw new Exception("Unexpected commnad : " + s[0]);
+                    }
                 }
             }
             Dice1TXT.Text = Main.Get_Dice1().ToString();
@@ -593,7 +613,12 @@ namespace Monopoly
 
         private void FinishTurn_Click(object sender, EventArgs e)
         {
-            RollDice.Enabled = true;
+            if (IsMyTurn)
+            {
+                RollDice.Enabled = true;
+                surrenderbtn.Enabled = true;
+                UpdateBTN.Enabled = true;
+            }
             FinishTurn.Enabled = false;
             playerturnnumber = (playerturnnumber + 1) % Token;
             playerturn = Players[playerturnnumber];
@@ -614,11 +639,18 @@ namespace Monopoly
         }
         private void BuyCity_Click(object sender, EventArgs e)
         {
+            if (IsMyTurn)
+            {
+                NetworkManager.Cout("BuyProperty");
+            }
             if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
             {
                 if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
-                    MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (IsMyTurn)
+                    {
+                        MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     BuyingCity.Hide();
                     switch (playerturn.Get_Fieldnumber() % 24)
                     {
@@ -898,7 +930,10 @@ namespace Monopoly
                 }
                 else
                 {
-                    MessageBox.Show("Oh you couldn't buy this City!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (IsMyTurn)
+                    {
+                        MessageBox.Show("Oh you couldn't buy this City!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     BuyingCity.Hide();
                 }
             }
@@ -906,7 +941,10 @@ namespace Monopoly
             {
                 if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
-                    MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (IsMyTurn)
+                    {
+                        MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     BuyingCity.Hide();
                     switch (playerturn.Get_Fieldnumber() % 24)
                     {
@@ -948,7 +986,10 @@ namespace Monopoly
                 }
                 else
                 {
-                    MessageBox.Show("Oh you couldn't buy this Station!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (IsMyTurn)
+                    {
+                        MessageBox.Show("Oh you couldn't buy this Station!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     BuyingCity.Hide();
                 }
 
@@ -979,6 +1020,10 @@ namespace Monopoly
 
         private void Cancel_Click(object sender, EventArgs e)
         {
+            if (IsMyTurn)
+            {
+                NetworkManager.Cout("Cancel");
+            }
             BuyingCity.Hide();
         }
 
@@ -1997,7 +2042,7 @@ namespace Monopoly
             Mode.Hide();
             MultiPlayer.Hide();
         }
-
+        //Join Button
         private async void button3_Click_1(object sender, EventArgs e)
         {
             HostBTN.Enabled = false;
@@ -2105,10 +2150,10 @@ namespace Monopoly
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
-                Player1.Show();
+                /*Player1.Show();
                 Player2.Show();
                 Player3.Show();
-                Player4.Show();
+                Player4.Show();*/
                 playerturn = Players[playerturnnumber];
                 Token = 2;
             }
@@ -2202,6 +2247,40 @@ namespace Monopoly
         private void Player1TokenColour_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private async void BuyingCity_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!BuyingCity.Visible || !IsMultiPlayer)
+            {
+                return;
+            }
+            if (IsHost)
+            {
+                BuyCity.Enabled = true;
+                Cancel.Enabled = true;
+                return;
+            }
+            else
+            {
+                BuyCity.Enabled = false;
+                Cancel.Enabled = false;
+            }
+            string[] strings = await NetworkManager.Cin();
+            if (strings[0] == "BuyProperty")
+            {
+                BuyCity.Enabled = true;
+                BuyCity.PerformClick();
+            }
+            else if (strings[0] == "Cancel")
+            {
+                Cancel.Enabled = true;
+                Cancel.PerformClick();
+            }
+            else
+            {
+                throw new Exception("Unexcepted command : " + strings[0]);
+            }
         }
     }
 }

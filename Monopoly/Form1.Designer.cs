@@ -611,10 +611,10 @@ namespace Monopoly
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
-            this.Game.Controls.Add(this.UpdatePanel);
+            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.Payrent);
             this.Game.Controls.Add(this.ActionPanel);
-            this.Game.Controls.Add(this.BuyingCity);
+            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.UpdateBTN);
             this.Game.Controls.Add(this.surrenderbtn);
             this.Game.Controls.Add(this.PlayerLabel2);
@@ -1007,6 +1007,7 @@ namespace Monopoly
             this.BuyingCity.Size = new System.Drawing.Size(556, 434);
             this.BuyingCity.TabIndex = 58;
             this.BuyingCity.Visible = false;
+            this.BuyingCity.VisibleChanged += new System.EventHandler(this.BuyingCity_VisibleChanged);
             this.BuyingCity.Paint += new System.Windows.Forms.PaintEventHandler(this.BuyingCity_Paint);
             // 
             // label6
@@ -3137,6 +3138,7 @@ namespace Monopoly
             this.MultiPlayer.Name = "MultiPlayer";
             this.MultiPlayer.Size = new System.Drawing.Size(1553, 772);
             this.MultiPlayer.TabIndex = 6;
+            this.MultiPlayer.Visible = false;
             // 
             // HostBTN
             // 
@@ -3307,8 +3309,8 @@ namespace Monopoly
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1566, 773);
-            this.Controls.Add(this.Information);
             this.Controls.Add(this.Game);
+            this.Controls.Add(this.Information);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
