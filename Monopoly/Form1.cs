@@ -2047,6 +2047,7 @@ namespace Monopoly
             }
             Information.Hide();
             Game.Show();
+            AllGameTimer.Enabled = true;
             if (!IsMyTurn)
             {
                 RollDice.PerformClick();
