@@ -447,16 +447,6 @@ namespace Monopoly
         {
             if (Main.GetPlayers().Count != 0)
             {
-                if (IsMultiPlayer)
-                {
-                    if (!IsMyTurn)
-                    {
-                        RollDice.Enabled = false;
-                        surrenderbtn.Enabled = false;
-                        UpdateBTN.Enabled = false;
-                        FinishTurn.Enabled = false;
-                    }
-                }
                 switch (playerturn.Get_Token())
                 {
                     case 1:
