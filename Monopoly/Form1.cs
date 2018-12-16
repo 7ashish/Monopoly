@@ -445,6 +445,10 @@ namespace Monopoly
         }
         private void AllGameTimer_Tick(object sender, EventArgs e)
         {
+            if(IsMultiPlayer && !IsMyTurn)
+            {
+                FinishTurn.Enabled = false;
+            }
             if (Main.GetPlayers().Count != 0)
             {
                 switch (playerturn.Get_Token())
@@ -603,17 +607,23 @@ namespace Monopoly
 
         private void FinishTurn_Click(object sender, EventArgs e)
         {
+            FinishTurn.Enabled = false;
+            playerturnnumber = (playerturnnumber + 1) % Token;
+            playerturn = Players[playerturnnumber];
+            Dice1TXT.Text = "0";
+            Dice2TXT.Text = "0";
             if (IsMyTurn)
             {
                 RollDice.Enabled = true;
                 surrenderbtn.Enabled = true;
                 UpdateBTN.Enabled = true;
             }
-            FinishTurn.Enabled = false;
-            playerturnnumber = (playerturnnumber + 1) % Token;
-            playerturn = Players[playerturnnumber];
-            Dice1TXT.Text = "0";
-            Dice2TXT.Text = "0";
+            else
+            {
+                RollDice.Enabled = false;
+                surrenderbtn.Enabled = false;
+                UpdateBTN.Enabled = false;
+            }
             if(IsMultiPlayer && !IsMyTurn)
             {
                 RollDice.PerformClick();
