@@ -443,11 +443,24 @@ namespace Monopoly
                 GoMoney[3] = true;
             }
         }
-        private void AllGameTimer_Tick(object sender, EventArgs e)
+        private async void AllGameTimer_Tick(object sender, EventArgs e)
         {
             if(IsMultiPlayer && !IsMyTurn)
             {
                 FinishTurn.Enabled = false;
+            }
+            if(IsMultiPlayer && IsMyTurn)
+            {
+                string[] strings = await NetworkManager.Cin();
+                if (strings[0] == "FinishTurn")
+                {
+                    FinishTurn.Enabled = true;
+                    FinishTurn.PerformClick();
+                }
+                else
+                {
+                    throw new Exception("Unexcepted command : " + strings[0]);
+                }
             }
             if (Main.GetPlayers().Count != 0)
             {
@@ -607,6 +620,10 @@ namespace Monopoly
 
         private void FinishTurn_Click(object sender, EventArgs e)
         {
+            if (IsMyTurn)
+            {
+                NetworkManager.Cout("FinishTurn");
+            }
             FinishTurn.Enabled = false;
             playerturnnumber = (playerturnnumber + 1) % Token;
             playerturn = Players[playerturnnumber];
