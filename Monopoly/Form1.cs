@@ -597,6 +597,7 @@ namespace Monopoly
             {
                 Main.Move_Player(playerturn);
             }
+            FinalizeTurn();
         }
 
         public void Set_CityPriceTextBox(int price)
