@@ -611,8 +611,8 @@ namespace Monopoly
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
-            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.Payrent);
+            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.UpdateBTN);
@@ -817,6 +817,7 @@ namespace Monopoly
             this.Payrent.Size = new System.Drawing.Size(433, 185);
             this.Payrent.TabIndex = 0;
             this.Payrent.Visible = false;
+            this.Payrent.VisibleChanged += new System.EventHandler(this.Payrent_VisibleChanged);
             // 
             // surrender
             // 

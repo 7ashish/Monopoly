@@ -1095,6 +1095,10 @@ namespace Monopoly
         //Pay rents button.
         private void Button1_Click(object sender, EventArgs e)
         {
+            if (IsMultiPlayer && IsMyTurn)
+            {
+                NetworkManager.Cout("PayRent");
+            }
             if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
             {
                 City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
@@ -1115,6 +1119,10 @@ namespace Monopoly
 
         private void surrender_Click(object sender, EventArgs e)
         {
+            if (IsMultiPlayer && IsMyTurn)
+            {
+                NetworkManager.Cout("Surrender");
+            }
             if (MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
                 playerturn.Surrender();
@@ -2306,6 +2314,44 @@ namespace Monopoly
             {
                 Cancel.Enabled = true;
                 Cancel.PerformClick();
+            }
+            else
+            {
+                throw new Exception("Unexcepted command : " + strings[0]);
+            }
+        }
+
+        private async void Payrent_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!IsMyTurn)
+            {
+                Payrent.Visible = false;
+            }
+            if (!Payrent.Visible || !IsMultiPlayer)
+            {
+                return;
+            }
+            if (IsMyTurn)
+            {
+                PayrentBTN.Enabled = true;
+                surrender.Enabled = true;
+                return;
+            }
+            else
+            {
+                PayrentBTN.Enabled = false;
+                surrender.Enabled = false;
+            }
+            string[] strings = await NetworkManager.Cin();
+            if (strings[0] == "PayRent")
+            {
+                PayrentBTN.Enabled = true;
+                PayrentBTN.PerformClick();
+            }
+            else if (strings[0] == "Surrender")
+            {
+                surrender.Enabled = true;
+                surrender.PerformClick();
             }
             else
             {
