@@ -1091,6 +1091,11 @@ namespace Monopoly
         private void OkBTN_Click(object sender, EventArgs e)
         {
             ActionPanel.Hide();
+            if (IsMyTurn)
+            {
+                NetworkManager.Cout("Ok");
+            }
+            FinalizeTurn();
         }
         //Pay rents button.
         private void Button1_Click(object sender, EventArgs e)
@@ -2360,6 +2365,38 @@ namespace Monopoly
             {
                 throw new Exception("Unexcepted command : " + strings[0]);
             }
+        }
+
+        private async void ActionPanel_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!Information.Visible || !IsMultiPlayer)
+            {
+                return;
+            }
+            if (IsMyTurn)
+            {
+                OkBTN.Enabled = true;
+                return;
+            }
+            else
+            {
+                OkBTN.Enabled = false;
+            }
+            string[] strings = await NetworkManager.Cin();
+            if (strings[0] == "Ok")
+            {
+                OkBTN.Enabled = true;
+                OkBTN.PerformClick();
+            }
+            else
+            {
+                throw new Exception("Unexcepted command : " + strings[0]);
+            }
+        }
+
+        private void Monopoly_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

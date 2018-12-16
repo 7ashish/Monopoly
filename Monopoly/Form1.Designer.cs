@@ -611,9 +611,9 @@ namespace Monopoly
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
+            this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.Payrent);
             this.Game.Controls.Add(this.BuyingCity);
-            this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.UpdateBTN);
             this.Game.Controls.Add(this.surrenderbtn);
@@ -880,6 +880,7 @@ namespace Monopoly
             this.ActionPanel.Size = new System.Drawing.Size(556, 294);
             this.ActionPanel.TabIndex = 0;
             this.ActionPanel.Visible = false;
+            this.ActionPanel.VisibleChanged += new System.EventHandler(this.ActionPanel_VisibleChanged);
             // 
             // OkBTN
             // 
@@ -3315,11 +3316,11 @@ namespace Monopoly
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.MultiRegister);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Monopoly";
             this.Text = "Monopoly";
+            this.Load += new System.EventHandler(this.Monopoly_Load);
             this.Registeration.ResumeLayout(false);
             this.NumberofplayerPanel.ResumeLayout(false);
             this.NumberofplayerPanel.PerformLayout();
