@@ -443,24 +443,11 @@ namespace Monopoly
                 GoMoney[3] = true;
             }
         }
-        private async void AllGameTimer_Tick(object sender, EventArgs e)
+        private void AllGameTimer_Tick(object sender, EventArgs e)
         {
             if(IsMultiPlayer && !IsMyTurn)
             {
                 FinishTurn.Enabled = false;
-            }
-            if(IsMultiPlayer && IsMyTurn)
-            {
-                string[] strings = await NetworkManager.Cin();
-                if (strings[0] == "FinishTurn")
-                {
-                    FinishTurn.Enabled = true;
-                    FinishTurn.PerformClick();
-                }
-                else
-                {
-                    throw new Exception("Unexcepted command : " + strings[0]);
-                }
             }
             if (Main.GetPlayers().Count != 0)
             {
@@ -616,7 +603,22 @@ namespace Monopoly
         {
             CityPrice.Text = price.ToString() + "$";
         }
-
+        private async void FinalizeTurn()
+        {
+            if (IsMultiPlayer && !IsMyTurn)
+            {
+                string[] strings = await NetworkManager.Cin();
+                if (strings[0] == "FinishTurn")
+                {
+                    FinishTurn.Enabled = true;
+                    FinishTurn.PerformClick();
+                }
+                else
+                {
+                    throw new Exception("Unexcepted command : " + strings[0]);
+                }
+            }
+        }
         private void FinishTurn_Click(object sender, EventArgs e)
         {
             if (IsMyTurn)
@@ -624,6 +626,10 @@ namespace Monopoly
                 NetworkManager.Cout("FinishTurn");
             }
             FinishTurn.Enabled = false;
+            playerturnnumber = (playerturnnumber + 1) % Token;
+            playerturn = Players[playerturnnumber];
+            Dice1TXT.Text = "0";
+            Dice2TXT.Text = "0";
             if (IsMyTurn)
             {
                 RollDice.Enabled = true;
@@ -636,10 +642,6 @@ namespace Monopoly
                 surrenderbtn.Enabled = false;
                 UpdateBTN.Enabled = false;
             }
-            playerturnnumber = (playerturnnumber + 1) % Token;
-            playerturn = Players[playerturnnumber];
-            Dice1TXT.Text = "0";
-            Dice2TXT.Text = "0";
             if(IsMultiPlayer && !IsMyTurn)
             {
                 RollDice.PerformClick();
@@ -1011,7 +1013,7 @@ namespace Monopoly
 
             }
             CityPrice.Text = "";
-
+            FinalizeTurn();
         }
         private void BuyingCity_Paint(object sender, PaintEventArgs e)
         {
@@ -1041,6 +1043,7 @@ namespace Monopoly
                 NetworkManager.Cout("Cancel");
             }
             BuyingCity.Hide();
+            FinalizeTurn();
         }
 
         public Panel GetPlayer1Panel()
