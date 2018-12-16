@@ -28,6 +28,7 @@ class Community_Chest : Non_Purchasable
         string FolderPath = Directory.GetCurrentDirectory();
         FolderPath += @"\Pictures";
         int result = Choose();
+        result = 1;
         switch (result)
         {
             case 1:

@@ -2075,7 +2075,7 @@ namespace Monopoly
             Information.Hide();
             Game.Show();
             AllGameTimer.Enabled = true;
-            if (!IsMyTurn)
+            if (!IsMyTurn && IsMultiPlayer)
             {
                 RollDice.PerformClick();
             }
@@ -2111,7 +2111,7 @@ namespace Monopoly
             MultiRegister.Show();
             MultiPlayer.Hide();
         }
-
+        //Back Button
         private void button3_Click_2(object sender, EventArgs e)
         {
             Mode.Show();
@@ -2195,10 +2195,6 @@ namespace Monopoly
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
-                /*Player1.Show();
-                Player2.Show();
-                Player3.Show();
-                Player4.Show();*/
                 playerturn = Players[playerturnnumber];
                 Token = 2;
             }
