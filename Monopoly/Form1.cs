@@ -539,7 +539,6 @@ namespace Monopoly
                 if (IsMyTurn)
                 {
                     Payrent.Show();
-
                 }
             }
             else
@@ -625,10 +624,6 @@ namespace Monopoly
                 NetworkManager.Cout("FinishTurn");
             }
             FinishTurn.Enabled = false;
-            playerturnnumber = (playerturnnumber + 1) % Token;
-            playerturn = Players[playerturnnumber];
-            Dice1TXT.Text = "0";
-            Dice2TXT.Text = "0";
             if (IsMyTurn)
             {
                 RollDice.Enabled = true;
@@ -641,6 +636,10 @@ namespace Monopoly
                 surrenderbtn.Enabled = false;
                 UpdateBTN.Enabled = false;
             }
+            playerturnnumber = (playerturnnumber + 1) % Token;
+            playerturn = Players[playerturnnumber];
+            Dice1TXT.Text = "0";
+            Dice2TXT.Text = "0";
             if(IsMultiPlayer && !IsMyTurn)
             {
                 RollDice.PerformClick();
