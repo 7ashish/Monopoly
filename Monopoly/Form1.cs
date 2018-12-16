@@ -1115,6 +1115,7 @@ namespace Monopoly
             {
                 MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
+            FinalizeTurn();
         }
 
         private void surrender_Click(object sender, EventArgs e)
@@ -1277,6 +1278,7 @@ namespace Monopoly
                 FinishTurn.Enabled = false;
                 Payrent.Hide();
             }
+            FinalizeTurn();
         }
 
         private void surrenderbtn_Click(object sender, EventArgs e)
