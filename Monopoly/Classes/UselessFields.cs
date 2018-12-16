@@ -8,7 +8,7 @@ using System.Drawing;
 
 class UselessFields : Non_Purchasable
 {
-    //defualt constructor.
+    //defualt constructor.C:\Users\Hashish\Desktop\Monopoly\Monopoly\Classes\UselessFields.cs
     public UselessFields():base()
     {
     }

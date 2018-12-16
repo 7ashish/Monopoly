@@ -117,6 +117,10 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player1.Location);
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                if(typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
+                {
+                    FinalizeTurn();
+                }
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player1_Timer.Stop();
@@ -200,6 +204,10 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player2.Location);
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                if (typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
+                {
+                    FinalizeTurn();
+                }
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player2_Timre.Stop();
@@ -597,7 +605,6 @@ namespace Monopoly
             {
                 Main.Move_Player(playerturn);
             }
-            FinalizeTurn();
         }
 
         public void Set_CityPriceTextBox(int price)
@@ -645,6 +652,7 @@ namespace Monopoly
             }
             if(IsMultiPlayer && !IsMyTurn)
             {
+                RollDice.Enabled = true;
                 RollDice.PerformClick();
             }
         }
