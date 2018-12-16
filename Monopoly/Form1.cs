@@ -2369,7 +2369,7 @@ namespace Monopoly
 
         private async void ActionPanel_VisibleChanged(object sender, EventArgs e)
         {
-            if (!Information.Visible || !IsMultiPlayer)
+            if (!ActionPanel.Visible || !IsMultiPlayer)
             {
                 return;
             }
