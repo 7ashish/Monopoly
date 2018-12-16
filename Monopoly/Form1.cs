@@ -2330,10 +2330,6 @@ namespace Monopoly
             {
                 return;
             }
-            if (!IsMyTurn)
-            {
-                Payrent.Visible = false;
-            }
             if (IsMyTurn)
             {
                 PayrentBTN.Enabled = true;
@@ -2346,8 +2342,6 @@ namespace Monopoly
                 surrender.Enabled = false;
             }
             string[] strings = await NetworkManager.Cin();
-            Payrent.Visible = true;
-            Payrent.Enabled = true;
             if (strings[0] == "PayRent")
             {
                 PayrentBTN.Enabled = true;
