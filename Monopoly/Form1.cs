@@ -2325,13 +2325,13 @@ namespace Monopoly
 
         private async void Payrent_VisibleChanged(object sender, EventArgs e)
         {
-            if (!IsMyTurn)
-            {
-                Payrent.Visible = false;
-            }
             if (!Payrent.Visible || !IsMultiPlayer)
             {
                 return;
+            }
+            if (!IsMyTurn)
+            {
+                Payrent.Visible = false;
             }
             if (IsMyTurn)
             {
@@ -2345,6 +2345,7 @@ namespace Monopoly
                 surrender.Enabled = false;
             }
             string[] strings = await NetworkManager.Cin();
+            Payrent.Visible = true;
             if (strings[0] == "PayRent")
             {
                 PayrentBTN.Enabled = true;
