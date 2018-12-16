@@ -612,6 +612,7 @@ namespace Monopoly
             CityPrice.Text = price.ToString() + "$";
         }
         private async void FinalizeTurn()
+
         {
             if (IsMultiPlayer && !IsMyTurn)
             {
@@ -2284,7 +2285,7 @@ namespace Monopoly
             {
                 return;
             }
-            if (IsHost)
+            if (IsMyTurn)
             {
                 BuyCity.Enabled = true;
                 Cancel.Enabled = true;
