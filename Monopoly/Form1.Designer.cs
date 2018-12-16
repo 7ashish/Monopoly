@@ -903,6 +903,7 @@ namespace Monopoly
             this.ActionPic.Name = "ActionPic";
             this.ActionPic.Size = new System.Drawing.Size(485, 217);
             this.ActionPic.TabIndex = 0;
+            this.ActionPic.Paint += new System.Windows.Forms.PaintEventHandler(this.ActionPic_Paint);
             // 
             // UpdatePanel
             // 

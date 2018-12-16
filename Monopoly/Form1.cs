@@ -591,7 +591,7 @@ namespace Monopoly
                     }
                     else
                     {
-                        throw new Exception("Unexpected commnad : " + s[0]);
+                        throw new Exception("Unexpected command : " + s[0]);
                     }
                 }
             }
@@ -1090,11 +1090,11 @@ namespace Monopoly
         }
         private void OkBTN_Click(object sender, EventArgs e)
         {
-            ActionPanel.Hide();
-            if (IsMyTurn)
+            if (IsMultiPlayer && IsMyTurn)
             {
                 NetworkManager.Cout("Ok");
             }
+            ActionPanel.Hide();
             FinalizeTurn();
         }
         //Pay rents button.
@@ -2395,6 +2395,11 @@ namespace Monopoly
         }
 
         private void Monopoly_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActionPic_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -80,7 +80,7 @@ static class NetworkManager
             }
             if (s.Contains('#'))
             {
-                throw new FormatException("ya 7ywan");
+                throw new FormatException("Unexpected Command" + "#");
             }
             ActiveSocket.Send(Encoding.ASCII.GetBytes(s + "#"));
         }
