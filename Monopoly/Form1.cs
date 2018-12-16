@@ -2028,12 +2028,12 @@ namespace Monopoly
             {
                 NetworkManager.Cout("StartGame");
             }
-            else
+            Information.Hide();
+            Game.Show();
+            if (!IsMyTurn)
             {
                 RollDice.PerformClick();
             }
-            Information.Hide();
-            Game.Show();
         }
 
         private void SinglePlayerBTN_Click(object sender, EventArgs e)
