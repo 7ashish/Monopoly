@@ -1048,7 +1048,7 @@ namespace Monopoly
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            if (IsMyTurn)
+            if (IsMyTurn && IsMultiPlayer)
             {
                 NetworkManager.Cout("Cancel");
             }
@@ -2347,6 +2347,7 @@ namespace Monopoly
             }
             string[] strings = await NetworkManager.Cin();
             Payrent.Visible = true;
+            Payrent.Enabled = true;
             if (strings[0] == "PayRent")
             {
                 PayrentBTN.Enabled = true;
