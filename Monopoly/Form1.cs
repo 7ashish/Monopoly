@@ -531,17 +531,7 @@ namespace Monopoly
         }
         public void Set_Payrent()
         {
-            if (IsMultiPlayer)
-            {
-                if (IsMyTurn)
-                {
-                    Payrent.Show();
-                }
-            }
-            else
-            {
-                Payrent.Show();
-            }
+            Payrent.Show();
         }
         private void GoToJail_Paint(object sender, PaintEventArgs e)
         {
