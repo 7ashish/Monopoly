@@ -453,6 +453,8 @@ namespace Monopoly
         }
         private void AllGameTimer_Tick(object sender, EventArgs e)
         {
+            surrenderbtn.Enabled = false;
+            UpdateBTN.Enabled = false;
             if(IsMultiPlayer && !IsMyTurn)
             {
                 FinishTurn.Enabled = false;

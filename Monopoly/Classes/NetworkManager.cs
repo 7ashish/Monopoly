@@ -44,9 +44,16 @@ static class NetworkManager
         byte[] buffer = new byte[1024];
         await Task.Run(() =>
         {
-            UDPSocket.ReceiveFrom(buffer, ref Point);
-            TCPSocket.Connect(new IPEndPoint(((IPEndPoint)Point).Address, 7123));
-            ActiveSocket = TCPSocket;
+            while (true)
+            {
+                int n = UDPSocket.ReceiveFrom(buffer, ref Point);
+                if (Encoding.ASCII.GetString(buffer, 0, n) == "Monopoly Server Here")
+                {
+                    TCPSocket.Connect(new IPEndPoint(((IPEndPoint)Point).Address, 7123));
+                    ActiveSocket = TCPSocket;
+                    break;
+                }
+            }
         });
     }
     static public async Task<string[]> Cin()
@@ -80,7 +87,7 @@ static class NetworkManager
             }
             if (s.Contains('#'))
             {
-                throw new FormatException("Unexpected Command" + "#");
+                throw new FormatException("Unexpected Command: " + "# in "+ s);
             }
             ActiveSocket.Send(Encoding.ASCII.GetBytes(s + "#"));
         }
