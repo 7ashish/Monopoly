@@ -622,7 +622,7 @@ namespace Monopoly
         }
         private void FinishTurn_Click(object sender, EventArgs e)
         {
-            if (IsMyTurn)
+            if (IsMyTurn && IsMultiPlayer)
             {
                 NetworkManager.Cout("FinishTurn");
             }
@@ -648,6 +648,12 @@ namespace Monopoly
                 RollDice.Enabled = true;
                 RollDice.PerformClick();
             }
+            else
+            {
+                RollDice.Enabled = true;
+                surrenderbtn.Enabled = true;
+                UpdateBTN.Enabled = true;
+            }
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -659,7 +665,7 @@ namespace Monopoly
         }
         private void BuyCity_Click(object sender, EventArgs e)
         {
-            if (IsMyTurn)
+            if (IsMyTurn && IsMultiPlayer)
             {
                 NetworkManager.Cout("BuyProperty");
             }
@@ -667,7 +673,7 @@ namespace Monopoly
             {
                 if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
-                    if (IsMyTurn)
+                    if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -950,7 +956,7 @@ namespace Monopoly
                 }
                 else
                 {
-                    if (IsMyTurn)
+                    if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Oh you couldn't buy this City!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -961,7 +967,7 @@ namespace Monopoly
             {
                 if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
-                    if (IsMyTurn)
+                    if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -1006,7 +1012,7 @@ namespace Monopoly
                 }
                 else
                 {
-                    if (IsMyTurn)
+                    if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Oh you couldn't buy this Station!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -1016,6 +1022,7 @@ namespace Monopoly
             }
             CityPrice.Text = "";
             FinalizeTurn();
+            FinishTurn.Enabled = true;
         }
         private void BuyingCity_Paint(object sender, PaintEventArgs e)
         {
@@ -2110,6 +2117,8 @@ namespace Monopoly
             MultiPlayer.Hide();
             HostBTN.Enabled = true;
             JoinBTN.Enabled = true;
+            IsHost = false;
+            IsMultiPlayer = false;
         }
 
         private void MultiPlayerBTN_Click(object sender, EventArgs e)

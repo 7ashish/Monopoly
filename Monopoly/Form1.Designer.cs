@@ -57,20 +57,20 @@ namespace Monopoly
             this.Player3 = new System.Windows.Forms.Panel();
             this.Player2 = new System.Windows.Forms.Panel();
             this.Player1 = new System.Windows.Forms.Panel();
+            this.ActionPanel = new System.Windows.Forms.Panel();
+            this.OkBTN = new System.Windows.Forms.Button();
+            this.ActionPic = new System.Windows.Forms.Panel();
+            this.Payrent = new System.Windows.Forms.Panel();
+            this.surrender = new System.Windows.Forms.Button();
+            this.PayrentBTN = new System.Windows.Forms.Button();
+            this.RentTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.BuyingCity = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.CityPrice = new System.Windows.Forms.TextBox();
             this.City = new System.Windows.Forms.Panel();
             this.Cancel = new System.Windows.Forms.Button();
             this.BuyCity = new System.Windows.Forms.Button();
-            this.Payrent = new System.Windows.Forms.Panel();
-            this.surrender = new System.Windows.Forms.Button();
-            this.PayrentBTN = new System.Windows.Forms.Button();
-            this.RentTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ActionPanel = new System.Windows.Forms.Panel();
-            this.OkBTN = new System.Windows.Forms.Button();
-            this.ActionPic = new System.Windows.Forms.Panel();
             this.UpdatePanel = new System.Windows.Forms.Panel();
             this.Ok = new System.Windows.Forms.Button();
             this.UpdatePicture = new System.Windows.Forms.Panel();
@@ -287,9 +287,9 @@ namespace Monopoly
             this.PlayerReg_Panel.SuspendLayout();
             this.Mode.SuspendLayout();
             this.Game.SuspendLayout();
-            this.BuyingCity.SuspendLayout();
-            this.Payrent.SuspendLayout();
             this.ActionPanel.SuspendLayout();
+            this.Payrent.SuspendLayout();
+            this.BuyingCity.SuspendLayout();
             this.UpdatePanel.SuspendLayout();
             this.Dice1.SuspendLayout();
             this.Dice2.SuspendLayout();
@@ -722,6 +722,108 @@ namespace Monopoly
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
             // 
+            // ActionPanel
+            // 
+            this.ActionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ActionPanel.Controls.Add(this.OkBTN);
+            this.ActionPanel.Controls.Add(this.ActionPic);
+            this.ActionPanel.Location = new System.Drawing.Point(440, 222);
+            this.ActionPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.ActionPanel.Name = "ActionPanel";
+            this.ActionPanel.Size = new System.Drawing.Size(556, 294);
+            this.ActionPanel.TabIndex = 0;
+            this.ActionPanel.Visible = false;
+            this.ActionPanel.VisibleChanged += new System.EventHandler(this.ActionPanel_VisibleChanged);
+            // 
+            // OkBTN
+            // 
+            this.OkBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.OkBTN.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OkBTN.Location = new System.Drawing.Point(213, 247);
+            this.OkBTN.Margin = new System.Windows.Forms.Padding(4);
+            this.OkBTN.Name = "OkBTN";
+            this.OkBTN.Size = new System.Drawing.Size(129, 34);
+            this.OkBTN.TabIndex = 1;
+            this.OkBTN.Text = "Ok";
+            this.OkBTN.UseVisualStyleBackColor = true;
+            this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
+            // 
+            // ActionPic
+            // 
+            this.ActionPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ActionPic.Location = new System.Drawing.Point(37, 17);
+            this.ActionPic.Margin = new System.Windows.Forms.Padding(4);
+            this.ActionPic.Name = "ActionPic";
+            this.ActionPic.Size = new System.Drawing.Size(485, 217);
+            this.ActionPic.TabIndex = 0;
+            this.ActionPic.Paint += new System.Windows.Forms.PaintEventHandler(this.ActionPic_Paint);
+            // 
+            // Payrent
+            // 
+            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Payrent.Controls.Add(this.surrender);
+            this.Payrent.Controls.Add(this.PayrentBTN);
+            this.Payrent.Controls.Add(this.RentTextBox);
+            this.Payrent.Controls.Add(this.label4);
+            this.Payrent.Location = new System.Drawing.Point(425, 274);
+            this.Payrent.Margin = new System.Windows.Forms.Padding(4);
+            this.Payrent.Name = "Payrent";
+            this.Payrent.Size = new System.Drawing.Size(433, 185);
+            this.Payrent.TabIndex = 0;
+            this.Payrent.Visible = false;
+            this.Payrent.VisibleChanged += new System.EventHandler(this.Payrent_VisibleChanged);
+            // 
+            // surrender
+            // 
+            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surrender.ForeColor = System.Drawing.Color.Maroon;
+            this.surrender.Location = new System.Drawing.Point(64, 107);
+            this.surrender.Margin = new System.Windows.Forms.Padding(4);
+            this.surrender.Name = "surrender";
+            this.surrender.Size = new System.Drawing.Size(125, 38);
+            this.surrender.TabIndex = 3;
+            this.surrender.Text = "Surrender";
+            this.surrender.UseVisualStyleBackColor = true;
+            this.surrender.Click += new System.EventHandler(this.surrender_Click);
+            // 
+            // PayrentBTN
+            // 
+            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayrentBTN.ForeColor = System.Drawing.Color.DarkOrange;
+            this.PayrentBTN.Location = new System.Drawing.Point(267, 98);
+            this.PayrentBTN.Margin = new System.Windows.Forms.Padding(4);
+            this.PayrentBTN.Name = "PayrentBTN";
+            this.PayrentBTN.Size = new System.Drawing.Size(100, 43);
+            this.PayrentBTN.TabIndex = 2;
+            this.PayrentBTN.Text = "Pay";
+            this.PayrentBTN.UseVisualStyleBackColor = true;
+            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // RentTextBox
+            // 
+            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RentTextBox.Location = new System.Drawing.Point(249, 48);
+            this.RentTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.RentTextBox.Name = "RentTextBox";
+            this.RentTextBox.Size = new System.Drawing.Size(124, 32);
+            this.RentTextBox.TabIndex = 1;
+            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(67, 48);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Rent Price";
+            // 
             // BuyingCity
             // 
             this.BuyingCity.BackColor = System.Drawing.SystemColors.Window;
@@ -802,108 +904,6 @@ namespace Monopoly
             this.BuyCity.Text = "Buy City";
             this.BuyCity.UseVisualStyleBackColor = true;
             this.BuyCity.Click += new System.EventHandler(this.BuyCity_Click);
-            // 
-            // Payrent
-            // 
-            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Payrent.Controls.Add(this.surrender);
-            this.Payrent.Controls.Add(this.PayrentBTN);
-            this.Payrent.Controls.Add(this.RentTextBox);
-            this.Payrent.Controls.Add(this.label4);
-            this.Payrent.Location = new System.Drawing.Point(425, 274);
-            this.Payrent.Margin = new System.Windows.Forms.Padding(4);
-            this.Payrent.Name = "Payrent";
-            this.Payrent.Size = new System.Drawing.Size(433, 185);
-            this.Payrent.TabIndex = 0;
-            this.Payrent.Visible = false;
-            this.Payrent.VisibleChanged += new System.EventHandler(this.Payrent_VisibleChanged);
-            // 
-            // surrender
-            // 
-            this.surrender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.surrender.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrender.ForeColor = System.Drawing.Color.Maroon;
-            this.surrender.Location = new System.Drawing.Point(64, 107);
-            this.surrender.Margin = new System.Windows.Forms.Padding(4);
-            this.surrender.Name = "surrender";
-            this.surrender.Size = new System.Drawing.Size(125, 38);
-            this.surrender.TabIndex = 3;
-            this.surrender.Text = "Surrender";
-            this.surrender.UseVisualStyleBackColor = true;
-            this.surrender.Click += new System.EventHandler(this.surrender_Click);
-            // 
-            // PayrentBTN
-            // 
-            this.PayrentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PayrentBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayrentBTN.ForeColor = System.Drawing.Color.DarkOrange;
-            this.PayrentBTN.Location = new System.Drawing.Point(267, 98);
-            this.PayrentBTN.Margin = new System.Windows.Forms.Padding(4);
-            this.PayrentBTN.Name = "PayrentBTN";
-            this.PayrentBTN.Size = new System.Drawing.Size(100, 43);
-            this.PayrentBTN.TabIndex = 2;
-            this.PayrentBTN.Text = "Pay";
-            this.PayrentBTN.UseVisualStyleBackColor = true;
-            this.PayrentBTN.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // RentTextBox
-            // 
-            this.RentTextBox.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.RentTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentTextBox.Location = new System.Drawing.Point(249, 48);
-            this.RentTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.RentTextBox.Name = "RentTextBox";
-            this.RentTextBox.Size = new System.Drawing.Size(124, 32);
-            this.RentTextBox.TabIndex = 1;
-            this.RentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(67, 48);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Rent Price";
-            // 
-            // ActionPanel
-            // 
-            this.ActionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ActionPanel.Controls.Add(this.OkBTN);
-            this.ActionPanel.Controls.Add(this.ActionPic);
-            this.ActionPanel.Location = new System.Drawing.Point(440, 222);
-            this.ActionPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.ActionPanel.Name = "ActionPanel";
-            this.ActionPanel.Size = new System.Drawing.Size(556, 294);
-            this.ActionPanel.TabIndex = 0;
-            this.ActionPanel.Visible = false;
-            this.ActionPanel.VisibleChanged += new System.EventHandler(this.ActionPanel_VisibleChanged);
-            // 
-            // OkBTN
-            // 
-            this.OkBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OkBTN.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OkBTN.Location = new System.Drawing.Point(213, 247);
-            this.OkBTN.Margin = new System.Windows.Forms.Padding(4);
-            this.OkBTN.Name = "OkBTN";
-            this.OkBTN.Size = new System.Drawing.Size(129, 34);
-            this.OkBTN.TabIndex = 1;
-            this.OkBTN.Text = "Ok";
-            this.OkBTN.UseVisualStyleBackColor = true;
-            this.OkBTN.Click += new System.EventHandler(this.OkBTN_Click);
-            // 
-            // ActionPic
-            // 
-            this.ActionPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ActionPic.Location = new System.Drawing.Point(37, 17);
-            this.ActionPic.Margin = new System.Windows.Forms.Padding(4);
-            this.ActionPic.Name = "ActionPic";
-            this.ActionPic.Size = new System.Drawing.Size(485, 217);
-            this.ActionPic.TabIndex = 0;
-            this.ActionPic.Paint += new System.Windows.Forms.PaintEventHandler(this.ActionPic_Paint);
             // 
             // UpdatePanel
             // 
@@ -3312,10 +3312,10 @@ namespace Monopoly
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1566, 773);
             this.Controls.Add(this.Game);
-            this.Controls.Add(this.Information);
-            this.Controls.Add(this.Mode);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
+            this.Controls.Add(this.Information);
+            this.Controls.Add(this.Mode);
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -3330,11 +3330,11 @@ namespace Monopoly
             this.Mode.ResumeLayout(false);
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
-            this.BuyingCity.ResumeLayout(false);
-            this.BuyingCity.PerformLayout();
+            this.ActionPanel.ResumeLayout(false);
             this.Payrent.ResumeLayout(false);
             this.Payrent.PerformLayout();
-            this.ActionPanel.ResumeLayout(false);
+            this.BuyingCity.ResumeLayout(false);
+            this.BuyingCity.PerformLayout();
             this.UpdatePanel.ResumeLayout(false);
             this.UpdatePanel.PerformLayout();
             this.Dice1.ResumeLayout(false);
