@@ -501,6 +501,7 @@ namespace Monopoly
                     }
                 }
                 PlayersInfo.Lines = Lines;
+
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     FinishTurn.Enabled = false;

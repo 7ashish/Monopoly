@@ -685,7 +685,7 @@ namespace Monopoly
             this.Player4.Location = new System.Drawing.Point(1133, 652);
             this.Player4.Margin = new System.Windows.Forms.Padding(4);
             this.Player4.Name = "Player4";
-            this.Player4.Size = new System.Drawing.Size(59, 55);
+            this.Player4.Size = new System.Drawing.Size(25, 30);
             this.Player4.TabIndex = 50;
             this.Player4.Visible = false;
             // 
@@ -696,7 +696,7 @@ namespace Monopoly
             this.Player3.Location = new System.Drawing.Point(1133, 652);
             this.Player3.Margin = new System.Windows.Forms.Padding(4);
             this.Player3.Name = "Player3";
-            this.Player3.Size = new System.Drawing.Size(50, 43);
+            this.Player3.Size = new System.Drawing.Size(33, 35);
             this.Player3.TabIndex = 49;
             this.Player3.Visible = false;
             // 
@@ -707,7 +707,7 @@ namespace Monopoly
             this.Player2.Location = new System.Drawing.Point(1133, 652);
             this.Player2.Margin = new System.Windows.Forms.Padding(4);
             this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(46, 36);
+            this.Player2.Size = new System.Drawing.Size(45, 40);
             this.Player2.TabIndex = 49;
             this.Player2.Visible = false;
             // 
@@ -718,7 +718,7 @@ namespace Monopoly
             this.Player1.Location = new System.Drawing.Point(1133, 652);
             this.Player1.Margin = new System.Windows.Forms.Padding(4);
             this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(33, 30);
+            this.Player1.Size = new System.Drawing.Size(55, 50);
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
             // 
@@ -1338,7 +1338,7 @@ namespace Monopoly
             // 
             this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersInfo.ForeColor = System.Drawing.Color.Crimson;
+            this.PlayersInfo.ForeColor = System.Drawing.Color.Goldenrod;
             this.PlayersInfo.Location = new System.Drawing.Point(1277, 239);
             this.PlayersInfo.Margin = new System.Windows.Forms.Padding(4);
             this.PlayersInfo.Multiline = true;
