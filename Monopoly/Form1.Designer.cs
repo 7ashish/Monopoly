@@ -675,7 +675,7 @@ namespace Monopoly
             this.Game.Location = new System.Drawing.Point(0, 0);
             this.Game.Margin = new System.Windows.Forms.Padding(4);
             this.Game.Name = "Game";
-            this.Game.Size = new System.Drawing.Size(1575, 772);
+            this.Game.Size = new System.Drawing.Size(1553, 772);
             this.Game.TabIndex = 0;
             this.Game.Visible = false;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
@@ -893,6 +893,7 @@ namespace Monopoly
             this.City.Name = "City";
             this.City.Size = new System.Drawing.Size(340, 369);
             this.City.TabIndex = 2;
+            this.City.Paint += new System.Windows.Forms.PaintEventHandler(this.City_Paint);
             // 
             // Cancel
             // 
@@ -3327,7 +3328,8 @@ namespace Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1602, 773);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1557, 773);
             this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
@@ -3336,6 +3338,8 @@ namespace Monopoly
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Monopoly";
             this.Text = "Monopoly";
             this.Load += new System.EventHandler(this.Monopoly_Load);

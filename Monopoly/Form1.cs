@@ -2406,5 +2406,10 @@ namespace Monopoly
         {
 
         }
+
+        private void City_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
