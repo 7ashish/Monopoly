@@ -613,6 +613,7 @@ namespace Monopoly
             // 
             // Game
             // 
+            this.Game.BackColor = System.Drawing.Color.White;
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Game.Controls.Add(this.Caution);
             this.Game.Controls.Add(this.label15);
@@ -690,7 +691,7 @@ namespace Monopoly
             // 
             // BalancePositiveTXT
             // 
-            this.BalancePositiveTXT.BackColor = System.Drawing.SystemColors.Control;
+            this.BalancePositiveTXT.BackColor = System.Drawing.Color.White;
             this.BalancePositiveTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BalancePositiveTXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BalancePositiveTXT.ForeColor = System.Drawing.Color.LawnGreen;
@@ -785,7 +786,7 @@ namespace Monopoly
             // 
             // Payrent
             // 
-            this.Payrent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Payrent.BackColor = System.Drawing.Color.White;
             this.Payrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Payrent.Controls.Add(this.surrender);
             this.Payrent.Controls.Add(this.PayrentBTN);
@@ -851,7 +852,7 @@ namespace Monopoly
             // 
             // BuyingCity
             // 
-            this.BuyingCity.BackColor = System.Drawing.SystemColors.Window;
+            this.BuyingCity.BackColor = System.Drawing.Color.White;
             this.BuyingCity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BuyingCity.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BuyingCity.Controls.Add(this.label6);
@@ -933,7 +934,7 @@ namespace Monopoly
             // 
             // UpdatePanel
             // 
-            this.UpdatePanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.UpdatePanel.BackColor = System.Drawing.Color.White;
             this.UpdatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UpdatePanel.Controls.Add(this.label16);
             this.UpdatePanel.Controls.Add(this.Ok);
@@ -1104,7 +1105,7 @@ namespace Monopoly
             // 
             // UpdateBTN
             // 
-            this.UpdateBTN.BackColor = System.Drawing.SystemColors.Control;
+            this.UpdateBTN.BackColor = System.Drawing.Color.White;
             this.UpdateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpdateBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBTN.ForeColor = System.Drawing.Color.Crimson;
@@ -1121,7 +1122,7 @@ namespace Monopoly
             // 
             // surrenderbtn
             // 
-            this.surrenderbtn.BackColor = System.Drawing.SystemColors.Control;
+            this.surrenderbtn.BackColor = System.Drawing.Color.White;
             this.surrenderbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.surrenderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1157,7 +1158,7 @@ namespace Monopoly
             // 
             // BalanceTXT
             // 
-            this.BalanceTXT.BackColor = System.Drawing.SystemColors.Control;
+            this.BalanceTXT.BackColor = System.Drawing.Color.White;
             this.BalanceTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BalanceTXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BalanceTXT.Location = new System.Drawing.Point(1316, 187);
@@ -1181,7 +1182,7 @@ namespace Monopoly
             // 
             // PlayerNameTextBox
             // 
-            this.PlayerNameTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.PlayerNameTextBox.BackColor = System.Drawing.Color.White;
             this.PlayerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PlayerNameTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerNameTextBox.Location = new System.Drawing.Point(1327, 106);
@@ -1407,6 +1408,7 @@ namespace Monopoly
             // 
             // Dice1TXT
             // 
+            this.Dice1TXT.BackColor = System.Drawing.Color.White;
             this.Dice1TXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dice1TXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dice1TXT.Location = new System.Drawing.Point(37, 22);
@@ -1431,7 +1433,7 @@ namespace Monopoly
             // 
             // Dice2TXT
             // 
-            this.Dice2TXT.BackColor = System.Drawing.SystemColors.Control;
+            this.Dice2TXT.BackColor = System.Drawing.Color.White;
             this.Dice2TXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dice2TXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dice2TXT.Location = new System.Drawing.Point(37, 22);
@@ -1562,6 +1564,7 @@ namespace Monopoly
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Location = new System.Drawing.Point(19, 50);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -1642,6 +1645,7 @@ namespace Monopoly
             // 
             // textBox9
             // 
+            this.textBox9.BackColor = System.Drawing.Color.White;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Location = new System.Drawing.Point(4, 6);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
@@ -1722,6 +1726,7 @@ namespace Monopoly
             // 
             // textBox10
             // 
+            this.textBox10.BackColor = System.Drawing.Color.White;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Location = new System.Drawing.Point(4, 6);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
@@ -1814,6 +1819,7 @@ namespace Monopoly
             // 
             // textBox11
             // 
+            this.textBox11.BackColor = System.Drawing.Color.White;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Location = new System.Drawing.Point(4, 6);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
@@ -1894,6 +1900,7 @@ namespace Monopoly
             // 
             // textBox12
             // 
+            this.textBox12.BackColor = System.Drawing.Color.White;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Location = new System.Drawing.Point(4, 6);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
@@ -1985,6 +1992,7 @@ namespace Monopoly
             // 
             // textBox8
             // 
+            this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Location = new System.Drawing.Point(19, 12);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
@@ -2066,6 +2074,7 @@ namespace Monopoly
             // 
             // textBox7
             // 
+            this.textBox7.BackColor = System.Drawing.Color.White;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Location = new System.Drawing.Point(19, 14);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
@@ -2147,6 +2156,7 @@ namespace Monopoly
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Location = new System.Drawing.Point(19, 15);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
@@ -2238,6 +2248,7 @@ namespace Monopoly
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Location = new System.Drawing.Point(19, 17);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
@@ -2318,6 +2329,7 @@ namespace Monopoly
             // 
             // textBox13
             // 
+            this.textBox13.BackColor = System.Drawing.Color.White;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Location = new System.Drawing.Point(59, 6);
             this.textBox13.Margin = new System.Windows.Forms.Padding(4);
@@ -2398,6 +2410,7 @@ namespace Monopoly
             // 
             // textBox14
             // 
+            this.textBox14.BackColor = System.Drawing.Color.White;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox14.Location = new System.Drawing.Point(59, 6);
             this.textBox14.Margin = new System.Windows.Forms.Padding(4);
@@ -2478,6 +2491,7 @@ namespace Monopoly
             // 
             // textBox15
             // 
+            this.textBox15.BackColor = System.Drawing.Color.White;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox15.Location = new System.Drawing.Point(59, 6);
             this.textBox15.Margin = new System.Windows.Forms.Padding(4);
@@ -2558,6 +2572,7 @@ namespace Monopoly
             // 
             // textBox16
             // 
+            this.textBox16.BackColor = System.Drawing.Color.White;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Location = new System.Drawing.Point(59, 6);
             this.textBox16.Margin = new System.Windows.Forms.Padding(4);
@@ -2649,6 +2664,7 @@ namespace Monopoly
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Location = new System.Drawing.Point(19, 52);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
@@ -2729,6 +2745,7 @@ namespace Monopoly
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Location = new System.Drawing.Point(19, 50);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -2831,6 +2848,7 @@ namespace Monopoly
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Location = new System.Drawing.Point(15, 52);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -3416,10 +3434,10 @@ namespace Monopoly
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1557, 773);
+            this.Controls.Add(this.Game);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
