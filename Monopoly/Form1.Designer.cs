@@ -686,11 +686,11 @@ namespace Monopoly
             this.BalancePositiveTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BalancePositiveTXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BalancePositiveTXT.ForeColor = System.Drawing.Color.LawnGreen;
-            this.BalancePositiveTXT.Location = new System.Drawing.Point(1446, 191);
+            this.BalancePositiveTXT.Location = new System.Drawing.Point(1445, 190);
             this.BalancePositiveTXT.Margin = new System.Windows.Forms.Padding(4);
             this.BalancePositiveTXT.Name = "BalancePositiveTXT";
             this.BalancePositiveTXT.ReadOnly = true;
-            this.BalancePositiveTXT.Size = new System.Drawing.Size(96, 25);
+            this.BalancePositiveTXT.Size = new System.Drawing.Size(85, 25);
             this.BalancePositiveTXT.TabIndex = 82;
             this.BalancePositiveTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BalancePositiveTXT.Visible = false;
