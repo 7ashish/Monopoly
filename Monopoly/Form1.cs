@@ -456,6 +456,9 @@ namespace Monopoly
             if(IsMultiPlayer && !IsMyTurn)
             {
                 FinishTurn.Enabled = false;
+                surrenderbtn.Enabled = false;
+                surrender.Enabled = false;
+                UpdateBTN.Enabled = false;
             }
             if (Main.GetPlayers().Count != 0)
             {
@@ -1133,327 +1136,188 @@ namespace Monopoly
             FinalizeTurn();
         }
 
+        public void Surrender()
+        {
+            playerturn.Surrender();
+            if (playerturn.Get_OwnedCities().Count != 0)
+            {
+                for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+                {
+                    switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
+                    {
+                        case 1:
+                            ParkLaneLabel.BackColor = Game.BackColor;
+                            ParkLaneMortagage.Hide();
+                            ParkLane_House.Hide();
+                            ParkLane_Hotel.Hide();
+                            break;
+                        case 3:
+                            MayfairLabel.BackColor = Game.BackColor;
+                            MayFairMortagagePanel.Hide();
+                            MayFair_House.Hide();
+                            MayFair_Hotel.Hide();
+                            break;
+                        case 5:
+                            FleetLabel.BackColor = Game.BackColor;
+                            FleetMortagagePanel.Hide();
+                            FleetStreet_House.Hide();
+                            FleetST_Hotel.Hide();
+                            break;
+                        case 6:
+                            StrandLabel.BackColor = Game.BackColor;
+                            StrandMortagagePanel.Hide();
+                            Strand_House.Hide();
+                            Strand_Hotel.Hide();
+                            break;
+                        case 8:
+                            WhiteHallLabel.BackColor = Game.BackColor;
+                            WhiteHallMortagagePanel.Hide();
+                            WhiteHall_House.Hide();
+                            WhiteHall_Hotel.Hide();
+                            break;
+                        case 9:
+                            PallMallLabel.BackColor = Game.BackColor;
+                            PallMallMortagagePanel.Hide();
+                            PallMall_House.Hide();
+                            PallMall_Hotel.Hide();
+                            break;
+                        case 10:
+                            WhitechapelLabel.BackColor = Game.BackColor;
+                            WhiteChapelMortagagePanel.Hide();
+                            Whitechapel_House.Hide();
+                            Whitechapel_Hotel.Hide();
+                            break;
+                        case 11:
+                            OldKentLabel.BackColor = Game.BackColor;
+                            OldKentMortagagePanel.Hide();
+                            OldKent_House.Hide();
+                            OldKent_Hotel.Hide();
+                            break;
+                        case 13:
+                            LeicesterLabel.BackColor = Game.BackColor;
+                            LeicesterMortagagePanel.Hide();
+                            LeicesterSq_House.Hide();
+                            Leicester_Hotel.Hide();
+                            break;
+                        case 15:
+                            CoventryLabel.BackColor = Game.BackColor;
+                            CoventryMortagagePanel.Hide();
+                            Coventry_House.Hide();
+                            Coventry_Hotel.Hide();
+                            break;
+                        case 17:
+                            OxfordLabel.BackColor = Game.BackColor;
+                            OxfordMortagagePanel.Hide();
+                            Oxford_House.Hide();
+                            Oxford_Hotel.Hide();
+                            break;
+                        case 18:
+                            RegentLabel.BackColor = Game.BackColor;
+                            RegentMortagagePanel.Hide();
+                            Regent_House.Hide();
+                            Regent_Hotel.Hide();
+                            break;
+                        case 20:
+                            VineLabel.BackColor = Game.BackColor;
+                            VineMortagagePanel.Hide();
+                            Vine_House.Hide();
+                            VineST_Hotel.Hide();
+                            break;
+                        case 21:
+                            BowLabel.BackColor = Game.BackColor;
+                            BowMortagagePanel.Hide();
+                            Bow_House.Hide();
+                            BowST_Hotel.Hide();
+                            break;
+                        case 22:
+                            EustonLabel.BackColor = Game.BackColor;
+                            EustonMortagagePanel.Hide();
+                            Euston_House.Hide();
+                            Euston_Hotel.Hide();
+                            break;
+                        case 23:
+                            PentonvilleLabel.BackColor = Game.BackColor;
+                            PentonvilleMortagagePanel.Hide();
+                            Pentonville_House.Hide();
+                            Pentonville_Hotel.Hide();
+                            break;
+                    }
+                }
+            }
+            if (playerturn.Get_OwnedStations().Count != 0)
+            {
+                for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
+                {
+                    switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
+                    {
+                        case 4:
+                            Station1Label.BackColor = Game.BackColor;
+                            Station1MortagagePanel.Hide();
+                            break;
+                        case 16:
+                            Station2Label.BackColor = Game.BackColor;
+                            Station2MortagagePanel.Hide();
+                            break;
+                    }
+                }
+            }
+            switch (playerturn.Get_Token())
+            {
+                case 1:
+                    Player1.Hide();
+                    Player1_Timer.Stop();
+                    break;
+                case 2:
+                    Player2.Hide();
+                    Player2_Timre.Stop();
+                    break;
+                case 3:
+                    Player3.Hide();
+                    Player3_Timer.Stop();
+                    break;
+                case 4:
+                    Player4.Hide();
+                    Player4_Timer.Stop();
+                    break;
+            }
+            Players.Remove(playerturn);
+            Token--;
+            Main.GetPlayers().Remove(playerturn);
+            if (Main.GetPlayers().Count == 1)
+            {
+                MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            playerturnnumber = (playerturnnumber) % Token;
+            playerturn = Players[playerturnnumber];
+            RollDice.Enabled = true;
+            FinishTurn.Enabled = false;
+        }
         private void surrender_Click(object sender, EventArgs e)
         {
-            if (IsMultiPlayer && IsMyTurn)
+            DialogResult result = MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (IsMultiPlayer && IsMyTurn && result == DialogResult.Yes)
             {
+                Surrender();
                 NetworkManager.Cout("Surrender");
             }
-            if (MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            else if (result == DialogResult.Yes)
             {
-                playerturn.Surrender();
-                if (playerturn.Get_OwnedCities().Count != 0)
-                {
-                    for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
-                    {
-                        switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
-                        {
-                            case 1:
-                                ParkLaneLabel.BackColor = Game.BackColor;
-                                ParkLaneMortagage.Hide();
-                                ParkLane_House.Hide();
-                                ParkLane_Hotel.Hide();
-                                break;
-                            case 3:
-                                MayfairLabel.BackColor = Game.BackColor;
-                                MayFairMortagagePanel.Hide();
-                                MayFair_House.Hide();
-                                MayFair_Hotel.Hide();
-                                break;
-                            case 5:
-                                FleetLabel.BackColor = Game.BackColor;
-                                FleetMortagagePanel.Hide();
-                                FleetStreet_House.Hide();
-                                FleetST_Hotel.Hide();
-                                break;
-                            case 6:
-                                StrandLabel.BackColor = Game.BackColor;
-                                StrandMortagagePanel.Hide();
-                                Strand_House.Hide();
-                                Strand_Hotel.Hide();
-                                break;
-                            case 8:
-                                WhiteHallLabel.BackColor = Game.BackColor;
-                                WhiteHallMortagagePanel.Hide();
-                                WhiteHall_House.Hide();
-                                WhiteHall_Hotel.Hide();
-                                break;
-                            case 9:
-                                PallMallLabel.BackColor = Game.BackColor;
-                                PallMallMortagagePanel.Hide();
-                                PallMall_House.Hide();
-                                PallMall_Hotel.Hide();
-                                break;
-                            case 10:
-                                WhitechapelLabel.BackColor = Game.BackColor;
-                                WhiteChapelMortagagePanel.Hide();
-                                Whitechapel_House.Hide();
-                                Whitechapel_Hotel.Hide();
-                                break;
-                            case 11:
-                                OldKentLabel.BackColor = Game.BackColor;
-                                OldKentMortagagePanel.Hide();
-                                OldKent_House.Hide();
-                                OldKent_Hotel.Hide();
-                                break;
-                            case 13:
-                                LeicesterLabel.BackColor = Game.BackColor;
-                                LeicesterMortagagePanel.Hide();
-                                LeicesterSq_House.Hide();
-                                Leicester_Hotel.Hide();
-                                break;
-                            case 15:
-                                CoventryLabel.BackColor = Game.BackColor;
-                                CoventryMortagagePanel.Hide();
-                                Coventry_House.Hide();
-                                Coventry_Hotel.Hide();
-                                break;
-                            case 17:
-                                OxfordLabel.BackColor = Game.BackColor;
-                                OxfordMortagagePanel.Hide();
-                                Oxford_House.Hide();
-                                Oxford_Hotel.Hide();
-                                break;
-                            case 18:
-                                RegentLabel.BackColor = Game.BackColor;
-                                RegentMortagagePanel.Hide();
-                                Regent_House.Hide();
-                                Regent_Hotel.Hide();
-                                break;
-                            case 20:
-                                VineLabel.BackColor = Game.BackColor;
-                                VineMortagagePanel.Hide();
-                                Vine_House.Hide();
-                                VineST_Hotel.Hide();
-                                break;
-                            case 21:
-                                BowLabel.BackColor = Game.BackColor;
-                                BowMortagagePanel.Hide();
-                                Bow_House.Hide();
-                                BowST_Hotel.Hide();
-                                break;
-                            case 22:
-                                EustonLabel.BackColor = Game.BackColor;
-                                EustonMortagagePanel.Hide();
-                                Euston_House.Hide();
-                                Euston_Hotel.Hide();
-                                break;
-                            case 23:
-                                PentonvilleLabel.BackColor = Game.BackColor;
-                                PentonvilleMortagagePanel.Hide();
-                                Pentonville_House.Hide();
-                                Pentonville_Hotel.Hide();
-                                break;
-                        }
-                    }
-                }
-                if (playerturn.Get_OwnedStations().Count != 0)
-                {
-                    for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
-                    {
-                        switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
-                        {
-                            case 4:
-                                Station1Label.BackColor = Game.BackColor;
-                                Station1MortagagePanel.Hide();
-                                break;
-                            case 16:
-                                Station2Label.BackColor = Game.BackColor;
-                                Station2MortagagePanel.Hide();
-                                break;
-                        }
-                    }
-                }
-                switch (playerturn.Get_Token())
-                {
-                    case 1:
-                        Player1.Hide();
-                        break;
-                    case 2:
-                        Player2.Hide();
-                        break;
-                    case 3:
-                        Player3.Hide();
-                        break;
-                    case 4:
-                        Player4.Hide();
-                        break;
-                }
-                Players.Remove(playerturn);
-                Token--;
-                Main.GetPlayers().Remove(playerturn);
-                if (Main.GetPlayers().Count == 1)
-                {
-                    MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                playerturnnumber = (playerturnnumber) % Token;
-                playerturn = Players[playerturnnumber];
-                RollDice.Enabled = true;
-                FinishTurn.Enabled = false;
-                Payrent.Hide();
+                Surrender();
             }
-            FinalizeTurn();
         }
 
         private void surrenderbtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (IsMultiPlayer && IsMyTurn && result == DialogResult.Yes)
             {
-                playerturn.Surrender();
-                if (playerturn.Get_OwnedCities().Count != 0)
-                {
-                    for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
-                    {
-                        switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
-                        {
-                            case 1:
-                                ParkLaneLabel.BackColor = Game.BackColor;
-                                ParkLaneMortagage.Hide();
-                                ParkLane_House.Hide();
-                                ParkLane_Hotel.Hide();
-                                break;
-                            case 3:
-                                MayfairLabel.BackColor = Game.BackColor;
-                                MayFairMortagagePanel.Hide();
-                                MayFair_House.Hide();
-                                MayFair_Hotel.Hide();
-                                break;
-                            case 5:
-                                FleetLabel.BackColor = Game.BackColor;
-                                FleetMortagagePanel.Hide();
-                                FleetStreet_House.Hide();
-                                FleetST_Hotel.Hide();
-                                break;
-                            case 6:
-                                StrandLabel.BackColor = Game.BackColor;
-                                StrandMortagagePanel.Hide();
-                                Strand_House.Hide();
-                                Strand_Hotel.Hide();
-                                break;
-                            case 8:
-                                WhiteHallLabel.BackColor = Game.BackColor;
-                                WhiteHallMortagagePanel.Hide();
-                                WhiteHall_House.Hide();
-                                WhiteHall_Hotel.Hide();
-                                break;
-                            case 9:
-                                PallMallLabel.BackColor = Game.BackColor;
-                                PallMallMortagagePanel.Hide();
-                                PallMall_House.Hide();
-                                PallMall_Hotel.Hide();
-                                break;
-                            case 10:
-                                WhitechapelLabel.BackColor = Game.BackColor;
-                                WhiteChapelMortagagePanel.Hide();
-                                Whitechapel_House.Hide();
-                                Whitechapel_Hotel.Hide();
-                                break;
-                            case 11:
-                                OldKentLabel.BackColor = Game.BackColor;
-                                OldKentMortagagePanel.Hide();
-                                OldKent_House.Hide();
-                                OldKent_Hotel.Hide();
-                                break;
-                            case 13:
-                                LeicesterLabel.BackColor = Game.BackColor;
-                                LeicesterMortagagePanel.Hide();
-                                LeicesterSq_House.Hide();
-                                Leicester_Hotel.Hide();
-                                break;
-                            case 15:
-                                CoventryLabel.BackColor = Game.BackColor;
-                                CoventryMortagagePanel.Hide();
-                                Coventry_House.Hide();
-                                Coventry_Hotel.Hide();
-                                break;
-                            case 17:
-                                OxfordLabel.BackColor = Game.BackColor;
-                                OxfordMortagagePanel.Hide();
-                                Oxford_House.Hide();
-                                Oxford_Hotel.Hide();
-                                break;
-                            case 18:
-                                RegentLabel.BackColor = Game.BackColor;
-                                RegentMortagagePanel.Hide();
-                                Regent_House.Hide();
-                                Regent_Hotel.Hide();
-                                break;
-                            case 20:
-                                VineLabel.BackColor = Game.BackColor;
-                                VineMortagagePanel.Hide();
-                                Vine_House.Hide();
-                                VineST_Hotel.Hide();
-                                break;
-                            case 21:
-                                BowLabel.BackColor = Game.BackColor;
-                                BowMortagagePanel.Hide();
-                                Bow_House.Hide();
-                                BowST_Hotel.Hide();
-                                break;
-                            case 22:
-                                EustonLabel.BackColor = Game.BackColor;
-                                EustonMortagagePanel.Hide();
-                                Euston_House.Hide();
-                                Euston_Hotel.Hide();
-                                break;
-                            case 23:
-                                PentonvilleLabel.BackColor = Game.BackColor;
-                                PentonvilleMortagagePanel.Hide();
-                                Pentonville_House.Hide();
-                                Pentonville_Hotel.Hide();
-                                break;
-                        }
-                    }
-                }
-                if (playerturn.Get_OwnedStations().Count != 0)
-                {
-                    for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
-                    {
-                        switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
-                        {
-                            case 4:
-                                Station1Label.BackColor = Game.BackColor;
-                                Station1MortagagePanel.Hide();
-                                break;
-                            case 16:
-                                Station2Label.BackColor = Game.BackColor;
-                                Station2MortagagePanel.Hide();
-                                break;
-                        }
-                    }
-                }
-                switch (playerturn.Get_Token())
-                {
-                    case 1:
-                        Player1.Hide();
-                        Player1_Timer.Stop();
-                        break;
-                    case 2:
-                        Player2.Hide();
-                        Player2_Timre.Stop();
-                        break;
-                    case 3:
-                        Player3.Hide();
-                        Player3_Timer.Stop();
-                        break;
-                    case 4:
-                        Player4.Hide();
-                        Player4_Timer.Stop();
-                        break;
-                }
-                Players.Remove(playerturn);
-                Token--;
-                Main.GetPlayers().Remove(playerturn);
-                if (Main.GetPlayers().Count == 1)
-                {
-                    MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
-                }
-                playerturnnumber = (playerturnnumber) % Token;
-                playerturn = Players[playerturnnumber];
-                RollDice.Enabled = true;
-                FinishTurn.Enabled = false;
+                Surrender();
+                NetworkManager.Cout("Surrender");
+            }
+            else if (result == DialogResult.Yes)
+            {
+                Surrender();
             }
         }
 
@@ -2362,7 +2226,7 @@ namespace Monopoly
             else if (strings[0] == "Surrender")
             {
                 surrender.Enabled = true;
-                surrender.PerformClick();
+                Surrender();
             }
             else
             {
