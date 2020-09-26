@@ -283,6 +283,11 @@ namespace Monopoly
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Caution = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -551,6 +556,7 @@ namespace Monopoly
             // 
             // Mode
             // 
+            this.Mode.BackColor = System.Drawing.Color.White;
             this.Mode.Controls.Add(this.SinglePlayerBTN);
             this.Mode.Controls.Add(this.MultiPlayerBTN);
             this.Mode.Controls.Add(this.panel3);
@@ -561,7 +567,7 @@ namespace Monopoly
             // 
             // SinglePlayerBTN
             // 
-            this.SinglePlayerBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.SinglePlayerBTN.BackColor = System.Drawing.Color.White;
             this.SinglePlayerBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SinglePlayerBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SinglePlayerBTN.Location = new System.Drawing.Point(581, 423);
@@ -574,7 +580,7 @@ namespace Monopoly
             // 
             // MultiPlayerBTN
             // 
-            this.MultiPlayerBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.MultiPlayerBTN.BackColor = System.Drawing.Color.White;
             this.MultiPlayerBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MultiPlayerBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MultiPlayerBTN.Location = new System.Drawing.Point(580, 505);
@@ -608,15 +614,17 @@ namespace Monopoly
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.Caution);
+            this.Game.Controls.Add(this.label15);
             this.Game.Controls.Add(this.BalancePositiveTXT);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
+            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.ActionPanel);
             this.Game.Controls.Add(this.Payrent);
             this.Game.Controls.Add(this.BuyingCity);
-            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.UpdateBTN);
             this.Game.Controls.Add(this.surrenderbtn);
             this.Game.Controls.Add(this.PlayerLabel2);
@@ -927,6 +935,7 @@ namespace Monopoly
             // 
             this.UpdatePanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.UpdatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UpdatePanel.Controls.Add(this.label16);
             this.UpdatePanel.Controls.Add(this.Ok);
             this.UpdatePanel.Controls.Add(this.UpdatePicture);
             this.UpdatePanel.Controls.Add(this.label5);
@@ -973,7 +982,7 @@ namespace Monopoly
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(88, 127);
+            this.label5.Location = new System.Drawing.Point(35, 130);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(284, 29);
@@ -984,13 +993,13 @@ namespace Monopoly
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.ForeColor = System.Drawing.Color.Crimson;
             this.label8.Location = new System.Drawing.Point(145, 48);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(423, 33);
+            this.label8.Size = new System.Drawing.Size(440, 33);
             this.label8.TabIndex = 74;
-            this.label8.Text = "Update City or Stations Status";
+            this.label8.Text = "Modify Cities or Stations Status";
             // 
             // SellHotel
             // 
@@ -1040,10 +1049,10 @@ namespace Monopoly
             // Citynumber
             // 
             this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Citynumber.Location = new System.Drawing.Point(449, 127);
+            this.Citynumber.Location = new System.Drawing.Point(415, 134);
             this.Citynumber.Margin = new System.Windows.Forms.Padding(4);
             this.Citynumber.Name = "Citynumber";
-            this.Citynumber.Size = new System.Drawing.Size(163, 27);
+            this.Citynumber.Size = new System.Drawing.Size(225, 27);
             this.Citynumber.TabIndex = 69;
             this.Citynumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Citynumber.TextChanged += new System.EventHandler(this.Citynumber_TextChanged);
@@ -1095,27 +1104,34 @@ namespace Monopoly
             // 
             // UpdateBTN
             // 
+            this.UpdateBTN.BackColor = System.Drawing.SystemColors.Control;
             this.UpdateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpdateBTN.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBTN.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.UpdateBTN.Location = new System.Drawing.Point(1277, 606);
+            this.UpdateBTN.ForeColor = System.Drawing.Color.Crimson;
+            this.UpdateBTN.Image = ((System.Drawing.Image)(resources.GetObject("UpdateBTN.Image")));
+            this.UpdateBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateBTN.Location = new System.Drawing.Point(1277, 615);
             this.UpdateBTN.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateBTN.Name = "UpdateBTN";
             this.UpdateBTN.Size = new System.Drawing.Size(261, 41);
             this.UpdateBTN.TabIndex = 81;
-            this.UpdateBTN.Text = "Update";
-            this.UpdateBTN.UseVisualStyleBackColor = true;
+            this.UpdateBTN.Text = "Modify Property";
+            this.UpdateBTN.UseVisualStyleBackColor = false;
             this.UpdateBTN.Click += new System.EventHandler(this.UpdateBTN_Click);
             // 
             // surrenderbtn
             // 
-            this.surrenderbtn.BackColor = System.Drawing.Color.Navy;
+            this.surrenderbtn.BackColor = System.Drawing.SystemColors.Control;
+            this.surrenderbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.surrenderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surrenderbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.surrenderbtn.Location = new System.Drawing.Point(1277, 711);
+            this.surrenderbtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surrenderbtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.surrenderbtn.Image = ((System.Drawing.Image)(resources.GetObject("surrenderbtn.Image")));
+            this.surrenderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.surrenderbtn.Location = new System.Drawing.Point(1277, 706);
             this.surrenderbtn.Margin = new System.Windows.Forms.Padding(4);
             this.surrenderbtn.Name = "surrenderbtn";
+            this.surrenderbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.surrenderbtn.Size = new System.Drawing.Size(261, 44);
             this.surrenderbtn.TabIndex = 73;
             this.surrenderbtn.Text = "Surrender";
@@ -1124,7 +1140,7 @@ namespace Monopoly
             // 
             // PlayerLabel2
             // 
-            this.PlayerLabel2.Location = new System.Drawing.Point(1265, 674);
+            this.PlayerLabel2.Location = new System.Drawing.Point(1265, 676);
             this.PlayerLabel2.Margin = new System.Windows.Forms.Padding(4);
             this.PlayerLabel2.Name = "PlayerLabel2";
             this.PlayerLabel2.Size = new System.Drawing.Size(280, 16);
@@ -1354,16 +1370,18 @@ namespace Monopoly
             // 
             // PlayersInfo
             // 
-            this.PlayersInfo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersInfo.ForeColor = System.Drawing.Color.Goldenrod;
-            this.PlayersInfo.Location = new System.Drawing.Point(1277, 239);
+            this.PlayersInfo.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.PlayersInfo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersInfo.ForeColor = System.Drawing.Color.DarkOrange;
+            this.PlayersInfo.Location = new System.Drawing.Point(1277, 263);
             this.PlayersInfo.Margin = new System.Windows.Forms.Padding(4);
             this.PlayersInfo.Multiline = true;
             this.PlayersInfo.Name = "PlayersInfo";
+            this.PlayersInfo.ReadOnly = true;
             this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.PlayersInfo.Size = new System.Drawing.Size(267, 309);
+            this.PlayersInfo.Size = new System.Drawing.Size(267, 299);
             this.PlayersInfo.TabIndex = 60;
+            this.PlayersInfo.TextChanged += new System.EventHandler(this.PlayersInfo_TextChanged);
             // 
             // playerinfo
             // 
@@ -2876,6 +2894,8 @@ namespace Monopoly
             // Information
             // 
             this.Information.BackColor = System.Drawing.Color.White;
+            this.Information.Controls.Add(this.button4);
+            this.Information.Controls.Add(this.label17);
             this.Information.Controls.Add(this.panel1);
             this.Information.Controls.Add(this.HotelPanel);
             this.Information.Controls.Add(this.HousePanel);
@@ -2909,7 +2929,7 @@ namespace Monopoly
             this.HotelPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HotelPanel.Controls.Add(this.label11);
             this.HotelPanel.Controls.Add(this.panel7);
-            this.HotelPanel.Location = new System.Drawing.Point(936, 458);
+            this.HotelPanel.Location = new System.Drawing.Point(936, 386);
             this.HotelPanel.Margin = new System.Windows.Forms.Padding(4);
             this.HotelPanel.Name = "HotelPanel";
             this.HotelPanel.Size = new System.Drawing.Size(477, 92);
@@ -2942,10 +2962,10 @@ namespace Monopoly
             this.HousePanel.Controls.Add(this.label12);
             this.HousePanel.Controls.Add(this.label10);
             this.HousePanel.Controls.Add(this.panel2);
-            this.HousePanel.Location = new System.Drawing.Point(936, 313);
+            this.HousePanel.Location = new System.Drawing.Point(936, 263);
             this.HousePanel.Margin = new System.Windows.Forms.Padding(4);
             this.HousePanel.Name = "HousePanel";
-            this.HousePanel.Size = new System.Drawing.Size(477, 108);
+            this.HousePanel.Size = new System.Drawing.Size(477, 110);
             this.HousePanel.TabIndex = 9;
             // 
             // label12
@@ -2993,7 +3013,7 @@ namespace Monopoly
             // 
             // StartGame
             // 
-            this.StartGame.BackColor = System.Drawing.Color.SeaShell;
+            this.StartGame.BackColor = System.Drawing.Color.White;
             this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartGame.Location = new System.Drawing.Point(703, 655);
@@ -3151,6 +3171,7 @@ namespace Monopoly
             // 
             // MultiPlayer
             // 
+            this.MultiPlayer.BackColor = System.Drawing.Color.White;
             this.MultiPlayer.Controls.Add(this.HostBTN);
             this.MultiPlayer.Controls.Add(this.panel8);
             this.MultiPlayer.Controls.Add(this.JoinBTN);
@@ -3162,7 +3183,7 @@ namespace Monopoly
             // 
             // HostBTN
             // 
-            this.HostBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.HostBTN.BackColor = System.Drawing.Color.White;
             this.HostBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.HostBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HostBTN.Location = new System.Drawing.Point(613, 469);
@@ -3186,7 +3207,7 @@ namespace Monopoly
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Ivory;
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(53, 35);
@@ -3199,7 +3220,7 @@ namespace Monopoly
             // 
             // JoinBTN
             // 
-            this.JoinBTN.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.JoinBTN.BackColor = System.Drawing.Color.White;
             this.JoinBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.JoinBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JoinBTN.Location = new System.Drawing.Point(613, 557);
@@ -3324,17 +3345,82 @@ namespace Monopoly
             this.panel9.Size = new System.Drawing.Size(1553, 352);
             this.panel9.TabIndex = 1;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(1313, 230);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(168, 25);
+            this.label15.TabIndex = 83;
+            this.label15.Text = "Owned Properties";
+            // 
+            // Caution
+            // 
+            this.Caution.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Caution.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Caution.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Caution.Location = new System.Drawing.Point(1301, 578);
+            this.Caution.Name = "Caution";
+            this.Caution.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Caution.Size = new System.Drawing.Size(217, 35);
+            this.Caution.TabIndex = 84;
+            this.Caution.Text = "Use your property number in the Modification section";
+            this.Caution.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label16
+            // 
+            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label16.Location = new System.Drawing.Point(435, 98);
+            this.label16.Name = "label16";
+            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label16.Size = new System.Drawing.Size(189, 36);
+            this.label16.TabIndex = 85;
+            this.label16.Text = "Write the Property Number from the Owned Properties Box here";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(937, 575);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(378, 88);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Modify Property Button is Used to: \r\n- Buy and Sell Houses/Hotels on Properties.\r" +
+    "\n- Mortgage Properties";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Enabled = false;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Crimson;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(940, 521);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(261, 41);
+            this.button4.TabIndex = 82;
+            this.button4.Text = "Modify Property";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1557, 773);
-            this.Controls.Add(this.Game);
-            this.Controls.Add(this.Registeration);
+            this.Controls.Add(this.Mode);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.Mode);
+            this.Controls.Add(this.Game);
+            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -3722,6 +3808,11 @@ namespace Monopoly
         private System.Windows.Forms.CheckBox HostCheckBox;
         private System.Windows.Forms.TextBox HostTXT;
         private System.Windows.Forms.TextBox BalancePositiveTXT;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label Caution;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label17;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }
