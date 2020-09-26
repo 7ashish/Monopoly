@@ -417,9 +417,9 @@ namespace Monopoly
             this.label1.Location = new System.Drawing.Point(220, 91);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 33);
+            this.label1.Size = new System.Drawing.Size(357, 33);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Choose Number of Players";
+            this.label1.Text = "Select Number of Players";
             // 
             // NumberOfPlayers
             // 
@@ -435,6 +435,7 @@ namespace Monopoly
             this.NumberOfPlayers.Location = new System.Drawing.Point(273, 159);
             this.NumberOfPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.NumberOfPlayers.Name = "NumberOfPlayers";
+            this.NumberOfPlayers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.NumberOfPlayers.Size = new System.Drawing.Size(280, 37);
             this.NumberOfPlayers.TabIndex = 0;
             this.NumberOfPlayers.SelectedIndexChanged += new System.EventHandler(this.NumberOfPlayers_SelectedIndexChanged);
@@ -3379,23 +3380,23 @@ namespace Monopoly
             this.Caution.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Caution.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Caution.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Caution.Location = new System.Drawing.Point(1301, 578);
+            this.Caution.Location = new System.Drawing.Point(1287, 578);
             this.Caution.Name = "Caution";
             this.Caution.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Caution.Size = new System.Drawing.Size(217, 35);
+            this.Caution.Size = new System.Drawing.Size(247, 33);
             this.Caution.TabIndex = 84;
-            this.Caution.Text = "Use your property number in the Modification section";
-            this.Caution.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Caution.Text = "Buy or Sell Houses/Hotels on Properties\r\nMortgage Properties\r\n";
+            this.Caution.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
             this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label16.Location = new System.Drawing.Point(435, 98);
+            this.label16.Location = new System.Drawing.Point(415, 98);
             this.label16.Name = "label16";
             this.label16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label16.Size = new System.Drawing.Size(189, 36);
+            this.label16.Size = new System.Drawing.Size(226, 36);
             this.label16.TabIndex = 85;
             this.label16.Text = "Write the Property Number from the Owned Properties Box here";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -3436,9 +3437,9 @@ namespace Monopoly
             this.ClientSize = new System.Drawing.Size(1557, 773);
             this.Controls.Add(this.Game);
             this.Controls.Add(this.Mode);
+            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

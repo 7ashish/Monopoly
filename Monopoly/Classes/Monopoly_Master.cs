@@ -46,8 +46,8 @@ public class Monopoly_Master
             new City(p,17,new Point(620,80),"Oxford Street",300,200,5,150,150,new int[]{130,390,900,1100},1275,26),
             new City(p,18,new Point(722,80),"Regent Street",220,200,5,150,150,new int[]{130,390,900,1100},1275,36),
             new GoToJail(p,19,new Point(850,80)),
-            new City(p,20,new Point(850,175),"Vine sreet",200,100,6,100,100,new int[]{80,220,600,800 },1000,16),
-            new City(p,21,new Point(850,260),"Bow Stret", 180, 90, 6, 100, 100,new int[] { 70, 200, 550, 750 }, 950, 14),
+            new City(p,20,new Point(850,175),"Vine Street",200,100,6,100,100,new int[]{80,220,600,800 },1000,16),
+            new City(p,21,new Point(850,260),"Bow Street", 180, 90, 6, 100, 100,new int[] { 70, 200, 550, 750 }, 950, 14),
             new City(p,22,new Point(850,345),"Euston Road", 100, 50, 7, 50, 50, new int[] { 30, 90, 270, 400 }, 550, 6),
             new City(p,23,new Point(850,430),"Pentonville Road", 120, 60, 7, 50, 50, new int[] { 40, 100, 300, 450 }, 600, 8)
         };
