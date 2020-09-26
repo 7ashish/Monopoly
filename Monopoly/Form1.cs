@@ -482,6 +482,19 @@ namespace Monopoly
                         PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
                         break;
                 }
+                int BalanceFeedback = playerturn.Get_Balance_Feedback();
+                if(BalanceFeedback > 0)
+                {
+                    BalancePositiveTXT.ForeColor= Color.Green;
+                    BalancePositiveTXT.Show();
+                    BalancePositiveTXT.Text = "+" + BalanceFeedback.ToString() + "$";
+                }
+                else if( BalanceFeedback < 0)
+                {
+                    BalancePositiveTXT.ForeColor = Color.Red;
+                    BalancePositiveTXT.Show();
+                    BalancePositiveTXT.Text = BalanceFeedback.ToString() + "$";
+                }
                 BalanceTXT.Text = playerturn.Get_Balance().ToString() + "$";
                 string[] Lines = new string[25];
                 Lines[0] = "Cities & Stations:";
@@ -639,6 +652,8 @@ namespace Monopoly
             playerturn = Players[playerturnnumber];
             Dice1TXT.Text = "0";
             Dice2TXT.Text = "0";
+            playerturn.Set_Balance_Feedback(0);
+            BalancePositiveTXT.Hide();
             if(IsMultiPlayer && !IsMyTurn)
             {
                 RollDice.Enabled = true;

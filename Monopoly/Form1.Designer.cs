@@ -53,6 +53,7 @@ namespace Monopoly
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
+            this.BalancePositiveTXT = new System.Windows.Forms.TextBox();
             this.Player4 = new System.Windows.Forms.Panel();
             this.Player3 = new System.Windows.Forms.Panel();
             this.Player2 = new System.Windows.Forms.Panel();
@@ -607,6 +608,7 @@ namespace Monopoly
             // Game
             // 
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.BalancePositiveTXT);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
@@ -673,10 +675,25 @@ namespace Monopoly
             this.Game.Location = new System.Drawing.Point(0, 0);
             this.Game.Margin = new System.Windows.Forms.Padding(4);
             this.Game.Name = "Game";
-            this.Game.Size = new System.Drawing.Size(1566, 772);
+            this.Game.Size = new System.Drawing.Size(1575, 772);
             this.Game.TabIndex = 0;
             this.Game.Visible = false;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
+            // 
+            // BalancePositiveTXT
+            // 
+            this.BalancePositiveTXT.BackColor = System.Drawing.SystemColors.Control;
+            this.BalancePositiveTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BalancePositiveTXT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalancePositiveTXT.ForeColor = System.Drawing.Color.LawnGreen;
+            this.BalancePositiveTXT.Location = new System.Drawing.Point(1446, 191);
+            this.BalancePositiveTXT.Margin = new System.Windows.Forms.Padding(4);
+            this.BalancePositiveTXT.Name = "BalancePositiveTXT";
+            this.BalancePositiveTXT.ReadOnly = true;
+            this.BalancePositiveTXT.Size = new System.Drawing.Size(96, 25);
+            this.BalancePositiveTXT.TabIndex = 82;
+            this.BalancePositiveTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BalancePositiveTXT.Visible = false;
             // 
             // Player4
             // 
@@ -1115,7 +1132,7 @@ namespace Monopoly
             // FleetLabel
             // 
             this.FleetLabel.Enabled = false;
-            this.FleetLabel.Location = new System.Drawing.Point(401, 578);
+            this.FleetLabel.Location = new System.Drawing.Point(401, 575);
             this.FleetLabel.Margin = new System.Windows.Forms.Padding(4);
             this.FleetLabel.Name = "FleetLabel";
             this.FleetLabel.Size = new System.Drawing.Size(43, 18);
@@ -1126,11 +1143,11 @@ namespace Monopoly
             this.BalanceTXT.BackColor = System.Drawing.SystemColors.Control;
             this.BalanceTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BalanceTXT.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceTXT.Location = new System.Drawing.Point(1325, 187);
+            this.BalanceTXT.Location = new System.Drawing.Point(1316, 187);
             this.BalanceTXT.Margin = new System.Windows.Forms.Padding(4);
             this.BalanceTXT.Name = "BalanceTXT";
             this.BalanceTXT.ReadOnly = true;
-            this.BalanceTXT.Size = new System.Drawing.Size(164, 29);
+            this.BalanceTXT.Size = new System.Drawing.Size(174, 29);
             this.BalanceTXT.TabIndex = 67;
             this.BalanceTXT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1344,7 +1361,7 @@ namespace Monopoly
             this.PlayersInfo.Multiline = true;
             this.PlayersInfo.Name = "PlayersInfo";
             this.PlayersInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.PlayersInfo.Size = new System.Drawing.Size(271, 309);
+            this.PlayersInfo.Size = new System.Drawing.Size(267, 309);
             this.PlayersInfo.TabIndex = 60;
             // 
             // playerinfo
@@ -1461,7 +1478,7 @@ namespace Monopoly
             // Station2MortagagePanel
             // 
             this.Station2MortagagePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Station2MortagagePanel.Location = new System.Drawing.Point(-1, 98);
+            this.Station2MortagagePanel.Location = new System.Drawing.Point(-1, 95);
             this.Station2MortagagePanel.Margin = new System.Windows.Forms.Padding(4);
             this.Station2MortagagePanel.Name = "Station2MortagagePanel";
             this.Station2MortagagePanel.Size = new System.Drawing.Size(144, 25);
@@ -3310,7 +3327,7 @@ namespace Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1566, 773);
+            this.ClientSize = new System.Drawing.Size(1602, 773);
             this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.MultiPlayer);
@@ -3700,6 +3717,7 @@ namespace Monopoly
         private System.Windows.Forms.CheckBox ClientCheckBox;
         private System.Windows.Forms.CheckBox HostCheckBox;
         private System.Windows.Forms.TextBox HostTXT;
+        private System.Windows.Forms.TextBox BalancePositiveTXT;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }
