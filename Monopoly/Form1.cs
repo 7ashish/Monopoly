@@ -117,7 +117,7 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player1.Location);
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
-                if(typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
+                if (typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
                 {
                     FinalizeTurn();
                 }
@@ -453,7 +453,7 @@ namespace Monopoly
         }
         private void AllGameTimer_Tick(object sender, EventArgs e)
         {
-            if(IsMultiPlayer && !IsMyTurn)
+            if (IsMultiPlayer && !IsMyTurn)
             {
                 FinishTurn.Enabled = false;
                 surrenderbtn.Enabled = false;
@@ -486,13 +486,13 @@ namespace Monopoly
                         break;
                 }
                 int BalanceFeedback = playerturn.Get_Balance_Feedback();
-                if(BalanceFeedback > 0)
+                if (BalanceFeedback > 0)
                 {
-                    BalancePositiveTXT.ForeColor= Color.Green;
+                    BalancePositiveTXT.ForeColor = Color.Green;
                     BalancePositiveTXT.Show();
                     BalancePositiveTXT.Text = "+" + BalanceFeedback.ToString() + "$";
                 }
-                else if( BalanceFeedback < 0)
+                else if (BalanceFeedback < 0)
                 {
                     BalancePositiveTXT.ForeColor = Color.Red;
                     BalancePositiveTXT.Show();
@@ -581,9 +581,9 @@ namespace Monopoly
             FinishTurn.Enabled = false;
             Main.Set_Dice1(Main.RollDice());
             Main.Set_Dice2(Main.RollDice());
-            if(IsMultiPlayer)
+            if (IsMultiPlayer)
             {
-                if(IsMyTurn)
+                if (IsMyTurn)
                 {
                     NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
                 }
@@ -657,7 +657,7 @@ namespace Monopoly
             Dice2TXT.Text = "0";
             playerturn.Set_Balance_Feedback(0);
             BalancePositiveTXT.Hide();
-            if(IsMultiPlayer && !IsMyTurn)
+            if (IsMultiPlayer && !IsMyTurn)
             {
                 RollDice.Enabled = true;
                 RollDice.PerformClick();
@@ -1292,6 +1292,8 @@ namespace Monopoly
             playerturn = Players[playerturnnumber];
             RollDice.Enabled = true;
             FinishTurn.Enabled = false;
+            Payrent.Hide();
+            playerturn.Set_Balance_Feedback(0);
         }
         private void surrender_Click(object sender, EventArgs e)
         {
@@ -1967,7 +1969,7 @@ namespace Monopoly
             HostBTN.Enabled = false;
             JoinBTN.Enabled = false;
             await NetworkManager.FindServer();
-            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(),"Network",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(), "Network", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             IsMultiPlayer = true;
             IsHost = false;
             MultiRegister.Show();
@@ -2029,10 +2031,10 @@ namespace Monopoly
             }
             ClientCheckBox.Enabled = false;
             ClientTXT.Enabled = false;
-            Player newplayer= new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
-            Players[1]=newplayer;
+            Player newplayer = new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
+            Players[1] = newplayer;
             Main.SetPlayers(Players);
-            if (ClientCheckBox.Checked==true && HostCheckBox.Checked == true)
+            if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
                 Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
@@ -2063,7 +2065,7 @@ namespace Monopoly
             HostCheckBox.Enabled = false;
             HostTXT.Enabled = false;
             Player newplayer = new Player(HostTXT.Text, 1, 1500, DefaultPosition, 0);
-            Players[0] = newplayer; 
+            Players[0] = newplayer;
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
@@ -2105,7 +2107,7 @@ namespace Monopoly
                 string[] strings = await NetworkManager.Cin();
                 foreach (string str in strings)
                 {
-                    if(string.IsNullOrWhiteSpace(str))
+                    if (string.IsNullOrWhiteSpace(str))
                     {
                         continue;
                     }
@@ -2114,7 +2116,7 @@ namespace Monopoly
                     {
                         HostTXT.Text = Spliter[1];
                     }
-                    else if(Spliter[0] == "ClientName")
+                    else if (Spliter[0] == "ClientName")
                     {
                         ClientTXT.Text = Spliter[1];
                     }
@@ -2136,7 +2138,7 @@ namespace Monopoly
 
         private async void Information_VisibleChanged(object sender, EventArgs e)
         {
-            if (!Information.Visible||!IsMultiPlayer)
+            if (!Information.Visible || !IsMultiPlayer)
             {
                 return;
             }
@@ -2150,14 +2152,14 @@ namespace Monopoly
                 StartGame.Enabled = false;
             }
             string[] strings = await NetworkManager.Cin();
-            if(strings[0]=="StartGame")
+            if (strings[0] == "StartGame")
             {
                 StartGame.Enabled = true;
                 StartGame.PerformClick();
             }
             else
             {
-                throw new Exception("Unexcepted command : "+strings[0]);
+                throw new Exception("Unexcepted command : " + strings[0]);
             }
         }
 
@@ -2248,16 +2250,16 @@ namespace Monopoly
             else
             {
                 OkBTN.Enabled = false;
-            }
-            string[] strings = await NetworkManager.Cin();
-            if (strings[0] == "Ok")
-            {
-                OkBTN.Enabled = true;
-                OkBTN.PerformClick();
-            }
-            else
-            {
-                throw new Exception("Unexcepted command : " + strings[0]);
+                string[] strings = await NetworkManager.Cin();
+                if (strings[0] == "Ok")
+                {
+                    OkBTN.Enabled = true;
+                    OkBTN.PerformClick();
+                }
+                else
+                {
+                    throw new Exception("Unexcepted command : " + strings[0]);
+                }
             }
         }
 
