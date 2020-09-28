@@ -3437,12 +3437,13 @@ namespace Monopoly
             // 
             // OponentModifying
             // 
+            this.OponentModifying.BackColor = System.Drawing.Color.Lavender;
             this.OponentModifying.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OponentModifying.BackgroundImage")));
             this.OponentModifying.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.OponentModifying.Controls.Add(this.label18);
-            this.OponentModifying.Location = new System.Drawing.Point(407, 316);
+            this.OponentModifying.Location = new System.Drawing.Point(360, 316);
             this.OponentModifying.Name = "OponentModifying";
-            this.OponentModifying.Size = new System.Drawing.Size(472, 90);
+            this.OponentModifying.Size = new System.Drawing.Size(517, 99);
             this.OponentModifying.TabIndex = 86;
             this.OponentModifying.Visible = false;
             this.OponentModifying.VisibleChanged += new System.EventHandler(this.OponentModifying_VisibleChanged);

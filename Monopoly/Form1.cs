@@ -1463,7 +1463,7 @@ namespace Monopoly
         //Buy house button.
         private void button3_Click(object sender, EventArgs e)
         {
-            if (int.Parse(Citynumber.Text)>23 || int.Parse(Citynumber.Text) < 0)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
             {
                 MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -1598,6 +1598,10 @@ namespace Monopoly
         private void Ok_Click(object sender, EventArgs e)
         {
             UpdatePanel.Hide();
+            if (IsMultiPlayer && IsMyTurn)
+            {
+                NetworkManager.Cout("Ok=");
+            }
         }
 
         private void RemoveMortagage_Click(object sender, EventArgs e)
@@ -2455,7 +2459,7 @@ namespace Monopoly
                         RemoveMortagage.Enabled = true;
                         RemoveMortagage.PerformClick();
                     }
-                    else if(Spliter[0]== "BuyHouse")
+                    else if (Spliter[0] == "BuyHouse")
                     {
                         Citynumber.Text = Spliter[1];
                         BuyHouse.Enabled = true;
@@ -2478,6 +2482,10 @@ namespace Monopoly
                         Citynumber.Text = Spliter[1];
                         SellHotel.Enabled = true;
                         SellHotel.PerformClick();
+                    }
+                    else if (Spliter[0] == "Ok")
+                    {
+                        OponentModifying.Hide();
                     }
                 }
             }
