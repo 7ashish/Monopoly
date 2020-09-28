@@ -451,7 +451,7 @@ namespace Monopoly
                 GoMoney[3] = true;
             }
         }
-        private async void AllGameTimer_Tick(object sender, EventArgs e)
+        private void AllGameTimer_Tick(object sender, EventArgs e)
         {
             if (IsMultiPlayer && !IsMyTurn)
             {
@@ -529,7 +529,15 @@ namespace Monopoly
                     FinishTurn.Enabled = true;
                 }
             }
-            if (IsMultiPlayer && !IsMyTurn)
+            if(FinishTurn.Enabled == false)
+            {
+                UpdateBTN.Enabled = false;
+            }
+            else
+            {
+                UpdateBTN.Enabled = true;
+            }
+            /*if (IsMultiPlayer && !IsMyTurn)
             {
                 string[] strings = await NetworkManager.Cin();
                 foreach (string str in strings)
@@ -543,7 +551,7 @@ namespace Monopoly
                         OponentModifying.Show();
                     }
                 }
-            }
+            }*/
         }
 
         public Timer GetTimer(int token)
@@ -644,6 +652,10 @@ namespace Monopoly
                     FinishTurn.Enabled = true;
                     FinishTurn.PerformClick();
                 }
+                else if (strings[0] == "Modifying")
+                {
+                    OponentModifying.Show();
+                }
                 else
                 {
                     throw new Exception("Unexcepted command : " + strings[0]);
@@ -698,6 +710,10 @@ namespace Monopoly
             {
                 if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
+                    if (IsMultiPlayer && IsMyTurn)
+                    {
+                        NetworkManager.Cout("BuyProperty");
+                    }
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -977,10 +993,6 @@ namespace Monopoly
                                     break;
                             }
                             break;
-                    }
-                    if (IsMyTurn && IsMultiPlayer)
-                    {
-                        NetworkManager.Cout("BuyProperty");
                     }
                 }
                 else
@@ -1600,7 +1612,7 @@ namespace Monopoly
             UpdatePanel.Hide();
             if (IsMultiPlayer && IsMyTurn)
             {
-                NetworkManager.Cout("Ok=");
+                NetworkManager.Cout("Ok=0");
             }
         }
 
