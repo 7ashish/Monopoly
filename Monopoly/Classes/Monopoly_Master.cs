@@ -330,7 +330,7 @@ public class Monopoly_Master
         {
             return false;
         }
-        else if (!city.Get_HotelModification())            //Making sure that the City have a hotel + 4 houses on it.
+        else if (!city.Get_HotelModification())            //Making sure that the City has a hotel + 4 houses on it.
         {
             return false;
         }

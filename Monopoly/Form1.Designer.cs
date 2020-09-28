@@ -53,11 +53,26 @@ namespace Monopoly
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
             this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
+            this.Caution = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.BalancePositiveTXT = new System.Windows.Forms.TextBox();
             this.Player4 = new System.Windows.Forms.Panel();
             this.Player3 = new System.Windows.Forms.Panel();
             this.Player2 = new System.Windows.Forms.Panel();
             this.Player1 = new System.Windows.Forms.Panel();
+            this.UpdatePanel = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Ok = new System.Windows.Forms.Button();
+            this.UpdatePicture = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SellHotel = new System.Windows.Forms.Button();
+            this.BuyHotel = new System.Windows.Forms.Button();
+            this.SellHouse = new System.Windows.Forms.Button();
+            this.Citynumber = new System.Windows.Forms.TextBox();
+            this.RemoveMortagage = new System.Windows.Forms.Button();
+            this.Mortagage = new System.Windows.Forms.Button();
+            this.BuyHouse = new System.Windows.Forms.Button();
             this.ActionPanel = new System.Windows.Forms.Panel();
             this.OkBTN = new System.Windows.Forms.Button();
             this.ActionPic = new System.Windows.Forms.Panel();
@@ -72,18 +87,6 @@ namespace Monopoly
             this.City = new System.Windows.Forms.Panel();
             this.Cancel = new System.Windows.Forms.Button();
             this.BuyCity = new System.Windows.Forms.Button();
-            this.UpdatePanel = new System.Windows.Forms.Panel();
-            this.Ok = new System.Windows.Forms.Button();
-            this.UpdatePicture = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.SellHotel = new System.Windows.Forms.Button();
-            this.BuyHotel = new System.Windows.Forms.Button();
-            this.SellHouse = new System.Windows.Forms.Button();
-            this.Citynumber = new System.Windows.Forms.TextBox();
-            this.RemoveMortagage = new System.Windows.Forms.Button();
-            this.Mortagage = new System.Windows.Forms.Button();
-            this.BuyHouse = new System.Windows.Forms.Button();
             this.UpdateBTN = new System.Windows.Forms.Button();
             this.surrenderbtn = new System.Windows.Forms.Button();
             this.PlayerLabel2 = new System.Windows.Forms.Panel();
@@ -245,6 +248,8 @@ namespace Monopoly
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Information = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.HotelPanel = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -283,20 +288,17 @@ namespace Monopoly
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.Caution = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.OponentModifying = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
             this.Mode.SuspendLayout();
             this.Game.SuspendLayout();
+            this.UpdatePanel.SuspendLayout();
             this.ActionPanel.SuspendLayout();
             this.Payrent.SuspendLayout();
             this.BuyingCity.SuspendLayout();
-            this.UpdatePanel.SuspendLayout();
             this.Dice1.SuspendLayout();
             this.Dice2.SuspendLayout();
             this.Station2.SuspendLayout();
@@ -361,6 +363,7 @@ namespace Monopoly
             this.panel8.SuspendLayout();
             this.MultiRegister.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.OponentModifying.SuspendLayout();
             this.SuspendLayout();
             // 
             // Registeration
@@ -616,6 +619,7 @@ namespace Monopoly
             // 
             this.Game.BackColor = System.Drawing.Color.White;
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.OponentModifying);
             this.Game.Controls.Add(this.Caution);
             this.Game.Controls.Add(this.label15);
             this.Game.Controls.Add(this.BalancePositiveTXT);
@@ -690,6 +694,30 @@ namespace Monopoly
             this.Game.Visible = false;
             this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
+            // Caution
+            // 
+            this.Caution.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Caution.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Caution.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Caution.Location = new System.Drawing.Point(1287, 578);
+            this.Caution.Name = "Caution";
+            this.Caution.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Caution.Size = new System.Drawing.Size(247, 33);
+            this.Caution.TabIndex = 84;
+            this.Caution.Text = "Buy or Sell Houses/Hotels on Properties\r\nMortgage Properties\r\n";
+            this.Caution.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(1313, 230);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(168, 25);
+            this.label15.TabIndex = 83;
+            this.label15.Text = "Owned Properties";
+            // 
             // BalancePositiveTXT
             // 
             this.BalancePositiveTXT.BackColor = System.Drawing.Color.White;
@@ -748,6 +776,193 @@ namespace Monopoly
             this.Player1.Size = new System.Drawing.Size(55, 50);
             this.Player1.TabIndex = 49;
             this.Player1.Visible = false;
+            // 
+            // UpdatePanel
+            // 
+            this.UpdatePanel.BackColor = System.Drawing.Color.White;
+            this.UpdatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UpdatePanel.Controls.Add(this.label16);
+            this.UpdatePanel.Controls.Add(this.Ok);
+            this.UpdatePanel.Controls.Add(this.UpdatePicture);
+            this.UpdatePanel.Controls.Add(this.label5);
+            this.UpdatePanel.Controls.Add(this.label8);
+            this.UpdatePanel.Controls.Add(this.SellHotel);
+            this.UpdatePanel.Controls.Add(this.BuyHotel);
+            this.UpdatePanel.Controls.Add(this.SellHouse);
+            this.UpdatePanel.Controls.Add(this.Citynumber);
+            this.UpdatePanel.Controls.Add(this.RemoveMortagage);
+            this.UpdatePanel.Controls.Add(this.Mortagage);
+            this.UpdatePanel.Controls.Add(this.BuyHouse);
+            this.UpdatePanel.Location = new System.Drawing.Point(287, 153);
+            this.UpdatePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdatePanel.Name = "UpdatePanel";
+            this.UpdatePanel.Size = new System.Drawing.Size(715, 466);
+            this.UpdatePanel.TabIndex = 80;
+            this.UpdatePanel.Visible = false;
+            this.UpdatePanel.VisibleChanged += new System.EventHandler(this.UpdatePanel_VisibleChanged);
+            this.UpdatePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePanel_Paint);
+            // 
+            // label16
+            // 
+            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label16.Location = new System.Drawing.Point(415, 98);
+            this.label16.Name = "label16";
+            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label16.Size = new System.Drawing.Size(226, 36);
+            this.label16.TabIndex = 85;
+            this.label16.Text = "Write the Property Number from the Owned Properties Box here";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label16.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // Ok
+            // 
+            this.Ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Ok.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ok.Location = new System.Drawing.Point(425, 388);
+            this.Ok.Margin = new System.Windows.Forms.Padding(4);
+            this.Ok.Name = "Ok";
+            this.Ok.Size = new System.Drawing.Size(145, 30);
+            this.Ok.TabIndex = 81;
+            this.Ok.Text = "Ok";
+            this.Ok.UseVisualStyleBackColor = true;
+            this.Ok.Click += new System.EventHandler(this.Ok_Click);
+            // 
+            // UpdatePicture
+            // 
+            this.UpdatePicture.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.UpdatePicture.BackgroundImage = global::Monopoly.Properties.Resources.Houses_Hotels;
+            this.UpdatePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.UpdatePicture.Location = new System.Drawing.Point(-1, 183);
+            this.UpdatePicture.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdatePicture.Name = "UpdatePicture";
+            this.UpdatePicture.Size = new System.Drawing.Size(280, 278);
+            this.UpdatePicture.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(35, 130);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(284, 29);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Number of City or Station";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Crimson;
+            this.label8.Location = new System.Drawing.Point(145, 48);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(440, 33);
+            this.label8.TabIndex = 74;
+            this.label8.Text = "Modify Cities or Stations Status";
+            // 
+            // SellHotel
+            // 
+            this.SellHotel.Enabled = false;
+            this.SellHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SellHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellHotel.ForeColor = System.Drawing.Color.Brown;
+            this.SellHotel.Location = new System.Drawing.Point(435, 304);
+            this.SellHotel.Margin = new System.Windows.Forms.Padding(4);
+            this.SellHotel.Name = "SellHotel";
+            this.SellHotel.Size = new System.Drawing.Size(108, 46);
+            this.SellHotel.TabIndex = 78;
+            this.SellHotel.Text = "Sell Hotel";
+            this.SellHotel.UseVisualStyleBackColor = true;
+            this.SellHotel.Click += new System.EventHandler(this.SellHotel_Click);
+            // 
+            // BuyHotel
+            // 
+            this.BuyHotel.Enabled = false;
+            this.BuyHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BuyHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyHotel.ForeColor = System.Drawing.Color.Firebrick;
+            this.BuyHotel.Location = new System.Drawing.Point(437, 215);
+            this.BuyHotel.Margin = new System.Windows.Forms.Padding(4);
+            this.BuyHotel.Name = "BuyHotel";
+            this.BuyHotel.Size = new System.Drawing.Size(107, 46);
+            this.BuyHotel.TabIndex = 79;
+            this.BuyHotel.Text = "Buy Hotel";
+            this.BuyHotel.UseVisualStyleBackColor = true;
+            this.BuyHotel.Click += new System.EventHandler(this.BuyHotel_Click);
+            // 
+            // SellHouse
+            // 
+            this.SellHouse.Enabled = false;
+            this.SellHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SellHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellHouse.ForeColor = System.Drawing.Color.DarkGreen;
+            this.SellHouse.Location = new System.Drawing.Point(301, 304);
+            this.SellHouse.Margin = new System.Windows.Forms.Padding(4);
+            this.SellHouse.Name = "SellHouse";
+            this.SellHouse.Size = new System.Drawing.Size(111, 46);
+            this.SellHouse.TabIndex = 77;
+            this.SellHouse.Text = "Sell House";
+            this.SellHouse.UseVisualStyleBackColor = true;
+            this.SellHouse.Click += new System.EventHandler(this.SellHouse_Click);
+            // 
+            // Citynumber
+            // 
+            this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Citynumber.Location = new System.Drawing.Point(415, 134);
+            this.Citynumber.Margin = new System.Windows.Forms.Padding(4);
+            this.Citynumber.Name = "Citynumber";
+            this.Citynumber.Size = new System.Drawing.Size(225, 27);
+            this.Citynumber.TabIndex = 69;
+            this.Citynumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Citynumber.TextChanged += new System.EventHandler(this.Citynumber_TextChanged);
+            // 
+            // RemoveMortagage
+            // 
+            this.RemoveMortagage.Enabled = false;
+            this.RemoveMortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveMortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveMortagage.ForeColor = System.Drawing.Color.DimGray;
+            this.RemoveMortagage.Location = new System.Drawing.Point(564, 305);
+            this.RemoveMortagage.Margin = new System.Windows.Forms.Padding(4);
+            this.RemoveMortagage.Name = "RemoveMortagage";
+            this.RemoveMortagage.Size = new System.Drawing.Size(133, 43);
+            this.RemoveMortagage.TabIndex = 76;
+            this.RemoveMortagage.Text = "Remove Mortagage";
+            this.RemoveMortagage.UseVisualStyleBackColor = true;
+            this.RemoveMortagage.Click += new System.EventHandler(this.RemoveMortagage_Click);
+            // 
+            // Mortagage
+            // 
+            this.Mortagage.Enabled = false;
+            this.Mortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Mortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mortagage.ForeColor = System.Drawing.Color.DimGray;
+            this.Mortagage.Location = new System.Drawing.Point(564, 215);
+            this.Mortagage.Margin = new System.Windows.Forms.Padding(4);
+            this.Mortagage.Name = "Mortagage";
+            this.Mortagage.Size = new System.Drawing.Size(133, 46);
+            this.Mortagage.TabIndex = 70;
+            this.Mortagage.Text = "Mortagage";
+            this.Mortagage.UseVisualStyleBackColor = true;
+            this.Mortagage.Click += new System.EventHandler(this.Mortagage_Click);
+            // 
+            // BuyHouse
+            // 
+            this.BuyHouse.Enabled = false;
+            this.BuyHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BuyHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyHouse.ForeColor = System.Drawing.Color.Green;
+            this.BuyHouse.Location = new System.Drawing.Point(301, 215);
+            this.BuyHouse.Margin = new System.Windows.Forms.Padding(4);
+            this.BuyHouse.Name = "BuyHouse";
+            this.BuyHouse.Size = new System.Drawing.Size(111, 46);
+            this.BuyHouse.TabIndex = 75;
+            this.BuyHouse.Text = "Buy House";
+            this.BuyHouse.UseVisualStyleBackColor = true;
+            this.BuyHouse.Click += new System.EventHandler(this.button3_Click);
             // 
             // ActionPanel
             // 
@@ -932,177 +1147,6 @@ namespace Monopoly
             this.BuyCity.Text = "Buy City";
             this.BuyCity.UseVisualStyleBackColor = true;
             this.BuyCity.Click += new System.EventHandler(this.BuyCity_Click);
-            // 
-            // UpdatePanel
-            // 
-            this.UpdatePanel.BackColor = System.Drawing.Color.White;
-            this.UpdatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UpdatePanel.Controls.Add(this.label16);
-            this.UpdatePanel.Controls.Add(this.Ok);
-            this.UpdatePanel.Controls.Add(this.UpdatePicture);
-            this.UpdatePanel.Controls.Add(this.label5);
-            this.UpdatePanel.Controls.Add(this.label8);
-            this.UpdatePanel.Controls.Add(this.SellHotel);
-            this.UpdatePanel.Controls.Add(this.BuyHotel);
-            this.UpdatePanel.Controls.Add(this.SellHouse);
-            this.UpdatePanel.Controls.Add(this.Citynumber);
-            this.UpdatePanel.Controls.Add(this.RemoveMortagage);
-            this.UpdatePanel.Controls.Add(this.Mortagage);
-            this.UpdatePanel.Controls.Add(this.BuyHouse);
-            this.UpdatePanel.Location = new System.Drawing.Point(287, 153);
-            this.UpdatePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.UpdatePanel.Name = "UpdatePanel";
-            this.UpdatePanel.Size = new System.Drawing.Size(715, 466);
-            this.UpdatePanel.TabIndex = 80;
-            this.UpdatePanel.Visible = false;
-            // 
-            // Ok
-            // 
-            this.Ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Ok.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ok.Location = new System.Drawing.Point(425, 388);
-            this.Ok.Margin = new System.Windows.Forms.Padding(4);
-            this.Ok.Name = "Ok";
-            this.Ok.Size = new System.Drawing.Size(145, 30);
-            this.Ok.TabIndex = 81;
-            this.Ok.Text = "Ok";
-            this.Ok.UseVisualStyleBackColor = true;
-            this.Ok.Click += new System.EventHandler(this.Ok_Click);
-            // 
-            // UpdatePicture
-            // 
-            this.UpdatePicture.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.UpdatePicture.BackgroundImage = global::Monopoly.Properties.Resources.Houses_Hotels;
-            this.UpdatePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.UpdatePicture.Location = new System.Drawing.Point(-1, 183);
-            this.UpdatePicture.Margin = new System.Windows.Forms.Padding(4);
-            this.UpdatePicture.Name = "UpdatePicture";
-            this.UpdatePicture.Size = new System.Drawing.Size(280, 278);
-            this.UpdatePicture.TabIndex = 80;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(35, 130);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(284, 29);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Number of City or Station";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Crimson;
-            this.label8.Location = new System.Drawing.Point(145, 48);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(440, 33);
-            this.label8.TabIndex = 74;
-            this.label8.Text = "Modify Cities or Stations Status";
-            // 
-            // SellHotel
-            // 
-            this.SellHotel.Enabled = false;
-            this.SellHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SellHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHotel.ForeColor = System.Drawing.Color.Brown;
-            this.SellHotel.Location = new System.Drawing.Point(435, 304);
-            this.SellHotel.Margin = new System.Windows.Forms.Padding(4);
-            this.SellHotel.Name = "SellHotel";
-            this.SellHotel.Size = new System.Drawing.Size(108, 46);
-            this.SellHotel.TabIndex = 78;
-            this.SellHotel.Text = "Sell Hotel";
-            this.SellHotel.UseVisualStyleBackColor = true;
-            this.SellHotel.Click += new System.EventHandler(this.SellHotel_Click);
-            // 
-            // BuyHotel
-            // 
-            this.BuyHotel.Enabled = false;
-            this.BuyHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BuyHotel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHotel.ForeColor = System.Drawing.Color.Firebrick;
-            this.BuyHotel.Location = new System.Drawing.Point(437, 215);
-            this.BuyHotel.Margin = new System.Windows.Forms.Padding(4);
-            this.BuyHotel.Name = "BuyHotel";
-            this.BuyHotel.Size = new System.Drawing.Size(107, 46);
-            this.BuyHotel.TabIndex = 79;
-            this.BuyHotel.Text = "Buy Hotel";
-            this.BuyHotel.UseVisualStyleBackColor = true;
-            this.BuyHotel.Click += new System.EventHandler(this.BuyHotel_Click);
-            // 
-            // SellHouse
-            // 
-            this.SellHouse.Enabled = false;
-            this.SellHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SellHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellHouse.ForeColor = System.Drawing.Color.DarkGreen;
-            this.SellHouse.Location = new System.Drawing.Point(301, 304);
-            this.SellHouse.Margin = new System.Windows.Forms.Padding(4);
-            this.SellHouse.Name = "SellHouse";
-            this.SellHouse.Size = new System.Drawing.Size(111, 46);
-            this.SellHouse.TabIndex = 77;
-            this.SellHouse.Text = "Sell House";
-            this.SellHouse.UseVisualStyleBackColor = true;
-            this.SellHouse.Click += new System.EventHandler(this.SellHouse_Click);
-            // 
-            // Citynumber
-            // 
-            this.Citynumber.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Citynumber.Location = new System.Drawing.Point(415, 134);
-            this.Citynumber.Margin = new System.Windows.Forms.Padding(4);
-            this.Citynumber.Name = "Citynumber";
-            this.Citynumber.Size = new System.Drawing.Size(225, 27);
-            this.Citynumber.TabIndex = 69;
-            this.Citynumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Citynumber.TextChanged += new System.EventHandler(this.Citynumber_TextChanged);
-            // 
-            // RemoveMortagage
-            // 
-            this.RemoveMortagage.Enabled = false;
-            this.RemoveMortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemoveMortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveMortagage.ForeColor = System.Drawing.Color.DimGray;
-            this.RemoveMortagage.Location = new System.Drawing.Point(564, 305);
-            this.RemoveMortagage.Margin = new System.Windows.Forms.Padding(4);
-            this.RemoveMortagage.Name = "RemoveMortagage";
-            this.RemoveMortagage.Size = new System.Drawing.Size(133, 43);
-            this.RemoveMortagage.TabIndex = 76;
-            this.RemoveMortagage.Text = "Remove Mortagage";
-            this.RemoveMortagage.UseVisualStyleBackColor = true;
-            this.RemoveMortagage.Click += new System.EventHandler(this.RemoveMortagage_Click);
-            // 
-            // Mortagage
-            // 
-            this.Mortagage.Enabled = false;
-            this.Mortagage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Mortagage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mortagage.ForeColor = System.Drawing.Color.DimGray;
-            this.Mortagage.Location = new System.Drawing.Point(564, 215);
-            this.Mortagage.Margin = new System.Windows.Forms.Padding(4);
-            this.Mortagage.Name = "Mortagage";
-            this.Mortagage.Size = new System.Drawing.Size(133, 46);
-            this.Mortagage.TabIndex = 70;
-            this.Mortagage.Text = "Mortagage";
-            this.Mortagage.UseVisualStyleBackColor = true;
-            this.Mortagage.Click += new System.EventHandler(this.Mortagage_Click);
-            // 
-            // BuyHouse
-            // 
-            this.BuyHouse.Enabled = false;
-            this.BuyHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BuyHouse.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuyHouse.ForeColor = System.Drawing.Color.Green;
-            this.BuyHouse.Location = new System.Drawing.Point(301, 215);
-            this.BuyHouse.Margin = new System.Windows.Forms.Padding(4);
-            this.BuyHouse.Name = "BuyHouse";
-            this.BuyHouse.Size = new System.Drawing.Size(111, 46);
-            this.BuyHouse.TabIndex = 75;
-            this.BuyHouse.Text = "Buy House";
-            this.BuyHouse.UseVisualStyleBackColor = true;
-            this.BuyHouse.Click += new System.EventHandler(this.button3_Click);
             // 
             // UpdateBTN
             // 
@@ -2932,6 +2976,33 @@ namespace Monopoly
             this.Information.Visible = false;
             this.Information.VisibleChanged += new System.EventHandler(this.Information_VisibleChanged);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Enabled = false;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Crimson;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(940, 521);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(261, 41);
+            this.button4.TabIndex = 82;
+            this.button4.Text = "Modify Property";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(937, 575);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(378, 88);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Modify Property Button is Used to: \r\n- Buy and Sell Houses/Hotels on Properties.\r" +
+    "\n- Mortgage Properties";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -3364,70 +3435,27 @@ namespace Monopoly
             this.panel9.Size = new System.Drawing.Size(1553, 352);
             this.panel9.TabIndex = 1;
             // 
-            // label15
+            // OponentModifying
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(1313, 230);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(168, 25);
-            this.label15.TabIndex = 83;
-            this.label15.Text = "Owned Properties";
+            this.OponentModifying.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OponentModifying.BackgroundImage")));
+            this.OponentModifying.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.OponentModifying.Controls.Add(this.label18);
+            this.OponentModifying.Location = new System.Drawing.Point(407, 316);
+            this.OponentModifying.Name = "OponentModifying";
+            this.OponentModifying.Size = new System.Drawing.Size(472, 90);
+            this.OponentModifying.TabIndex = 86;
+            this.OponentModifying.Visible = false;
+            this.OponentModifying.VisibleChanged += new System.EventHandler(this.OponentModifying_VisibleChanged);
             // 
-            // Caution
+            // label18
             // 
-            this.Caution.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Caution.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Caution.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Caution.Location = new System.Drawing.Point(1287, 578);
-            this.Caution.Name = "Caution";
-            this.Caution.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Caution.Size = new System.Drawing.Size(247, 33);
-            this.Caution.TabIndex = 84;
-            this.Caution.Text = "Buy or Sell Houses/Hotels on Properties\r\nMortgage Properties\r\n";
-            this.Caution.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label16.Location = new System.Drawing.Point(415, 98);
-            this.label16.Name = "label16";
-            this.label16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label16.Size = new System.Drawing.Size(226, 36);
-            this.label16.TabIndex = 85;
-            this.label16.Text = "Write the Property Number from the Owned Properties Box here";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label16.Click += new System.EventHandler(this.label16_Click);
-            // 
-            // label17
-            // 
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(937, 575);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(378, 88);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Modify Property Button is Used to: \r\n- Buy and Sell Houses/Hotels on Properties.\r" +
-    "\n- Mortgage Properties";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Enabled = false;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Crimson;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(940, 521);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(261, 41);
-            this.button4.TabIndex = 82;
-            this.button4.Text = "Modify Property";
-            this.button4.UseVisualStyleBackColor = false;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(24, 35);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(430, 22);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Oponent is Modifying his Properties";
             // 
             // Monopoly
             // 
@@ -3456,13 +3484,13 @@ namespace Monopoly
             this.Mode.ResumeLayout(false);
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
+            this.UpdatePanel.ResumeLayout(false);
+            this.UpdatePanel.PerformLayout();
             this.ActionPanel.ResumeLayout(false);
             this.Payrent.ResumeLayout(false);
             this.Payrent.PerformLayout();
             this.BuyingCity.ResumeLayout(false);
             this.BuyingCity.PerformLayout();
-            this.UpdatePanel.ResumeLayout(false);
-            this.UpdatePanel.PerformLayout();
             this.Dice1.ResumeLayout(false);
             this.Dice1.PerformLayout();
             this.Dice2.ResumeLayout(false);
@@ -3570,6 +3598,8 @@ namespace Monopoly
             this.MultiRegister.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.OponentModifying.ResumeLayout(false);
+            this.OponentModifying.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3832,6 +3862,8 @@ namespace Monopoly
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel OponentModifying;
+        private System.Windows.Forms.Label label18;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }
