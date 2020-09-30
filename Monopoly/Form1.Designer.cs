@@ -295,9 +295,11 @@ namespace Monopoly
             this.PayRentsCautionForMultiPlayer = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.BackToModePanel = new System.Windows.Forms.Button();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
+            this.PhotoPanel.SuspendLayout();
             this.Mode.SuspendLayout();
             this.Game.SuspendLayout();
             this.Payrent.SuspendLayout();
@@ -558,6 +560,7 @@ namespace Monopoly
             // 
             this.PhotoPanel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
             this.PhotoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PhotoPanel.Controls.Add(this.BackToModePanel);
             this.PhotoPanel.Location = new System.Drawing.Point(4, 4);
             this.PhotoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.PhotoPanel.Name = "PhotoPanel";
@@ -572,7 +575,7 @@ namespace Monopoly
             this.Mode.Controls.Add(this.panel3);
             this.Mode.Location = new System.Drawing.Point(0, 0);
             this.Mode.Name = "Mode";
-            this.Mode.Size = new System.Drawing.Size(1548, 750);
+            this.Mode.Size = new System.Drawing.Size(1548, 772);
             this.Mode.TabIndex = 0;
             // 
             // SinglePlayerBTN
@@ -3515,15 +3518,27 @@ namespace Monopoly
     "hen click Buy City or you won\'t be able to buy this City this turn";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BackToModePanel
+            // 
+            this.BackToModePanel.BackColor = System.Drawing.Color.White;
+            this.BackToModePanel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackToModePanel.Location = new System.Drawing.Point(67, 54);
+            this.BackToModePanel.Name = "BackToModePanel";
+            this.BackToModePanel.Size = new System.Drawing.Size(117, 52);
+            this.BackToModePanel.TabIndex = 0;
+            this.BackToModePanel.Text = "Back";
+            this.BackToModePanel.UseVisualStyleBackColor = false;
+            this.BackToModePanel.Click += new System.EventHandler(this.BackToModePanel_Click);
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1557, 773);
-            this.Controls.Add(this.Game);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.Registeration);
+            this.Controls.Add(this.Game);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.Information);
             this.Controls.Add(this.MultiRegister);
@@ -3539,6 +3554,7 @@ namespace Monopoly
             this.NumberofplayerPanel.PerformLayout();
             this.PlayerReg_Panel.ResumeLayout(false);
             this.PlayerReg_Panel.PerformLayout();
+            this.PhotoPanel.ResumeLayout(false);
             this.Mode.ResumeLayout(false);
             this.Game.ResumeLayout(false);
             this.Game.PerformLayout();
@@ -3929,6 +3945,7 @@ namespace Monopoly
         private System.Windows.Forms.Panel PayRentsCautionForMultiPlayer;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button BackToModePanel;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }

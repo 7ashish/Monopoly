@@ -2646,5 +2646,11 @@ namespace Monopoly
                 PayRentsCautionForMultiPlayer.Hide();
             }
         }
+
+        private void BackToModePanel_Click(object sender, EventArgs e)
+        {
+            Registeration.Hide();
+            Mode.Show();
+        }
     }
 }
