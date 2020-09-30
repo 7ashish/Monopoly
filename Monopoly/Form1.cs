@@ -111,23 +111,21 @@ namespace Monopoly
         private void Player1_Timer_Tick(object sender, EventArgs e)
         {
             FinishTurn.Enabled = false;
+            UpdateBTN.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player1.Location);
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
-                if (typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
-                {
-                    FinalizeTurn();
-                }
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player1_Timer.Stop();
-                    MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 if (Payrent.Visible)
                 {
+                    FinishTurn.Enabled = false;
                     if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
                     {
                         City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
@@ -155,7 +153,16 @@ namespace Monopoly
                         RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
                     }
                 }
-                FinishTurn.Enabled = true;
+                if (IsMultiPlayer && !IsMyTurn)
+                {
+                    UpdateBTN.Enabled = false;
+                    FinishTurn.Enabled = false;
+                }
+                else
+                {
+                    UpdateBTN.Enabled = true;
+                    FinishTurn.Enabled = true;
+                }
                 Player1_Timer.Stop();
             }
             if (Player1.Location.X < 80 && Player1.Location.Y > 80)
@@ -197,6 +204,7 @@ namespace Monopoly
         }
         private void Player2_Timer_Tick(object sender, EventArgs e)
         {
+            UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
@@ -204,14 +212,10 @@ namespace Monopoly
                 playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
                 playerturn.Set_PlayerPosition(Player2.Location);
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
-                if (typeof(UselessFields) == Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType())
-                {
-                    FinalizeTurn();
-                }
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player2_Timre.Stop();
-                    MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 if (Payrent.Visible)
                 {
@@ -243,7 +247,16 @@ namespace Monopoly
                         RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
                     }
                 }
-                FinishTurn.Enabled = true;
+                if (IsMultiPlayer && !IsMyTurn)
+                {
+                    UpdateBTN.Enabled = false;
+                    FinishTurn.Enabled = false;
+                }
+                else
+                {
+                    UpdateBTN.Enabled = true;
+                    FinishTurn.Enabled = true;
+                }
                 Player2_Timre.Stop();
             }
             if (Player2.Location.X < 80 && Player2.Location.Y > 80)
@@ -285,6 +298,7 @@ namespace Monopoly
         }
         private void Player3_Timer_Tick(object sender, EventArgs e)
         {
+            UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
@@ -295,7 +309,7 @@ namespace Monopoly
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player3_Timer.Stop();
-                    MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 if (Payrent.Visible)
                 {
@@ -327,6 +341,7 @@ namespace Monopoly
                         RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
                     }
                 }
+                UpdateBTN.Enabled = true;
                 FinishTurn.Enabled = true;
                 Player3_Timer.Stop();
             }
@@ -369,6 +384,7 @@ namespace Monopoly
         }
         private void Player4_Timer_Tick(object sender, EventArgs e)
         {
+            UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
             if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
                 Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
@@ -379,7 +395,7 @@ namespace Monopoly
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player4_Timer.Stop();
-                    MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 if (Payrent.Visible)
                 {
@@ -411,6 +427,7 @@ namespace Monopoly
                         RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
                     }
                 }
+                UpdateBTN.Enabled = true;
                 FinishTurn.Enabled = true;
                 Player4_Timer.Stop();
             }
@@ -522,20 +539,13 @@ namespace Monopoly
                 {
                     FinishTurn.Enabled = false;
                     Bankrupt = true;
+                    UpdateBTN.Enabled = true;
                 }
                 else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false && Bankrupt)
                 {
                     Bankrupt = false;
                     FinishTurn.Enabled = true;
                 }
-            }
-            if(FinishTurn.Enabled == false)
-            {
-                UpdateBTN.Enabled = false;
-            }
-            else
-            {
-                UpdateBTN.Enabled = true;
             }
             /*if (IsMultiPlayer && !IsMyTurn)
             {
@@ -598,35 +608,26 @@ namespace Monopoly
                 return (playerturnnumber == 0) == IsHost;
             }
         }
-        private async void RollDice_Click(object sender, EventArgs e)
+        public void MovePlayerIfNotBankRupted()
         {
             RollDice.Enabled = false;
             FinishTurn.Enabled = false;
-            Main.Set_Dice1(Main.RollDice());
-            Main.Set_Dice2(Main.RollDice());
-            if (IsMultiPlayer)
+            UpdateBTN.Enabled = false;
+            if (IsMultiPlayer && IsMyTurn)
             {
-                if (IsMyTurn)
-                {
-                    NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
-                }
-                else
-                {
-                    string[] s = (await NetworkManager.Cin())[0].Split('=');
-                    if (s[0] == "Dice")
-                    {
-                        string[] ss = s[1].Split(',');
-                        Main.Set_Dice1(int.Parse(ss[0]));
-                        Main.Set_Dice2(int.Parse(ss[1]));
-                    }
-                    else
-                    {
-                        throw new Exception("Unexpected command : " + s[0]);
-                    }
-                }
+                Main.Set_Dice1(Main.RollDice());
+                Main.Set_Dice2(Main.RollDice());
+                Dice1TXT.Text = Main.Get_Dice1().ToString();
+                Dice2TXT.Text = Main.Get_Dice2().ToString();
+                NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
             }
-            Dice1TXT.Text = Main.Get_Dice1().ToString();
-            Dice2TXT.Text = Main.Get_Dice2().ToString();
+            else if (!IsMultiPlayer)
+            {
+                Main.Set_Dice1(Main.RollDice());
+                Main.Set_Dice2(Main.RollDice());
+                Dice1TXT.Text = Main.Get_Dice1().ToString();
+                Dice2TXT.Text = Main.Get_Dice2().ToString();
+            }
             if (Bankrupt)
             {
                 MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -636,46 +637,26 @@ namespace Monopoly
                 Main.Move_Player(playerturn);
             }
         }
+        private void RollDice_Click(object sender, EventArgs e)
+        {
+            MovePlayerIfNotBankRupted();
+        }
 
         public void Set_CityPriceTextBox(int price)
         {
             CityPrice.Text = price.ToString() + "$";
         }
-        private async void FinalizeTurn()
-
-        {
-            if (IsMultiPlayer && !IsMyTurn)
-            {
-                string[] strings = await NetworkManager.Cin();
-                if (strings[0] == "FinishTurn")
-                {
-                    FinishTurn.Enabled = true;
-                    FinishTurn.PerformClick();
-                }
-                else if (strings[0] == "Modifying")
-                {
-                    OponentModifying.Show();
-                }
-                else
-                {
-                    throw new Exception("Unexcepted command : " + strings[0]);
-                }
-            }
-        }
-        private void FinishTurn_Click(object sender, EventArgs e)
+        public void EndTurn()
         {
             if (IsMyTurn && IsMultiPlayer)
             {
                 NetworkManager.Cout("FinishTurn");
-                RollDice.Enabled = true;
-                surrenderbtn.Enabled = true;
-                UpdateBTN.Enabled = true;
             }
             else
             {
-                RollDice.Enabled = false;
-                surrenderbtn.Enabled = false;
-                UpdateBTN.Enabled = false;
+                RollDice.Enabled = true;
+                surrenderbtn.Enabled = true;
+                UpdateBTN.Enabled = true;
             }
             FinishTurn.Enabled = false;
             playerturnnumber = (playerturnnumber + 1) % Token;
@@ -684,17 +665,10 @@ namespace Monopoly
             Dice2TXT.Text = "0";
             playerturn.Set_Balance_Feedback(0);
             BalancePositiveTXT.Hide();
-            if (IsMultiPlayer && !IsMyTurn)
-            {
-                RollDice.Enabled = true;
-                RollDice.PerformClick();
-            }
-            else
-            {
-                RollDice.Enabled = true;
-                surrenderbtn.Enabled = true;
-                UpdateBTN.Enabled = true;
-            }
+        }
+        private void FinishTurn_Click(object sender, EventArgs e)
+        {
+            EndTurn();
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -1066,7 +1040,6 @@ namespace Monopoly
 
             }
             CityPrice.Text = "";
-            FinalizeTurn();
             FinishTurn.Enabled = true;
         }
         private void BuyingCity_Paint(object sender, PaintEventArgs e)
@@ -1097,7 +1070,6 @@ namespace Monopoly
                 NetworkManager.Cout("Cancel");
             }
             BuyingCity.Hide();
-            FinalizeTurn();
         }
 
         public Panel GetPlayer1Panel()
@@ -1139,7 +1111,6 @@ namespace Monopoly
                 NetworkManager.Cout("Ok");
             }
             ActionPanel.Hide();
-            FinalizeTurn();
         }
         //Pay rents button.
         private void Button1_Click(object sender, EventArgs e)
@@ -1164,7 +1135,6 @@ namespace Monopoly
             {
                 MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
-            FinalizeTurn();
         }
 
         public void Surrender()
@@ -1314,9 +1284,19 @@ namespace Monopoly
             Players.Remove(playerturn);
             Token--;
             Main.GetPlayers().Remove(playerturn);
-            if (Main.GetPlayers().Count == 1)
+            if (Main.GetPlayers().Count == 1 && !IsMyTurn)
             {
-                MessageBox.Show(Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Get_Name().ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            if (IsMultiPlayer)
+            {
+                MessageBox.Show("You have Surrendered and " + Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner, Good Luck Next Time");
+                Close();
+            }
+            if (!IsMultiPlayer && Main.GetPlayers().Count == 1)
+            {
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Get_Name().ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             playerturnnumber = (playerturnnumber) % Token;
@@ -1354,13 +1334,9 @@ namespace Monopoly
             }
         }
 
-        private void Mortagage_Click(object sender, EventArgs e)
+        public void MortagageProperty()
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
-            {
-                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
                 if (Main.Mortagage_City(playerturn, C))
@@ -1472,14 +1448,21 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
-        //Buy house button.
-        private void button3_Click(object sender, EventArgs e)
+        private void Mortagage_Click(object sender, EventArgs e)
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
             {
-                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            else
+            {
+                MortagageProperty();
+            }
+        }
+
+        public void BuyHouseonProperty()
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
                 C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
@@ -1579,22 +1562,27 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
-
-        private void Citynumber_TextChanged(object sender, EventArgs e)
+        //Buy house button.
+        private void button3_Click(object sender, EventArgs e)
         {
-            if (IsMultiPlayer && !IsMyTurn)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
             {
-                return;
+                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                Mortagage.Enabled = true;
-                BuyHotel.Enabled = true;
-                BuyHouse.Enabled = true;
-                SellHouse.Enabled = true;
-                SellHotel.Enabled = true;
-                RemoveMortagage.Enabled = true;
+                BuyHouseonProperty();
             }
+        }
+
+        private void Citynumber_TextChanged(object sender, EventArgs e)
+        {
+            Mortagage.Enabled = true;
+            BuyHotel.Enabled = true;
+            BuyHouse.Enabled = true;
+            SellHouse.Enabled = true;
+            SellHotel.Enabled = true;
+            RemoveMortagage.Enabled = true;
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -1616,13 +1604,9 @@ namespace Monopoly
             }
         }
 
-        private void RemoveMortagage_Click(object sender, EventArgs e)
+        public void UnMortagageProperty()
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
-            {
-                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
                 if (Main.RemoveCityMortagage(playerturn, C))
@@ -1690,7 +1674,10 @@ namespace Monopoly
                 }
                 else
                 {
-                    MessageBox.Show("There was an error in Mortagaging this City, because you might not own This City, or, It's not even Mortagaged or you still have any Houses or Hotels build on it, Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (IsMyTurn || !IsMultiPlayer)
+                    {
+                        MessageBox.Show("There was an error in Mortagaging this City, because you might not own This City, or, It's not even Mortagaged or you still have any Houses or Hotels build on it, Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
@@ -1719,12 +1706,18 @@ namespace Monopoly
                 }
                 else
                 {
-                    MessageBox.Show("There was an error in Mortagaging this Station, because you might not own This Station, or, It's not even Mortagaged, Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (IsMyTurn || !IsMultiPlayer)
+                    {
+                        MessageBox.Show("There was an error in Mortagaging this Station, because you might not own This Station, or, It's not even Mortagaged, Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("You couldn't remove The Mortagage of this Property, It's a wrong Property Number , Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (IsMyTurn || !IsMultiPlayer)
+                {
+                    MessageBox.Show("You couldn't remove The Mortagage of this Property, It's a wrong Property Number , Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             Citynumber.Text = "";
             Mortagage.Enabled = false;
@@ -1734,14 +1727,21 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
-
-        private void SellHouse_Click(object sender, EventArgs e)
+        private void RemoveMortagage_Click(object sender, EventArgs e)
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
             {
-                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            else
+            {
+                UnMortagageProperty();
+            }
+        }
+
+        public void SellHouseonProperty()
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
                 C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
@@ -1874,7 +1874,10 @@ namespace Monopoly
                 }
                 else
                 {
-                    MessageBox.Show("You have wrote a wrong City Number or This City doesn't have a House on it, or You don't Own City, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (IsMyTurn || !IsMultiPlayer)
+                    {
+                        MessageBox.Show("You have wrote a wrong City Number or This City doesn't have a House on it, or You don't Own City, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             Citynumber.Text = "";
@@ -1885,14 +1888,20 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
-
-        private void BuyHotel_Click(object sender, EventArgs e)
+        private void SellHouse_Click(object sender, EventArgs e)
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
             {
-                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Hotel Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            else
+            {
+                SellHouseonProperty();
+            }
+        }
+        public void BuyHotelonProperty()
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
                 C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
@@ -1976,14 +1985,21 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
-
-        private void SellHotel_Click(object sender, EventArgs e)
+        private void BuyHotel_Click(object sender, EventArgs e)
         {
-            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0)
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
             {
                 MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Hotel Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            else
+            {
+                BuyHotelonProperty();
+            }
+        }
+
+        public void SellHotelonProperty()
+        {
+            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
                 if (Main.Remove_Hotel(playerturn, C))
@@ -2066,6 +2082,17 @@ namespace Monopoly
             SellHotel.Enabled = false;
             RemoveMortagage.Enabled = false;
         }
+        private void SellHotel_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(Citynumber.Text) > 23 || int.Parse(Citynumber.Text) < 0 || string.IsNullOrEmpty(Citynumber.Text))
+            {
+                MessageBox.Show("You have wrote a wrong City Number, Please Try Again!", "Hotel Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                SellHotelonProperty();
+            }
+        }
 
         private void label11_Click(object sender, EventArgs e)
         {
@@ -2077,14 +2104,11 @@ namespace Monopoly
             if (IsHost)
             {
                 NetworkManager.Cout("StartGame");
+                MultiplayerTimer.Start();
             }
             Information.Hide();
             Game.Show();
             AllGameTimer.Enabled = true;
-            if (!IsMyTurn && IsMultiPlayer)
-            {
-                RollDice.PerformClick();
-            }
         }
 
         private void SinglePlayerBTN_Click(object sender, EventArgs e)
@@ -2101,6 +2125,7 @@ namespace Monopoly
             await NetworkManager.FindServer();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(), "Network", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             IsMultiPlayer = true;
+            //MultiplayerTimer.Start();
             IsHost = false;
             MultiRegister.Show();
             MultiPlayer.Hide();
@@ -2113,6 +2138,7 @@ namespace Monopoly
             await NetworkManager.AnnouncePresence();
             MessageBox.Show("Connected to " + NetworkManager.GetConnectedIP(), "Network", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             IsMultiPlayer = true;
+            //MultiplayerTimer.Start();
             IsHost = true;
             MultiRegister.Show();
             MultiPlayer.Hide();
@@ -2203,6 +2229,8 @@ namespace Monopoly
                 Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
+                Player1.Show();
+                Player2.Show();
                 playerturn = Players[playerturnnumber];
                 Token = 2;
             }
@@ -2286,6 +2314,7 @@ namespace Monopoly
             {
                 StartGame.Enabled = true;
                 StartGame.PerformClick();
+                MultiplayerTimer.Start();
             }
             else
             {
@@ -2298,7 +2327,7 @@ namespace Monopoly
 
         }
 
-        private async void BuyingCity_VisibleChanged(object sender, EventArgs e)
+        private void BuyingCity_VisibleChanged(object sender, EventArgs e)
         {
             if (!BuyingCity.Visible || !IsMultiPlayer)
             {
@@ -2315,6 +2344,7 @@ namespace Monopoly
                 BuyCity.Enabled = false;
                 Cancel.Enabled = false;
             }
+            /*
             string[] strings = await NetworkManager.Cin();
             if (strings[0] == "BuyProperty")
             {
@@ -2329,10 +2359,10 @@ namespace Monopoly
             else
             {
                 throw new Exception("Unexcepted command : " + strings[0]);
-            }
+            }*/
         }
 
-        private async void Payrent_VisibleChanged(object sender, EventArgs e)
+        private void Payrent_VisibleChanged(object sender, EventArgs e)
         {
             if (!Payrent.Visible || !IsMultiPlayer)
             {
@@ -2349,7 +2379,8 @@ namespace Monopoly
                 PayrentBTN.Enabled = false;
                 surrender.Enabled = false;
             }
-            string[] strings = await NetworkManager.Cin();
+            /*
+             * string[] strings = await NetworkManager.Cin();
             if (strings[0] == "PayRent")
             {
                 PayrentBTN.Enabled = true;
@@ -2363,10 +2394,10 @@ namespace Monopoly
             else
             {
                 throw new Exception("Unexcepted command : " + strings[0]);
-            }
+            }*/
         }
 
-        private async void ActionPanel_VisibleChanged(object sender, EventArgs e)
+        private void ActionPanel_VisibleChanged(object sender, EventArgs e)
         {
             if (!ActionPanel.Visible || !IsMultiPlayer)
             {
@@ -2380,7 +2411,7 @@ namespace Monopoly
             else
             {
                 OkBTN.Enabled = false;
-                string[] strings = await NetworkManager.Cin();
+                /*string[] strings = await NetworkManager.Cin();
                 if (strings[0] == "Ok")
                 {
                     OkBTN.Enabled = true;
@@ -2389,7 +2420,7 @@ namespace Monopoly
                 else
                 {
                     throw new Exception("Unexcepted command : " + strings[0]);
-                }
+                }*/
             }
         }
 
@@ -2443,63 +2474,168 @@ namespace Monopoly
             }
         }
 
-        private async void OponentModifying_VisibleChanged(object sender, EventArgs e)
+        private void OponentModifying_VisibleChanged(object sender, EventArgs e)
         {
-            if (!OponentModifying.Visible || !IsMultiPlayer)
+            /*string[] strings = await NetworkManager.Cin();
+            foreach (string str in strings)
             {
-                return;
-            }
-            while (true)
-            {
-                string[] strings = await NetworkManager.Cin();
-                foreach (string str in strings)
+                if (string.IsNullOrWhiteSpace(str))
                 {
-                    if (string.IsNullOrWhiteSpace(str))
-                    {
-                        continue;
-                    }
-                    string[] Spliter = str.Split('=');
-                    if (Spliter[0] == "Mortagage")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        Mortagage.Enabled = true;
-                        Mortagage.PerformClick();
-                    }
-                    else if (Spliter[0] == "RemoveMortagage")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        RemoveMortagage.Enabled = true;
-                        RemoveMortagage.PerformClick();
-                    }
-                    else if (Spliter[0] == "BuyHouse")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        BuyHouse.Enabled = true;
-                        BuyHouse.PerformClick();
-                    }
-                    else if (Spliter[0] == "SellHouse")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        SellHouse.Enabled = true;
-                        SellHouse.PerformClick();
-                    }
-                    else if (Spliter[0] == "BuyHotel")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        BuyHotel.Enabled = true;
-                        BuyHotel.PerformClick();
-                    }
-                    else if (Spliter[0] == "SellHotel")
-                    {
-                        Citynumber.Text = Spliter[1];
-                        SellHotel.Enabled = true;
-                        SellHotel.PerformClick();
-                    }
-                    else if (Spliter[0] == "Ok")
-                    {
-                        OponentModifying.Hide();
-                    }
+                    return;
                 }
+                string[] Spliter = str.Split('=');
+                if (Spliter[0] == "Mortagage")
+                {
+                    Citynumber.Text = Spliter[1];
+                    Mortagage.Enabled = true;
+                    MortagageProperty();
+                }
+                else if (Spliter[0] == "RemoveMortagage")
+                {
+                    Citynumber.Text = Spliter[1];
+                    RemoveMortagage.Enabled = true;
+                    UnMortagageProperty();
+                }
+                else if (Spliter[0] == "BuyHouse")
+                {
+                    Citynumber.Text = Spliter[1];
+                    BuyHouse.Enabled = true;
+                    BuyHouseonProperty();
+                }
+                else if (Spliter[0] == "SellHouse")
+                {
+                    Citynumber.Text = Spliter[1];
+                    SellHouse.Enabled = true;
+                    SellHouseonProperty();
+                }
+                else if (Spliter[0] == "BuyHotel")
+                {
+                    Citynumber.Text = Spliter[1];
+                    BuyHotel.Enabled = true;
+                    BuyHotelonProperty();
+                }
+                else if (Spliter[0] == "SellHotel")
+                {
+                    Citynumber.Text = Spliter[1];
+                    SellHotel.Enabled = true;
+                    SellHotelonProperty();
+                }
+                else if (Spliter[0] == "Ok")
+                {
+                    OponentModifying.Hide();
+                    FinalizeTurn();
+                }
+                else
+                {
+                    throw new Exception("Unexcepted command : " + strings[0]);
+                }
+            }*/
+
+        }
+
+        private async void MultiplayerTimer_Tick(object sender, EventArgs e)
+        {
+            if (!IsMyTurn)
+            {
+                PayRentsCautionForMultiPlayer.Show();
+                RollDice.Enabled = false;
+                UpdateBTN.Enabled = false;
+                FinishTurn.Enabled = false;
+                string[] strings = await NetworkManager.Cin();
+                if (strings[0] == "BuyProperty")
+                {
+                    BuyCity.Enabled = true;
+                    BuyCity.PerformClick();
+                }
+                else if (strings[0] == "Cancel")
+                {
+                    Cancel.Enabled = true;
+                    Cancel.PerformClick();
+                }
+                else if (strings[0] == "PayRent")
+                {
+                    PayrentBTN.Enabled = true;
+                    PayrentBTN.PerformClick();
+                }
+                else if (strings[0] == "Surrender")
+                {
+                    surrender.Enabled = true;
+                    Surrender();
+                }
+                else if (strings[0] == "Ok")
+                {
+                    OkBTN.Enabled = true;
+                    OkBTN.PerformClick();
+                }
+                else if ((strings[0].Split('='))[0] == "Ok")
+                {
+                    OponentModifying.Hide();
+                }
+                else if ((strings[0].Split('='))[0] == "Mortagage")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    Mortagage.Enabled = true;
+                    MortagageProperty();
+                }
+                else if ((strings[0].Split('='))[0] == "RemoveMortagage")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    RemoveMortagage.Enabled = true;
+                    UnMortagageProperty();
+                }
+                else if ((strings[0].Split('='))[0] == "BuyHouse")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    BuyHouse.Enabled = true;
+                    BuyHouseonProperty();
+                }
+                else if ((strings[0].Split('='))[0] == "SellHouse")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    SellHouse.Enabled = true;
+                    SellHouseonProperty();
+                }
+                else if ((strings[0].Split('='))[0] == "BuyHotel")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    BuyHotel.Enabled = true;
+                    BuyHotelonProperty();
+                }
+                else if ((strings[0].Split('='))[0] == "SellHotel")
+                {
+                    Citynumber.Text = (strings[0].Split('='))[1];
+                    SellHotel.Enabled = true;
+                    SellHotelonProperty();
+                }
+                else if (strings[0] == "FinishTurn")
+                {
+                    EndTurn();
+                }
+                else if (strings[0] == "Modifying")
+                {
+                    OponentModifying.Show();
+                }
+                else if (strings[0] == "Surrender")
+                {
+                    Surrender();
+                }
+                else if ((strings[0].Split('='))[0] == "Dice")
+                {
+                    string[] ss = (strings[0].Split('='))[1].Split(',');
+                    Main.Set_Dice1(int.Parse(ss[0]));
+                    Main.Set_Dice2(int.Parse(ss[1]));
+                    Dice1TXT.Text = ss[0];
+                    Dice2TXT.Text = ss[1];
+                    MovePlayerIfNotBankRupted();
+                }
+                else
+                {
+                    throw new Exception("Unexpected command : " + strings[0]);
+                }
+            }
+            else
+            {
+                PayRentsCautionForMultiPlayer.Hide();
             }
         }
     }
