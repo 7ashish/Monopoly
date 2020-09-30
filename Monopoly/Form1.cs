@@ -971,6 +971,10 @@ namespace Monopoly
                 }
                 else
                 {
+                    if (IsMultiPlayer && IsMyTurn)
+                    {
+                        NetworkManager.Cout("Cancel");
+                    }
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Oh you couldn't buy this City! Because you don't have enough Balance", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1031,6 +1035,10 @@ namespace Monopoly
                 }
                 else
                 {
+                    if (IsMultiPlayer && IsMyTurn)
+                    {
+                        NetworkManager.Cout("Cancel");
+                    }
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Oh you couldn't buy this Station! Because you don't have enough Balance", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Error);
