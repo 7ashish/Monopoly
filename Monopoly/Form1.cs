@@ -1884,7 +1884,7 @@ namespace Monopoly
                 {
                     if (IsMyTurn || !IsMultiPlayer)
                     {
-                        MessageBox.Show("You have wrote a wrong City Number or This City doesn't have a House on it, or You don't Own City, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("You have wrote a wrong City Number or This City has a Hotel which should be Sold first or This City doesn't have a House on it, or You don't Own City, Please Try Again!", "House Modification", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }

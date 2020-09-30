@@ -294,6 +294,7 @@ namespace Monopoly
             this.MultiplayerTimer = new System.Windows.Forms.Timer(this.components);
             this.PayRentsCautionForMultiPlayer = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.Registeration.SuspendLayout();
             this.NumberofplayerPanel.SuspendLayout();
             this.PlayerReg_Panel.SuspendLayout();
@@ -624,18 +625,18 @@ namespace Monopoly
             // 
             this.Game.BackColor = System.Drawing.Color.White;
             this.Game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.Payrent);
             this.Game.Controls.Add(this.OponentModifying);
             this.Game.Controls.Add(this.Caution);
             this.Game.Controls.Add(this.label15);
+            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.BalancePositiveTXT);
             this.Game.Controls.Add(this.Player4);
             this.Game.Controls.Add(this.Player3);
             this.Game.Controls.Add(this.Player2);
             this.Game.Controls.Add(this.Player1);
-            this.Game.Controls.Add(this.UpdatePanel);
             this.Game.Controls.Add(this.ActionPanel);
-            this.Game.Controls.Add(this.BuyingCity);
             this.Game.Controls.Add(this.UpdateBTN);
             this.Game.Controls.Add(this.surrenderbtn);
             this.Game.Controls.Add(this.PlayerLabel2);
@@ -1113,15 +1114,16 @@ namespace Monopoly
             this.BuyingCity.BackColor = System.Drawing.Color.White;
             this.BuyingCity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BuyingCity.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BuyingCity.Controls.Add(this.label21);
             this.BuyingCity.Controls.Add(this.label6);
             this.BuyingCity.Controls.Add(this.CityPrice);
             this.BuyingCity.Controls.Add(this.City);
             this.BuyingCity.Controls.Add(this.Cancel);
             this.BuyingCity.Controls.Add(this.BuyCity);
-            this.BuyingCity.Location = new System.Drawing.Point(440, 155);
+            this.BuyingCity.Location = new System.Drawing.Point(440, 133);
             this.BuyingCity.Margin = new System.Windows.Forms.Padding(4);
             this.BuyingCity.Name = "BuyingCity";
-            this.BuyingCity.Size = new System.Drawing.Size(556, 434);
+            this.BuyingCity.Size = new System.Drawing.Size(556, 456);
             this.BuyingCity.TabIndex = 58;
             this.BuyingCity.Visible = false;
             this.BuyingCity.VisibleChanged += new System.EventHandler(this.BuyingCity_VisibleChanged);
@@ -3500,6 +3502,19 @@ namespace Monopoly
             this.label20.TabIndex = 6;
             this.label20.Text = "Your Oponent has to Pay his Rents or Surrender";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.White;
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label21.Location = new System.Drawing.Point(34, 408);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(488, 34);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "If you don\'t have enough balance to Buy this City Modify your Properties first\r\nt" +
+    "hen click Buy City or you won\'t be able to buy this City this turn";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Monopoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3913,6 +3928,7 @@ namespace Monopoly
         private System.Windows.Forms.Timer MultiplayerTimer;
         private System.Windows.Forms.Panel PayRentsCautionForMultiPlayer;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
 
         public EventHandler textBox17_TextChanged { get; private set; }
     }
