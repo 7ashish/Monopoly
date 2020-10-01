@@ -1294,6 +1294,7 @@ namespace Monopoly
             Main.GetPlayers().Remove(playerturn);
             if (Main.GetPlayers().Count == 1 && !IsMyTurn)
             {
+                IsMultiPlayer = false;
                 MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Get_Name().ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
@@ -1319,8 +1320,8 @@ namespace Monopoly
             DialogResult result = MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (IsMultiPlayer && IsMyTurn && result == DialogResult.Yes)
             {
-                Surrender();
                 NetworkManager.Cout("Surrender");
+                Surrender();
             }
             else if (result == DialogResult.Yes)
             {
@@ -1333,8 +1334,8 @@ namespace Monopoly
             DialogResult result = MessageBox.Show("Are you sure you want to Surrender ?!", "Game Information", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (IsMultiPlayer && IsMyTurn && result == DialogResult.Yes)
             {
-                Surrender();
                 NetworkManager.Cout("Surrender");
+                Surrender();
             }
             else if (result == DialogResult.Yes)
             {
@@ -2543,7 +2544,7 @@ namespace Monopoly
 
         private async void MultiplayerTimer_Tick(object sender, EventArgs e)
         {
-            if (!IsMyTurn)
+            if (!IsMyTurn && IsMultiPlayer)
             {
                 PayRentsCautionForMultiPlayer.Show();
                 RollDice.Enabled = false;

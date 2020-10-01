@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Net.NetworkInformation;
 
 static class NetworkManager
 {
@@ -95,5 +96,16 @@ static class NetworkManager
     static public string GetConnectedIP()
     {
         return ((IPEndPoint)ActiveSocket.RemoteEndPoint).ToString();
+    }
+    static public void ShutDown()
+    {
+        try
+        {
+            ActiveSocket.Shutdown(SocketShutdown.Both);
+        }
+        finally
+        {
+            ActiveSocket.Close();
+        }
     }
 }
