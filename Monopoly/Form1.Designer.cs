@@ -3198,6 +3198,7 @@ namespace Monopoly
             this.StartGame.BackColor = System.Drawing.Color.White;
             this.StartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartGame.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartGame.ForeColor = System.Drawing.Color.Maroon;
             this.StartGame.Location = new System.Drawing.Point(703, 655);
             this.StartGame.Margin = new System.Windows.Forms.Padding(4);
             this.StartGame.Name = "StartGame";
