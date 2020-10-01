@@ -1478,6 +1478,7 @@ namespace Monopoly
             this.FinishTurn.Enabled = false;
             this.FinishTurn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.FinishTurn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FinishTurn.ForeColor = System.Drawing.Color.Maroon;
             this.FinishTurn.Location = new System.Drawing.Point(500, 471);
             this.FinishTurn.Margin = new System.Windows.Forms.Padding(4);
             this.FinishTurn.Name = "FinishTurn";
@@ -3536,10 +3537,10 @@ namespace Monopoly
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1557, 773);
+            this.Controls.Add(this.Game);
             this.Controls.Add(this.Registeration);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.Information);
-            this.Controls.Add(this.Game);
             this.Controls.Add(this.MultiPlayer);
             this.Controls.Add(this.MultiRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
