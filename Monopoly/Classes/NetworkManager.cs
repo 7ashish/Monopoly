@@ -108,4 +108,15 @@ static class NetworkManager
             ActiveSocket.Close();
         }
     }
+    static public bool IsConnected()
+    {
+        if (ActiveSocket.Connected)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -120,8 +120,19 @@ namespace Monopoly
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
+                    if (IsMultiPlayer && IsMyTurn)
+                    {
+                        MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                    else if (IsMultiPlayer && !IsMyTurn)
+                    {
+                        MessageBox.Show("Your Oponent have a Negative Balance, He has to Modify his properties and turn it Positive again to be able to Finish his Turn or otherwise he has to surrender");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                     Player1_Timer.Stop();
-                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 if (Payrent.Visible)
                 {
@@ -214,8 +225,19 @@ namespace Monopoly
                 Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
-                    Player2_Timre.Stop();
-                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    if (IsMultiPlayer && IsMyTurn)
+                    {
+                        MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                    else if(IsMultiPlayer && !IsMyTurn)
+                    {
+                        MessageBox.Show("Your Oponent have a Negative Balance, He has to Modify his properties and turn it Positive again to be able to Finish his Turn or otherwise he has to surrender");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                    Player2_Timer.Stop();
                 }
                 if (Payrent.Visible)
                 {
@@ -257,7 +279,7 @@ namespace Monopoly
                     UpdateBTN.Enabled = true;
                     FinishTurn.Enabled = true;
                 }
-                Player2_Timre.Stop();
+                Player2_Timer.Stop();
             }
             if (Player2.Location.X < 80 && Player2.Location.Y > 80)
             {
@@ -541,7 +563,7 @@ namespace Monopoly
                     Bankrupt = true;
                     UpdateBTN.Enabled = true;
                 }
-                else if (Player1_Timer.Enabled == false && Player2_Timre.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false && Bankrupt)
+                else if (Player1_Timer.Enabled == false && Player2_Timer.Enabled == false && Player3_Timer.Enabled == false && Player4_Timer.Enabled == false && Bankrupt)
                 {
                     Bankrupt = false;
                     FinishTurn.Enabled = true;
@@ -571,7 +593,7 @@ namespace Monopoly
                 case 1:
                     return Player1_Timer;
                 case 2:
-                    return Player2_Timre;
+                    return Player2_Timer;
                 case 3:
                     return Player3_Timer;
                 default: return Player4_Timer;
@@ -1141,7 +1163,18 @@ namespace Monopoly
             }
             if (!Main.Check_PlayerBalance(playerturn))
             {
-                MessageBox.Show("You Have Negative Balance!! you have to Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                if (IsMultiPlayer && IsMyTurn)
+                {
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                else if (IsMultiPlayer && !IsMyTurn)
+                {
+                    MessageBox.Show("Your Oponent have a Negative Balance, He has to Modify his properties and turn it Positive again to be able to Finish his Turn or otherwise he has to surrender");
+                }
+                else
+                {
+                    MessageBox.Show("You Have Negative Balance!!, You can't Finish your turn with a Negative balance so you must Mortagage or Sell your Properties or Surrender!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
             }
         }
 
@@ -1278,7 +1311,7 @@ namespace Monopoly
                     break;
                 case 2:
                     Player2.Hide();
-                    Player2_Timre.Stop();
+                    Player2_Timer.Stop();
                     break;
                 case 3:
                     Player3.Hide();
@@ -2544,6 +2577,11 @@ namespace Monopoly
 
         private async void MultiplayerTimer_Tick(object sender, EventArgs e)
         {
+            if (!NetworkManager.IsConnected())
+            {
+                MessageBox.Show("Your Oponent has Closed the game and the Connection is Lost");
+                Close();
+            }
             if (!IsMyTurn && IsMultiPlayer)
             {
                 PayRentsCautionForMultiPlayer.Show();

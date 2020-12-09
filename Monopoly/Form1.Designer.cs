@@ -52,7 +52,7 @@ namespace Monopoly
             this.MultiPlayerBTN = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Player1_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Player2_Timre = new System.Windows.Forms.Timer(this.components);
+            this.Player2_Timer = new System.Windows.Forms.Timer(this.components);
             this.Game = new System.Windows.Forms.Panel();
             this.UpdatePanel = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -631,10 +631,10 @@ namespace Monopoly
             this.Player1_Timer.Interval = 10;
             this.Player1_Timer.Tick += new System.EventHandler(this.Player1_Timer_Tick);
             // 
-            // Player2_Timre
+            // Player2_Timer
             // 
-            this.Player2_Timre.Interval = 10;
-            this.Player2_Timre.Tick += new System.EventHandler(this.Player2_Timer_Tick);
+            this.Player2_Timer.Interval = 10;
+            this.Player2_Timer.Tick += new System.EventHandler(this.Player2_Timer_Tick);
             // 
             // Game
             // 
@@ -3699,7 +3699,7 @@ namespace Monopoly
         private System.Windows.Forms.Button Next_BTN2;
         private System.Windows.Forms.Button Add_BTN;
         private System.Windows.Forms.Timer Player1_Timer;
-        private System.Windows.Forms.Timer Player2_Timre;
+        private System.Windows.Forms.Timer Player2_Timer;
         private System.Windows.Forms.Panel Game;
         private System.Windows.Forms.Panel OldKent;
         private System.Windows.Forms.TextBox textBox9;
