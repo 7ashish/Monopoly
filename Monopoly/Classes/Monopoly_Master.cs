@@ -10,7 +10,7 @@ public class Monopoly_Master
 {
     List<Player> Players;
     public List<Field> Fields;
-    List<List<City>> Groups;
+    public List<List<City>> Groups { get; set; }
     static int Hotels = 10;
     static int Houses = 40;
     int Dice1;
@@ -27,29 +27,29 @@ public class Monopoly_Master
         Fields = new List<Field>()
         {
             new UselessFields(p,0,new Point{X=850,Y=530}),
-            new City(p,1,new Point{X=718,Y=530 },"Park Lane",350,175,0,200,200,new int[]{175,500,1100,1300},1500,35),
+            new City(p,1,new Point{X=718,Y=530 },"Park Lane",350,175,0,200,200,new int[]{175,500,1100,1300},1500,35,p.Get_CityLabelPanel(1)),
             new Chances(p,2,new Point{X=618,Y=530}),
-            new City(p,3,new Point{X=515,Y=530 },"Mayfair",400,200,0,200,200,new int[]{200,600,1400,1700},2000,50),
-            new Station(p,4,new Point{X=410,Y=530},"Reading Rail Road",200,100,new int[] {25,50,75,100}),
-            new City(p,5,new Point{X=305,Y=530},"Fleet Street",220,110,1,150,150,new int[]{90,250,700,875},1050,18),
-            new City(p,6,new Point{X=200,Y=530},"Strand",220,110,1,150,150,new int[]{90,250,700,875},1050,18),
+            new City(p,3,new Point{X=515,Y=530 },"Mayfair",400,200,0,200,200,new int[]{200,600,1400,1700},2000,50,p.Get_CityLabelPanel(3)),
+            new Station(p,4,new Point{X=410,Y=530},"Reading Rail Road",200,100,new int[] {25,50,75,100},p.Get_CityLabelPanel(4)),
+            new City(p,5,new Point{X=305,Y=530},"Fleet Street",220,110,1,150,150,new int[]{90,250,700,875},1050,18,p.Get_CityLabelPanel(5)),
+            new City(p,6,new Point{X=200,Y=530},"Strand",220,110,1,150,150,new int[]{90,250,700,875},1050,18,p.Get_CityLabelPanel(6)),
             new UselessFields(p,7,new Point{X=80,Y=530}),
-            new City(p,8,new Point{X=80,Y=430 },"White Hall", 140, 70, 2, 100, 100, new int[] { 50, 150, 450, 625 }, 750, 10 ),
-            new City(p,9,new Point{X=80,Y=340 },"Pall Mall", 140, 70, 2, 100, 100, new int[]{ 50, 150, 450, 650 }, 750, 10),
-            new City(p,10,new Point{X=79,Y=260 },"Whitechapel", 60, 50, 3, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6),
-            new City(p,11,new Point{X=80,Y=175 },"Old Kent", 60, 50, 3, 30, 30, new int[]{ 10,30,90,160}, 250,2),
+            new City(p,8,new Point{X=80,Y=430 },"White Hall", 140, 70, 2, 100, 100, new int[] { 50, 150, 450, 625 }, 750, 10,p.Get_CityLabelPanel(8) ),
+            new City(p,9,new Point{X=80,Y=340 },"Pall Mall", 140, 70, 2, 100, 100, new int[]{ 50, 150, 450, 650 }, 750, 10,p.Get_CityLabelPanel(9)),
+            new City(p,10,new Point{X=79,Y=260 },"Whitechapel", 60, 50, 3, 30, 30, new int[] { 20, 60, 180, 360 }, 550, 6,p.Get_CityLabelPanel(10)),
+            new City(p,11,new Point{X=80,Y=175 },"Old Kent", 60, 50, 3, 30, 30, new int[]{ 10,30,90,160}, 250,2,p.Get_CityLabelPanel(11)),
             new UselessFields(p,12,new Point{X=80,Y=80 }),
-            new City(p,13,new Point(210,80),"Leicester Square",260,150,4,150,150,new int[]{110,330,800,975},1150,22),
+            new City(p,13,new Point(210,80),"Leicester Square",260,150,4,150,150,new int[]{110,330,800,975},1150,22,p.Get_CityLabelPanel(13)),
             new Community_Chest(p,14,new Point(310,80)),
-            new City(p,15,new Point(410,80),"Coventry Street",220,150,4,150,150,new int[]{110,330,800,975},1150,22),
-            new Station(p,16,new Point(510,80),"B&O Rail Road",200,100,new int[]{25,50,75,100}),
-            new City(p,17,new Point(620,80),"Oxford Street",300,200,5,150,150,new int[]{130,390,900,1100},1275,26),
-            new City(p,18,new Point(722,80),"Regent Street",220,200,5,150,150,new int[]{130,390,900,1100},1275,36),
+            new City(p,15,new Point(410,80),"Coventry Street",220,150,4,150,150,new int[]{110,330,800,975},1150,22,p.Get_CityLabelPanel(15)),
+            new Station(p,16,new Point(510,80),"B&O Rail Road",200,100,new int[]{25,50,75,100},p.Get_CityLabelPanel(16)),
+            new City(p,17,new Point(620,80),"Oxford Street",300,200,5,150,150,new int[]{130,390,900,1100},1275,26,p.Get_CityLabelPanel(17)),
+            new City(p,18,new Point(722,80),"Regent Street",220,200,5,150,150,new int[]{130,390,900,1100},1275,36,p.Get_CityLabelPanel(18)),
             new GoToJail(p,19,new Point(850,80)),
-            new City(p,20,new Point(850,175),"Vine Street",200,100,6,100,100,new int[]{80,220,600,800 },1000,16),
-            new City(p,21,new Point(850,260),"Bow Street", 180, 90, 6, 100, 100,new int[] { 70, 200, 550, 750 }, 950, 14),
-            new City(p,22,new Point(850,345),"Euston Road", 100, 50, 7, 50, 50, new int[] { 30, 90, 270, 400 }, 550, 6),
-            new City(p,23,new Point(850,430),"Pentonville Road", 120, 60, 7, 50, 50, new int[] { 40, 100, 300, 450 }, 600, 8)
+            new City(p,20,new Point(850,175),"Vine Street",200,100,6,100,100,new int[]{80,220,600,800 },1000,16,p.Get_CityLabelPanel(20)),
+            new City(p,21,new Point(850,260),"Bow Street", 180, 90, 6, 100, 100,new int[] { 70, 200, 550, 750 }, 950, 14,p.Get_CityLabelPanel(21)),
+            new City(p,22,new Point(850,345),"Euston Road", 100, 50, 7, 50, 50, new int[] { 30, 90, 270, 400 }, 550, 6,p.Get_CityLabelPanel(22)),
+            new City(p,23,new Point(850,430),"Pentonville Road", 120, 60, 7, 50, 50, new int[] { 40, 100, 300, 450 }, 600, 8,p.Get_CityLabelPanel(23))
         };
         List<City> Tempo = new List<City>();
         Tempo.Add((City)Fields[1]);

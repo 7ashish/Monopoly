@@ -21,8 +21,8 @@ namespace Monopoly
         bool Bankrupt = false;
         public Monopoly()
         {
-            Main = new Monopoly_Master(this);
             InitializeComponent();
+            Main = new Monopoly_Master(this);
         }
 
         private void NumberOfPlayers_SelectedIndexChanged(object sender, EventArgs e)
@@ -585,7 +585,6 @@ namespace Monopoly
                 }
             }*/
         }
-
         public Timer GetTimer(int token)
         {
             switch (token)
@@ -702,8 +701,9 @@ namespace Monopoly
         }
         private void BuyCity_Click(object sender, EventArgs e)
         {
-            if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+             if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
             {
+                var CurrentCity = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
                 if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -715,281 +715,8 @@ namespace Monopoly
                         MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     BuyingCity.Hide();
-                    switch (playerturn.Get_Fieldnumber() % 24)
-                    {
-                        case 1:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    ParkLaneLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    ParkLaneLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    ParkLaneLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    ParkLaneLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 3:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    MayfairLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    MayfairLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    MayfairLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    MayfairLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 5:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    FleetLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    FleetLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    FleetLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    FleetLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 6:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    StrandLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    StrandLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    StrandLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    StrandLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 8:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    WhiteHallLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    WhiteHallLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    WhiteHallLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    WhiteHallLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 9:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    PallMallLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    PallMallLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    PallMallLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    PallMallLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 10:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    WhitechapelLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    WhitechapelLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    WhitechapelLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    WhitechapelLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 11:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    OldKentLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    OldKentLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    OldKentLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    OldKentLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 13:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    LeicesterLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    LeicesterLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    LeicesterLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    LeicesterLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 15:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    CoventryLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    CoventryLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    CoventryLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    CoventryLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 17:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    OxfordLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    OxfordLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    OxfordLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    OxfordLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 18:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    RegentLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    RegentLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    RegentLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    RegentLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 20:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    VineLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    VineLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    VineLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    VineLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 21:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    BowLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    BowLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    BowLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    BowLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 22:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    EustonLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    EustonLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    EustonLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    EustonLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 23:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    PentonvilleLabel.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    PentonvilleLabel.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    PentonvilleLabel.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    PentonvilleLabel.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                    }
+                    var color = Get_PlayerPanel(playerturn.Get_Token()).BackColor;
+                    CurrentCity.PurshableLabel.BackColor = color;
                 }
                 else
                 {
@@ -1008,48 +735,13 @@ namespace Monopoly
             {
                 if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
                 {
+                    var CurrentStation = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     BuyingCity.Hide();
-                    switch (playerturn.Get_Fieldnumber() % 24)
-                    {
-                        case 4:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    Station1Label.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    Station1Label.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    Station1Label.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    Station1Label.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                        case 16:
-                            switch (playerturn.Get_Token())
-                            {
-                                case 1:
-                                    Station2Label.BackColor = GetPlayer1Panel().BackColor;
-                                    break;
-                                case 2:
-                                    Station2Label.BackColor = GetPlayer2Panel().BackColor;
-                                    break;
-                                case 3:
-                                    Station2Label.BackColor = GetPlayer3Panel().BackColor;
-                                    break;
-                                case 4:
-                                    Station2Label.BackColor = GetPlayer4Panel().BackColor;
-                                    break;
-                            }
-                            break;
-                    }
+                    CurrentStation.PurshableLabel.BackColor = Get_PlayerPanel(playerturn.Get_Token()).BackColor;
                     if (IsMyTurn && IsMultiPlayer)
                     {
                         NetworkManager.Cout("BuyProperty");
@@ -1092,7 +784,83 @@ namespace Monopoly
         {
             return City;
         }
-
+        public Panel Get_CityLabelPanel(int CityorStationID)
+        {
+            switch (CityorStationID)
+            {
+                case 1:
+                    ParkLaneLabel.Visible = true;
+                    return ParkLaneLabel;
+                case 3:
+                    return MayfairLabel;
+                case 5:
+                    return FleetLabel;
+                case 6:
+                    return StrandLabel;
+                case 8:
+                    return WhiteHallLabel;
+                case 9:
+                    return PallMallLabel;
+                case 10:
+                    return WhitechapelLabel;
+                case 11:
+                    return OldKentLabel;
+                case 13:
+                    return LeicesterLabel;
+                case 15:
+                    return CoventryLabel;
+                case 17:
+                    return OxfordLabel;
+                case 18:
+                    return RegentLabel;
+                case 20:
+                    return VineLabel;
+                case 21:
+                    return BowLabel;
+                case 22:
+                    return EustonLabel;
+                case 23:
+                    return PentonvilleLabel;
+                case 4:
+                    return Station1Label;
+                case 16:
+                    return Station2Label;
+            }
+            return null;
+        }
+        public Panel Get_PlayerPanel(int PlayerToken)
+        {
+            switch (PlayerToken)
+            {
+                case 1:
+                    return Player1;
+                case 2:
+                    return Player2;
+                case 3:
+                    return Player3;
+                case 4:
+                    return Player4;
+            }
+            return null;
+        }
+        public void SetPlayerPanelLocation(Point v, int PlayerToken)
+        {
+            switch (PlayerToken)
+            {
+                case 1:
+                    Player1.Location = v;
+                    break;
+                case 2:
+                    Player2.Location = v;
+                    break;
+                case 3:
+                    Player3.Location = v;
+                    break;
+                case 4:
+                    Player4.Location = v;
+                    break;
+            }
+        }
         private void Cancel_Click(object sender, EventArgs e)
         {
             if (IsMyTurn && IsMultiPlayer)
@@ -1106,33 +874,17 @@ namespace Monopoly
         {
             return Player1;
         }
-        public void SetPlayer1PanelLocation(Point v)
-        {
-            Player1.Location = v;
-        }
         public Panel GetPlayer2Panel()
         {
             return Player2;
-        }
-        public void SetPlayer2PanelLocation(Point v)
-        {
-            Player2.Location = v;
         }
         public Panel GetPlayer3Panel()
         {
             return Player3;
         }
-        public void SetPlayer3PanelLocation(Point v)
-        {
-            Player3.Location = v;
-        }
         public Panel GetPlayer4Panel()
         {
             return Player4;
-        }
-        public void SetPlayer4PanelLocation(Point v)
-        {
-            Player4.Location = v;
         }
         private void OkBTN_Click(object sender, EventArgs e)
         {

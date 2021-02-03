@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 public class City : Purchasable
 {
@@ -30,7 +31,7 @@ public class City : Purchasable
         NumberofHouses = 0;
     }
     //Parameterized constructor.
-    public City(Monopoly.Monopoly p, int fieldnumber, Point fieldpostion, string name, int price, int mortageprice, int groupnumber, int hotelprice, int houseprice, int[] rentwithhouse, int rentwithhotel, int cityrentprice) : base(p, fieldnumber, fieldpostion, name, price, mortageprice)
+    public City(Monopoly.Monopoly p, int fieldnumber, Point fieldpostion, string name, int price, int mortageprice, int groupnumber, int hotelprice, int houseprice, int[] rentwithhouse, int rentwithhotel, int cityrentprice , Panel PurshableLabel) : base(p, fieldnumber, fieldpostion, name, price, mortageprice, PurshableLabel)
     {
         HouseModification = false;
         HotelModification = false;
@@ -67,73 +68,76 @@ public class City : Purchasable
         {
             string FolderPath = Directory.GetCurrentDirectory();
             FolderPath += @"\Pictures";
-            switch (Get_FieldNumber())
-            {
-                case 1:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Park Lane.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 3:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Mayfair.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 5:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Fleet street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 6:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Strand.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 8:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\White Hall.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 9:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Pall Mall.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 10:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\whitechapel.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 11:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\old kent road.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 13:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Leicester square.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 15:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Coventry street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 17:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Oxford street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 18:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Regent street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 20:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Vine street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 21:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Bow street.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 22:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Euston road.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-                case 23:
-                    GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Pentonville road.PNG");
-                    GetForm().Get_BuyingCityPanel().Show();
-                    break;
-            }
+            var CityName = this.Get_Name();
+            GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\" + CityName + ".PNG");
+            GetForm().Get_BuyingCityPanel().Show();
+            //switch (Get_FieldNumber())
+            //{
+            //    case 1:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Park Lane.PNG");
+            //GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 3:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Mayfair.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 5:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Fleet street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 6:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Strand.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 8:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\White Hall.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 9:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Pall Mall.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 10:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\whitechapel.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 11:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\old kent road.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 13:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Leicester square.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 15:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Coventry street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 17:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Oxford street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 18:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Regent street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 20:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Vine street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 21:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Bow street.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 22:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Euston road.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //    case 23:
+            //        GetForm().Get_CityPanel().BackgroundImage = Image.FromFile(FolderPath + @"\Pentonville road.PNG");
+            //        GetForm().Get_BuyingCityPanel().Show();
+            //        break;
+            //}
             GetForm().Set_CityPriceTextBox(Get_Price());
         }
     }

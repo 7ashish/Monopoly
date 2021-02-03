@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 public class Station : Purchasable
 {
@@ -15,7 +16,7 @@ public class Station : Purchasable
         RentPrices = new int[2];
     }
     //Parameterized constructor.
-    public Station(Monopoly.Monopoly p,int fieldnumber, Point fieldpostion,string name, int price, int mortageprice, int[] rentprices) : base(p,fieldnumber,fieldpostion,name, price, mortageprice)
+    public Station(Monopoly.Monopoly p,int fieldnumber, Point fieldpostion,string name, int price, int mortageprice, int[] rentprices, Panel PurshableLabel) : base(p,fieldnumber,fieldpostion,name, price, mortageprice, PurshableLabel)
     {
         RentPrices = new int[2];
         for (int i = 0; i < 2; i++)

@@ -23,21 +23,7 @@ class GoToJail : Non_Purchasable
         player.Set_Fieldnumber(7);
         player.Pay_Tax(50);
         GetForm().Main.Check_PlayerBalance(player);
-        switch (player.Get_Token())
-        {
-            case 1:
-                GetForm().SetPlayer1PanelLocation(jail);
-                break;
-            case 2:
-                GetForm().SetPlayer2PanelLocation(jail);
-                break;
-            case 3:
-                GetForm().SetPlayer3PanelLocation(jail);
-                break;
-            case 4:
-                GetForm().SetPlayer4PanelLocation(jail);
-                break;
-        }
+        GetForm().SetPlayerPanelLocation(jail, player.Get_Token());
         GetForm().Main.Move_Player(player);
     }
 }
