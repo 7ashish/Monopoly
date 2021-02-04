@@ -19,11 +19,11 @@ class GoToJail : Non_Purchasable
     override public void Action(Player player)
     {
         Point jail = new Point(80, 530);
-        player.Set_PlayerPosition(jail);
-        player.Set_Fieldnumber(7);
+        player.Position = jail;
+        player.Fieldnumber = 7;
         player.Pay_Tax(50);
         GetForm().Main.Check_PlayerBalance(player);
-        GetForm().SetPlayerPanelLocation(jail, player.Get_Token());
+        GetForm().SetPlayerPanelLocation(jail, player.Token);
         GetForm().Main.Move_Player(player);
     }
 }

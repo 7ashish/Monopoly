@@ -7,8 +7,8 @@ using System.Drawing;
 
 public abstract class Field
 {
-    int FieldNumber;
-    Point FieldPosition;
+    public int FieldNumber { get; set; }
+    public Point FieldPosition { get; set; }
     Monopoly.Monopoly ParentForm;
 
     public Monopoly.Monopoly GetForm()

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Reflection;
+using System.Collections;
 
 public class Monopoly_Master
 {
     List<Player> Players;
     public List<Field> Fields;
-    public List<List<City>> Groups { get; set; }
+    public Hashtable Groups { get; set; }
     static int Hotels = 10;
     static int Houses = 40;
     int Dice1;
@@ -22,7 +23,7 @@ public class Monopoly_Master
     {
         Form = p;
         Players = new List<Player>();
-        Groups = new List<List<City>>();
+        Groups = new Hashtable();
         DefaultPosition = new Point(850, 530);
         Fields = new List<Field>()
         {
@@ -54,35 +55,35 @@ public class Monopoly_Master
         List<City> Tempo = new List<City>();
         Tempo.Add((City)Fields[1]);
         Tempo.Add((City)Fields[3]);
-        Groups.Add(Tempo);
+        Groups.Add(0,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[5]);
         Tempo.Add((City)Fields[6]);
-        Groups.Add(Tempo);
+        Groups.Add(1,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[8]);
         Tempo.Add((City)Fields[9]);
-        Groups.Add(Tempo);
+        Groups.Add(2,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[10]);
         Tempo.Add((City)Fields[11]);
-        Groups.Add(Tempo);
+        Groups.Add(3,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[13]);
         Tempo.Add((City)Fields[15]);
-        Groups.Add(Tempo);
+        Groups.Add(4,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[17]);
         Tempo.Add((City)Fields[18]);
-        Groups.Add(Tempo);
+        Groups.Add(5,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[20]);
         Tempo.Add((City)Fields[21]);
-        Groups.Add(Tempo);
+        Groups.Add(6,Tempo);
         Tempo = new List<City>();
         Tempo.Add((City)Fields[22]);
         Tempo.Add((City)Fields[23]);
-        Groups.Add(Tempo);
+        Groups.Add(7,Tempo);
     }
     //returns Point(X,Y) with the defualt position.
     public Point GetDefaultPosition()
@@ -106,7 +107,7 @@ public class Monopoly_Master
         Players = players;
     }
     //returns the Groups list.
-    public List<List<City>> GetGroups()
+    public Hashtable GetGroups()
     {
         return Groups;
     }
@@ -143,11 +144,11 @@ public class Monopoly_Master
     //This Function takes a player and City he wish to Mortagage and Checks if he can Mortagage it or not.
     public bool Mortagage_City(Player playerturn, City city)
     {
-        if (city.Get_Owner() == playerturn)
+        if (city.Owner == playerturn)
         {
-            if (!city.Get_ISMortagaged())
+            if (!city.ISMortagaged)
             {
-                if (city.Get_HouseModification())
+                if (city.HouseModification)
                 {
                     return false;
                 }
@@ -170,9 +171,9 @@ public class Monopoly_Master
     //This Function takes a player and Station he wish to Mortagage and Checks if he can Mortagage it or not.
     public bool Mortagage_Station(Player playerturn, Station station)
     {
-        if (station.Get_Owner() == playerturn)
+        if (station.Owner == playerturn)
         {
-            if (!station.Get_ISMortagaged())
+            if (!station.ISMortagaged)
             {
                 playerturn.MortagageStation(station);
                 return true;
@@ -190,9 +191,9 @@ public class Monopoly_Master
     //This Function takes a player and City he wish to Remove the Mortagage and Checks if he can Remove Mortagage or not.
     public bool RemoveCityMortagage(Player playerturn, City city)
     {
-        if (city.Get_Owner() == playerturn)
+        if (city.Owner == playerturn)
         {
-            if (city.Get_ISMortagaged())
+            if (city.ISMortagaged)
             {
                 if (playerturn.Remove_City_Mortagage(city))
                 {
@@ -210,9 +211,9 @@ public class Monopoly_Master
     //This Function takes a player and Station he wish to Remove the Mortagage and Checks if he can Remove Mortagage or not.
     public bool RemoveStationMortagage(Player playerturn, Station station)
     {
-        if (station.Get_Owner() == playerturn)
+        if (station.Owner == playerturn)
         {
-            if (station.Get_ISMortagaged())
+            if (station.ISMortagaged)
             {
                 if (playerturn.Remove_Station_Mortagage(station))
                 {
@@ -230,7 +231,7 @@ public class Monopoly_Master
     //This Function takes a Player and City he wish to Upgrade & Checks if he can Buy a house or not.
     public bool Sell_House(Player playerturn, City city)
     {
-        if (!city.Get_ISMortagaged())
+        if (!city.ISMortagaged)
         {
             if (playerturn.IsGroupOwned(city,this))
             {
@@ -264,15 +265,15 @@ public class Monopoly_Master
     //This Function takes a Player and City he wish to Upgrade & Checks if he can Sell a house or not.
     public bool Remove_House(Player playerturn, City city)
     {
-        if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
+        if (!playerturn.OwnedCities.Contains(city))  //I'm making sure that this player own this city
         {
             return false;
         }
-        else if (!city.Get_HouseModification())           //I'm making sure that this city has houses on it and not mortagaged
+        else if (!city.HouseModification)           //I'm making sure that this city has houses on it and not mortagaged
         {
             return false;
         }
-        else if (city.Get_HotelModification())            //Making sure that the City have no hotels.
+        else if (city.HotelModification)            //Making sure that the City have no hotels.
         {
             return false;
         }
@@ -286,17 +287,17 @@ public class Monopoly_Master
     //This Function takes a Player and City he wish to Upgrade & Checks if he can Buy a hotel or not.
     public bool Sell_Hotel(Player playerturn, City city)
     {
-        if (city.Get_Owner() == playerturn)
+        if (city.Owner == playerturn)
         {
-            if (!city.Get_HouseModification())
+            if (!city.HouseModification)
             {
                 return false;
             }
-            else if (city.Get_NumberOfHouses() != 4)
+            else if (city.NumberofHouses != 4)
             {
                 return false;
             }
-            else if (city.Get_HotelModification())
+            else if (city.HotelModification)
             {
                 return false;
             }
@@ -322,15 +323,15 @@ public class Monopoly_Master
     //This Function takes a Player and City he wish to Upgrade & Checks if he can sell a hotel or not.
     public bool Remove_Hotel(Player playerturn, City city)
     {
-        if (!playerturn.Get_OwnedCities().Contains(city))  //I'm making sure that this player own this city
+        if (!playerturn.OwnedCities.Contains(city))  //I'm making sure that this player own this city
         {
             return false;
         }
-        else if (!city.Get_HouseModification())           //I'm making sure that this city has houses on it and not mortagaged
+        else if (!city.HouseModification)           //I'm making sure that this city has houses on it and not mortagaged
         {
             return false;
         }
-        else if (!city.Get_HotelModification())            //Making sure that the City has a hotel + 4 houses on it.
+        else if (!city.HotelModification)            //Making sure that the City has a hotel + 4 houses on it.
         {
             return false;
         }
@@ -345,7 +346,7 @@ public class Monopoly_Master
     // If the Balance is Negative it returns false, else it returns true.
     public bool Check_PlayerBalance(Player playerturn)
     {
-        if (playerturn.Get_Balance() < 0)
+        if (playerturn.Balance < 0)
         {
             return false;
         }
@@ -357,6 +358,6 @@ public class Monopoly_Master
     /// <param name="player">The player that needs to be moved</param>
     public void Move_Player(Player player)
     {
-        Form.GetTimer(player.Get_Token()).Start();
+        Form.GetTimer(player.Token).Start();
     }
 }

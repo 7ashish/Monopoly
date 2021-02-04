@@ -3,14 +3,15 @@ using System.Drawing;
 
 public class Player
 {
-    string Name;
-    int Token;
-    int Balance;
-    int BalanceFeedback;
-    List<City> OwnedCities;
-    List<Station> OwnedStations;
-    Point Position;
-    int Fieldnumber;
+    public string Name { get; set; }
+    public int Balance { get; set; }
+    public int Token { get; set; }
+    public int BalanceFeedback { get; set; }
+    public int MyProperty { get; set; }
+    public int Fieldnumber { get; set; }
+    public List<City> OwnedCities { get; set; }
+    public List<Station> OwnedStations { get; set; }
+    public Point Position { get; set; }
     //Defualt Constructor.
     public Player()
     {
@@ -45,84 +46,16 @@ public class Player
         Balance -= tax;
         BalanceFeedback -= tax;
     }
-    //Sets the Fieldnumber of the player.
-    public void Set_Fieldnumber(int number)
-    {
-        Fieldnumber = number;
-    }
-    //Gets the Field number of the player.
-    public int Get_Fieldnumber()
-    {
-        return Fieldnumber;
-    }
-    //Sets the name of the player.
-    public void Set_Name(string name)
-    {
-        Name = name;
-    }
-    //Gets the name of the player.
-    public string Get_Name()
-    {
-        return Name;
-    }
-    //Sets the token of the player.
-    public void Set_Token(int token)
-    {
-        Token = token;
-    }
-    //Gets the token of the player.
-    public int Get_Token()
-    {
-        return Token;
-    }
-    //Sets the balance of the player.
-    public void Set_Balance(int balance)
-    {
-        Balance = balance;
-    }
-    //Gets the balance of the player.
-    public int Get_Balance()
-    {
-        return Balance;
-    }
-    public void Set_Balance_Feedback(int balance)
-    {
-        BalanceFeedback = balance;
-    }
-    public int Get_Balance_Feedback()
-    {
-        return BalanceFeedback;
-    }
-    //Gets the list of the owned cities.
-    public List<City> Get_OwnedCities()
-    {
-        return OwnedCities;
-    }
-    //Gets the list of the owned stations.
-    public List<Station> Get_OwnedStations()
-    {
-        return OwnedStations;
-    }
-    //Sets the player position.
-    public void Set_PlayerPosition(Point position)
-    {
-        Position = position;
-    }
-    //Gets player position.
-    public Point Get_PlayerPosition()
-    {
-        return Position;
-    }
     //This function buys a specific city.
     public bool Buy_City(City city)
     {
-        if (Balance >= city.Get_Price())
+        if (Balance >= city.Price)
         {
             BalanceFeedback = 0;
             OwnedCities.Add(city);
-            Balance -= city.Get_Price();
-            BalanceFeedback -= city.Get_Price();
-            city.Set_Owned();
+            Balance -= city.Price;
+            BalanceFeedback -= city.Price;
+            city.Owned = true;
             city.Set_Owner(this);
             return true;
         }
@@ -134,13 +67,13 @@ public class Player
     //This function buys a sepcific station.
     public bool Buy_Station(Station station)
     {
-        if (Balance >= station.Get_Price())
+        if (Balance >= station.Price)
         {
             BalanceFeedback = 0;
             OwnedStations.Add(station);
-            Balance -= station.Get_Price();
-            BalanceFeedback -= station.Get_Price();
-            station.Set_Owned();
+            Balance -= station.Price;
+            BalanceFeedback -= station.Price;
+            station.Owned = true;
             station.Set_Owner(this);
             return true;
         }
@@ -179,27 +112,27 @@ public class Player
     public void MortagageCity(City city)
     {
         BalanceFeedback = 0;
-        Balance += city.Get_MortagagePrice();
-        BalanceFeedback += city.Get_MortagagePrice();
-        city.Set_ISMortagaged();
+        Balance += city.MortagagePrice;
+        BalanceFeedback += city.MortagagePrice;
+        city.ISMortagaged = true;
     }
     //This function Mortagage a specific Station.
     public void MortagageStation(Station station)
     {
         BalanceFeedback = 0;
-        Balance += station.Get_MortagagePrice();
-        BalanceFeedback += station.Get_MortagagePrice();
-        station.Set_ISMortagaged();
+        Balance += station.MortagagePrice;
+        BalanceFeedback += station.MortagagePrice;
+        station.ISMortagaged = true;
     }
     //This function takes a city to remove it's mortagage.
     public bool Remove_City_Mortagage(City city)
     {
-        if (Balance >= city.Get_MortagagePrice())
+        if (Balance >= city.MortagagePrice)
         {
             BalanceFeedback = 0;
-            Balance -= city.Get_MortagagePrice();
-            BalanceFeedback -= city.Get_MortagagePrice();
-            city.Remove_Mortagage();
+            Balance -= city.MortagagePrice;
+            BalanceFeedback -= city.MortagagePrice;
+            city.ISMortagaged=false;
             return true;
         }
         return false;
@@ -207,12 +140,12 @@ public class Player
     //This function takes a station to remove it's mortagage.
     public bool Remove_Station_Mortagage(Station station)
     {
-        if (Balance >= station.Get_MortagagePrice())
+        if (Balance >= station.MortagagePrice)
         {
             BalanceFeedback = 0;
-            Balance -= station.Get_MortagagePrice();
-            BalanceFeedback -= station.Get_MortagagePrice();
-            station.Remove_Mortagage();
+            Balance -= station.MortagagePrice;
+            BalanceFeedback -= station.MortagagePrice;
+            station.ISMortagaged=false;
             return true;
         }
         return false;
@@ -221,66 +154,66 @@ public class Player
     //This function pays rents for a specific city.
     public void Pay_CityRents(City city)
     {
-        if (city.Get_HouseModification())
+        if (city.HouseModification)
         {
-            if (city.Get_HotelModification())
+            if (city.HotelModification)
             {
                 BalanceFeedback = 0;
-                Balance -= city.Get_RentWithHotel();
-                BalanceFeedback -= city.Get_RentWithHotel();
-                city.Get_Owner().Balance += city.Get_RentWithHotel();
+                Balance -= city.RentWithHotel;
+                BalanceFeedback -= city.RentWithHotel;
+                city.Owner.Balance += city.RentWithHotel;
             }
             else
             {
                 BalanceFeedback = 0;
-                int Houses = city.Get_NumberOfHouses();
-                Balance -= city.Get_HouseRentPrices()[Houses - 1];
-                BalanceFeedback -= city.Get_HouseRentPrices()[Houses - 1]; 
-                city.Get_Owner().Balance += city.Get_HouseRentPrices()[Houses - 1];
+                int Houses = city.NumberofHouses;
+                Balance -= city.HouseRentPrices[Houses - 1];
+                BalanceFeedback -= city.HouseRentPrices[Houses - 1]; 
+                city.Owner.Balance += city.HouseRentPrices[Houses - 1];
             }
         }
         else
         {
             BalanceFeedback = 0;
-            Balance -= city.Get_CityRentPrice();
-            BalanceFeedback -= city.Get_CityRentPrice();
-            city.Get_Owner().Balance += city.Get_CityRentPrice();
+            Balance -= city.CityRentPrice;
+            BalanceFeedback -= city.CityRentPrice;
+            city.Owner.Balance += city.CityRentPrice;
         }
     }
     //This function pays rents for a specific city.
     public void Pay_StationRents(Station station)
     {
         BalanceFeedback = 0;
-        Balance -= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
-        BalanceFeedback -= station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
-        station.Get_Owner().Balance += station.Get_RentPrices()[station.Get_Owner().Get_OwnedStations().Count - 1];
+        Balance -= station.Get_RentPrices()[station.Owner.OwnedStations.Count - 1];
+        BalanceFeedback -= station.Get_RentPrices()[station.Owner.OwnedStations.Count - 1];
+        station.Owner.Balance += station.Get_RentPrices()[station.Owner.OwnedStations.Count - 1];
     }
     //Check whether I could buy a house on this city or not.
     public bool Buy_House(City city)
     {
-        if (Balance >= city.Get_HousePrice())
+        if (Balance >= city.HousePrice)
         {
-            if (city.Get_NumberOfHouses() == 4)
+            if (city.NumberofHouses == 4)
             {
                 return false;
             }
             else
             {
-                if (city.Get_NumberOfHouses() == 0)
+                if (city.NumberofHouses == 0)
                 {
                     BalanceFeedback = 0;
                     city.AddHouse();
-                    city.Set_HouseModification();
-                    Balance -= city.Get_HousePrice();
-                    BalanceFeedback -= city.Get_HousePrice();
+                    city.HouseModification = true;
+                    Balance -= city.HousePrice;
+                    BalanceFeedback -= city.HousePrice;
                     return true;
                 }
                 else
                 {
                     BalanceFeedback = 0;
                     city.AddHouse();
-                    Balance -= city.Get_HousePrice();
-                    BalanceFeedback -= city.Get_HousePrice();
+                    Balance -= city.HousePrice;
+                    BalanceFeedback -= city.HousePrice;
                     return true;
                 }
             }
@@ -294,31 +227,31 @@ public class Player
     //Sells a house on a specific city.
     public void Sell_House(City city)
     {
-        if (city.Get_NumberOfHouses() == 1)
+        if (city.NumberofHouses == 1)
         {
             BalanceFeedback = 0;
             city.SellHouse();
-            city.Remove_HouseMofidication();
-            Balance += city.Get_HousePrice();
-            BalanceFeedback += city.Get_HousePrice();
+            city.HouseModification = false;
+            Balance += city.HousePrice;
+            BalanceFeedback += city.HousePrice;
         }
         else
         {
             BalanceFeedback = 0;
             city.SellHouse();
-            Balance += city.Get_HousePrice();
-            BalanceFeedback += city.Get_HousePrice();
+            Balance += city.HousePrice;
+            BalanceFeedback += city.HousePrice;
         }
     }
     //Checks whether I could buy a hotel on this city or not.
     public bool Buy_Hotel(City city)
     {
-        if (Balance >= city.Get_HotelPrice())
+        if (Balance >= city.HotelPrice)
         {
             BalanceFeedback = 0;
-            Balance -= city.Get_HotelPrice();
-            BalanceFeedback -= city.Get_HotelPrice();
-            city.Set_HotelModification();
+            Balance -= city.HotelPrice;
+            BalanceFeedback -= city.HotelPrice;
+            city.HotelModification = true;
             return true;
         }
         else
@@ -330,17 +263,18 @@ public class Player
     public void Sell_Hotel(City city)
     {
         BalanceFeedback = 0;
-        city.Remove_HotelMofidication();
-        Balance += city.Get_HotelPrice();
-        BalanceFeedback += city.Get_HotelPrice();
+        city.HotelModification = false;
+        Balance += city.HotelPrice;
+        BalanceFeedback += city.HotelPrice;
     }
     //This Function Checks if the player owns the whole Group of Cities or not.
     public bool IsGroupOwned(City city, Monopoly_Master Temp)
     {
         bool owned = false;
-        for (int i = 0; i < Temp.GetGroups()[city.Get_GroupNumber()].Count; i++)
+        var ThisGroup = (List<City>)Temp.GetGroups()[city.GroupNumber];
+        foreach(City GroupCity in ThisGroup)
         {
-            if (OwnedCities.Contains(Temp.GetGroups()[city.Get_GroupNumber()][i]))
+            if (OwnedCities.Contains(GroupCity))
             {
                 owned = true;
             }
@@ -350,30 +284,23 @@ public class Player
                 break;
             }
         }
-        if (owned)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return owned;
     }
     //This function returns all the Cities and Stations owned by this player to it's original status.
     public void Surrender()
     {
         if (OwnedCities.Count != 0)
         {
-            for (int i = 0; i < OwnedCities.Count; i++)
+            foreach(City city in OwnedCities)
             {
-                OwnedCities[i].ReturnCity();
+                city.ReturnCity();
             }
         }
         if (OwnedStations.Count != 0)
         {
-            for (int i = 0; i < OwnedStations.Count; i++)
+            foreach (Station station in OwnedStations)
             {
-                OwnedStations[i].Return_Station();
+                station.Return_Station();
             }
         }
     }

@@ -89,19 +89,19 @@ namespace Monopoly
         {
             Information.Show();
             Registeration.Hide();
-            Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
-            Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+            Player1Name.Text = Players[0].Name + " Token Colour: ";
+            Player2Name.Text = Players[1].Name + " Token Colour: ";
             switch (Token)
             {
                 case 3:
                     Player3Panel.Show();
-                    Player3Name.Text = Players[2].Get_Name() + " Token Colour: ";
+                    Player3Name.Text = Players[2].Name + " Token Colour: ";
                     break;
                 case 4:
                     Player3Panel.Show();
                     Player4Panel.Show();
-                    Player3Name.Text = Players[2].Get_Name() + " Token Colour: ";
-                    Player4Name.Text = Players[3].Get_Name() + " Token Colour: ";
+                    Player3Name.Text = Players[2].Name + " Token Colour: ";
+                    Player4Name.Text = Players[3].Name + " Token Colour: ";
                     break;
             }
             playerturn = Players[playerturnnumber];
@@ -112,12 +112,12 @@ namespace Monopoly
         {
             FinishTurn.Enabled = false;
             UpdateBTN.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
-                playerturn.Set_PlayerPosition(Player1.Location);
-                Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                playerturn.Fieldnumber = Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Position = Player1.Location;
+                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -137,31 +137,31 @@ namespace Monopoly
                 if (Payrent.Visible)
                 {
                     FinishTurn.Enabled = false;
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
 
-                        if (C.Get_HouseModification())
+                        if (C.HouseModification)
                         {
-                            if (C.Get_HotelModification())
+                            if (C.HotelModification)
                             {
-                                RentTextBox.Text = C.Get_RentWithHotel().ToString() + "$";
+                                RentTextBox.Text = C.RentWithHotel.ToString() + "$";
                             }
                             else
                             {
-                                int Houses = C.Get_NumberOfHouses();
+                                int Houses = C.NumberofHouses;
                                 RentTextBox.Text = C.Get_HouseRentPrices()[Houses - 1].ToString() + "$";
                             }
                         }
                         else
                         {
-                            RentTextBox.Text = C.Get_CityRentPrice().ToString() + "$";
+                            RentTextBox.Text = C.CityRentPrice.ToString() + "$";
                         }
                     }
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
-                        RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
+                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
                 if (IsMultiPlayer && !IsMyTurn)
@@ -217,12 +217,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
-                playerturn.Set_PlayerPosition(Player2.Location);
-                Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                playerturn.Fieldnumber = Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Position = Player2.Location;
+                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -241,32 +241,32 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
 
-                        if (C.Get_HouseModification())
+                        if (C.HouseModification)
                         {
-                            if (C.Get_HotelModification())
+                            if (C.HotelModification)
                             {
-                                RentTextBox.Text = C.Get_RentWithHotel().ToString() + "$";
+                                RentTextBox.Text = C.RentWithHotel.ToString() + "$";
                             }
                             else
                             {
-                                int Houses = C.Get_NumberOfHouses();
+                                int Houses = C.NumberofHouses;
                                 RentTextBox.Text = C.Get_HouseRentPrices()[Houses - 1].ToString() + "$";
                             }
                         }
                         else
                         {
-                            RentTextBox.Text = C.Get_CityRentPrice().ToString() + "$";
+                            RentTextBox.Text = C.CityRentPrice.ToString() + "$";
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
-                        RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
+                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
                 if (IsMultiPlayer && !IsMyTurn)
@@ -322,12 +322,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
-                playerturn.Set_PlayerPosition(Player3.Location);
-                Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                playerturn.Fieldnumber =Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Position =Player3.Location;
+                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player3_Timer.Stop();
@@ -335,32 +335,32 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
 
-                        if (C.Get_HouseModification())
+                        if (C.HotelModification)
                         {
-                            if (C.Get_HotelModification())
+                            if (C.HotelModification)
                             {
-                                RentTextBox.Text = C.Get_RentWithHotel().ToString() + "$";
+                                RentTextBox.Text = C.RentWithHotel.ToString() + "$";
                             }
                             else
                             {
-                                int Houses = C.Get_NumberOfHouses();
-                                RentTextBox.Text = C.Get_HouseRentPrices()[Houses - 1].ToString() + "$";
+                                int Houses = C.NumberofHouses;
+                                RentTextBox.Text = C.HouseRentPrices[Houses - 1].ToString() + "$";
                             }
                         }
                         else
                         {
-                            RentTextBox.Text = C.Get_CityRentPrice().ToString() + "$";
+                            RentTextBox.Text = C.CityRentPrice.ToString() + "$";
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
-                        RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
+                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
                 UpdateBTN.Enabled = true;
@@ -408,12 +408,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber()) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Set_Fieldnumber(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Get_Fieldnumber());
-                playerturn.Set_PlayerPosition(Player4.Location);
-                Main.GetFields()[playerturn.Get_Fieldnumber() % 24].Action(playerturn);
+                playerturn.Fieldnumber =Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Position =Player4.Location;
+                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player4_Timer.Stop();
@@ -421,32 +421,32 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
 
-                        if (C.Get_HouseModification())
+                        if (C.HouseModification)
                         {
-                            if (C.Get_HotelModification())
+                            if (C.HotelModification)
                             {
-                                RentTextBox.Text = C.Get_RentWithHotel().ToString() + "$";
+                                RentTextBox.Text = C.RentWithHotel.ToString() + "$";
                             }
                             else
                             {
-                                int Houses = C.Get_NumberOfHouses();
-                                RentTextBox.Text = C.Get_HouseRentPrices()[Houses - 1].ToString() + "$";
+                                int Houses = C.NumberofHouses;
+                                RentTextBox.Text = C.HouseRentPrices[Houses - 1].ToString() + "$";
                             }
                         }
                         else
                         {
-                            RentTextBox.Text = C.Get_CityRentPrice().ToString() + "$";
+                            RentTextBox.Text = C.CityRentPrice.ToString() + "$";
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
+                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
-                        RentTextBox.Text = S.Get_RentPrices()[S.Get_Owner().Get_OwnedStations().Count - 1].ToString() + "$";
+                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedCities.Count - 1].ToString() + "$";
                     }
                 }
                 UpdateBTN.Enabled = true;
@@ -501,30 +501,30 @@ namespace Monopoly
             }
             if (Main.GetPlayers().Count != 0)
             {
-                switch (playerturn.Get_Token())
+                switch (playerturn.Token)
                 {
                     case 1:
                         PlayerLabel.BackColor = Player1.BackColor;
                         PlayerLabel2.BackColor = Player1.BackColor;
-                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        PlayerNameTextBox.Text = playerturn.Name.ToString();
                         break;
                     case 2:
                         PlayerLabel.BackColor = Player2.BackColor;
                         PlayerLabel2.BackColor = Player2.BackColor;
-                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        PlayerNameTextBox.Text = playerturn.Name.ToString();
                         break;
                     case 3:
                         PlayerLabel.BackColor = Player3.BackColor;
                         PlayerLabel2.BackColor = Player3.BackColor;
-                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        PlayerNameTextBox.Text = playerturn.Name.ToString();
                         break;
                     case 4:
                         PlayerLabel.BackColor = Player4.BackColor;
                         PlayerLabel2.BackColor = Player4.BackColor;
-                        PlayerNameTextBox.Text = playerturn.Get_Name().ToString();
+                        PlayerNameTextBox.Text = playerturn.Name.ToString();
                         break;
                 }
-                int BalanceFeedback = playerturn.Get_Balance_Feedback();
+                int BalanceFeedback = playerturn.BalanceFeedback;
                 if (BalanceFeedback > 0)
                 {
                     BalancePositiveTXT.ForeColor = Color.Green;
@@ -537,22 +537,22 @@ namespace Monopoly
                     BalancePositiveTXT.Show();
                     BalancePositiveTXT.Text = BalanceFeedback.ToString() + "$";
                 }
-                BalanceTXT.Text = playerturn.Get_Balance().ToString() + "$";
+                BalanceTXT.Text = playerturn.Balance.ToString() + "$";
                 string[] Lines = new string[25];
                 Lines[0] = "Cities & Stations:";
                 int index = 0;
-                if (playerturn.Get_OwnedCities().Count != 0)
+                if (playerturn.OwnedCities.Count != 0)
                 {
-                    for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+                    for (int i = 0; i < playerturn.OwnedCities.Count; i++)
                     {
-                        Lines[++index] = playerturn.Get_OwnedCities()[i].Get_Name().ToString() + " --> " + playerturn.Get_OwnedCities()[i].Get_FieldNumber().ToString();
+                        Lines[++index] = playerturn.OwnedCities[i].Name.ToString() + " --> " + playerturn.OwnedCities[i].FieldNumber.ToString();
                     }
                 }
-                if (playerturn.Get_OwnedStations().Count != 0)
+                if (playerturn.OwnedStations.Count != 0)
                 {
-                    for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
+                    for (int i = 0; i < playerturn.OwnedStations.Count; i++)
                     {
-                        Lines[++index] = playerturn.Get_OwnedStations()[i].Get_Name().ToString() + "--> " + playerturn.Get_OwnedStations()[i].Get_FieldNumber().ToString();
+                        Lines[++index] = playerturn.OwnedStations[i].Name.ToString() + "--> " + playerturn.OwnedStations[i].FieldNumber.ToString();
                     }
                 }
                 PlayersInfo.Lines = Lines;
@@ -601,21 +601,6 @@ namespace Monopoly
         public void Set_Payrent()
         {
             Payrent.Show();
-        }
-        private void GoToJail_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void Test_Paint(object sender, PaintEventArgs e)
-        {
         }
         private void pictureBox8_Click(object sender, EventArgs e)
         {
@@ -684,27 +669,19 @@ namespace Monopoly
             playerturn = Players[playerturnnumber];
             Dice1TXT.Text = "0";
             Dice2TXT.Text = "0";
-            playerturn.Set_Balance_Feedback(0);
+            playerturn.BalanceFeedback=0;
             BalancePositiveTXT.Hide();
         }
         private void FinishTurn_Click(object sender, EventArgs e)
         {
             EndTurn();
         }
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
         private void BuyCity_Click(object sender, EventArgs e)
         {
-             if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+             if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
             {
-                var CurrentCity = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
-                if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
+                var CurrentCity = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Fieldnumber % 24]))
                 {
                     if (IsMultiPlayer && IsMyTurn)
                     {
@@ -715,7 +692,7 @@ namespace Monopoly
                         MessageBox.Show("Congratulations New City was added to your Collection!", "Cities", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     BuyingCity.Hide();
-                    var color = Get_PlayerPanel(playerturn.Get_Token()).BackColor;
+                    var color = Get_PlayerPanel(playerturn.Token).BackColor;
                     CurrentCity.PurshableLabel.BackColor = color;
                 }
                 else
@@ -733,15 +710,15 @@ namespace Monopoly
             }
             else
             {
-                if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24]))
+                if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Fieldnumber % 24]))
                 {
-                    var CurrentStation = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                    var CurrentStation = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     BuyingCity.Hide();
-                    CurrentStation.PurshableLabel.BackColor = Get_PlayerPanel(playerturn.Get_Token()).BackColor;
+                    CurrentStation.PurshableLabel.BackColor = Get_PlayerPanel(playerturn.Token).BackColor;
                     if (IsMyTurn && IsMultiPlayer)
                     {
                         NetworkManager.Cout("BuyProperty");
@@ -763,10 +740,6 @@ namespace Monopoly
             }
             CityPrice.Text = "";
             FinishTurn.Enabled = true;
-        }
-        private void BuyingCity_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         public Panel Get_ActionPicPanel()
         {
@@ -901,15 +874,15 @@ namespace Monopoly
             {
                 NetworkManager.Cout("PayRent");
             }
-            if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(City))
+            if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
             {
-                City C = (City)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
                 playerturn.Pay_CityRents(C);
                 Payrent.Hide();
             }
-            else if (Main.GetFields()[playerturn.Get_Fieldnumber() % 24].GetType() == typeof(Station))
+            else if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
             {
-                Station S = (Station)Main.GetFields()[playerturn.Get_Fieldnumber() % 24];
+                Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
                 playerturn.Pay_StationRents(S);
                 Payrent.Hide();
             }
@@ -933,11 +906,11 @@ namespace Monopoly
         public void Surrender()
         {
             playerturn.Surrender();
-            if (playerturn.Get_OwnedCities().Count != 0)
+            if (playerturn.OwnedCities.Count != 0)
             {
-                for (int i = 0; i < playerturn.Get_OwnedCities().Count; i++)
+                for (int i = 0; i < playerturn.OwnedCities.Count; i++)
                 {
-                    switch (playerturn.Get_OwnedCities()[i].Get_FieldNumber())
+                    switch (playerturn.OwnedCities[i].FieldNumber)
                     {
                         case 1:
                             ParkLaneLabel.BackColor = Game.BackColor;
@@ -1038,11 +1011,11 @@ namespace Monopoly
                     }
                 }
             }
-            if (playerturn.Get_OwnedStations().Count != 0)
+            if (playerturn.OwnedStations.Count != 0)
             {
-                for (int i = 0; i < playerturn.Get_OwnedStations().Count; i++)
+                for (int i = 0; i < playerturn.OwnedStations.Count; i++)
                 {
-                    switch (playerturn.Get_OwnedStations()[i].Get_FieldNumber())
+                    switch (playerturn.OwnedStations[i].FieldNumber)
                     {
                         case 4:
                             Station1Label.BackColor = Game.BackColor;
@@ -1055,7 +1028,7 @@ namespace Monopoly
                     }
                 }
             }
-            switch (playerturn.Get_Token())
+            switch (playerturn.Token)
             {
                 case 1:
                     Player1.Hide();
@@ -1080,17 +1053,17 @@ namespace Monopoly
             if (Main.GetPlayers().Count == 1 && !IsMyTurn)
             {
                 IsMultiPlayer = false;
-                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Get_Name().ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             if (IsMultiPlayer)
             {
-                MessageBox.Show("You have Surrendered and " + Main.GetPlayers()[0].Get_Name().ToString() + " is the Winner, Good Luck Next Time");
+                MessageBox.Show("You have Surrendered and " + Main.GetPlayers()[0].Name.ToString() + " is the Winner, Good Luck Next Time");
                 Close();
             }
             if (!IsMultiPlayer && Main.GetPlayers().Count == 1)
             {
-                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Get_Name().ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             playerturnnumber = (playerturnnumber) % Token;
@@ -1098,7 +1071,7 @@ namespace Monopoly
             RollDice.Enabled = true;
             FinishTurn.Enabled = false;
             Payrent.Hide();
-            playerturn.Set_Balance_Feedback(0);
+            playerturn.BalanceFeedback=0;
         }
         private void surrender_Click(object sender, EventArgs e)
         {
@@ -1275,67 +1248,67 @@ namespace Monopoly
                     {
                         case 1:
                             ParkLane_House.Show();
-                            ParkLane_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            ParkLane_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 3:
                             MayFair_House.Show();
-                            MayFair_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            MayFair_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 5:
                             FleetStreet_House.Show();
-                            Fleet_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Fleet_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 6:
                             Strand_House.Show();
-                            Strand_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Strand_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 8:
                             WhiteHall_House.Show();
-                            WhiteHall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            WhiteHall_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 9:
                             PallMall_House.Show();
-                            PallMall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            PallMall_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 10:
                             Whitechapel_House.Show();
-                            Whitechapel_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Whitechapel_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 11:
                             OldKent_House.Show();
-                            OldKent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            OldKent_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 13:
                             LeicesterSq_House.Show();
-                            Leicester_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Leicester_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 15:
                             Coventry_House.Show();
-                            Coventry_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Coventry_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 17:
                             Oxford_House.Show();
-                            Oxford_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Oxford_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 18:
                             Regent_House.Show();
-                            Regent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Regent_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 20:
                             Vine_House.Show();
-                            Vine_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Vine_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 21:
                             Bow_House.Show();
-                            Bow_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Bow_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 22:
                             Euston_House.Show();
-                            Euston_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Euston_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                         case 23:
                             Pentonville_House.Show();
-                            Pentonville_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
+                            Pentonville_HouseTXT.Text = C.NumberofHouses.ToString();
                             break;
                     }
                 }
@@ -1553,113 +1526,113 @@ namespace Monopoly
                     switch (int.Parse(Citynumber.Text))
                     {
                         case 1:
-                            ParkLane_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            ParkLane_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 ParkLane_House.Hide();
                             }
                             break;
                         case 3:
-                            MayFair_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            MayFair_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 MayFair_House.Hide();
                             }
                             break;
                         case 5:
-                            Fleet_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Fleet_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 FleetStreet_House.Hide();
                             }
                             break;
                         case 6:
-                            Strand_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Strand_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Strand_House.Hide();
                             }
                             break;
                         case 8:
-                            WhiteHall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            WhiteHall_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 WhiteHall_House.Hide();
                             }
                             break;
                         case 9:
-                            PallMall_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            PallMall_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 PallMall_House.Hide();
                             }
                             break;
                         case 10:
-                            Whitechapel_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Whitechapel_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Whitechapel_House.Hide();
                             }
                             break;
                         case 11:
-                            OldKent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            OldKent_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 OldKent_House.Hide();
                             }
                             break;
                         case 13:
-                            Leicester_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Leicester_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 LeicesterSq_House.Hide();
                             }
                             break;
                         case 15:
-                            Coventry_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Coventry_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Coventry_House.Hide();
                             }
                             break;
                         case 17:
-                            Oxford_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Oxford_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Oxford_House.Hide();
                             }
                             break;
                         case 18:
-                            Regent_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Regent_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Regent_House.Hide();
                             }
                             break;
                         case 20:
-                            Vine_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Vine_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Vine_House.Hide();
                             }
                             break;
                         case 21:
-                            Bow_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Bow_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Bow_House.Hide();
                             }
                             break;
                         case 22:
-                            Euston_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Euston_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Euston_House.Hide();
                             }
                             break;
                         case 23:
-                            Pentonville_HouseTXT.Text = C.Get_NumberOfHouses().ToString();
-                            if (C.Get_NumberOfHouses() == 0)
+                            Pentonville_HouseTXT.Text = C.NumberofHouses.ToString();
+                            if (C.NumberofHouses == 0)
                             {
                                 Pentonville_House.Hide();
                             }
@@ -1888,11 +1861,6 @@ namespace Monopoly
             }
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void StartGame_Click(object sender, EventArgs e)
         {
             if (IsHost)
@@ -1954,16 +1922,6 @@ namespace Monopoly
             Mode.Hide();
         }
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Player1Name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void HostTXT_TextChanged(object sender, EventArgs e)
         {
             if (IsHost)
@@ -1986,8 +1944,8 @@ namespace Monopoly
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
-                Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
-                Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+                Player1Name.Text = Players[0].Name + " Token Colour: ";
+                Player2Name.Text = Players[1].Name + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
                 Player1.Show();
@@ -2019,8 +1977,8 @@ namespace Monopoly
             Main.SetPlayers(Players);
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
-                Player1Name.Text = Players[0].Get_Name() + " Token Colour: ";
-                Player2Name.Text = Players[1].Get_Name() + " Token Colour: ";
+                Player1Name.Text = Players[0].Name + " Token Colour: ";
+                Player2Name.Text = Players[1].Name + " Token Colour: ";
                 Information.Show();
                 MultiRegister.Hide();
                 Player1.Show();
@@ -2029,12 +1987,6 @@ namespace Monopoly
                 Token = 2;
             }
         }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private async void MultiRegister_VisibleChanged(object sender, EventArgs e)
         {
             if (!MultiRegister.Visible || !IsMultiPlayer)
@@ -2114,11 +2066,6 @@ namespace Monopoly
             {
                 throw new Exception("Unexcepted command : " + strings[0]);
             }
-        }
-
-        private void Player1TokenColour_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void BuyingCity_VisibleChanged(object sender, EventArgs e)

@@ -37,7 +37,7 @@ public class Station : Purchasable
     //overriding the pure virtual function Action.
     public override void Action(Player player)
     {
-        if (Get_Owned())
+        if (this.Owned)
         {
             if (player.IsStationOwned(this))
             {
@@ -45,7 +45,7 @@ public class Station : Purchasable
             }
             else
             {
-                if (!Get_ISMortagaged())
+                if (!this.ISMortagaged)
                 {
                     GetForm().Set_Payrent();
                 }
@@ -66,14 +66,14 @@ public class Station : Purchasable
                     GetForm().Get_BuyingCityPanel().Show();
                     break;
             }
-            GetForm().Set_CityPriceTextBox(Get_Price());
+            GetForm().Set_CityPriceTextBox(this.Price);
         }
     }
     //Returns the station to it's original status.
     public void Return_Station()
     {
         Remove_Owner();
-        Remove_Mortagage();
+        this.ISMortagaged = false;
     }
 }
 

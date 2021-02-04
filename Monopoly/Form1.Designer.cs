@@ -713,7 +713,6 @@ namespace Monopoly
             this.Game.Size = new System.Drawing.Size(1553, 772);
             this.Game.TabIndex = 0;
             this.Game.Visible = false;
-            this.Game.Paint += new System.Windows.Forms.PaintEventHandler(this.Test_Paint);
             // 
             // UpdatePanel
             // 
@@ -1066,7 +1065,6 @@ namespace Monopoly
             this.BuyingCity.TabIndex = 58;
             this.BuyingCity.Visible = false;
             this.BuyingCity.VisibleChanged += new System.EventHandler(this.BuyingCity_VisibleChanged);
-            this.BuyingCity.Paint += new System.Windows.Forms.PaintEventHandler(this.BuyingCity_Paint);
             // 
             // label21
             // 
@@ -1885,7 +1883,6 @@ namespace Monopoly
             this.pictureBox14.Size = new System.Drawing.Size(55, 104);
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // Chance
             // 
@@ -2233,7 +2230,6 @@ namespace Monopoly
             this.pictureBox7.Size = new System.Drawing.Size(137, 50);
             this.pictureBox7.TabIndex = 2;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // Coventry
             // 
@@ -3127,7 +3123,6 @@ namespace Monopoly
             this.label11.Size = new System.Drawing.Size(89, 29);
             this.label11.TabIndex = 10;
             this.label11.Text = "Hotels";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // panel7
             // 
@@ -3338,7 +3333,6 @@ namespace Monopoly
             this.Player1Name.ReadOnly = true;
             this.Player1Name.Size = new System.Drawing.Size(289, 32);
             this.Player1Name.TabIndex = 2;
-            this.Player1Name.TextChanged += new System.EventHandler(this.Player1Name_TextChanged);
             // 
             // label9
             // 
@@ -3439,7 +3433,6 @@ namespace Monopoly
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1143, 424);
             this.panel11.TabIndex = 3;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // label14
             // 
@@ -3504,7 +3497,6 @@ namespace Monopoly
             this.label13.Size = new System.Drawing.Size(118, 25);
             this.label13.TabIndex = 0;
             this.label13.Text = "Host Name";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // panel10
             // 
