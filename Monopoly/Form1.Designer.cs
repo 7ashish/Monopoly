@@ -408,7 +408,7 @@ namespace Monopoly
             this.Next_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Next_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Next_btn.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_btn.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_btn.Image = ((System.Drawing.Image)(resources.GetObject("Next_btn.Image")));
             this.Next_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Next_btn.Location = new System.Drawing.Point(643, 322);
             this.Next_btn.Margin = new System.Windows.Forms.Padding(4);
@@ -487,7 +487,7 @@ namespace Monopoly
             this.Next_BTN2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Next_BTN2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Next_BTN2.ForeColor = System.Drawing.Color.CadetBlue;
-            this.Next_BTN2.Image = global::Monopoly.Properties.Resources.Actions_go_next_icon;
+            this.Next_BTN2.Image = ((System.Drawing.Image)(resources.GetObject("Next_BTN2.Image")));
             this.Next_BTN2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Next_BTN2.Location = new System.Drawing.Point(628, 322);
             this.Next_BTN2.Margin = new System.Windows.Forms.Padding(4);
@@ -548,7 +548,7 @@ namespace Monopoly
             // 
             // Panel
             // 
-            this.Panel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
+            this.Panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Panel.BackgroundImage")));
             this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Panel.Location = new System.Drawing.Point(1136, 348);
             this.Panel.Margin = new System.Windows.Forms.Padding(4);
@@ -558,7 +558,7 @@ namespace Monopoly
             // 
             // PhotoPanel
             // 
-            this.PhotoPanel.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.PhotoPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PhotoPanel.BackgroundImage")));
             this.PhotoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PhotoPanel.Controls.Add(this.BackToModePanel);
             this.PhotoPanel.Location = new System.Drawing.Point(4, 4);
@@ -618,7 +618,7 @@ namespace Monopoly
             // 
             // panel3
             // 
-            this.panel3.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -769,7 +769,7 @@ namespace Monopoly
             // UpdatePicture
             // 
             this.UpdatePicture.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.UpdatePicture.BackgroundImage = global::Monopoly.Properties.Resources.Houses_Hotels;
+            this.UpdatePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpdatePicture.BackgroundImage")));
             this.UpdatePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.UpdatePicture.Location = new System.Drawing.Point(-1, 183);
             this.UpdatePicture.Margin = new System.Windows.Forms.Padding(4);
@@ -1532,7 +1532,7 @@ namespace Monopoly
             // 
             // Dice1
             // 
-            this.Dice1.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon;
+            this.Dice1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dice1.BackgroundImage")));
             this.Dice1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Dice1.Controls.Add(this.Dice1TXT);
             this.Dice1.Location = new System.Drawing.Point(491, 315);
@@ -1557,7 +1557,7 @@ namespace Monopoly
             // 
             // Dice2
             // 
-            this.Dice2.BackgroundImage = global::Monopoly.Properties.Resources.Games_icon1;
+            this.Dice2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dice2.BackgroundImage")));
             this.Dice2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Dice2.Controls.Add(this.Dice2TXT);
             this.Dice2.Location = new System.Drawing.Point(628, 315);
@@ -1586,7 +1586,7 @@ namespace Monopoly
             this.RollDice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RollDice.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RollDice.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.RollDice.Image = global::Monopoly.Properties.Resources.Dice_icon__1_1;
+            this.RollDice.Image = ((System.Drawing.Image)(resources.GetObject("RollDice.Image")));
             this.RollDice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RollDice.Location = new System.Drawing.Point(491, 395);
             this.RollDice.Margin = new System.Windows.Forms.Padding(4);
@@ -1599,7 +1599,7 @@ namespace Monopoly
             // 
             // GoTojail
             // 
-            this.GoTojail.BackgroundImage = global::Monopoly.Properties.Resources.GOTOJAILM2loba;
+            this.GoTojail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GoTojail.BackgroundImage")));
             this.GoTojail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GoTojail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GoTojail.Location = new System.Drawing.Point(1044, 0);
@@ -1610,7 +1610,7 @@ namespace Monopoly
             // 
             // Go
             // 
-            this.Go.BackgroundImage = global::Monopoly.Properties.Resources.GoWhite;
+            this.Go.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Go.BackgroundImage")));
             this.Go.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Go.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Go.Location = new System.Drawing.Point(1047, 597);
@@ -1621,7 +1621,7 @@ namespace Monopoly
             // 
             // Station2
             // 
-            this.Station2.BackgroundImage = global::Monopoly.Properties.Resources.station_2;
+            this.Station2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Station2.BackgroundImage")));
             this.Station2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Station2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Station2.Controls.Add(this.Station2MortagagePanel);
@@ -1886,7 +1886,7 @@ namespace Monopoly
             // 
             // Chance
             // 
-            this.Chance.BackgroundImage = global::Monopoly.Properties.Resources.Chance;
+            this.Chance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Chance.BackgroundImage")));
             this.Chance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Chance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Chance.Location = new System.Drawing.Point(769, 596);
@@ -2059,7 +2059,7 @@ namespace Monopoly
             // 
             // FreeParking
             // 
-            this.FreeParking.BackgroundImage = global::Monopoly.Properties.Resources.Freeparking;
+            this.FreeParking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FreeParking.BackgroundImage")));
             this.FreeParking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.FreeParking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FreeParking.Location = new System.Drawing.Point(4, 1);
@@ -2314,7 +2314,7 @@ namespace Monopoly
             // 
             // CommunityChest
             // 
-            this.CommunityChest.BackgroundImage = global::Monopoly.Properties.Resources.Rotate;
+            this.CommunityChest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CommunityChest.BackgroundImage")));
             this.CommunityChest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CommunityChest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CommunityChest.Location = new System.Drawing.Point(356, 0);
@@ -2730,7 +2730,7 @@ namespace Monopoly
             // 
             // Jail
             // 
-            this.Jail.BackgroundImage = global::Monopoly.Properties.Resources.Jail1;
+            this.Jail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Jail.BackgroundImage")));
             this.Jail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Jail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Jail.Location = new System.Drawing.Point(7, 597);
@@ -2903,7 +2903,7 @@ namespace Monopoly
             // 
             // Station1
             // 
-            this.Station1.BackgroundImage = global::Monopoly.Properties.Resources.Station_1;
+            this.Station1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Station1.BackgroundImage")));
             this.Station1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Station1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Station1.Controls.Add(this.Station1MortagagePanel);
@@ -3094,7 +3094,7 @@ namespace Monopoly
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(4, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -3373,7 +3373,7 @@ namespace Monopoly
             // 
             // panel8
             // 
-            this.panel8.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel8.Controls.Add(this.button3);
             this.panel8.Location = new System.Drawing.Point(0, 2);
@@ -3501,7 +3501,7 @@ namespace Monopoly
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel10.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_man_1;
+            this.panel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel10.BackgroundImage")));
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel10.Location = new System.Drawing.Point(1141, 352);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
@@ -3512,7 +3512,7 @@ namespace Monopoly
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel9.BackgroundImage = global::Monopoly.Properties.Resources.monopoly_intl_pack_logo;
+            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel9.Location = new System.Drawing.Point(1, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);

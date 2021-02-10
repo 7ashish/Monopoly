@@ -56,7 +56,7 @@ public class Player
             Balance -= city.Price;
             BalanceFeedback -= city.Price;
             city.Owned = true;
-            city.Set_Owner(this);
+            city.Owner = this;
             return true;
         }
         else
@@ -74,7 +74,7 @@ public class Player
             Balance -= station.Price;
             BalanceFeedback -= station.Price;
             station.Owned = true;
-            station.Set_Owner(this);
+            station.Owner = this;
             return true;
         }
         else
@@ -271,7 +271,7 @@ public class Player
     public bool IsGroupOwned(City city, Monopoly_Master Temp)
     {
         bool owned = false;
-        var ThisGroup = (List<City>)Temp.GetGroups()[city.GroupNumber];
+        var ThisGroup = (List<City>)Temp.Groups[city.GroupNumber];
         foreach(City GroupCity in ThisGroup)
         {
             if (OwnedCities.Contains(GroupCity))

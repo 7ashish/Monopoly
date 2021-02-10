@@ -65,7 +65,7 @@ namespace Monopoly
             Player newplayer;
             newplayer = new Player(Playername_TXT.Text, Token, 1500, DefaultPosition, 0);
             Players.Add(newplayer);
-            Main.SetPlayers(Players);
+            Main.Players = Players;
             switch (Token)
             {
                 case 1:
@@ -112,12 +112,12 @@ namespace Monopoly
         {
             FinishTurn.Enabled = false;
             UpdateBTN.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player1.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player1.Location.X - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player1.Location.Y - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Fieldnumber = Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Fieldnumber = Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber;
                 playerturn.Position = Player1.Location;
-                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
+                Main.Fields[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -137,9 +137,9 @@ namespace Monopoly
                 if (Payrent.Visible)
                 {
                     FinishTurn.Enabled = false;
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        City C = (City)Main.Fields[playerturn.Fieldnumber % 24];
 
                         if (C.HouseModification)
                         {
@@ -158,9 +158,9 @@ namespace Monopoly
                             RentTextBox.Text = C.CityRentPrice.ToString() + "$";
                         }
                     }
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        Station S = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                         RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
@@ -217,12 +217,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player2.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player2.Location.X - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player2.Location.Y - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Fieldnumber = Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Fieldnumber = Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber;
                 playerturn.Position = Player2.Location;
-                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
+                Main.Fields[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -241,9 +241,9 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        City C = (City)Main.Fields[playerturn.Fieldnumber % 24];
 
                         if (C.HouseModification)
                         {
@@ -263,9 +263,9 @@ namespace Monopoly
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        Station S = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                         RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
@@ -322,12 +322,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player3.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player3.Location.X - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player3.Location.Y - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Fieldnumber =Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Fieldnumber =Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber;
                 playerturn.Position =Player3.Location;
-                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
+                Main.Fields[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player3_Timer.Stop();
@@ -335,9 +335,9 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        City C = (City)Main.Fields[playerturn.Fieldnumber % 24];
 
                         if (C.HotelModification)
                         {
@@ -357,9 +357,9 @@ namespace Monopoly
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        Station S = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                         RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedStations.Count - 1].ToString() + "$";
                     }
                 }
@@ -408,12 +408,12 @@ namespace Monopoly
         {
             UpdateBTN.Enabled = false;
             FinishTurn.Enabled = false;
-            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
-                Math.Pow(Math.Abs(Player4.Location.Y - Main.Get_Fields()[(Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
+            if (Math.Sqrt(Math.Pow(Math.Abs(Player4.Location.X - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().X), 2) +
+                Math.Pow(Math.Abs(Player4.Location.Y - Main.Fields[(Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber) % 24].Get_FieldPosition().Y), 2)) <= 5)
             {
-                playerturn.Fieldnumber =Main.Get_Dice1() + Main.Get_Dice2() + playerturn.Fieldnumber;
+                playerturn.Fieldnumber =Main.Dice1 + Main.Dice2 + playerturn.Fieldnumber;
                 playerturn.Position =Player4.Location;
-                Main.GetFields()[playerturn.Fieldnumber % 24].Action(playerturn);
+                Main.Fields[playerturn.Fieldnumber % 24].Action(playerturn);
                 if (!Main.Check_PlayerBalance(playerturn))
                 {
                     Player4_Timer.Stop();
@@ -421,9 +421,9 @@ namespace Monopoly
                 }
                 if (Payrent.Visible)
                 {
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
                     {
-                        City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        City C = (City)Main.Fields[playerturn.Fieldnumber % 24];
 
                         if (C.HouseModification)
                         {
@@ -443,9 +443,9 @@ namespace Monopoly
                         }
                     }
 
-                    if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
+                    if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
                     {
-                        Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                        Station S = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                         RentTextBox.Text = S.Get_RentPrices()[S.Owner.OwnedCities.Count - 1].ToString() + "$";
                     }
                 }
@@ -499,7 +499,7 @@ namespace Monopoly
                 surrender.Enabled = false;
                 UpdateBTN.Enabled = false;
             }
-            if (Main.GetPlayers().Count != 0)
+            if (Main.Players.Count != 0)
             {
                 switch (playerturn.Token)
                 {
@@ -621,18 +621,18 @@ namespace Monopoly
             UpdateBTN.Enabled = false;
             if (IsMultiPlayer && IsMyTurn)
             {
-                Main.Set_Dice1(Main.RollDice());
-                Main.Set_Dice2(Main.RollDice());
-                Dice1TXT.Text = Main.Get_Dice1().ToString();
-                Dice2TXT.Text = Main.Get_Dice2().ToString();
-                NetworkManager.Cout("Dice=" + Main.Get_Dice1() + "," + Main.Get_Dice2());
+                Main.Dice1 = Main.RollDice();
+                Main.Dice2 = Main.RollDice();
+                Dice1TXT.Text = Main.Dice1.ToString();
+                Dice2TXT.Text = Main.Dice2.ToString();
+                NetworkManager.Cout("Dice=" + Main.Dice1 + "," + Main.Dice2);
             }
             else if (!IsMultiPlayer)
             {
-                Main.Set_Dice1(Main.RollDice());
-                Main.Set_Dice2(Main.RollDice());
-                Dice1TXT.Text = Main.Get_Dice1().ToString();
-                Dice2TXT.Text = Main.Get_Dice2().ToString();
+                Main.Dice1 = Main.RollDice();
+                Main.Dice2 = Main.RollDice();
+                Dice1TXT.Text = Main.Dice1.ToString();
+                Dice2TXT.Text = Main.Dice2.ToString();
             }
             if (Bankrupt)
             {
@@ -678,10 +678,10 @@ namespace Monopoly
         }
         private void BuyCity_Click(object sender, EventArgs e)
         {
-             if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+             if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
             {
-                var CurrentCity = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
-                if (playerturn.Buy_City((City)Main.GetFields()[playerturn.Fieldnumber % 24]))
+                var CurrentCity = (City)Main.Fields[playerturn.Fieldnumber % 24];
+                if (playerturn.Buy_City((City)Main.Fields[playerturn.Fieldnumber % 24]))
                 {
                     if (IsMultiPlayer && IsMyTurn)
                     {
@@ -710,9 +710,9 @@ namespace Monopoly
             }
             else
             {
-                if (playerturn.Buy_Station((Station)Main.GetFields()[playerturn.Fieldnumber % 24]))
+                if (playerturn.Buy_Station((Station)Main.Fields[playerturn.Fieldnumber % 24]))
                 {
-                    var CurrentStation = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                    var CurrentStation = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                     if (IsMyTurn || !IsMultiPlayer)
                     {
                         MessageBox.Show("Congratulations New Station was added to your Collection!", "Stations", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -874,15 +874,15 @@ namespace Monopoly
             {
                 NetworkManager.Cout("PayRent");
             }
-            if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(City))
+            if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(City))
             {
-                City C = (City)Main.GetFields()[playerturn.Fieldnumber % 24];
+                City C = (City)Main.Fields[playerturn.Fieldnumber % 24];
                 playerturn.Pay_CityRents(C);
                 Payrent.Hide();
             }
-            else if (Main.GetFields()[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
+            else if (Main.Fields[playerturn.Fieldnumber % 24].GetType() == typeof(Station))
             {
-                Station S = (Station)Main.GetFields()[playerturn.Fieldnumber % 24];
+                Station S = (Station)Main.Fields[playerturn.Fieldnumber % 24];
                 playerturn.Pay_StationRents(S);
                 Payrent.Hide();
             }
@@ -1049,21 +1049,21 @@ namespace Monopoly
             }
             Players.Remove(playerturn);
             Token--;
-            Main.GetPlayers().Remove(playerturn);
-            if (Main.GetPlayers().Count == 1 && !IsMyTurn)
+            Main.Players.Remove(playerturn);
+            if (Main.Players.Count == 1 && !IsMyTurn)
             {
                 IsMultiPlayer = false;
-                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.Players[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             if (IsMultiPlayer)
             {
-                MessageBox.Show("You have Surrendered and " + Main.GetPlayers()[0].Name.ToString() + " is the Winner, Good Luck Next Time");
+                MessageBox.Show("You have Surrendered and " + Main.Players[0].Name.ToString() + " is the Winner, Good Luck Next Time");
                 Close();
             }
-            if (!IsMultiPlayer && Main.GetPlayers().Count == 1)
+            if (!IsMultiPlayer && Main.Players.Count == 1)
             {
-                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.GetPlayers()[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Oponent just Surrendered, Congratulations " + Main.Players[0].Name.ToString() + " You're the Winner!!", "Game Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             playerturnnumber = (playerturnnumber) % Token;
@@ -1103,9 +1103,9 @@ namespace Monopoly
 
         public void MortagageProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
-                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                City C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Mortagage_City(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1174,9 +1174,9 @@ namespace Monopoly
                     MessageBox.Show("You couldn't Mortagage this City that's maybe because you don't Own it or it's already Mortagaged , Try Again!\n", "Mortagage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
+            else if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
             {
-                Station S = (Station)Main.GetFields()[int.Parse(Citynumber.Text)];
+                Station S = (Station)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Mortagage_Station(playerturn, S))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1229,10 +1229,10 @@ namespace Monopoly
 
         public void BuyHouseonProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
-                C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Sell_House(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1373,9 +1373,9 @@ namespace Monopoly
 
         public void UnMortagageProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
-                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                City C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.RemoveCityMortagage(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1447,9 +1447,9 @@ namespace Monopoly
                     }
                 }
             }
-            else if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
+            else if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(Station))
             {
-                Station S = (Station)Main.GetFields()[int.Parse(Citynumber.Text)];
+                Station S = (Station)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.RemoveStationMortagage(playerturn, S))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1508,10 +1508,10 @@ namespace Monopoly
 
         public void SellHouseonProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
-                C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Remove_House(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1668,10 +1668,10 @@ namespace Monopoly
         }
         public void BuyHotelonProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
                 City C = new City();
-                C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Sell_Hotel(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1766,9 +1766,9 @@ namespace Monopoly
 
         public void SellHotelonProperty()
         {
-            if (Main.GetFields()[int.Parse(Citynumber.Text)].GetType() == typeof(City))
+            if (Main.Fields[int.Parse(Citynumber.Text)].GetType() == typeof(City))
             {
-                City C = (City)Main.GetFields()[int.Parse(Citynumber.Text)];
+                City C = (City)Main.Fields[int.Parse(Citynumber.Text)];
                 if (Main.Remove_Hotel(playerturn, C))
                 {
                     if (IsMultiPlayer && IsMyTurn)
@@ -1941,7 +1941,7 @@ namespace Monopoly
             ClientTXT.Enabled = false;
             Player newplayer = new Player(ClientTXT.Text, 2, 1500, DefaultPosition, 0);
             Players[1] = newplayer;
-            Main.SetPlayers(Players);
+            Main.Players = Players;
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
                 Player1Name.Text = Players[0].Name + " Token Colour: ";
@@ -1974,7 +1974,7 @@ namespace Monopoly
             HostTXT.Enabled = false;
             Player newplayer = new Player(HostTXT.Text, 1, 1500, DefaultPosition, 0);
             Players[0] = newplayer;
-            Main.SetPlayers(Players);
+            Main.Players = Players;
             if (ClientCheckBox.Checked == true && HostCheckBox.Checked == true)
             {
                 Player1Name.Text = Players[0].Name + " Token Colour: ";
@@ -2368,8 +2368,8 @@ namespace Monopoly
                 else if ((strings[0].Split('='))[0] == "Dice")
                 {
                     string[] ss = (strings[0].Split('='))[1].Split(',');
-                    Main.Set_Dice1(int.Parse(ss[0]));
-                    Main.Set_Dice2(int.Parse(ss[1]));
+                    Main.Dice1 = int.Parse(ss[0]);
+                    Main.Dice2 = int.Parse(ss[1]);
                     Dice1TXT.Text = ss[0];
                     Dice2TXT.Text = ss[1];
                     MovePlayerIfNotBankRupted();

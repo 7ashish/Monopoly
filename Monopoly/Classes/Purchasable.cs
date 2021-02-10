@@ -36,19 +36,4 @@ public abstract class Purchasable : Field
         Owned = false;
         Owner = null;
     }
-    //Set the owner of the city by a specific player.
-    public void Set_Owner(Player player)
-    {
-        Owner = player;
-    }
-    //Sets the Name of the City or Station.
-    public void Set_Name(string name)
-    {
-        Name = name;
-    }
-    //Sets the Mortagage Price.
-    public void Set_MortagagePrice(int price)
-    {
-        MortagagePrice = price;
-    }
 }

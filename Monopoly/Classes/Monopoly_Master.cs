@@ -9,15 +9,15 @@ using System.Collections;
 
 public class Monopoly_Master
 {
-    List<Player> Players;
-    public List<Field> Fields;
+    public List<Player> Players { get; set; }
+    public List<Field> Fields { get; set; }
     public Hashtable Groups { get; set; }
-    static int Hotels = 10;
-    static int Houses = 40;
-    int Dice1;
-    int Dice2;
-    Point DefaultPosition;
-    public Monopoly.Monopoly Form;
+    public static int Hotels { get; set; } = 10;
+    public static int Houses { get; set; } = 40;
+    public int Dice1 { get; set; }
+    public int Dice2 { get; set; }
+    public Point DefaultPosition { get; set; }
+    public Monopoly.Monopoly Form { get; set; }
     //Parameterized constructor.
     public Monopoly_Master(Monopoly.Monopoly p)
     {
@@ -85,61 +85,11 @@ public class Monopoly_Master
         Tempo.Add((City)Fields[23]);
         Groups.Add(7,Tempo);
     }
-    //returns Point(X,Y) with the defualt position.
-    public Point GetDefaultPosition()
-    {
-        return DefaultPosition;
-    }
-    //returns the List of the Fields.
-    public List<Field> Get_Fields()
-    {
-        return Fields;
-    }
     static Random r = new Random((int)DateTime.Now.TimeOfDay.TotalSeconds);
     //This function choose number from 1-6 randomly.
     public int RollDice()
     {
         return r.Next(1, 7);
-    }
-    //Sets the players by a List.
-    public void SetPlayers(List<Player> players)
-    {
-        Players = players;
-    }
-    //returns the Groups list.
-    public Hashtable GetGroups()
-    {
-        return Groups;
-    }
-    //returns the Fields list.
-    public List<Field> GetFields()
-    {
-        return Fields;
-    }
-    //returns the players list.
-    public List<Player> GetPlayers()
-    {
-        return Players;
-    }
-    //Sets the first Dice after using the Random function.
-    public void Set_Dice1(int number)
-    {
-        Dice1 = number;
-    }
-    //Sets the second Dice after using the Random function.
-    public void Set_Dice2(int number)
-    {
-        Dice2 = number;
-    }
-    //returns the number of the first Dice.
-    public int Get_Dice1()
-    {
-        return Dice1;
-    }
-    //returns the number of the second Dice.
-    public int Get_Dice2()
-    {
-        return Dice2;
     }
     //This Function takes a player and City he wish to Mortagage and Checks if he can Mortagage it or not.
     public bool Mortagage_City(Player playerturn, City city)
